@@ -472,19 +472,21 @@
       background: #fff;
       border-radius: 8px;
       border: 2px solid #ccc;
-      max-width: 700px;
+      max-width: 960px;
       width: 100%;
       display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 32px;
-      padding: 36px;
+      grid-template-columns: 340px 1fr;
+      gap: 48px;
+      padding: 52px;
       position: relative;
+      min-height: 480px;
       max-height: 90vh;
       overflow-y: auto;
+      align-items: start;
     }
     .dbc-modal__close {
-      position: absolute; top: 14px; right: 18px;
-      background: none; border: none; font-size: 24px;
+      position: absolute; top: 18px; right: 24px;
+      background: none; border: none; font-size: 28px;
       cursor: pointer; color: #666;
     }
     .dbc-modal__img {
@@ -492,10 +494,11 @@
       object-fit: cover; object-position: top;
       border-radius: 4px;
     }
-    .dbc-modal__cat  { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
-    .dbc-modal__name { font-size: 22px; font-weight: 700; margin-bottom: 4px; color: #222; }
-    .dbc-modal__role { font-size: 15px; color: #666; margin-bottom: 16px; }
-    .dbc-modal__desc { font-size: 15px; line-height: 1.75; color: #333; }
+    .dbc-modal__content { padding-top: 8px; }
+    .dbc-modal__cat  { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .dbc-modal__name { font-size: 28px; font-weight: 700; margin-bottom: 6px; color: #222; line-height: 1.2; }
+    .dbc-modal__role { font-size: 17px; color: #666; margin-bottom: 24px; }
+    .dbc-modal__desc { font-size: 16px; line-height: 1.8; color: #333; }
 
     /* ── Responsive ── */
     @media (max-width: 1100px) {
@@ -506,8 +509,8 @@
       .dbc-2col { grid-template-columns: 1fr; gap: 40px; }
       .dbc-img-pair { grid-template-columns: 1fr; }
       .dbc-bottom__inner { grid-template-columns: 1fr; gap: 48px; }
-      .dbc-modal { grid-template-columns: 1fr; }
-      .dbc-modal__img { max-height: 260px; }
+      .dbc-modal { grid-template-columns: 1fr; padding: 36px 28px; min-height: unset; }
+      .dbc-modal__img { max-height: 320px; aspect-ratio: unset; }
     }
     @media (max-width: 640px) {
       .dbc-hero-intro, .dbc-section, .dbc-prog, .dbc-img-pair, .dbc-img-full,
@@ -763,7 +766,7 @@
         <div class="dbc-spk-col dbc-col--hosts">
           <div class="dbc-spk-col__title">Conference hosts</div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('marcelina')">
+          <div class="dbc-spk-card" onclick="openSpkModal('marcelina','#55926B')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/Conference_host_Marcelina_Plichta.webp"
               alt="Marcelina Plichta-Wabnik" />
@@ -774,7 +777,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('marcin')">
+          <div class="dbc-spk-card" onclick="openSpkModal('marcin','#55926B')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/Architecture_critic_Marcin_Szczelina.webp"
               alt="Marcin Szczelina" />
@@ -785,7 +788,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('tba')">
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#55926B')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/stay_tuned.webp"
               alt="Coming soon" />
@@ -801,7 +804,7 @@
         <div class="dbc-spk-col dbc-col--design">
           <div class="dbc-spk-col__title">Design &amp; Business</div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('aga')">
+          <div class="dbc-spk-card" onclick="openSpkModal('aga','#89A8AB')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/Experience_design_Aga_Szostek.webp"
               alt="dr Aga Szóstek" />
@@ -812,7 +815,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('tba')">
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#89A8AB')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/stay_tuned.webp"
               alt="Coming soon" />
@@ -823,7 +826,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('tba')">
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#89A8AB')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/stay_tuned.webp"
               alt="Coming soon" />
@@ -839,7 +842,7 @@
         <div class="dbc-spk-col dbc-col--product">
           <div class="dbc-spk-col__title">Product</div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('kacper')">
+          <div class="dbc-spk-card" onclick="openSpkModal('kacper','#A5BFCA')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/Forecasting_Kacper_Nosarzewski.webp"
               alt="Kacper Nosarzewski" />
@@ -850,7 +853,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('marcelina')">
+          <div class="dbc-spk-card" onclick="openSpkModal('marcelina','#A5BFCA')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/Conference_host_Marcelina_Plichta.webp"
               alt="Marcelina Plichta-Wabnik" />
@@ -861,7 +864,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('jerzy')">
+          <div class="dbc-spk-card" onclick="openSpkModal('jerzy','#A5BFCA')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/How_developers_develop_products_Jerzy_Lipinski.webp"
               alt="Jerzy Lipiński" />
@@ -877,7 +880,7 @@
         <div class="dbc-spk-col dbc-col--manuf">
           <div class="dbc-spk-col__title">Manufacturing</div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('ken')">
+          <div class="dbc-spk-card" onclick="openSpkModal('ken','#CCDBDF')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/Ken_Wong.webp"
               alt="Ken Wong" />
@@ -888,7 +891,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('tba')">
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#CCDBDF')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/stay_tuned.webp"
               alt="Coming soon" />
@@ -899,7 +902,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('tba')">
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#CCDBDF')">
             <img class="dbc-spk-card__img"
               src="https://wisehabit.com/data/include/cms/design-businees-conference/stay_tuned.webp"
               alt="Coming soon" />
@@ -1280,7 +1283,7 @@
       <div>
         <img class="dbc-modal__img" id="spkModalImg" src="" alt="" />
       </div>
-      <div>
+      <div class="dbc-modal__content">
         <div class="dbc-modal__cat" id="spkModalCat"></div>
         <div class="dbc-modal__name" id="spkModalName"></div>
         <div class="dbc-modal__role" id="spkModalRole"></div>
@@ -1463,17 +1466,18 @@
     }
   };
 
-  function openSpkModal(id) {
+  function openSpkModal(id, color) {
     const s = SPEAKERS[id];
     if (!s) return;
+    const c = color || s.color;
     document.getElementById('spkModalImg').src = s.img;
     document.getElementById('spkModalImg').alt = s.name;
     document.getElementById('spkModalCat').textContent = s.cat;
-    document.getElementById('spkModalCat').style.color = s.color;
+    document.getElementById('spkModalCat').style.color = c;
     document.getElementById('spkModalName').textContent = s.name;
     document.getElementById('spkModalRole').textContent = s.role;
     document.getElementById('spkModalDesc').textContent = s.desc;
-    document.getElementById('dbcModalInner').style.borderColor = s.color;
+    document.getElementById('dbcModalInner').style.borderColor = c;
     document.getElementById('dbcModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
