@@ -315,37 +315,41 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
     .dbc-tickets__pill {
       font-size: 12px;
       font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1.5px solid #ccc;
+      padding: 8px 16px;
+      border-radius: 2px;
+      border: 1px solid #bbb;
       cursor: pointer;
-      color: #666;
+      color: #555;
       background: #fff;
       transition: all 0.2s;
       white-space: nowrap;
+      line-height: 1;
     }
     .dbc-tickets__pill.active {
-      border-color: var(--dbc-accent);
-      color: var(--dbc-accent);
-      background: #f0f8f4;
+      border-color: #111;
+      color: #111;
+      background: #f5f5f5;
     }
     .dbc-tickets__track {
-      position: relative;
       overflow: hidden;
+      border-radius: 4px;
+    }
+    .dbc-tickets__inner {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .dbc-tickets__slide {
-      display: none;
+      flex: 0 0 100%;
+      width: 100%;
+      display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       align-items: center;
-    }
-    .dbc-tickets__slide.active {
-      display: grid;
     }
     .dbc-tickets__img {
       width: 100%;
@@ -354,20 +358,23 @@
       border-radius: 4px;
     }
     .dbc-tickets__info {
-      border: 1.5px solid var(--dbc-accent);
-      border-radius: 8px;
-      padding: 32px 36px;
+      padding: 8px 0;
     }
     .dbc-tickets__name {
-      font-size: clamp(18px, 2vw, 26px);
+      font-size: clamp(20px, 2.2vw, 28px);
       font-weight: 700;
       color: #222;
-      margin-bottom: 20px;
-      line-height: 1.3;
+      margin-bottom: 4px;
+      line-height: 1.2;
     }
-    .dbc-tickets__name span { display: block; font-weight: 400; font-size: 0.85em; color: #555; margin-top: 4px; }
+    .dbc-tickets__date {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
     .dbc-tickets__list {
-      margin: 0 0 24px 18px;
+      margin: 0 0 28px 18px;
       padding: 0;
     }
     .dbc-tickets__list li {
@@ -378,20 +385,21 @@
     }
     .dbc-tickets__btn {
       display: inline-block;
-      background: #111;
+      background: #A5BFCA;
       color: #fff;
       font-size: 14px;
       font-weight: 600;
-      padding: 12px 24px;
+      padding: 13px 28px;
       border-radius: 4px;
       text-decoration: none;
-      transition: background 0.2s;
+      cursor: default;
+      pointer-events: none;
+      letter-spacing: 0.03em;
     }
-    .dbc-tickets__btn:hover { background: var(--dbc-accent); }
     .dbc-tickets__arrows {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
       margin-top: 28px;
     }
     .dbc-tickets__arrow {
@@ -408,8 +416,8 @@
     .dbc-tickets__arrow:hover { background: #111; color: #fff; }
     .dbc-tickets__counter { font-size: 15px; color: #666; font-variant-numeric: tabular-nums; }
     @media (max-width: 700px) {
-      .dbc-tickets__slide.active { grid-template-columns: 1fr; }
-      .dbc-tickets__info { padding: 24px 20px; }
+      .dbc-tickets__slide { grid-template-columns: 1fr; }
+      .dbc-tickets__info { padding: 0; }
     }
 
     /* ── Venue bottom strip ── */
@@ -1139,89 +1147,96 @@
 
       <!-- Slides wrapper -->
       <div class="dbc-tickets__track" id="ticketTrack">
+        <div class="dbc-tickets__inner" id="ticketInner">
 
-        <div class="dbc-tickets__slide">
-          <img class="dbc-tickets__img"
-            src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-01.jpg"
-            alt="One Day Conference 16.09.2026" />
-          <div class="dbc-tickets__info">
-            <h3 class="dbc-tickets__name">One Day Conference <span>(16.09.2026)</span></h3>
-            <ul class="dbc-tickets__list">
-              <li>Access to all conference sessions</li>
-              <li>Participation in workshops and thematic discussions</li>
-              <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
-              <li>Access to coffee breaks and lunch</li>
-            </ul>
-            <a class="dbc-tickets__btn" href="#">Coming soon :)</a>
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-01.jpg"
+              alt="One Day Conference 16.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">One Day Conference</h3>
+              <p class="dbc-tickets__date">16.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
           </div>
-        </div>
 
-        <div class="dbc-tickets__slide">
-          <img class="dbc-tickets__img"
-            src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-02.jpg"
-            alt="One Day Conference 17.09.2026" />
-          <div class="dbc-tickets__info">
-            <h3 class="dbc-tickets__name">One Day Conference <span>(17.09.2026)</span></h3>
-            <ul class="dbc-tickets__list">
-              <li>Access to all conference sessions</li>
-              <li>Participation in workshops and thematic discussions</li>
-              <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
-              <li>Access to coffee breaks and lunch</li>
-            </ul>
-            <a class="dbc-tickets__btn" href="#">Coming soon :)</a>
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-02.jpg"
+              alt="One Day Conference 17.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">One Day Conference</h3>
+              <p class="dbc-tickets__date">17.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
           </div>
-        </div>
 
-        <div class="dbc-tickets__slide">
-          <img class="dbc-tickets__img"
-            src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-03.jpg"
-            alt="Two Day Conference 16–17.09.2026" />
-          <div class="dbc-tickets__info">
-            <h3 class="dbc-tickets__name">Two Day Conference <span>(16–17.09.2026)</span></h3>
-            <ul class="dbc-tickets__list">
-              <li>Access to all conference sessions</li>
-              <li>Participation in workshops and thematic discussions</li>
-              <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
-              <li>Access to coffee breaks and lunch</li>
-            </ul>
-            <a class="dbc-tickets__btn" href="#">Coming soon :)</a>
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-03.jpg"
+              alt="Two Day Conference 16–17.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">Two Day Conference</h3>
+              <p class="dbc-tickets__date">16–17.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
           </div>
-        </div>
 
-        <div class="dbc-tickets__slide">
-          <img class="dbc-tickets__img"
-            src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-04.jpg"
-            alt="One Day Conference + Gala 17.09.2026" />
-          <div class="dbc-tickets__info">
-            <h3 class="dbc-tickets__name">One Day Conference + Gala <span>(17.09.2026)</span></h3>
-            <ul class="dbc-tickets__list">
-              <li>Access to all conference sessions</li>
-              <li>Participation in workshops and thematic discussions</li>
-              <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
-              <li>Access to coffee breaks and lunch</li>
-              <li>A ticket to attend a gala event with decision makers and industry experts</li>
-            </ul>
-            <a class="dbc-tickets__btn" href="#">Coming soon :)</a>
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-04.jpg"
+              alt="One Day Conference + Gala 17.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">One Day Conference + Gala</h3>
+              <p class="dbc-tickets__date">17.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+                <li>A ticket to attend a gala event with decision makers and industry experts</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
           </div>
-        </div>
 
-        <div class="dbc-tickets__slide">
-          <img class="dbc-tickets__img"
-            src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-05.jpg"
-            alt="Two Day Conference + Gala 16–17.09.2026" />
-          <div class="dbc-tickets__info">
-            <h3 class="dbc-tickets__name">Two Day Conference + Gala <span>(16–17.09.2026)</span></h3>
-            <ul class="dbc-tickets__list">
-              <li>Access to all conference sessions</li>
-              <li>Participation in workshops and thematic discussions</li>
-              <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
-              <li>Access to coffee breaks and lunch</li>
-              <li>A ticket to attend a gala event with decision makers and industry experts</li>
-            </ul>
-            <a class="dbc-tickets__btn" href="#">Coming soon :)</a>
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/Wise_Habit_AFTF-ticket-05.jpg"
+              alt="Two Day Conference + Gala 16–17.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">Two Day Conference + Gala</h3>
+              <p class="dbc-tickets__date">16–17.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+                <li>A ticket to attend a gala event with decision makers and industry experts</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
 
       <!-- Arrows -->
@@ -1357,9 +1372,10 @@
 
   /* ── TICKETS CAROUSEL ── */
   (function() {
-    const slides = document.querySelectorAll('.dbc-tickets__slide');
+    const inner  = document.getElementById('ticketInner');
     const nav    = document.getElementById('ticketNav');
     const counter= document.getElementById('ticketCounter');
+    const total  = 5;
     const labels = [
       'One Day – 16.09',
       'One Day – 17.09',
@@ -1369,7 +1385,6 @@
     ];
     let current = 0;
 
-    // Build pills
     labels.forEach((label, i) => {
       const pill = document.createElement('button');
       pill.className = 'dbc-tickets__pill' + (i === 0 ? ' active' : '');
@@ -1379,15 +1394,13 @@
     });
 
     function goTo(idx) {
-      slides[current].classList.remove('active');
       nav.children[current].classList.remove('active');
-      current = (idx + slides.length) % slides.length;
-      slides[current].classList.add('active');
+      current = (idx + total) % total;
+      inner.style.transform = `translateX(-${current * 100}%)`;
       nav.children[current].classList.add('active');
-      counter.textContent = (current + 1) + ' / ' + slides.length;
+      counter.textContent = (current + 1) + ' / ' + total;
     }
 
-    slides[0].classList.add('active');
     document.getElementById('ticketPrev').addEventListener('click', () => goTo(current - 1));
     document.getElementById('ticketNext').addEventListener('click', () => goTo(current + 1));
   })();
