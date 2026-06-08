@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wise Habit: The Power of Three — Architect@Work Warsaw 2026</title>
+  <meta name="description" content="A curatorial installation by Wise Habit at Architect@Work Warsaw 2026, exploring sustainability, ethical design and crisis." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Exhibition palette ── */
+    :root {
+      --ex-navy:   #0E1310;
+      --ex-orange: #81ADBC;
+      --ex-red:    #E0ADA9;
+      --ex-green:  #1C3D18;
+      --ex-maroon: #9FA39F;
+    }
+
+    /* ── Page wrapper ── */
+    .pot-page { background: var(--bg); color: #222; }
+
+    /* ── Hero + Intro combined grid ── */
+    .pot-hero-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      padding: clamp(80px, 12vw, 160px) var(--pad-h) 80px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      align-items: start;
+    }
+    .pot-hero__date {
+      font-size: 18px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .pot-hero__title {
+      font-size: clamp(36px, 5vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+    .pot-hero__sub {
+      font-size: 20px;
+      font-weight: 400;
+      opacity: 0.75;
+    }
+    .pot-intro__text { margin-top: 40px; }
+    .pot-intro__text p { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    .pot-intro__img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 4px;
+      background: #e8e4dc;
+    }
+
+    /* ── Two-column text sections ── */
+    .pot-section {
+      padding: 72px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .pot-section--tinted { background: #f0ede8; }
+    .pot-section__heading {
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 700;
+      
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+    .pot-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+    .pot-2col p { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 18px; }
+
+    /* ── Two images ── */
+    .pot-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 0 0 0 0;
+    }
+    .pot-images img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: #d0ccc8;
+    }
+
+    /* ── Projects grid ── */
+    .pot-projects {
+      padding: 72px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .pot-projects__cols {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0 24px;
+    }
+    .pot-col__header {
+      font-size: 22px;
+      font-weight: 700;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      border-bottom: 3px solid currentColor;
+    }
+    .pot-col--economy .pot-col__header  { color: var(--ex-orange); }
+    .pot-col--society .pot-col__header  { color: var(--ex-red); }
+    .pot-col--env .pot-col__header      { color: var(--ex-green); }
+    .pot-col--reflect .pot-col__header  { color: var(--ex-maroon); }
+
+    .pot-card {
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .pot-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+
+    .pot-col--economy .pot-card  { border-color: var(--ex-orange); }
+    .pot-col--society .pot-card  { border-color: var(--ex-red); }
+    .pot-col--env .pot-card      { border-color: var(--ex-green); }
+    .pot-col--reflect .pot-card  { border-color: var(--ex-maroon); }
+
+    .pot-card__img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: #e0dbd5;
+    }
+    .pot-card__body { padding: 14px 16px 16px; }
+    .pot-card__cat {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .pot-col--economy .pot-card__cat  { color: var(--ex-orange); }
+    .pot-col--society .pot-card__cat  { color: var(--ex-red); }
+    .pot-col--env .pot-card__cat      { color: var(--ex-green); }
+    .pot-col--reflect .pot-card__cat  { color: var(--ex-maroon); }
+
+    .pot-card__title { font-size: 15px; font-weight: 700;  margin-bottom: 4px; line-height: 1.3; }
+    .pot-card__sub   { font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.4; }
+    .pot-card__read  { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: #333; }
+
+    /* ── Modal ── */
+    .pot-modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .pot-modal-overlay.open { display: flex; }
+    .pot-modal {
+      background: #fff;
+      border: 2px solid var(--ex-orange);
+      border-radius: 2px;
+      max-width: 860px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .pot-modal__close {
+      position: absolute; top: 16px; right: 20px;
+      font-size: 22px; cursor: pointer; background: none; border: none; color: #333;
+      font-weight: 300; line-height: 1;
+    }
+    .pot-modal__img {
+      width: 100%;
+      border-radius: 4px;
+      object-fit: cover;
+      background: #e0dbd5;
+      display: block;
+    }
+    .pot-modal__cat  { font-size: 14px; font-weight: 700; font-style: italic; margin-bottom: 10px; }
+    .pot-modal__title { font-size: clamp(22px, 3vw, 32px); font-weight: 700;  margin-bottom: 8px; line-height: 1.2; }
+    .pot-modal__sub   { font-size: 16px; font-weight: 600; color: #333; margin-bottom: 20px; }
+    .pot-modal__desc  { font-size: 15px; line-height: 1.75; color: #444; text-align: justify; }
+    .pot-modal__logo  {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid #eee;
+      margin-top: 8px;
+    }
+    .pot-modal__logo img { height: 22px; opacity: 0.7; display: inline-block; }
+    .pot-modal__logo span {
+      display: block; font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #888; margin-top: 6px;
+    }
+
+    /* ── Program ── */
+    .pot-program {
+      padding: 72px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .pot-program__title { font-size: clamp(32px, 4vw, 56px); font-weight: 700; margin-bottom: 48px; }
+    .pot-day__heading   { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; margin: 48px 0 24px; }
+    .pot-day__item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      margin-bottom: 20px;
+      align-items: start;
+    }
+    .pot-day__time   { font-size: 18px; color: #555; padding-top: 20px; }
+    .pot-day__event  {
+      border: 1.5px solid var(--ex-orange);
+      border-radius: 8px;
+      padding: 20px 28px;
+    }
+    .pot-day__event-title   { font-size: 20px; font-weight: 600; color: #333; }
+    .pot-day__event-details { font-size: 15px; color: #666; margin-top: 8px; line-height: 1.6; }
+
+    /* ── Entry pass ── */
+    .pot-entry {
+      padding: 0 var(--pad-h) 72px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .pot-entry__title { font-size: clamp(20px, 2.5vw, 32px); font-weight: 700;  margin-bottom: 28px; }
+    .pot-entry__grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .pot-entry__logo {
+      background: #000; color: #fff;
+      padding: 48px 32px;
+      text-align: center;
+      font-size: 28px; font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pot-entry__box {
+      border: 1.5px solid var(--ex-orange);
+      border-radius: 8px;
+      padding: 36px 40px;
+      background: #fff;
+    }
+    .pot-entry__box-title { font-size: 20px; font-weight: 600; color: #333; margin-bottom: 12px; line-height: 1.4; }
+    .pot-entry__box-text  { font-size: 15px; color: #555; line-height: 1.65; margin-bottom: 20px; }
+
+    /* ── Venue + Contact ── */
+    .pot-venue {
+      padding: 72px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .pot-venue__col-title { font-size: clamp(22px, 2.5vw, 36px); font-weight: 700;  margin-bottom: 24px; }
+    .pot-venue__name { font-size: 22px; font-weight: 600; color: #222; margin-bottom: 12px; }
+    .pot-venue__addr { font-size: 16px; color: #444; line-height: 1.8; }
+    .pot-venue__contact-note { font-size: 16px; color: #444; line-height: 1.7; margin-bottom: 16px; }
+    .pot-venue__email { font-size: 18px; font-weight: 600; color: var(--ex-orange); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .pot-hero-intro,
+      .pot-2col,
+      .pot-venue { grid-template-columns: 1fr; gap: 40px; }
+      .pot-projects__cols { grid-template-columns: repeat(2, 1fr); }
+      .pot-modal { grid-template-columns: 1fr; padding: 32px 24px; }
+      .pot-modal__img { max-height: 260px; }
+    }
+    @media (max-width: 640px) {
+      .pot-hero-intro, .pot-section, .pot-projects, .pot-program, .pot-entry, .pot-venue { padding-left: 20px; padding-right: 20px; }
+      .pot-projects__cols { grid-template-columns: 1fr; }
+      .pot-images { grid-template-columns: 1fr; }
+      .pot-day__item { grid-template-columns: 1fr; gap: 8px; }
+      .pot-entry__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__logo">
+        <a class="nav__logo-agency" href="index.html">
+          <img src="https://agency.wisehabit.com/data/gfx/mask/eng/logo_5_small.svg" alt="Agency for the Future" />
+        </a>
+        <a class="nav__logo-wh" href="https://wisehabit.com" target="_blank">
+          <img src="https://agency.wisehabit.com/data/include/cms/WH_head.svg" alt="wisehabit.com" />
+        </a>
+      </div>
+      <ul class="nav__links">
+        <li class="nav__dropdown"><span>about</span>
+          <div class="nav__dropdown-menu">
+            <a href="about.html">overview</a>
+            <a href="team.html">team</a>
+            <a href="awards.html">awards</a>
+            <a href="clients.html">clients</a>
+          </div>
+        </li>
+        <li><a href="sustainability.html">sustainability</a></li>
+        <li class="nav__dropdown"><span>services</span>
+          <div class="nav__dropdown-menu">
+            <a href="design.html">design</a>
+            <a href="rd.html">R&amp;D</a>
+            <a href="product-strategy.html">product strategy</a>
+            <a href="branding-ip.html">branding &amp; IP</a>
+          </div>
+        </li>
+        <li class="nav__dropdown active"><span>exhibitions &amp; library</span>
+          <div class="nav__dropdown-menu">
+            <a href="exhibitions.html">exhibitions</a>
+            <a href="power-of-three.html">power of three</a>
+            <a href="design-business-conference.html">design business conference</a>
+            <a href="library.html">library</a>
+          </div>
+        </li>
+        <li><a href="archisnob.html">archisnob</a></li>
+        <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+      </ul>
+      <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="nav__mobile" id="mobileNav">
+    <ul class="nav__mobile-links">
+      <li><span>about</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="about.html">overview</a></li>
+          <li><a href="team.html">team</a></li>
+          <li><a href="awards.html">awards</a></li>
+          <li><a href="clients.html">clients</a></li>
+        </ul>
+      </li>
+      <li><a href="sustainability.html">sustainability</a></li>
+      <li><span>services</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design.html">design</a></li>
+          <li><a href="rd.html">R&amp;D</a></li>
+          <li><a href="product-strategy.html">product strategy</a></li>
+          <li><a href="branding-ip.html">branding &amp; IP</a></li>
+        </ul>
+      </li>
+      <li><span>exhibitions &amp; library</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="exhibitions.html">exhibitions</a></li>
+          <li><a href="power-of-three.html">power of three</a></li>
+          <li><a href="design-business-conference.html">design business conference</a></li>
+          <li><a href="library.html">library</a></li>
+        </ul>
+      </li>
+      <li><a href="archisnob.html">archisnob</a></li>
+      <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+    </ul>
+  </div>
+
+  <!-- COLOR STRIP (exhibition palette) -->
+  <div class="color-strip-wrapper">
+    <div class="color-strip" id="colorStrip"></div>
+  </div>
+
+  <main class="page-content pot-page">
+
+    <!-- ══ HERO + INTRO ══ -->
+    <div class="pot-hero-intro">
+      <div>
+        <p class="pot-hero__date">27–28 May 2026, Warsaw</p>
+        <h1 class="pot-hero__title">Wise Habit<br>The Power of Three</h1>
+        <p class="pot-hero__sub">Architect@Work Warsaw 2026 · Reflection</p>
+        <div class="pot-intro__text">
+          <p>Wise Habit: The Power of Three is a curatorial installation presented at Architect@Work Warsaw 2026 (27–28 May 2026).</p>
+          <p>The exhibition explores the relationship between sustainability, ethical design and crisis, using the symbolism of the number three as both a narrative and spatial framework. Through images, sound and samples of innovative materials, the exhibition invites reflection on the future of architecture and responsible design.</p>
+          <p>This is a place to talk about the future as something that happens between us.</p>
+        </div>
+      </div>
+      <img class="pot-intro__img"
+        src="https://wisehabit.com/data/include/cms/design-businees-conference/small_kolaz_WH_A_W_2026_gradient2-1.webp"
+        alt="Wise Habit: The Power of Three — exhibition artwork"
+        onerror="this.style.background='#1a2060';this.removeAttribute('src')"
+      />
+    </div>
+
+    <!-- ══ ABOUT ══ -->
+    <div class="pot-section">
+      <h2 class="pot-section__heading">About</h2>
+      <div class="pot-2col">
+        <div>
+          <p>Wise Habit: The Power of Three is an exhibition that treats architecture as a tool for reflecting on the contemporary world. Its structure is inspired by the number three — an archetypal symbol of balance, cyclicality and harmony, present in both culture and nature.</p>
+          <p>The exhibition unfolds around three thematic axes: Sustainability, Ethical Design and Crisis, which together form a framework for conversation about the future of the built environment. Each theme reveals a different tension in design between social needs and economics, between nature and technology, between comfort and responsibility.</p>
+        </div>
+        <div>
+          <p>The installation is designed as a multisensory experience. Three spatial elements of the exhibition correspond to three modes of perception: image, sound and matter. Visitors can see architectural projects, hear the voices of designers and researchers, and touch materials that may shape the future of architecture.</p>
+          <p>In this way, the exhibition becomes not only a presentation of projects, but also a story of transformation — a shift from traditional thinking about construction towards more responsible, circular and socially conscious models of design.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ETHICAL DESIGN ══ -->
+    <div class="pot-section">
+      <h2 class="pot-section__heading">Ethical Design, Sustainability &amp; Crisis</h2>
+      <div class="pot-2col">
+        <div>
+          <p>Ethical design means designing for everyone — regardless of age, ability or economic status. It is architecture that acknowledges the tensions between comfort and responsibility, technology and humanity, profit and the common good.</p>
+          <p>Sustainability is not just about ecology — it is about balance between environment, society and economy. Architecture has the tools to respond to these challenges. We ask: how do we design responsibly, without compromising the needs of future generations?</p>
+        </div>
+        <div>
+          <p>Crisis — climatic, social, economic — changes the way we think about space. Paradoxically, it is crisis itself that becomes an engine of innovation and a catalyst for change. How can architecture not only respond to crisis, but redesign it?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ EXHIBITION IMAGE ══ -->
+    <div style="max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-h);overflow:hidden;">
+      <img
+        src="https://wisehabit.com/data/include/cms/design-businees-conference/Gala.webp"
+        alt="Wise Habit: The Power of Three — Architect@Work Warsaw"
+        style="width:100%;height:clamp(320px,40vw,600px);object-fit:cover;display:block;"
+      />
+    </div>
+
+    <!-- ══ PANEL ══ -->
+    <div class="pot-section">
+      <h2 class="pot-section__heading">Panel accompanying the Wise Habit: The Power of Three exhibition</h2>
+      <div class="pot-2col">
+        <div>
+          <p>The panel accompanying the exhibition will be a space for conversation on the themes explored in the Wise Habit: The Power of Three installation.</p>
+          <p>Together we will examine selected projects and ideas that show how architecture can respond to contemporary social, environmental and economic challenges. We will focus on the theme of "Crisis" and its impact on shaping the needs of users in architecture and design, taking into account social and market trends.</p>
+        </div>
+        <div>
+          <p>We will explore the relationship between the experience of crisis and the growing need for balance, which in architecture, the economy and design translates into the development of spaces related to travel and hospitality, wellness and leisure, and healthy working environments.</p>
+          <p>The panel will feature Paulina Grabowska, Founder of NASDRA Institute, and Matt Morley, Founder &amp; CEO of Biofilico, and will be moderated by Marcelina Plichta-Wabnik, Founder and CEO of Wise Habit.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PROJECTS GRID ══ -->
+    <section class="pot-projects">
+      <div class="pot-projects__cols">
+
+        <!-- ECONOMY -->
+        <div class="pot-col pot-col--economy">
+          <div class="pot-col__header">Economy</div>
+          <div class="pot-card" onclick="openModal('cyklarium')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/biocenotic_garden_mini.webp"
+              alt="Cyklarium Słoboda"
+              onerror="this.style.background='#c8d4b0';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Economy</div>
+              <div class="pot-card__title">Cyklarium Słoboda</div>
+              <div class="pot-card__sub">Ecology and society, one space</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+          <div class="pot-card" onclick="openModal('musholm')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/aart_mini.webp"
+              alt="Musholm"
+              onerror="this.style.background='#b0c0c8';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Economy</div>
+              <div class="pot-card__title">Musholm</div>
+              <div class="pot-card__sub">Inclusivity built into space</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIETY -->
+        <div class="pot-col pot-col--society">
+          <div class="pot-col__header">Society</div>
+          <div class="pot-card" onclick="openModal('yolnu')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/yutjuwala_mini.webp"
+              alt="Yolŋu Elders Care Facility"
+              onerror="this.style.background='#c0b8b0';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Society</div>
+              <div class="pot-card__title">Yolŋu Elders Care Facility</div>
+              <div class="pot-card__sub">Rooted in culture and respect</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+          <div class="pot-card" onclick="openModal('plantstation')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/plantstation_mini.webp"
+              alt="Plantstation"
+              onerror="this.style.background='#b8c4b0';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Society</div>
+              <div class="pot-card__title">Plantstation</div>
+              <div class="pot-card__sub">From observation to relationship</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+          <div class="pot-card" onclick="openModal('deafspace')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/university_mini.webp"
+              alt="DeafSpace"
+              onerror="this.style.background='#b4c0c8';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Society</div>
+              <div class="pot-card__title">DeafSpace</div>
+              <div class="pot-card__sub">Accessibility redefined</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENVIRONMENT -->
+        <div class="pot-col pot-col--env">
+          <div class="pot-col__header">Environment</div>
+          <div class="pot-card" onclick="openModal('hemp-house')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/domek_podlaski_mini.webp"
+              alt="Hemp House"
+              onerror="this.style.background='#c4c8b8';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Environment</div>
+              <div class="pot-card__title">Hemp House</div>
+              <div class="pot-card__sub">Local material, low impact</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+          <div class="pot-card" onclick="openModal('atri-naturhus')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/atri_mini.webp"
+              alt="Atri Naturhus"
+              onerror="this.style.background='#b4c8c0';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Environment</div>
+              <div class="pot-card__title">Atri Naturhus</div>
+              <div class="pot-card__sub">Nature as part of home</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+          <div class="pot-card" onclick="openModal('living-materials')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/materials_mini.webp"
+              alt="Living Materials"
+              onerror="this.style.background='#c4bcc0';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Environment</div>
+              <div class="pot-card__title">Living Materials</div>
+              <div class="pot-card__sub">Matter that adapts and responds?</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REFLECTION -->
+        <div class="pot-col pot-col--reflect">
+          <div class="pot-col__header">Reflection</div>
+          <div class="pot-card" onclick="openModal('matt-morley')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/matt_morley_mini.webp"
+              alt="Matt Morley"
+              onerror="this.style.background='#b8b0a8';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Reflection</div>
+              <div class="pot-card__title">Matt Morley</div>
+              <div class="pot-card__sub">Wellbeing as spatial quality</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+          <div class="pot-card" onclick="openModal('paulina-grabowska')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/paulina_grabowska_mini.webp"
+              alt="Paulina Grabowska"
+              onerror="this.style.background='#c0b8b4';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Reflection</div>
+              <div class="pot-card__title">Paulina Grabowska</div>
+              <div class="pot-card__sub">Founder of NASDRA Institute</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+          <div class="pot-card" onclick="openModal('marcelina')">
+            <img class="pot-card__img"
+              src="https://wisehabit.com/data/include/cms/design-businees-conference/Conference_host_Marcelina_Plichta.webp"
+              alt="Marcelina Plichta-Wabnik"
+              onerror="this.style.background='#b8b0b8';this.removeAttribute('src')"
+            />
+            <div class="pot-card__body">
+              <div class="pot-card__cat">Conference host / Product</div>
+              <div class="pot-card__title">Marcelina Plichta-Wabnik</div>
+              <div class="pot-card__sub">Founder and CEO of Wise Habit</div>
+              <div class="pot-card__read">+ READ MORE</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ PROGRAM ══ -->
+    <section class="pot-program" style="padding-top: 72px; padding-bottom: 72px;">
+      <div style="max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-h);">
+        <h2 class="pot-program__title">Program</h2>
+
+        <h3 class="pot-day__heading">27.05 Wednesday</h3>
+        <div class="pot-day__item">
+          <div class="pot-day__time">11:00 – 18:00</div>
+          <div class="pot-day__event">
+            <div class="pot-day__event-title">Exhibition | Wise Habit: The Power of Three</div>
+          </div>
+        </div>
+
+        <h3 class="pot-day__heading">28.05 Thursday</h3>
+        <div class="pot-day__item">
+          <div class="pot-day__time">11:00 – 18:00</div>
+          <div class="pot-day__event">
+            <div class="pot-day__event-title">Exhibition | Wise Habit: The Power of Three</div>
+          </div>
+        </div>
+        <div class="pot-day__item">
+          <div class="pot-day__time">13:30 – 15:00</div>
+          <div class="pot-day__event">
+            <div class="pot-day__event-title">Panel | The Power of Three: Architecture in the Face of Crisis</div>
+            <div class="pot-day__event-details">Speakers: Paulina Grabowska (NASDRA Institute), Matt Morley (Biofilico Studio), Moderator: Marcelina Plichta-Wabnik (Wise Habit)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ENTRY PASS ══ -->
+    <section class="pot-entry" style="padding-top: 72px;">
+      <h2 class="pot-entry__title">Entry pass</h2>
+      <div class="pot-entry__grid">
+        <div class="pot-entry__logo">ARCHITECT<br>@WORK</div>
+        <div class="pot-entry__box">
+          <div class="pot-entry__box-title">Registration via<br>the Architect@Work 2026 website.</div>
+          <div class="pot-entry__box-text">Get your entry pass for A@W WARSAW 2026 on May 27–28, get inspired, and discover a wide range of new products prepared for you by our exhibitors.</div>
+          <a href="https://www.architect-at-work.com/warsaw/" target="_blank" class="btn btn--filled" style="font-size:14px;">Register</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VENUE + CONTACT ══ -->
+    <div class="pot-venue">
+      <div>
+        <h2 class="pot-venue__col-title">Venue</h2>
+        <div class="pot-venue__name">Architect@Work</div>
+        <div class="pot-venue__addr">
+          EXPO XXI, Hala 1 &amp; 3<br>
+          Ignacego Prądzyńskiego 12/14<br>
+          01-222 Warsaw
+        </div>
+      </div>
+      <div>
+        <h2 class="pot-venue__col-title">Contact us</h2>
+        <p class="pot-venue__contact-note">If you have any questions feel free to contact us.</p>
+        <a class="pot-venue__email" href="mailto:marketing@wisehabit.com">marketing@wisehabit.com</a>
+      </div>
+    </div>
+
+
+    <!-- ══ CONTACT FORM ══ -->
+    <section class="contact-wrap" id="contact">
+      <div class="contact-wrap__inner">
+        <p class="contact-wrap__label">contact</p>
+        <h2 class="contact-wrap__title">Get in touch</h2>
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div>
+            <p class="form-chips-label">I'm interested in</p>
+            <div class="service-chips">
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Design" /> Design</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Implementation" /> Implementation</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Product Strategy" /> Product Strategy</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="ArchiSnob" /> ArchiSnob</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Other" /> Other</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-name">name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="cf-company">company</label>
+              <input type="text" id="cf-company" name="company" placeholder="Your company" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">email</label>
+            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-field">
+            <label for="cf-subject">subject</label>
+            <input type="text" id="cf-subject" name="subject" placeholder="What can we help you with?" />
+          </div>
+          <div class="form-field">
+            <label for="cf-message">message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <div class="form-consent">
+            <input type="checkbox" id="cf-consent" name="consent" required />
+            <label for="cf-consent">I agree to the processing of my personal data for the purpose of responding to my inquiry.</label>
+          </div>
+          <button type="submit" class="btn btn--filled form-submit">send message →</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ MODAL ══ -->
+  <div class="pot-modal-overlay" id="potModal" onclick="closeModalOnOverlay(event)">
+    <div class="pot-modal" id="potModalInner">
+      <button class="pot-modal__close" onclick="closeModal()">×</button>
+      <div>
+        <img class="pot-modal__img" id="modalImg" src="" alt="" />
+      </div>
+      <div>
+        <div class="pot-modal__cat" id="modalCat"></div>
+        <div class="pot-modal__title" id="modalTitle"></div>
+        <div class="pot-modal__sub" id="modalSub"></div>
+        <div class="pot-modal__desc" id="modalDesc"></div>
+      </div>
+      <div class="pot-modal__logo">
+        <img src="https://agency.wisehabit.com/data/gfx/mask/eng/logo_5_small.svg" alt="Wise Habit — Agency for the Future" />
+        <span>Agency for the Future</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer-main">
+    <div class="footer-main__inner">
+      <div class="footer-col footer-col--brand">
+        <div class="footer-brand-block">
+          <a class="footer-brand" href="https://wisehabit.com" target="_blank">
+            <img src="https://agency.wisehabit.com/data/include/cms/WH_head.svg" alt="Wise Habit" />
+          </a>
+          <p class="footer-tagline">Agency for the Future</p>
+        </div>
+        <div class="footer-contact-block">
+          <p class="footer-block-label">contact</p>
+          <a href="mailto:office@wisehabit.com">office@wisehabit.com</a>
+          <a href="tel:+48608561173">+48 608 561 173</a>
+          <p>Warsaw, Poland</p>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col footer-col--nav">
+        <p class="footer-col__heading">Explore</p>
+        <a class="footer-col__link" href="exhibitions.html">Exhibitions</a>
+        <a class="footer-col__link" href="library.html">Material Library</a>
+        <a class="footer-col__link" href="sustainability.html">Sustainability</a>
+        <a class="footer-col__link" href="design.html">Design Services</a>
+        <a class="footer-col__link" href="archisnob.html">ArchiSnob</a>
+        <a class="footer-col__link" href="https://wisehabit.com/blog-eng.phtml" target="_blank">Blog</a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-bottom">
+    <p class="footer-bottom__copy">© 2025 Wise Habit Agency for the Future</p>
+  </footer>
+
+  <script>
+  /* ── COLOR STRIP ── */
+  const COLORS = [
+    {c:'#0E1310',w:130},{c:'#1C3D18',w:150},{c:'#7892A3',w:120},{c:'#81ADBC',w:110},{c:'#9FA39F',w:100},{c:'#E0ADA9',w:110},{c:'#FBDDE1',w:100},{c:'#9FA39F',w:110}
+  ];
+  const SPEED = 0.12;
+  const strip = document.getElementById('colorStrip');
+  let CYCLE_W = 0;
+  function buildStrip(colors) {
+    strip.innerHTML = '';
+    CYCLE_W = colors.reduce((s, x) => s + x.w, 0);
+    const reps = Math.ceil((window.innerWidth * 3) / CYCLE_W) + 2;
+    for (let r = 0; r < reps; r++) {
+      colors.forEach(x => {
+        const s = document.createElement('div');
+        s.className = 'color-strip__seg';
+        s.style.cssText = `width:${x.w}px;background:${x.c}`;
+        strip.appendChild(s);
+      });
+    }
+  }
+  buildStrip(COLORS);
+  window.addEventListener('resize', () => buildStrip(COLORS));
+  window.addEventListener('scroll', () => {
+    strip.style.transform = `translateX(${-(window.scrollY * SPEED) % CYCLE_W}px)`;
+  }, { passive: true });
+
+  /* ── HAMBURGER ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }));
+
+  /* ── PROJECT DATA ── */
+  const PROJECTS = {
+    'cyklarium': {
+      cat: 'Economy', color: '#F47F2D',
+      title: 'Cyklarium Słoboda',
+      sub: 'Ecology and society, one space',
+      desc: 'A garden where ecological and social communities meet within one shared space. We chose this project for the way it combines education, care, and a different understanding of value in the built environment.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/biocenotic_garden_mini.webp'
+    },
+    'musholm': {
+      cat: 'Economy', color: '#F47F2D',
+      title: 'Musholm',
+      sub: 'Inclusivity built into space',
+      desc: 'A project that demonstrates how inclusivity can become an integral quality of space rather than an added feature. We were drawn to the way it combines recreation, accessibility, and collective experience without separating them.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/aart_mini.webp'
+    },
+    'yolnu': {
+      cat: 'Society', color: '#C0392B',
+      title: 'Yolŋu Elders Care Facility',
+      sub: 'Rooted in culture and respect',
+      desc: 'A care project deeply rooted in local culture and respect for elder community members. We selected it as an important voice in the conversation around longevity, care, and culturally responsive architecture.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/yutjuwala_mini.webp'
+    },
+    'plantstation': {
+      cat: 'Society', color: '#C0392B',
+      title: 'Plantstation',
+      sub: 'From observation to relationship',
+      desc: 'A project that shifts the conversation about nature from observation to relationship. We were drawn to it for the way it creates new forms of sensitivity and interaction between humans and plant life through sound and participation.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/plantstation_mini.webp'
+    },
+    'deafspace': {
+      cat: 'Society', color: '#C0392B',
+      title: 'DeafSpace',
+      sub: 'Accessibility redefined',
+      desc: 'A project that redefines accessibility beyond technical standards alone. We included it because it reveals how architecture can support communication, orientation, and community through different spatial priorities.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/university_mini.webp'
+    },
+    'hemp-house': {
+      cat: 'Environment', color: '#1C3D18',
+      title: 'Hemp House',
+      sub: 'Local material, low impact',
+      desc: 'A house built from a material that connects locality, health, and environmental responsibility. We wanted to feature a project that rethinks comfort through the lens of material awareness and low-impact living.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/domek_podlaski_mini.webp'
+    },
+    'atri-naturhus': {
+      cat: 'Environment', color: '#1C3D18',
+      title: 'Atri Naturhus',
+      sub: 'Nature as part of home',
+      desc: 'A project that brings nature back into everyday domestic life, treating it not as a backdrop but as part of the home itself. We chose it for the way it challenges the boundary between protection and coexistence.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/atri_mini.webp'
+    },
+    'living-materials': {
+      cat: 'Environment', color: '#1C3D18',
+      title: 'Living Materials',
+      sub: 'Matter that adapts and responds?',
+      desc: 'A selection of material explorations showing that matter itself can become adaptive, regenerative, and responsive. We present them as different approaches to imagining a more resilient and responsible future for architecture.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/materials_mini.webp'
+    },
+    'matt-morley': {
+      cat: 'Reflection', color: '#8B3A1A',
+      title: 'Matt Morley',
+      sub: 'Wellbeing as spatial quality',
+      desc: 'Matt Morley works at the intersection of space, wellbeing, and environmental psychology. We invited him as part of a broader reflection on how contemporary crises are reshaping the role of wellbeing in the spaces we inhabit.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/matt_morley_mini.webp'
+    },
+    'paulina-grabowska': {
+      cat: 'Reflection', color: '#8B3A1A',
+      title: 'Paulina Grabowska',
+      sub: 'Founder of NASDRA Institute',
+      desc: 'Paulina integrates biology, chemistry and neuroscience with design to create spaces that actively support human health and regeneration. Through NASDRA Institute, she leads transdisciplinary research on light, biophilia and living systems. Through mood.farm, she delivers regenerative solutions for workplaces — from regenerative lighting and vertical farms to biophilic installations — implemented in offices of ARUP, LUX MED, Sanofi and Sopra Steria Polska. Her work on the ARUP Warsaw Office contributed to winning FRAME Award. She teaches biodesign at SWPS University and has presented her work at TEDxWarsaw, Parsons School of Design and ICFF in New York.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/paulina_grabowska_mini.webp'
+    },
+    'marcelina': {
+      cat: 'Conference host / Product', color: '#F47F2D',
+      title: 'Marcelina Plichta-Wabnik',
+      sub: 'Brand in relation with business.',
+      desc: 'An entrepreneur and strategist, she has been helping brands grow in a consistent, authentic, and scalable way for years. She specializes in brand building, commercialization of products and services, and optimization of implementation and production processes, having successfully brought over 300 products to market. In her work, she combines analytical thinking with a sensitivity to design, emotions, and ethics. As a lecturer at SWPS University and co-creator of the "DesignBiznes" program, she inspires creators and designers to boldly combine creativity with entrepreneurship. Since 2010, she has been co-creating internationally recognized brands, including tre product and Wise Habit.',
+      img: 'https://wisehabit.com/data/include/cms/design-businees-conference/Conference_host_Marcelina_Plichta.webp'
+    }
+  };
+
+  /* ── MODAL LOGIC ── */
+  function openModal(id) {
+    const p = PROJECTS[id];
+    if (!p) return;
+    document.getElementById('modalImg').src = p.img;
+    document.getElementById('modalImg').alt = p.title;
+    document.getElementById('modalCat').textContent = p.cat;
+    document.getElementById('modalCat').style.color = p.color;
+    document.getElementById('modalTitle').textContent = p.title;
+    document.getElementById('modalSub').textContent = p.sub;
+    document.getElementById('modalDesc').textContent = p.desc;
+    // Modal border color
+    document.getElementById('potModalInner').style.borderColor = p.color;
+    document.getElementById('potModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('potModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnOverlay(e) {
+    if (e.target === document.getElementById('potModal')) closeModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>
