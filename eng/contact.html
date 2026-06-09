@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Agency for the Future</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__logo">
+        <a class="nav__logo-agency" href="index.html"><img src="../img/logo_5_small.svg" alt="Agency for the Future" /></a>
+        <a class="nav__logo-wh" href="https://wisehabit.com" target="_blank"><img src="../img/WH_head.svg" alt="wisehabit.com" /></a>
+      </div>
+            <ul class="nav__links">
+        <li class="nav__dropdown"><span>about</span>
+          <div class="nav__dropdown-menu">
+            <a href="about.html">overview</a>
+            <a href="team.html">team</a>
+            <a href="awards.html">awards</a>
+            <a href="clients.html">clients</a>
+          </div>
+        </li>
+        <li ><a href="sustainability.html">sustainability</a></li>
+        <li class="nav__dropdown"><span>services</span>
+          <div class="nav__dropdown-menu">
+            <a href="design.html">design</a>
+            <a href="rd.html">R&amp;D</a>
+            <a href="product-strategy.html">product strategy</a>
+            <a href="branding-ip.html">branding &amp; IP</a>
+          </div>
+        </li>
+        <li class="nav__dropdown"><span>conferences</span>
+          <div class="nav__dropdown-menu">
+            <a href="design-business-conference.html">design business conference</a>
+            <a href="archive.html">archive</a>
+          </div>
+        </li>
+        <li class="nav__dropdown"><span>exhibitions &amp; library</span>
+          <div class="nav__dropdown-menu">
+            <a href="exhibitions.html">exhibitions</a>
+            <a href="power-of-three.html">power of three</a>
+            <a href="library.html">library</a>
+          </div>
+        </li>
+        <li ><a href="archisnob.html">archisnob</a></li>
+        <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
+        <li class="active"><a href="contact.html">contact</a></li>
+        <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+      </ul>
+      <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+    <div class="nav__mobile" id="mobileNav">
+    <ul class="nav__mobile-links">
+      <li><span>about</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="about.html">overview</a></li>
+          <li><a href="team.html">team</a></li>
+          <li><a href="awards.html">awards</a></li>
+          <li><a href="clients.html">clients</a></li>
+        </ul>
+      </li>
+      <li><a href="sustainability.html">sustainability</a></li>
+      <li><span>services</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design.html">design</a></li>
+          <li><a href="rd.html">R&amp;D</a></li>
+          <li><a href="product-strategy.html">product strategy</a></li>
+          <li><a href="branding-ip.html">branding &amp; IP</a></li>
+        </ul>
+      </li>
+      <li><span>conferences</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design-business-conference.html">design business conference</a></li>
+          <li><a href="archive.html">archive</a></li>
+        </ul>
+      </li>
+      <li><span>exhibitions &amp; library</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="exhibitions.html">exhibitions</a>
+            <a href="power-of-three.html">power of three</a></li>
+          <li><a href="library.html">library</a></li>
+        </ul>
+      </li>
+      <li><a href="archisnob.html">archisnob</a></li>
+      <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+    </ul>
+  </div>
+
+  <div class="color-strip-wrapper">
+    <div class="color-strip" id="colorStrip"></div>
+  </div>
+
+  <main class="page-content">
+
+    <section class="contact-wrap" id="contact">
+      <div class="contact-wrap__inner">
+        <div class="contact-page-grid">
+
+          <!-- LEFT: form -->
+          <div class="contact-page-grid__form">
+            <p class="contact-wrap__label">contact</p>
+            <h2 class="contact-wrap__title">Get in touch</h2>
+            <form class="contact-form" action="https://formspree.io/f/mnjyvvgb" method="POST">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cf-name">name</label>
+                  <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-field">
+                  <label for="cf-company">company</label>
+                  <input type="text" id="cf-company" name="company" placeholder="Your company" />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="cf-email">email</label>
+                <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+              </div>
+              <div class="form-field">
+                <label for="cf-subject">subject</label>
+                <input type="text" id="cf-subject" name="subject" placeholder="What can we help you with?" />
+              </div>
+              <div class="form-field">
+                <label for="cf-message">message</label>
+                <textarea id="cf-message" name="message" placeholder="Tell us about your project..." required></textarea>
+              </div>
+              <div class="form-consent">
+                <input type="checkbox" id="cf-consent" name="consent" required />
+                <label for="cf-consent">I agree to the processing of my personal data for the purpose of responding to my inquiry.</label>
+              </div>
+              <button type="submit" class="btn btn--filled form-submit">send message →</button>
+            </form>
+          </div>
+
+          <!-- RIGHT: contact details -->
+          <div class="contact-page-grid__details">
+            <div class="contact-detail-block">
+              <p class="contact-detail-block__label">email</p>
+              <a href="mailto:office@wisehabit.com" class="contact-detail-block__value">office@wisehabit.com</a>
+            </div>
+            <div class="contact-detail-block">
+              <p class="contact-detail-block__label">phone</p>
+              <a href="tel:+48608561173" class="contact-detail-block__value">+48 608 561 173</a>
+            </div>
+            <div class="contact-detail-block">
+              <p class="contact-detail-block__label">address</p>
+              <p class="contact-detail-block__value">Warsaw, Poland</p>
+            </div>
+            <div class="contact-detail-block">
+              <p class="contact-detail-block__label">follow us</p>
+              <div class="footer-social" style="margin-top: 8px;">
+                <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+                <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer-main">
+    <div class="footer-main__inner">
+      <div class="footer-col footer-col--brand">
+        <div class="footer-brand-block">
+          <a class="footer-brand" href="https://wisehabit.com" target="_blank"><img src="../img/WH_head.svg" alt="Wise Habit" /></a>
+          <p class="footer-tagline">Agency for the Future</p>
+        </div>
+        <div class="footer-contact-block">
+          <p class="footer-block-label">contact</p>
+          <a href="mailto:office@wisehabit.com">office@wisehabit.com</a>
+          <a href="tel:+48608561173">+48 608 561 173</a>
+          <p>Warsaw, Poland</p>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col footer-col--nav">
+        <p class="footer-col__heading">Explore</p>
+        <a class="footer-col__link" href="about.html">About</a>
+        <a class="footer-col__link" href="sustainability.html">Sustainability</a>
+        <a class="footer-col__link" href="design.html">Design Services</a>
+        <a class="footer-col__link" href="product-implementation.html">Product Implementation</a>
+        <a class="footer-col__link" href="archisnob.html">Archisnob</a>
+        <a class="footer-col__link" href="https://wisehabit.com/blog-eng.phtml" target="_blank">Blog</a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-bottom">
+    <p class="footer-bottom__copy">© 2025 Wise Habit Agency for the Future</p>
+  </footer>
+
+  <script>
+  /* ── COLOR STRIP ── */
+  const COLORS = [
+    {c:'#363C54',w:120},{c:'#414156',w:110},{c:'#455F2C',w:140},{c:'#35813F',w:140},{c:'#813B1B',w:90},{c:'#3C5CA9',w:110},{c:'#F47F2D',w:100},
+    {c:'#55926B',w:130},{c:'#CCDBDF',w:130},{c:'#A5BFCA',w:120},{c:'#89A8AB',w:120},
+    {c:'#0E1310',w:90},{c:'#1C3D18',w:100},{c:'#7892A3',w:90},{c:'#81ADBC',w:85},{c:'#9FA39F',w:80},{c:'#E0ADA9',w:85},{c:'#FBDDE1',w:80},{c:'#9FA39F',w:85}
+  ];
+  const SPEED = 0.12;
+  const strip = document.getElementById('colorStrip');
+  let CYCLE_W = 0;
+  function buildStrip(colors) {
+    strip.innerHTML = '';
+    CYCLE_W = colors.reduce((s, x) => s + x.w, 0);
+    const reps = Math.ceil((window.innerWidth * 3) / CYCLE_W) + 2;
+    for (let r = 0; r < reps; r++) {
+      colors.forEach(x => {
+        const s = document.createElement('div');
+        s.className = 'color-strip__seg';
+        s.style.cssText = `width:${x.w}px;background:${x.c}`;
+        strip.appendChild(s);
+      });
+    }
+  }
+  buildStrip(COLORS);
+  window.addEventListener('resize', () => buildStrip(COLORS));
+  window.addEventListener('scroll', () => {
+    strip.style.transform = `translateX(${-(window.scrollY * SPEED) % CYCLE_W}px)`;
+  }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }));
+  </script>
+</body>
+</html>

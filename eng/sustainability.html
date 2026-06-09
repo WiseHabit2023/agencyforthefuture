@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainability — Agency for the Future</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .sust-img-wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-h); }
+    .sust-img-wrap img { width: 100%; height: 520px; object-fit: cover; display: block; border-radius: 4px; }
+
+    .sust-topics { width: 100%; }
+    .sust-topic-item { display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--border); font-size: 20px; font-weight: 400; line-height: 1.3; }
+    .sust-topic-item:first-child { border-top: 1px solid var(--border); }
+    .sust-topic-item__num { font-size: 13px; opacity: 0.4; flex-shrink: 0; min-width: 28px; }
+
+    .sust-diagram-wrap { margin-top: 56px; }
+    .sust-diagram-wrap img { width: 100%; height: auto; display: block; }
+
+    .sust-impact-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 0; }
+    .sust-impact-imgs img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block; border-radius: 4px; }
+    .sust-impact-text .body-text { font-size: 16px; line-height: 1.75; }
+
+    .sust-planet { background: var(--bg); color: var(--black); padding: 100px var(--pad-h); text-align: center; position: relative; max-width: var(--max-w); margin: 0 auto; }
+    .sust-planet__inner { max-width: 920px; margin: 0 auto; }
+    .sust-planet__line1 { font-size: clamp(24px, 2.6vw, 40px); font-weight: 400; line-height: 1.4; letter-spacing: -0.3px; margin-bottom: 40px; }
+    .sust-planet__line2 { font-size: clamp(22px, 2.2vw, 34px); font-weight: 400; line-height: 1.4; letter-spacing: -0.3px; margin-bottom: 40px; }
+    .sust-planet__line3 { font-size: clamp(26px, 3vw, 48px); font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+    .sust-planet__source { font-size: 13px; opacity: 0.45; text-align: right; max-width: var(--max-w); margin: 32px auto 0; padding: 0 var(--pad-h); }
+    .sust-planet__source a { color: var(--black); text-decoration: underline; }
+
+    .sust-sdg-main { width: 100%; height: auto; display: block; margin: 40px 0; border-radius: 4px; }
+    .sust-sdg-goals { display: grid; grid-template-columns: repeat(3, 120px); gap: 12px; margin-top: 32px; }
+    .sust-sdg-goals img { width: 120px; height: 120px; object-fit: cover; display: block; border-radius: 4px; }
+
+    @media (max-width: 900px) {
+      .sust-img-wrap img { height: 280px; }
+      .sust-impact-imgs { grid-template-columns: 1fr; }
+      .sust-sdg-goals { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__logo">
+        <a class="nav__logo-agency" href="index.html"><img src="../img/logo_5_small.svg" alt="Agency for the Future" /></a>
+        <a class="nav__logo-wh" href="https://wisehabit.com" target="_blank"><img src="../img/WH_head.svg" alt="wisehabit.com" /></a>
+      </div>
+      <ul class="nav__links">
+        <li class="nav__dropdown"><span>about</span>
+          <div class="nav__dropdown-menu">
+            <a href="about.html">overview</a>
+            <a href="team.html">team</a>
+            <a href="awards.html">awards</a>
+            <a href="clients.html">clients</a>
+          </div>
+        </li>
+        <li class="active"><a href="sustainability.html">sustainability</a></li>
+        <li class="nav__dropdown"><span>services</span>
+          <div class="nav__dropdown-menu">
+            <a href="design.html">design</a>
+            <a href="rd.html">R&amp;D</a>
+            <a href="product-strategy.html">product strategy</a>
+            <a href="branding-ip.html">branding &amp; IP</a>
+          </div>
+        </li>
+        <li class="nav__dropdown"><span>conferences</span>
+          <div class="nav__dropdown-menu">
+            <a href="design-business-conference.html">design business conference</a>
+            <a href="archive.html">archive</a>
+          </div>
+        </li>
+        <li class="nav__dropdown"><span>exhibitions &amp; library</span>
+          <div class="nav__dropdown-menu">
+            <a href="exhibitions.html">exhibitions</a>
+            <a href="power-of-three.html">power of three</a>
+            <a href="library.html">library</a>
+          </div>
+        </li>
+        <li><a href="archisnob.html">archisnob</a></li>
+        <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+      </ul>
+      <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobileNav">
+    <ul class="nav__mobile-links">
+      <li><span>about</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="about.html">overview</a></li>
+          <li><a href="team.html">team</a></li>
+          <li><a href="awards.html">awards</a></li>
+          <li><a href="clients.html">clients</a></li>
+        </ul>
+      </li>
+      <li><a href="sustainability.html">sustainability</a></li>
+      <li><span>services</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design.html">design</a></li>
+          <li><a href="rd.html">R&amp;D</a></li>
+          <li><a href="product-strategy.html">product strategy</a></li>
+          <li><a href="branding-ip.html">branding &amp; IP</a></li>
+        </ul>
+      </li>
+      <li><span>conferences</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design-business-conference.html">design business conference</a></li>
+          <li><a href="archive.html">archive</a></li>
+        </ul>
+      </li>
+      <li><span>exhibitions &amp; library</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="exhibitions.html">exhibitions</a>
+            <a href="power-of-three.html">power of three</a></li>
+          <li><a href="library.html">library</a></li>
+        </ul>
+      </li>
+      <li><a href="archisnob.html">archisnob</a></li>
+      <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+    </ul>
+  </div>
+
+  <div class="color-strip-wrapper">
+    <div class="color-strip" id="colorStrip"></div>
+  </div>
+
+  <main class="page-content">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="hero__tag">sustainability – impact strategy</p>
+        <h1 class="hero__title">Our path to<span class="line2">a sustainable world</span></h1>
+        <div class="hero__ctas">
+          <a href="#learn-more" class="btn btn--filled">about our mission <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION — .agency-intro -->
+    <section class="agency-intro" id="learn-more" style="--intro-card-title-weight: 400;">
+      <div class="agency-intro__top">
+        <p class="agency-intro__eyebrow">Mission to create lasting impact</p>
+        <h2 class="agency-intro__title">Fostering a sustainable world</h2>
+      </div>
+      <div class="agency-intro__cards">
+        <div class="intro-card">
+          <h3 class="intro-card__title" style="font-weight: 400;">Sustainable &amp; well designed</h3>
+          <p class="intro-card__text">At Wise Habit, our ambition is to provide products that are not only well-designed but also prioritize sustainability.</p>
+        </div>
+        <div class="intro-card">
+          <h3 class="intro-card__title" style="font-weight: 400;">Rethinking supply chain</h3>
+          <p class="intro-card__text">This commitment extends from our design process to our supply chains, where we prioritize local sourcing to minimize transportation emissions and support regional economies.</p>
+        </div>
+        <div class="intro-card">
+          <h3 class="intro-card__title" style="font-weight: 400;">Wise habits promotion</h3>
+          <p class="intro-card__text">Finally we're dedicated to promote wise consumption habits, encouraging customers to make mindful choices that align with sustainability principles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL-WIDTH IMAGE -->
+    <section style="padding: 0 0 80px;">
+      <div class="sust-img-wrap">
+        <img src="../img/image-2.png" alt="Sustainability at Wise Habit" />
+      </div>
+    </section>
+
+    <!-- CRUCIAL TOPICS -->
+    <section class="page-section page-section--tinted">
+      <div class="inner">
+        <div class="page-intro-grid" style="align-items: center;">
+          <div class="page-intro-grid__left">
+            <p class="section-eyebrow">challenges we face</p>
+            <h2 class="section-title" style="margin-bottom: 0;">The most crucial topics for Wise Habit</h2>
+          </div>
+          <div class="page-intro-grid__right">
+            <div class="sust-topics">
+              <div class="sust-topic-item"><span class="sust-topic-item__num">1 –</span> Consumerism</div>
+              <div class="sust-topic-item"><span class="sust-topic-item__num">2 –</span> Customer education</div>
+              <div class="sust-topic-item"><span class="sust-topic-item__num">3 –</span> Linear production models</div>
+              <div class="sust-topic-item"><span class="sust-topic-item__num">4 –</span> Decline in transparency</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAKEHOLDER ANALYSIS -->
+    <section class="page-section">
+      <div class="inner">
+        <div class="page-intro-grid" style="align-items: center;">
+          <div>
+            <img src="../img/graf-s-once-desktop-3-2.svg" alt="Stakeholder analysis diagram" style="width:100%; height:auto; display:block;" />
+          </div>
+          <div>
+            <p class="section-eyebrow">stakeholder analysis</p>
+            <h2 class="section-title">Needs &amp; expectations of our stakeholders</h2>
+            <p class="body-text">Conducting a comprehensive stakeholder analysis ensures that we address the needs and expectations of each stakeholder group, fostering meaningful relationships delivering sustainable products. Our stakeholders include the planet itself, as we recognize the importance of environmental impact in all our endeavors. Employees are another vital stakeholder group, as their well-being and engagement directly influence the success of our initiatives.</p>
+            <p class="body-text">Customers play a central role in shaping our products and services, driving innovation and satisfaction. The creative industry influences our design processes, while our B2B clients shape our business strategies and partnerships. We are committed to engaging and supporting our local community, recognizing their role as stakeholders with a vested interest in our activities. Suppliers, partners, and artisans are another essential part of our supply chain enabling high-quality, sustainable products.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT STRATEGY -->
+    <section class="page-section page-section--tinted">
+      <div class="inner">
+        <div class="page-intro-grid" style="align-items: stretch;">
+          <div class="sust-impact-text">
+            <p class="section-eyebrow">our impact strategy</p>
+            <h2 class="section-title">The most significant sustainability issues</h2>
+            <p class="body-text">Our strategy is crafted around topics crucial to us, representing the most significant sustainability issues influenced by Wise Habit. Delving into our stakeholders' perspectives, we explored the beneficial contributions we offer them, their expectations of us, and the areas where positive changes can be envisioned.</p>
+            <p class="body-text">Following this analysis, we identified the most critical challenges relevant to our activities, among others as climate crisis, abuse of resources, waste, consumerism, mental health crisis and demographic shifts. As a result, we identified and organized material topics into four key areas: unsustainable design, unsustainable production, unsustainable consumption and unequal society — four challenges we aim to address on a way to a more equitable, resilient and prosperous world.</p>
+          </div>
+          <div class="sust-impact-imgs">
+            <img src="../img/impact-strategy-before.webp" alt="Impact strategy — before" />
+            <img src="../img/impact-strategy-after.webp" alt="Impact strategy — after" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANET STAT -->
+    <div class="sust-planet">
+      <div class="sust-planet__inner">
+        <p class="sust-planet__line1">Today we need about <strong>1.75 planets</strong> to provide the resources for our consumption and absorb our waste.</p>
+        <p class="sust-planet__line2">By 2030, we will need <strong>2 planets</strong>.</p>
+        <p class="sust-planet__line3"><strong>We only have one.</strong></p>
+      </div>
+      <p class="sust-planet__source">Source: <a href="https://www.theworldcounts.com/challenges/planet-earth/state-of-the-planet/overuse-of-resources-on-earth" target="_blank">The World Counts</a></p>
+    </div>
+
+    <!-- SDG -->
+    <section class="page-section">
+      <div class="inner">
+        <div class="page-intro-grid" style="align-items: start;">
+
+          <!-- LEFT: About SDG -->
+          <div>
+            <p class="section-eyebrow">About SDG</p>
+            <h2 class="section-title">Sustainable Development Goals</h2>
+            <p class="body-text">The SDGs are a comprehensive and ambitious plan of action to address a wide range of global challenges, including ending poverty and hunger, ensuring healthy lives, quality education, achieving gender equality, providing clean water, promoting sustainable economic growth, decent work, and combating climate change.</p>
+            <img src="../img/SDG-all.webp" alt="All Sustainable Development Goals" style="width:100%; height:auto; display:block; margin-top: 32px; border-radius: 4px;" />
+            <p style="font-size:13px; opacity:0.45; margin-top: 12px; text-align: center;">Source: https://sdgs.un.org</p>
+          </div>
+
+          <!-- RIGHT: Main goals -->
+          <div>
+            <p class="section-eyebrow">Main goals for Wise Habit</p>
+            <h2 class="section-title">Responsible Production &amp; Consumption</h2>
+            <p class="body-text">We aspire to contribute to these goals by fostering a fair and inclusive workspace, implementing circular economy strategies, promoting sustainable design, and ensuring responsible production practices. We are willing to create the path to a more equitable, resilient, and prosperous world for the next generations.</p>
+            <p class="body-text">Responsible Production &amp; Consumption is the main goal for Wise Habit to contribute, as it lies at the heart of our mission. As entrepreneurs, we deeply understand and embrace our responsibility to address the challenges of overproduction and overconsumption.</p>
+            <div class="sust-sdg-goals">
+              <img src="../img/image-74-1.png" alt="SDG 12 — Responsible Consumption and Production" />
+              <img src="../img/image-75-1.png" alt="SDG goal" />
+              <img src="../img/image-76-1.png" alt="SDG goal" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-wrap" id="contact">
+      <div class="contact-wrap__inner">
+        <p class="contact-wrap__label">contact</p>
+        <h2 class="contact-wrap__title">Get in touch</h2>
+        <form class="contact-form" action="https://formspree.io/f/mnjyvvgb" method="POST">
+          <div>
+            <p class="form-chips-label">I'm interested in</p>
+            <div class="service-chips">
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Design" /> Design</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Implementation" /> Implementation</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Product Strategy" /> Product Strategy</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="ArchiSnob" /> ArchiSnob</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Other" /> Other</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="sust-name">name</label>
+              <input type="text" id="sust-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="sust-company">company</label>
+              <input type="text" id="sust-company" name="company" placeholder="Your company" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="sust-email">email</label>
+            <input type="email" id="sust-email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-field">
+            <label for="sust-subject">subject</label>
+            <input type="text" id="sust-subject" name="subject" placeholder="What can we help you with?" />
+          </div>
+          <div class="form-field">
+            <label for="sust-message">message</label>
+            <textarea id="sust-message" name="message" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <div class="form-consent">
+            <input type="checkbox" id="sust-consent" name="consent" required />
+            <label for="sust-consent">I agree to the processing of my personal data for the purpose of responding to my inquiry.</label>
+          </div>
+          <button type="submit" class="btn btn--filled form-submit">send message →</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer-main">
+    <div class="footer-main__inner">
+      <div class="footer-col footer-col--brand">
+        <div class="footer-brand-block">
+          <a class="footer-brand" href="https://wisehabit.com" target="_blank"><img src="../img/WH_head.svg" alt="Wise Habit" /></a>
+          <p class="footer-tagline">Agency for the Future</p>
+        </div>
+        <div class="footer-contact-block">
+          <p class="footer-block-label">contact</p>
+          <a href="mailto:office@wisehabit.com">office@wisehabit.com</a>
+          <a href="tel:+48608561173">+48 608 561 173</a>
+          <p>Warsaw, Poland</p>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col footer-col--nav">
+        <p class="footer-col__heading">Explore</p>
+        <a class="footer-col__link" href="about.html">Overview</a>
+        <a class="footer-col__link" href="sustainability.html">Sustainability</a>
+        <a class="footer-col__link" href="design.html">Design</a>
+        <a class="footer-col__link" href="exhibitions.html">Exhibitions</a>
+        <a class="footer-col__link" href="library.html">Material Library</a>
+        <a class="footer-col__link" href="archisnob.html">Archisnob</a>
+        <a class="footer-col__link" href="https://wisehabit.com/blog-eng.phtml" target="_blank">News</a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-bottom">
+    <p class="footer-bottom__copy">© 2025 Wise Habit Agency for the Future</p>
+  </footer>
+
+  <script>
+  /* ── COLOR STRIP ── */
+  const COLORS = [
+    {c:'#363C54',w:120},{c:'#414156',w:110},{c:'#455F2C',w:140},{c:'#35813F',w:140},{c:'#813B1B',w:90},{c:'#3C5CA9',w:110},{c:'#F47F2D',w:100},
+    {c:'#55926B',w:130},{c:'#CCDBDF',w:130},{c:'#A5BFCA',w:120},{c:'#89A8AB',w:120},
+    {c:'#0E1310',w:90},{c:'#1C3D18',w:100},{c:'#7892A3',w:90},{c:'#81ADBC',w:85},{c:'#9FA39F',w:80},{c:'#E0ADA9',w:85},{c:'#FBDDE1',w:80},{c:'#9FA39F',w:85}
+  ];
+  const SPEED = 0.12;
+  const strip = document.getElementById('colorStrip');
+  let CYCLE_W = 0;
+  function buildStrip(colors) {
+    strip.innerHTML = '';
+    CYCLE_W = colors.reduce((s, x) => s + x.w, 0);
+    const reps = Math.ceil((window.innerWidth * 3) / CYCLE_W) + 2;
+    for (let r = 0; r < reps; r++) {
+      colors.forEach(x => {
+        const s = document.createElement('div');
+        s.className = 'color-strip__seg';
+        s.style.cssText = `width:${x.w}px;background:${x.c}`;
+        strip.appendChild(s);
+      });
+    }
+  }
+  buildStrip(COLORS);
+  window.addEventListener('resize', () => buildStrip(COLORS));
+  window.addEventListener('scroll', () => {
+    strip.style.transform = `translateX(${-(window.scrollY * SPEED) % CYCLE_W}px)`;
+  }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }));
+  </script>
+</body>
+</html>

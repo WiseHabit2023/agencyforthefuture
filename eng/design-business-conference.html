@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Business Conference — Wise Habit Agency for the Future</title>
+  <meta name="description" content="Design Business Conference by Wise Habit & ArchiSnob. How to build ethical and profitable business around design. Warsaw, 16–17.09.2026." />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    /* ── DBC palette ── */
+    :root {
+      --dbc-navy:    #111111;
+      --dbc-hosts:   #55926B;
+      --dbc-design:  #89A8AB;
+      --dbc-product: #A5BFCA;
+      --dbc-manuf:   #CCDBDF;
+      --dbc-accent:  #55926B;
+    }
+
+    /* ── Page wrapper ── */
+    .dbc-page { background: var(--bg); color: #222; }
+
+    /* ── Hero + Intro combined grid ── */
+    .dbc-hero-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      padding: clamp(80px, 12vw, 160px) var(--pad-h) 80px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      align-items: start;
+    }
+    .dbc-hero__date {
+      font-size: 18px;
+      color: var(--dbc-accent);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .dbc-hero__title {
+      font-size: clamp(36px, 5vw, 72px);
+      font-weight: 700;
+      color: var(--dbc-navy);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+    .dbc-hero__sub {
+      font-size: 20px;
+      color: var(--dbc-navy);
+      font-weight: 400;
+      font-style: italic;
+      opacity: 0.75;
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+    .dbc-intro__text { margin-top: 40px; }
+    .dbc-intro__text p { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    .dbc-intro__text ul { margin: 0 0 20px 20px; }
+    .dbc-intro__text li { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 6px; }
+    .dbc-hero__img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      margin-top: clamp(100px, 14vw, 220px);
+    }
+
+    /* ── Generic section ── */
+    .dbc-section {
+      padding: 72px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .dbc-section--bg {
+      background: #f8f7f5;
+    }
+    .dbc-section--bg .dbc-section__inner {
+      padding: 72px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .dbc-section__heading {
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 700;
+      color: var(--dbc-navy);
+      margin-bottom: 8px;
+      line-height: 1.15;
+    }
+    .dbc-section__sub {
+      font-size: 20px;
+      color: var(--dbc-navy);
+      font-weight: 400;
+      margin-bottom: 40px;
+      opacity: 0.75;
+    }
+    .dbc-section__label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dbc-accent);
+      margin-bottom: 12px;
+    }
+
+    /* ── 2-column text layout ── */
+    .dbc-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+    .dbc-2col p { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 18px; }
+    .dbc-2col ul { margin: 0 0 18px 20px; }
+    .dbc-2col li { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 6px; }
+    .dbc-2col h3 {
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 700;
+      color: var(--dbc-navy);
+      margin-bottom: 20px;
+    }
+
+    /* ── Double full-width image ── */
+    .dbc-img-pair {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-h) 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .dbc-img-pair img {
+      width: 100%;
+      height: clamp(280px, 35vw, 520px);
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* ── Single full-width image ── */
+    .dbc-img-full {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-h) 80px;
+    }
+    .dbc-img-full img {
+      width: 100%;
+      height: clamp(280px, 35vw, 540px);
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* ── Events photo carousel ── */
+    .dbc-events-wrap {
+      position: relative;
+      margin-top: 32px;
+    }
+    .dbc-events-grid {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .dbc-events-grid::-webkit-scrollbar { display: none; }
+    .dbc-events-grid img {
+      flex-shrink: 0;
+      height: 320px;
+      width: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .dbc-events-arrows {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .dbc-events-arrow {
+      background: none;
+      border: 1px solid #111;
+      border-radius: 2px;
+      width: 40px; height: 40px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #111;
+      transition: all 0.15s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dbc-events-arrow:hover { background: #111; color: #fff; }
+
+    /* ── Speakers ── */
+    .dbc-spk-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0 40px;
+      margin-top: 48px;
+    }
+    .dbc-spk-col__title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid currentColor;
+    }
+    .dbc-col--hosts .dbc-spk-col__title   { color: var(--dbc-hosts); }
+    .dbc-col--design .dbc-spk-col__title  { color: var(--dbc-design); }
+    .dbc-col--product .dbc-spk-col__title { color: var(--dbc-product); }
+    .dbc-col--manuf .dbc-spk-col__title   { color: var(--dbc-manuf); }
+
+    .dbc-spk-card {
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .dbc-spk-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+    .dbc-col--hosts .dbc-spk-card  { border-color: var(--dbc-hosts); }
+    .dbc-col--design .dbc-spk-card { border-color: var(--dbc-design); }
+    .dbc-col--product .dbc-spk-card{ border-color: var(--dbc-product); }
+    .dbc-col--manuf .dbc-spk-card  { border-color: var(--dbc-manuf); }
+
+    .dbc-spk-card__img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      background: #e0dbd5;
+    }
+    .dbc-spk-card__body { padding: 14px 16px 16px; }
+    .dbc-spk-card__name { font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; color: #222; }
+    .dbc-spk-card__role { font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.4; }
+    .dbc-spk-card__read { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: #333; }
+    .dbc-spk-card__coming { font-size: 13px; font-weight: 700; color: var(--dbc-accent); margin-bottom: 6px; }
+    .dbc-col--hosts .dbc-spk-card__name  { color: var(--dbc-hosts); }
+    .dbc-col--design .dbc-spk-card__name { color: var(--dbc-design); }
+
+    /* ── Program ── */
+    .dbc-prog {
+      padding: 72px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .dbc-prog__title {
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 700;
+      margin-bottom: 48px;
+    }
+    .dbc-prog__date {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      color: var(--dbc-navy);
+      margin: 48px 0 24px;
+    }
+    .dbc-prog__block-title {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      color: var(--dbc-navy);
+      margin: 48px 0 24px;
+    }
+    .dbc-prog__row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+    .dbc-prog__time {
+      font-size: 18px;
+      color: #555;
+      padding-top: 20px;
+    }
+    .dbc-prog__box {
+      border: 1.5px solid var(--dbc-accent);
+      border-radius: 8px;
+      padding: 20px 28px;
+    }
+    .dbc-prog__box--toggle {
+      cursor: pointer;
+      user-select: none;
+    }
+    .dbc-prog__box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .dbc-prog__box-title { font-size: 20px; font-weight: 600; color: #333; }
+    .dbc-prog__box-note  { font-size: 15px; color: #666; margin-top: 8px; line-height: 1.6; }
+    .dbc-prog__box-plus  { font-size: 22px; color: #999; flex-shrink: 0; transition: transform 0.2s; }
+    .dbc-prog__box.open .dbc-prog__box-plus { transform: rotate(45deg); }
+    .dbc-prog__box-content {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+    }
+    .dbc-prog__box.open .dbc-prog__box-content { display: block; }
+
+    /* ── Tickets carousel ── */
+    .dbc-tickets {
+      padding: 72px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .dbc-tickets__nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .dbc-tickets__pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 2px;
+      border: 1px solid #bbb;
+      cursor: pointer;
+      color: #555;
+      background: #fff;
+      transition: all 0.2s;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .dbc-tickets__pill.active {
+      border-color: #111;
+      color: #111;
+      background: #f5f5f5;
+    }
+    .dbc-tickets__track {
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .dbc-tickets__inner {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .dbc-tickets__slide {
+      flex: 0 0 100%;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .dbc-tickets__img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+    .dbc-tickets__info {
+      padding: 8px 0;
+    }
+    .dbc-tickets__name {
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .dbc-tickets__date {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+    .dbc-tickets__list {
+      margin: 0 0 28px 18px;
+      padding: 0;
+    }
+    .dbc-tickets__list li {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .dbc-tickets__btn {
+      display: inline-block;
+      background: #A5BFCA;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: default;
+      pointer-events: none;
+      letter-spacing: 0.03em;
+    }
+    .dbc-tickets__arrows {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .dbc-tickets__arrow {
+      background: none;
+      border: 1px solid #111;
+      border-radius: 2px;
+      width: 40px; height: 40px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #111;
+      transition: all 0.15s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dbc-tickets__arrow:hover { background: #111; color: #fff; }
+    .dbc-tickets__counter { font-size: 15px; color: #666; font-variant-numeric: tabular-nums; }
+    @media (max-width: 700px) {
+      .dbc-tickets__slide { grid-template-columns: 1fr; }
+      .dbc-tickets__info { padding: 0; }
+    }
+
+    /* ── Venue bottom strip ── */
+    .dbc-bottom {
+      background: #f8f7f5;
+    }
+    .dbc-bottom__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 72px var(--pad-h);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .dbc-bottom__section-title {
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 700;
+      color: var(--dbc-navy);
+      margin-bottom: 28px;
+    }
+    .dbc-bottom__venue-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .dbc-bottom__col-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 12px;
+    }
+    .dbc-bottom__addr {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.8;
+    }
+    .dbc-bottom__contact-text { font-size: 16px; color: #444; line-height: 1.7; margin-bottom: 16px; }
+    .dbc-bottom__email { font-size: 17px; font-weight: 600; color: var(--dbc-accent); }
+
+    /* ── Modal ── */
+    .dbc-modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .dbc-modal-overlay.open { display: flex; }
+    .dbc-modal {
+      background: #fff;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      max-width: 960px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 48px;
+      padding: 52px;
+      position: relative;
+      min-height: 480px;
+      max-height: 90vh;
+      overflow-y: auto;
+      align-items: start;
+    }
+    .dbc-modal__close {
+      position: absolute; top: 18px; right: 24px;
+      background: none; border: none; font-size: 28px;
+      cursor: pointer; color: #666;
+    }
+    .dbc-modal__img {
+      width: 100%; aspect-ratio: 1/1;
+      object-fit: cover; object-position: top;
+      border-radius: 4px;
+    }
+    .dbc-modal__content { padding-top: 8px; }
+    .dbc-modal__cat  { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .dbc-modal__name { font-size: 28px; font-weight: 700; margin-bottom: 6px; color: #222; line-height: 1.2; }
+    .dbc-modal__role { font-size: 17px; color: #666; margin-bottom: 24px; }
+    .dbc-modal__desc { font-size: 16px; line-height: 1.8; color: #333; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .dbc-spk-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .dbc-hero-intro,
+      .dbc-2col { grid-template-columns: 1fr; gap: 40px; }
+      .dbc-img-pair { grid-template-columns: 1fr; }
+      .dbc-bottom__inner { grid-template-columns: 1fr; gap: 48px; }
+      .dbc-modal { grid-template-columns: 1fr; padding: 36px 28px; min-height: unset; }
+      .dbc-modal__img { max-height: 320px; aspect-ratio: unset; }
+    }
+    @media (max-width: 640px) {
+      .dbc-hero-intro, .dbc-section, .dbc-prog, .dbc-img-pair, .dbc-img-full,
+      .dbc-bottom__inner { padding-left: 20px; padding-right: 20px; }
+      .dbc-spk-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .dbc-prog__row { grid-template-columns: 1fr; gap: 8px; }
+      .dbc-prog__time { padding-top: 0; font-size: 15px; }
+      .dbc-events-grid img { height: 220px; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+</head>
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__inner">
+      <div class="nav__logo">
+        <a class="nav__logo-agency" href="index.html">
+          <img src="../img/logo_5_small.svg" alt="Wise Habit — Agency for the Future" />
+        </a>
+        <a class="nav__logo-wh" href="https://wisehabit.com" target="_blank">
+          <img src="../img/WH_head.svg" alt="wisehabit.com" />
+        </a>
+      </div>
+      <ul class="nav__links">
+        <li class="nav__dropdown"><span>about</span>
+          <div class="nav__dropdown-menu">
+            <a href="about.html">overview</a>
+            <a href="team.html">team</a>
+            <a href="awards.html">awards</a>
+            <a href="clients.html">clients</a>
+          </div>
+        </li>
+        <li><a href="sustainability.html">sustainability</a></li>
+        <li class="nav__dropdown"><span>services</span>
+          <div class="nav__dropdown-menu">
+            <a href="design.html">design</a>
+            <a href="rd.html">R&amp;D</a>
+            <a href="product-strategy.html">product strategy</a>
+            <a href="branding-ip.html">branding &amp; IP</a>
+          </div>
+        </li>
+        <li class="nav__dropdown"><span>exhibitions &amp; library</span>
+          <div class="nav__dropdown-menu">
+            <a href="exhibitions.html">exhibitions</a>
+            <a href="power-of-three.html">power of three</a>
+            <a href="design-business-conference.html">design business conference</a>
+            <a href="library.html">library</a>
+          </div>
+        </li>
+        <li><a href="archisnob.html">archisnob</a></li>
+        <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+      </ul>
+      <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="nav__mobile" id="mobileNav">
+    <ul class="nav__mobile-links">
+      <li><span>about</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="about.html">overview</a></li>
+          <li><a href="team.html">team</a></li>
+          <li><a href="awards.html">awards</a></li>
+          <li><a href="clients.html">clients</a></li>
+        </ul>
+      </li>
+      <li><a href="sustainability.html">sustainability</a></li>
+      <li><span>services</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design.html">design</a></li>
+          <li><a href="rd.html">R&amp;D</a></li>
+          <li><a href="product-strategy.html">product strategy</a></li>
+          <li><a href="branding-ip.html">branding &amp; IP</a></li>
+        </ul>
+      </li>
+      <li><span>conferences</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design-business-conference.html">design business conference</a></li>
+          <li><a href="archive.html">archive</a></li>
+        </ul>
+      </li>
+      <li><span>exhibitions &amp; library</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="exhibitions.html">exhibitions</a></li>
+          <li><a href="power-of-three.html">power of three</a></li>
+          <li><a href="library.html">library</a></li>
+        </ul>
+      </li>
+      <li><a href="archisnob.html">archisnob</a></li>
+      <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+    </ul>
+  </div>
+
+  <!-- COLOR STRIP -->
+  <div class="color-strip-wrapper">
+    <div class="color-strip" id="colorStrip"></div>
+  </div>
+
+  <main class="page-content dbc-page">
+
+    <!-- ══ HERO + INTRO ══ -->
+    <div class="dbc-hero-intro">
+      <div>
+        <p class="dbc-hero__date">16–17.09.2026</p>
+        <h1 class="dbc-hero__title">Design Business Conference</h1>
+        <p class="dbc-hero__sub">How to build ethical and profitable business around design.</p>
+        <div class="dbc-intro__text">
+          <p>Design Business is a series dedicated to the key directions of contemporary design and architecture — from ethical and sustainable development, through innovative technologies, to the social role of design.</p>
+          <p>The idea behind is led by Wise Habit and ArchiSnob, an organization supporting designers and architects in creating conscious, responsible solutions where business is a core of every decision.</p>
+          <p>The creators of the initiative believe that meaningful dialogue shapes the future of the industry, which is why they invite representatives of architecture, design, science, business, and NGOs to join the conversation.</p>
+          <ul>
+            <li>How to build ethical and profitable business around design?</li>
+            <li>How to earn and stay fair. Building longterm potential based on values and consumer involvement?</li>
+            <li>How to design ethically, consciously and with the future in mind?</li>
+            <li>How do we connect: business with branding, design with efficient implementation, technology with craftsmanship, innovation with care for the planet?</li>
+          </ul>
+          <p>These are the questions explored by participants — a new series of conferences for architects, designers, artists, and innovators, organised by Wise Habit and ArchiSnob in collaboration (Partners).</p>
+          <p>We meet in Warsaw, Poland.</p>
+        </div>
+      </div>
+      <img class="dbc-hero__img"
+        src="../img/Poster-Wise-Habit-Conference16-17.09.webp"
+        alt="Design Business Conference — Wise Habit & ArchiSnob poster"
+        onerror="this.style.background='#1a2060';this.removeAttribute('src')"
+      />
+    </div>
+
+    <!-- ══ ABOUT THE ORGANIZERS ══ -->
+    <div class="dbc-section">
+      <h2 class="dbc-section__heading">About the organizers</h2>
+      <div class="dbc-2col">
+        <div>
+          <p class="dbc-section__sub" style="margin-bottom:24px;">Wise Habit</p>
+          <p>Wise Habit is a strategic design agency committed to shaping a better future. We create conferences and exhibitions that inspire on an intellectual rather than purely aesthetic level. Focusing on ethically relevant topics, we use design and architecture as tools to provoke thought, encourage dialogue, and contribute to meaningful change.</p>
+        </div>
+        <div>
+          <p class="dbc-section__sub" style="margin-bottom:24px;">ArchiSnob</p>
+          <p>ArchiSnob is a platform dedicated to shaping the dialogue around architecture and design through critical thinking, cultural insight, and real industry impact. Founded and led by Marcin Szczelina, it brings together expertise in architecture, design, and sustainability to inspire meaningful conversations at conferences and industry events worldwide.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ WHY? ══ -->
+    <div class="dbc-section" style="padding-top:0;">
+      <h2 class="dbc-section__heading">Why?</h2>
+      <div class="dbc-2col" style="margin-top:32px;">
+        <div>
+          <p>The Design &amp; Business conference exists to connect design with real-world impact. Not as theory, but as practice. It responds to a simple need: design today must work — economically, socially, environmentally, and ethically. Ideas are not enough. They need systems, strategy, and execution.</p>
+          <p>The conference explores how creativity becomes value: how brands are built, how products reach the market, and how decisions in design shape broader business outcomes.</p>
+        </div>
+        <div>
+          <p>It combines strategic and theoretical perspectives with practical insights into technologies, materials, and production processes. It is a space for rethinking responsibility in design — and for aligning innovation with long-term consequences and ethical design practice.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ TO WHOM? ══ -->
+    <div class="dbc-section" style="padding-top:0;">
+      <h2 class="dbc-section__heading">To whom?</h2>
+      <div class="dbc-2col" style="margin-top:32px;">
+        <div>
+          <p>The conference is designed to build a strong and engaged community by facilitating knowledge exchange and fostering collaboration across diverse audience groups. Its purpose is to connect professionals from different sectors, creating a shared space for learning, meaningful relationships, and long-term cooperation.</p>
+        </div>
+        <div>
+          <ul>
+            <li>Architects, Contract Companies and Developers.</li>
+            <li>Product Designers</li>
+            <li>Manufacturers</li>
+            <li>Buyers</li>
+          </ul>
+          <p>Goal: Gathering the Target Group and building long-term business relationships.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ACCOMPANYING EVENTS ══ -->
+    <div class="dbc-section" style="padding-top:0;">
+      <h2 class="dbc-section__heading">Accompanying events</h2>
+      <div class="dbc-2col">
+        <div>
+          <p class="dbc-section__sub" style="margin-bottom:24px;">Ethical Design Exhibition</p>
+          <p>Wise Habit Exhibition: The Power of Three is an exhibition that approaches design and architecture as a tool for reflection on the contemporary world. Its structure is inspired by the number three — an archetypal symbol of balance, cyclicality, and harmony, present in both culture and nature.</p>
+          <p>The exhibition unfolds across three thematic axes: Sustainability, Ethical Design, and Crisis, forming a framework for dialogue about the future of the built environment. Each theme reveals a different tension within design — between social needs and economic forces, between nature and technology, between comfort and responsibility.</p>
+          <p>The installation is conceived as a multisensory experience. Three spatial elements correspond to three modes of perception: image, sound, and material. Visitors can see architectural projects, hear the voices of designers and researchers, and touch materials that may shape the future of architecture — from biomimetic structures to self-healing materials.</p>
+          <p>In this way, the exhibition becomes not only a presentation of projects, but also a narrative of transformation — a shift from traditional approaches to construction toward more responsible, circular, and socially conscious models of design.</p>
+        </div>
+        <div>
+          <p class="dbc-section__sub" style="margin-bottom:24px;">ArchiSnob Gala</p>
+          <p>TheArchi Snob is an independent magazine dedicated to architecture, design, and the culture of space. Published in both Polish and English, it brings together leading voices from across the industry, offering thoughtful perspectives on how architecture shapes cities, society, and the way we live.</p>
+          <p>Each new issue is celebrated with a special evening event — a natural continuation of the conversations started during the day. Following the Design &amp; Business conference, guests are invited to stay for the official premiere and evening gala.</p>
+          <p>More than just a launch, the event is designed as a cultural experience. It brings together architects, curators, investors, and opinion leaders, and is attended by over 400 guests from leading Polish design studios. Each edition is accompanied by a concert by a renowned Polish artist or a specially created performance, creating a unique atmosphere where architecture meets music and live expression.</p>
+          <p>The evening also offers space for informal conversations, new connections, and exchange across disciplines — extending the conference into a more relaxed and immersive setting. It is a moment to experience the ideas behind the magazine in a more sensory way, and to become part of a wider creative community gathered around each issue.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ACCOMPANYING EVENTS IMAGES ══ -->
+    <div class="dbc-img-pair">
+      <img
+        src="../img/small_kolaz_WH_A_W_2026_gradient2-1.webp"
+        alt="Wise Habit Exhibition — The Power of Three"
+      />
+      <img
+        src="../img/Gala.webp"
+        alt="ArchiSnob Gala — Wise Habit"
+      />
+    </div>
+
+    <!-- ══ AGENDA ══ -->
+    <div class="dbc-section" style="padding-top:0;">
+      <h2 class="dbc-section__heading">Agenda</h2>
+      <div class="dbc-2col" style="margin-top:32px;">
+        <div>
+          <p>The Design &amp; Business conference is divided into three thematic blocks: Business &amp; Marketing, Product, and Manufacturing.</p>
+          <p>Each block focuses on specific topics, from branding and market strategy, through product development and service design, to production systems, innovation, and global manufacturing challenges.</p>
+        </div>
+        <div>
+          <p>The program includes a mix of presentations and panel discussions, ending with a closing speech dedicated to ethical design and responsible production.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ OUR EVENTS ══ -->
+    <div class="dbc-section" style="padding-top:0;">
+      <h2 class="dbc-section__heading">Our events</h2>
+      <p style="font-size:16px;color:#555;margin-top:8px;">A selection of events and conferences we have organised and co-created.</p>
+      <div class="dbc-events-wrap">
+        <div class="dbc-events-grid" id="eventsTrack">
+          <img src="../img/Labra.webp" alt="Event" />
+          <img src="../img/WH_talks.webp" alt="Event" />
+          <img src="../img/Our_events.webp" alt="Event" />
+          <img src="../img/ArchiSnob.webp" alt="Event" />
+          <img src="../img/LG.webp" alt="Event" />
+          <img src="../img/Jedzenie.webp" alt="Event" />
+          <img src="../img/WH_opening.webp" alt="Event" />
+          <img src="../img/AW2025.webp" alt="Event" />
+          <img src="../img/ArchiSnob_2.webp" alt="Event" />
+        </div>
+        <div class="dbc-events-arrows">
+          <button class="dbc-events-arrow" id="eventsPrev" aria-label="Previous">←</button>
+          <button class="dbc-events-arrow" id="eventsNext" aria-label="Next">→</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SPEAKERS ══ -->
+    <div class="dbc-section" style="padding-top:0;">
+      <h2 class="dbc-section__heading">Speakers</h2>
+      <div class="dbc-spk-grid">
+
+        <!-- Conference hosts -->
+        <div class="dbc-spk-col dbc-col--hosts">
+          <div class="dbc-spk-col__title">Conference hosts</div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('marcelina','#55926B')">
+            <img class="dbc-spk-card__img"
+              src="../img/Conference_host_Marcelina_Plichta.webp"
+              alt="Marcelina Plichta-Wabnik" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Marcelina Plichta-Wabnik</div>
+              <div class="dbc-spk-card__role">Founder and CEO of Wise Habit</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('marcin','#55926B')">
+            <img class="dbc-spk-card__img"
+              src="../img/Architecture_critic_Marcin_Szczelina.webp"
+              alt="Marcin Szczelina" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Marcin Szczelina</div>
+              <div class="dbc-spk-card__role">Architecture critic and curator</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#55926B')">
+            <img class="dbc-spk-card__img"
+              src="../img/stay_tuned.webp"
+              alt="Coming soon" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Stay tuned</div>
+              <div class="dbc-spk-card__role">More to come</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design & Business -->
+        <div class="dbc-spk-col dbc-col--design">
+          <div class="dbc-spk-col__title">Design &amp; Business</div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('aga','#89A8AB')">
+            <img class="dbc-spk-card__img"
+              src="../img/Experience_design_Aga_Szostek.webp"
+              alt="dr Aga Szóstek" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">dr Aga Szóstek</div>
+              <div class="dbc-spk-card__role">Experience Design</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#89A8AB')">
+            <img class="dbc-spk-card__img"
+              src="../img/stay_tuned.webp"
+              alt="Coming soon" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Stay tuned</div>
+              <div class="dbc-spk-card__role">More to come</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#89A8AB')">
+            <img class="dbc-spk-card__img"
+              src="../img/stay_tuned.webp"
+              alt="Coming soon" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Stay tuned</div>
+              <div class="dbc-spk-card__role">More to come</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product -->
+        <div class="dbc-spk-col dbc-col--product">
+          <div class="dbc-spk-col__title">Product</div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('kacper','#A5BFCA')">
+            <img class="dbc-spk-card__img"
+              src="../img/Forecasting_Kacper_Nosarzewski.webp"
+              alt="Kacper Nosarzewski" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Kacper Nosarzewski</div>
+              <div class="dbc-spk-card__role">Forecasting</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('marcelina','#A5BFCA')">
+            <img class="dbc-spk-card__img"
+              src="../img/Conference_host_Marcelina_Plichta.webp"
+              alt="Marcelina Plichta-Wabnik" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Marcelina Plichta-Wabnik</div>
+              <div class="dbc-spk-card__role">Product strategy &amp; development</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('jerzy','#A5BFCA')">
+            <img class="dbc-spk-card__img"
+              src="../img/How_developers_develop_products_Jerzy_Lipinski.webp"
+              alt="Jerzy Lipiński" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Jerzy Lipiński</div>
+              <div class="dbc-spk-card__role">How developers develop products?</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Manufacturing -->
+        <div class="dbc-spk-col dbc-col--manuf">
+          <div class="dbc-spk-col__title">Manufacturing</div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('ken','#CCDBDF')">
+            <img class="dbc-spk-card__img"
+              src="../img/Ken_Wong.webp"
+              alt="Ken Wong" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Ken Wong</div>
+              <div class="dbc-spk-card__role">Entrepreneur &amp; Innovation Leader</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#CCDBDF')">
+            <img class="dbc-spk-card__img"
+              src="../img/stay_tuned.webp"
+              alt="Coming soon" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Stay tuned</div>
+              <div class="dbc-spk-card__role">More to come</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('tba','#CCDBDF')">
+            <img class="dbc-spk-card__img"
+              src="../img/stay_tuned.webp"
+              alt="Coming soon" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Stay tuned</div>
+              <div class="dbc-spk-card__role">More to come</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══ VENUE ══ -->
+    <div class="dbc-section" style="padding-top:0;">
+      <h2 class="dbc-section__heading">Venue</h2>
+      <div class="dbc-2col" style="margin-top:32px;">
+        <div>
+          <p>The events of the day will take place at the National Library of Poland in Warsaw — one of the country's most important cultural institutions, founded in 1928. The main building, designed in the 1960s by architect Stanisław Fijałkowski, is a landmark of Polish modernism.</p>
+          <p>Recently modernized by KONIOR Studio, the library has been carefully transformed to meet contemporary needs while preserving its original architectural character. The renovation introduced new reading rooms and public spaces defined by natural materials, improved functionality, and a more open, intuitive layout, creating a refined and inspiring environment for today's cultural and business events.</p>
+        </div>
+        <div>
+          <p>As the largest library in Poland, it houses millions of books, manuscripts, and archival materials, including rare and historic collections that reflect the country's literary and cultural heritage, adding a distinct intellectual atmosphere to the venue.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Venue image -->
+    <div class="dbc-img-full">
+      <img
+        src="../img/Venue.webp"
+        alt="National Library of Poland — Venue for Design Business Conference"
+      />
+    </div>
+
+    <!-- ══ PROGRAM ══ -->
+    <div class="dbc-prog">
+      <h2 class="dbc-prog__title">Program</h2>
+      <p class="dbc-prog__date">16–17.09.2026</p>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">8:30 – 9:30</div>
+        <div class="dbc-prog__box">
+          <div class="dbc-prog__box-title">Registration</div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">9:30 – 9:45</div>
+        <div class="dbc-prog__box">
+          <div class="dbc-prog__box-title">Official opening of the conference</div>
+        </div>
+      </div>
+
+      <p class="dbc-prog__block-title">Business &amp; Marketing</p>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">9:45 – 10:15</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Ethical Design</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speakers:</strong> Dan Fitzgerald, dr Ania Sokołowska-Ławniczak
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">10:15 – 10:45</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Building emotional brands</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speakers:</strong> Dan Fitzgerald, dr Ania Sokołowska-Ławniczak
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">10:45 – 11:15</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Experience Design</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speakers:</strong> Dr. Daniela Soto Hernandez, Thomas Rau
+          </div>
+        </div>
+      </div>
+
+      <p class="dbc-prog__block-title">Product</p>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">11:15 – 11:45</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Forecasting. Should we follow or create trends?</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speaker:</strong> Kacper Nosarzewski
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">11:45 – 12:15</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div>
+              <div class="dbc-prog__box-title">Product strategy &amp; development process</div>
+              <div class="dbc-prog__box-note">From idea to implementation.</div>
+            </div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speaker:</strong> Marcelina Plichta-Wabnik
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">12:15 – 12:45</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Designing services</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content"></div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">12:45 – 13:15</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">How developers develop products?</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speaker:</strong> Jerzy Lipiński
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">13:15 – 14:00</div>
+        <div class="dbc-prog__box">
+          <div class="dbc-prog__box-title">Lunch Break</div>
+        </div>
+      </div>
+
+      <p class="dbc-prog__block-title">Manufacturing</p>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">14:00 – 14:30</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Glocalisation</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content"></div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">14:30 – 15:00</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Industry / applied perspective</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content"></div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">15:00 – 15:30</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Geopolitical impact on production</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content"></div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">15:30 – 16:00</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Sustainability &amp; mass production</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content"></div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">16:00 – 16:30</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Innovation and responsibility</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content"></div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">16:30 – 17:15</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div class="dbc-prog__box-title">Future of Manufacturing</div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speaker:</strong> Ken Wong
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">17:15 – 17:50</div>
+        <div class="dbc-prog__box">
+          <div class="dbc-prog__box-title">Closing Speech</div>
+          <div class="dbc-prog__box-note">How we can design and produce ethically?</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ TICKETS ══ -->
+    <div class="dbc-tickets">
+      <h2 class="dbc-prog__title">Tickets</h2>
+
+      <!-- Indicator pills -->
+      <div class="dbc-tickets__nav" id="ticketNav"></div>
+
+      <!-- Slides wrapper -->
+      <div class="dbc-tickets__track" id="ticketTrack">
+        <div class="dbc-tickets__inner" id="ticketInner">
+
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="../img/Wise_Habit_AFTF-ticket-01.jpg"
+              alt="One Day Conference 16.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">One Day Conference</h3>
+              <p class="dbc-tickets__date">16.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
+          </div>
+
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="../img/Wise_Habit_AFTF-ticket-02.jpg"
+              alt="One Day Conference 17.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">One Day Conference</h3>
+              <p class="dbc-tickets__date">17.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
+          </div>
+
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="../img/Wise_Habit_AFTF-ticket-03.jpg"
+              alt="Two Day Conference 16–17.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">Two Day Conference</h3>
+              <p class="dbc-tickets__date">16–17.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
+          </div>
+
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="../img/Wise_Habit_AFTF-ticket-04.jpg"
+              alt="One Day Conference + Gala 17.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">One Day Conference + Gala</h3>
+              <p class="dbc-tickets__date">17.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+                <li>A ticket to attend a gala event with decision makers and industry experts</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
+          </div>
+
+          <div class="dbc-tickets__slide">
+            <img class="dbc-tickets__img"
+              src="../img/Wise_Habit_AFTF-ticket-05.jpg"
+              alt="Two Day Conference + Gala 16–17.09.2026" />
+            <div class="dbc-tickets__info">
+              <h3 class="dbc-tickets__name">Two Day Conference + Gala</h3>
+              <p class="dbc-tickets__date">16–17.09.2026</p>
+              <ul class="dbc-tickets__list">
+                <li>Access to all conference sessions</li>
+                <li>Participation in workshops and thematic discussions</li>
+                <li>The opportunity to meet other participants and speakers at one of the most important sustainability events</li>
+                <li>Access to coffee breaks and lunch</li>
+                <li>A ticket to attend a gala event with decision makers and industry experts</li>
+              </ul>
+              <a class="dbc-tickets__btn" href="#">Buy now</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Arrows -->
+      <div class="dbc-tickets__arrows">
+        <button class="dbc-tickets__arrow" id="ticketPrev" aria-label="Previous">←</button>
+        <span class="dbc-tickets__counter" id="ticketCounter">1 / 5</span>
+        <button class="dbc-tickets__arrow" id="ticketNext" aria-label="Next">→</button>
+      </div>
+    </div>
+
+    <!-- ══ VENUE / CONTACT FOOTER ══ -->
+    <div class="dbc-bottom">
+      <div class="dbc-bottom__inner">
+        <div>
+          <h2 class="dbc-bottom__section-title">Venue</h2>
+          <div class="dbc-bottom__venue-cols">
+            <div>
+              <div class="dbc-bottom__col-title">Conference</div>
+              <p class="dbc-bottom__addr">National Library of Poland<br>213 Niepodległości Avenue<br>02-086 Warsaw</p>
+            </div>
+            <div>
+              <div class="dbc-bottom__col-title">Gala</div>
+              <p class="dbc-bottom__addr">National Library of Poland<br>213 Niepodległości Avenue<br>02-086 Warsaw</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2 class="dbc-bottom__section-title">Contact us</h2>
+          <p class="dbc-bottom__contact-text">If you have any questions feel free to contact us.</p>
+          <a href="mailto:marketing@wisehabit.com" class="dbc-bottom__email">marketing@wisehabit.com</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══ SPEAKER MODAL ══ -->
+  <div class="dbc-modal-overlay" id="dbcModal" onclick="closeSpkModalOnOverlay(event)">
+    <div class="dbc-modal" id="dbcModalInner">
+      <button class="dbc-modal__close" onclick="closeSpkModal()">×</button>
+      <div>
+        <img class="dbc-modal__img" id="spkModalImg" src="" alt="" />
+      </div>
+      <div class="dbc-modal__content">
+        <div class="dbc-modal__cat" id="spkModalCat"></div>
+        <div class="dbc-modal__name" id="spkModalName"></div>
+        <div class="dbc-modal__role" id="spkModalRole"></div>
+        <div class="dbc-modal__desc" id="spkModalDesc"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer-main">
+    <div class="footer-main__inner">
+      <div class="footer-col footer-col--brand">
+        <div class="footer-brand-block">
+          <a class="footer-brand" href="https://wisehabit.com" target="_blank">
+            <img src="../img/WH_head.svg" alt="Wise Habit" />
+          </a>
+          <p class="footer-tagline">Agency for the Future</p>
+        </div>
+        <div class="footer-contact-block">
+          <p class="footer-block-label">contact</p>
+          <a href="mailto:office@wisehabit.com">office@wisehabit.com</a>
+          <a href="tel:+48608561173">+48 608 561 173</a>
+          <p>Warsaw, Poland</p>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col footer-col--nav">
+        <p class="footer-col__heading">Explore</p>
+        <a class="footer-col__link" href="exhibitions.html">Exhibitions</a>
+        <a class="footer-col__link" href="library.html">Material Library</a>
+        <a class="footer-col__link" href="sustainability.html">Sustainability</a>
+        <a class="footer-col__link" href="design.html">Design Services</a>
+        <a class="footer-col__link" href="archisnob.html">ArchiSnob</a>
+        <a class="footer-col__link" href="https://wisehabit.com/blog-eng.phtml" target="_blank">Blog</a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-bottom">
+    <p class="footer-bottom__copy">© 2025 Wise Habit Agency for the Future</p>
+  </footer>
+
+  <script>
+  /* ── COLOR STRIP ── */
+  const COLORS = [
+    {c:'#55926B',w:150},{c:'#CCDBDF',w:130},{c:'#A5BFCA',w:140},{c:'#89A8AB',w:120},{c:'#55926B',w:110},{c:'#CCDBDF',w:150},{c:'#A5BFCA',w:120},{c:'#89A8AB',w:140}
+  ];
+  const SPEED = 0.12;
+  const strip = document.getElementById('colorStrip');
+  let CYCLE_W = 0;
+  function buildStrip(colors) {
+    strip.innerHTML = '';
+    CYCLE_W = colors.reduce((s, x) => s + x.w, 0);
+    const reps = Math.ceil((window.innerWidth * 3) / CYCLE_W) + 2;
+    for (let r = 0; r < reps; r++) {
+      colors.forEach(x => {
+        const s = document.createElement('div');
+        s.className = 'color-strip__seg';
+        s.style.cssText = `width:${x.w}px;background:${x.c}`;
+        strip.appendChild(s);
+      });
+    }
+  }
+  buildStrip(COLORS);
+  window.addEventListener('resize', () => buildStrip(COLORS));
+  window.addEventListener('scroll', () => {
+    strip.style.transform = `translateX(${-(window.scrollY * SPEED) % CYCLE_W}px)`;
+  }, { passive: true });
+
+  /* ── HAMBURGER ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }));
+
+  /* ── EVENTS CAROUSEL ── */
+  (function() {
+    const track = document.getElementById('eventsTrack');
+    const step = 440;
+    document.getElementById('eventsPrev').addEventListener('click', () => { track.scrollLeft -= step; });
+    document.getElementById('eventsNext').addEventListener('click', () => { track.scrollLeft += step; });
+  })();
+
+  /* ── TICKETS CAROUSEL ── */
+  (function() {
+    const inner  = document.getElementById('ticketInner');
+    const nav    = document.getElementById('ticketNav');
+    const counter= document.getElementById('ticketCounter');
+    const total  = 5;
+    const labels = [
+      'One Day – 16.09',
+      'One Day – 17.09',
+      'Two Days – 16–17.09',
+      'One Day + Gala',
+      'Two Days + Gala'
+    ];
+    let current = 0;
+
+    labels.forEach((label, i) => {
+      const pill = document.createElement('button');
+      pill.className = 'dbc-tickets__pill' + (i === 0 ? ' active' : '');
+      pill.textContent = label;
+      pill.addEventListener('click', () => goTo(i));
+      nav.appendChild(pill);
+    });
+
+    function goTo(idx) {
+      nav.children[current].classList.remove('active');
+      current = (idx + total) % total;
+      inner.style.transform = `translateX(-${current * 100}%)`;
+      nav.children[current].classList.add('active');
+      counter.textContent = (current + 1) + ' / ' + total;
+    }
+
+    document.getElementById('ticketPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('ticketNext').addEventListener('click', () => goTo(current + 1));
+  })();
+
+  /* ── PROGRAM ACCORDION ── */
+  function toggleProg(box) {
+    box.classList.toggle('open');
+  }
+
+  /* ── SPEAKER DATA ── */
+  const SPEAKERS = {
+    'marcelina': {
+      cat: 'Conference host / Product', color: '#C8602A',
+      name: 'Marcelina Plichta-Wabnik',
+      role: 'Founder and CEO of Wise Habit',
+      desc: 'An entrepreneur and strategist, she has been helping brands grow in a consistent, authentic, and scalable way for years. She specializes in brand building, commercialization of products and services, and optimization of implementation and production processes, having successfully brought over 300 products to market. In her work, she combines analytical thinking with a sensitivity to design, emotions, and ethics.',
+      img: 'img/Conference_host_Marcelina_Plichta.webp'
+    },
+    'marcin': {
+      cat: 'Conference host', color: '#C8602A',
+      name: 'Marcin Szczelina',
+      role: 'Architecture critic and curator',
+      desc: 'Marcin Szczelina is a leading architecture critic and curator, founder of ArchiSnob. He shapes conversations around architecture and design through critical thinking, cultural insight, and real industry impact.',
+      img: 'img/Architecture_critic_Marcin_Szczelina.webp'
+    },
+    'aga': {
+      cat: 'Design & Business', color: '#C0392B',
+      name: 'dr Aga Szóstek',
+      role: 'Experience Design',
+      desc: 'Dr Aga Szóstek is a researcher and practitioner in the field of experience design. She helps organisations understand and shape the experiences they create, bridging strategic vision with human-centred design.',
+      img: 'img/Experience_design_Aga_Szostek.webp'
+    },
+    'kacper': {
+      cat: 'Product', color: '#1C7A5A',
+      name: 'Kacper Nosarzewski',
+      role: 'Forecasting',
+      desc: 'Kacper Nosarzewski is a futurist and strategic foresight expert. He helps organisations navigate uncertainty and develop strategies for long-term resilience and innovation.',
+      img: 'img/Forecasting_Kacper_Nosarzewski.webp'
+    },
+    'jerzy': {
+      cat: 'Product', color: '#1C7A5A',
+      name: 'Jerzy Lipiński',
+      role: 'How developers develop products?',
+      desc: 'Jerzy Lipiński brings a developer\'s perspective to product design, exploring the intersection of engineering thinking with user-centred product development processes.',
+      img: 'img/How_developers_develop_products_Jerzy_Lipinski.webp'
+    },
+    'ken': {
+      cat: 'Manufacturing', color: '#8B3A1A',
+      name: 'Ken Wong',
+      role: 'Entrepreneur & Innovation Leader',
+      desc: 'Ken Wong is an entrepreneur and innovation leader with extensive experience connecting global manufacturing trends with design and business strategy.',
+      img: 'img/Ken_Wong.webp'
+    },
+    'tba': {
+      cat: 'Coming soon', color: '#55926B',
+      name: 'Stay tuned',
+      role: 'More to come',
+      desc: 'We are still finalising our speaker lineup. New speakers will be announced soon — stay tuned for updates.',
+      img: 'img/stay_tuned.webp'
+    }
+  };
+
+  function openSpkModal(id, color) {
+    const s = SPEAKERS[id];
+    if (!s) return;
+    const c = color || s.color;
+    document.getElementById('spkModalImg').src = s.img;
+    document.getElementById('spkModalImg').alt = s.name;
+    document.getElementById('spkModalCat').textContent = s.cat;
+    document.getElementById('spkModalCat').style.color = c;
+    document.getElementById('spkModalName').textContent = s.name;
+    document.getElementById('spkModalRole').textContent = s.role;
+    document.getElementById('spkModalDesc').textContent = s.desc;
+    document.getElementById('dbcModalInner').style.borderColor = c;
+    document.getElementById('dbcModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSpkModal() {
+    document.getElementById('dbcModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeSpkModalOnOverlay(e) {
+    if (e.target === document.getElementById('dbcModal')) closeSpkModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSpkModal(); });
+  </script>
+</body>
+</html>
