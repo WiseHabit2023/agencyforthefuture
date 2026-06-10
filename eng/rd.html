@@ -6,6 +6,139 @@
   <title>R&amp;D — Agency for the Future</title>
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <style>
+    /* ── R&D page-specific styles ── */
+
+    .rd-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 64px;
+      margin-top: 56px;
+    }
+    .rd-feature__title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .rd-feature__text {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .rd-full-img {
+      width: 100%;
+      height: clamp(320px, 36vw, 540px);
+      object-fit: cover;
+      display: block;
+    }
+
+    .rd-portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .rd-portfolio-grid__cta {
+      margin-top: 32px;
+      text-align: center;
+    }
+    .rd-portfolio-grid__cta-label {
+      font-size: 17px;
+      color: #444;
+      margin-bottom: 16px;
+    }
+
+    .rd-category-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .rd-category-table tr {
+      border-top: 1px solid #ddd;
+    }
+    .rd-category-table tr:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+    .rd-category-table td {
+      padding: 18px 8px 18px 0;
+      vertical-align: top;
+    }
+    .rd-category-table td:first-child {
+      font-weight: 600;
+      font-size: 17px;
+      color: #111;
+      padding-right: 24px;
+      min-width: 180px;
+      white-space: nowrap;
+    }
+    .rd-category-table td:last-child {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .rd-materials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .rd-materials-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .rd-circular-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .rd-circular-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .rd-quote-section {
+      padding: 100px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .rd-quote__eyebrow {
+      font-size: 15px;
+      color: #888;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+    .rd-quote__text {
+      font-size: clamp(22px, 2.6vw, 38px);
+      font-weight: 500;
+      line-height: 1.25;
+      color: #111;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    /* contact section embedded */
+    .rd-contact-section {
+      background: #f5f4f1;
+    }
+
+    @media (max-width: 900px) {
+      .rd-features { grid-template-columns: 1fr; gap: 32px; }
+      .rd-portfolio-grid { grid-template-columns: 1fr; gap: 48px; }
+      .rd-materials-grid { grid-template-columns: 1fr; gap: 32px; }
+      .rd-circular-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 700px) {
+      .rd-features { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -98,21 +231,319 @@
 
   <main class="page-content">
 
+    <!-- ══ HERO ══ -->
     <section class="hero">
       <div class="hero__inner">
-        <p class="hero__tag">R&amp;D</p>
-        <h1 class="hero__title">Research &amp;<br>Development</h1>
+        <p class="hero__tag">product implementation</p>
+        <h1 class="hero__title">Reliability &amp; fairness<br>of new product<br>implementation</h1>
         <div class="hero__ctas">
-          <a href="contact.html" class="btn btn--filled">get in touch <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#contact" class="btn btn--filled">get in touch <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#learn-more" class="btn btn--outline">learn more <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </section>
 
+    <!-- ══ INTRO 3-COL ══ -->
+    <section class="page-section" id="learn-more">
+      <div class="inner">
+        <p class="section-eyebrow centered">Idea implementation</p>
+        <h2 class="section-title centered">Your idea introduced to the market</h2>
+        <div class="rd-features">
+          <div>
+            <h3 class="rd-feature__title">Reliability through experience</h3>
+            <p class="rd-feature__text">With nearly 20 years of experience and our process ensures reliable services by focusing on every aspect of the product life cycle, engaging design, marketing, and sales to maximize success.</p>
+          </div>
+          <div>
+            <h3 class="rd-feature__title">Innovation &amp; sustainability</h3>
+            <p class="rd-feature__text">Our implementation services at Agency for the Future are dedicated to innovation and sustainability, exploring new materials, technologies, and concepts to meet client needs while promoting sustainability and fairness.</p>
+          </div>
+          <div>
+            <h3 class="rd-feature__title">Market success</h3>
+            <p class="rd-feature__text">From design concept, market analysis and budgeting to certification and marketing asset creation. Our services are designed to deliver market success while upholding principles of sustainability and fairness.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FULL-WIDTH IMAGE ══ -->
+    <img
+      class="rd-full-img"
+      src="https://agency.wisehabit.com/data/include/cms/Agency/implementation/figma-test/image-5.png"
+      alt="Product manufacturing"
+    />
+
+    <!-- ══ RELIABILITY CARDS ══ -->
+    <section class="page-section page-section--tinted">
+      <div class="inner">
+        <h2 class="section-title">Reliability of our services</h2>
+        <div class="services-detail-grid">
+          <div class="service-detail-card">
+            <p class="service-detail-card__title">1 –</p>
+            <p class="service-detail-card__text">Over <strong>20 years</strong> of entrepreneurs perspective enabling better understanding of business</p>
+          </div>
+          <div class="service-detail-card">
+            <p class="service-detail-card__title">2 –</p>
+            <p class="service-detail-card__text">Holistic approach <strong>from idea to product</strong> on the market</p>
+          </div>
+          <div class="service-detail-card">
+            <p class="service-detail-card__title">3 –</p>
+            <p class="service-detail-card__text">Design with <strong>sustainability in mind</strong>, approach with care of whole product life-cycle</p>
+          </div>
+          <div class="service-detail-card">
+            <p class="service-detail-card__title">4 –</p>
+            <p class="service-detail-card__text">Portfolio of designs with <strong>International Design Awards</strong> &amp; title of Designer of the Year 2023 by Polish Institute of Design</p>
+          </div>
+          <div class="service-detail-card">
+            <p class="service-detail-card__title">5 –</p>
+            <p class="service-detail-card__text"><strong>Empathetic understanding</strong> of client, user and other life forms involved in project</p>
+          </div>
+          <div class="service-detail-card">
+            <p class="service-detail-card__title">6 –</p>
+            <p class="service-detail-card__text">Library of Sustainable Materials features <strong>more than 40 European brands</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PORTFOLIO OF 80 PRODUCTS ══ -->
     <section class="page-section">
       <div class="inner">
-        <p class="section-eyebrow">coming soon</p>
-        <h2 class="section-title">This page is under construction</h2>
-        <p class="body-text">We are working on this page. Check back soon.</p>
+        <div class="rd-portfolio-grid">
+          <div>
+            <p class="section-eyebrow">Implementation of a new product</p>
+            <h2 class="section-title">Portfolio of over 80 products introduced to the market</h2>
+            <p class="body-text">Our support extends beyond the design phase to the comprehensive implementation of a new product on the market. We offer services including market and competition research, trend reports tailored to your industry, support in obtaining funding for implementation, and assistance in preparing necessary documentation.</p>
+            <p class="body-text">We ensure efficient product implementation through collaboration with trusted suppliers worldwide, guidance for design competition entries, support for intellectual property protection, and industrial design registration.</p>
+            <div class="rd-portfolio-grid__cta">
+              <p class="rd-portfolio-grid__cta-label">Find out how can we help</p>
+              <a href="#contact" class="btn btn--outline">discuss a project <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+          <div>
+            <table class="rd-category-table">
+              <tr>
+                <td>Tableware</td>
+                <td>includes everything from dinnerware, glassware, cutlery, to serving pieces.</td>
+              </tr>
+              <tr>
+                <td>Furnishing</td>
+                <td>from sofas and dining tables for your living spaces to beds and wardrobes.</td>
+              </tr>
+              <tr>
+                <td>Home accessories</td>
+                <td>include storage solutions, textiles, lighting fixtures.</td>
+              </tr>
+              <tr>
+                <td>Consumer electronics</td>
+                <td>high-quality electronics, including lighting, alarm clocks and phones.</td>
+              </tr>
+              <tr>
+                <td>Watches</td>
+                <td>highest quality developed in Switzerland, with Swiss Made logo.</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PORTFOLIO SLIDER ══ -->
+    <section class="page-section page-section--tinted">
+      <div class="inner">
+        <div class="portfolio__header">
+          <div>
+            <p class="portfolio__eyebrow">our implementation portfolio</p>
+            <h2 class="portfolio__title">From idea to product on the market</h2>
+          </div>
+          <div class="portfolio__controls" id="portfolioControls">
+            <p class="portfolio__counter" id="portfolioCounter">1 / 6</p>
+            <div class="portfolio__dots" id="portfolioDots"></div>
+            <div class="portfolio__nav">
+              <button class="portfolio__btn" id="portPrev" aria-label="Previous">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="portfolio__btn" id="portNext" aria-label="Next">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-slider">
+        <div class="portfolio-track" id="portfolioTrack">
+          <div class="portfolio-slide">
+            <img class="portfolio-slide__img" src="https://agency.wisehabit.com/data/include/cms/Agency/implementation/implementation_slider_1.webp" alt="Vovo Glasses" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Vovo Glasses</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Ewa Hiller<br><strong>Materials &amp; production:</strong> borosilicate, coloured glass</p>
+                <p class="portfolio-slide__desc">Vovo Glasses are an object of art, born from fascination with two basic geometric forms. Coloured glass elements create various hues and an illusion of changing shapes. Each cone matches each cylinder, which allows for versatility of usage and different combinations of colour and form.</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-slide">
+            <img class="portfolio-slide__img" src="https://agency.wisehabit.com/data/include/cms/Agency/implementation/implementation_slider_2.webp" alt="Piano Table" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Piano Table</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Ewa Hiller<br><strong>Materials &amp; production:</strong> handcrafted solid wood, varnished or painted</p>
+                <p class="portfolio-slide__desc">Designed around the ritual of extending the table, the tabletop extension visibly hangs within the frame. It can be unfolded easily and placed securely within the top surface. Made of solid wood, the piece has an austere structure and clean lines. Its power of expression stems from simplicity, the selected materials and the novel way of folding.</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-slide">
+            <img class="portfolio-slide__img" src="https://agency.wisehabit.com/data/include/cms/Agency/implementation/implementation_slider_3.webp" alt="Mood Mirror" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Mood Mirror</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Dorothee Mainka<br><strong>Materials &amp; production:</strong> coloured mirror and powder coated steel frame processing</p>
+                <p class="portfolio-slide__desc">The Mood Mirror collection is made up of three wall mirrors of different proportions and colours. The metal shelf embraces the mirror face and wanders up each site, while providing shelf space for small everyday objects. It embodies an immersion into a colorful life.</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-slide">
+            <img class="portfolio-slide__img" src="https://agency.wisehabit.com/data/include/cms/Agency/implementation/implementation_slider_4.webp" alt="Bowler Mug" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Bowler Mug</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Ola Mirecka<br><strong>Materials &amp; production:</strong> moulded and fired, unglazed porcelain; full-body coloured</p>
+                <p class="portfolio-slide__desc">Bowler Mug was designed for relaxed celebration of hot beverages. The mug has a ring that protects fingers from the hot surface and prevents it from slipping out of one's hand. It is made of specially developed porcelain that doesn't require glazing. The matt surface makes it unique and will age beautifully.</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-slide">
+            <img class="portfolio-slide__img" src="https://agency.wisehabit.com/data/include/cms/Agency/implementation/implementation_slider_5.webp" alt="Cork Stool" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Cork Stool</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Tomasz Rygalik<br><strong>Materials &amp; production:</strong> turned cork, expanded or natural</p>
+                <p class="portfolio-slide__desc">Cork Stool's shape was inspired by the material it is made of. Eco-friendly, highly endurable and very light, cork still seems underexploited in furniture design. Well-balanced, geometric form corresponds perfectly with its function. Shades of brown will warm up any interior and the material used will serve generations.</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-slide">
+            <img class="portfolio-slide__img" src="https://agency.wisehabit.com/data/include/cms/Agency/implementation/implementation_slider_6.webp" alt="Dee Table" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Dee Table</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Fabio Hendry &amp; Martijn Rigters<br><strong>Materials &amp; production:</strong> anodized aluminum</p>
+                <p class="portfolio-slide__desc">The simple form of aluminium d-shaped side table resonates its modern look. It has a very unique character that transcends onto the interior. Special advantage of anodised aluminium includes corrosion and scratch resistance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ MATERIALS & MANUFACTURING ══ -->
+    <section class="page-section">
+      <div class="inner">
+        <div class="rd-materials-grid">
+          <div>
+            <p class="section-eyebrow">Materials &amp; manufacturing</p>
+            <h2 class="section-title">We are experienced in a wide array of materials and technologies.</h2>
+            <p class="body-text">From traditional, well-known glass, wood, metals, plastics to innovative, sustainable materials — we leverage a diverse array of possibilities to bring your vision to life. With established relationships with over 350 suppliers worldwide, we have the flexibility to optimize various aspects of our operations.</p>
+            <p class="body-text">This includes expediting product development timelines and negotiating competitive pricing, allowing us to deliver high-quality products at accessible price points. Our quality control measures ensure that every product meets our exacting standards and exceeds customer expectations.</p>
+          </div>
+          <div>
+            <img
+              class="rd-materials-img"
+              src="https://agency.wisehabit.com/data/include/cms/Agency/implementation/figma-test/image-9.png"
+              alt="Sustainable materials"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CIRCULAR ECONOMY ══ -->
+    <section class="page-section page-section--tinted">
+      <div class="inner">
+        <div class="rd-circular-grid">
+          <div>
+            <h2 class="section-title">Solutions for more sustainable &amp; circular products</h2>
+            <p class="body-text">Our agency is dedicated to fostering a sustainable world through circular design practices and heightened environmental consciousness. Our goal is to actively contribute to the transition towards a circular economy, guiding businesses on the transformative journey from linear to circular models through purposeful design interventions.</p>
+            <p class="body-text">We envision a future where sustainable principles drive every aspect of new product implementation, empowering businesses and communities to thrive in harmony with the planet.</p>
+            <a href="sustainability.html" class="btn btn--outline" style="margin-top:24px;">learn more <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div>
+            <img
+              class="rd-circular-img"
+              src="https://agency.wisehabit.com/data/include/cms/Agency/utils/graphs/graf_-_sourcing_disposal-_desktop.svg"
+              alt="Circular economy diagram"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ QUOTE ══ -->
+    <section class="page-section">
+      <div class="rd-quote-section">
+        <p class="rd-quote__eyebrow">Design for meanings, feelings and business</p>
+        <p class="rd-quote__text">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</p>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT FORM ══ -->
+    <section class="page-section rd-contact-section" id="contact">
+      <div class="contact-wrap__inner">
+        <div class="contact-page-grid">
+          <div class="contact-page-grid__form">
+            <p class="contact-wrap__label">contact</p>
+            <h2 class="contact-wrap__title">Get in touch</h2>
+            <form class="contact-form" action="https://formspree.io/f/mnjyvvgb" method="POST">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cf-name">name</label>
+                  <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-field">
+                  <label for="cf-company">company</label>
+                  <input type="text" id="cf-company" name="company" placeholder="Your company" />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="cf-email">email</label>
+                <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+              </div>
+              <div class="form-field">
+                <label for="cf-subject">subject</label>
+                <input type="text" id="cf-subject" name="subject" placeholder="What can we help you with?" />
+              </div>
+              <div class="form-field">
+                <label for="cf-message">message</label>
+                <textarea id="cf-message" name="message" placeholder="Tell us about your project..." required></textarea>
+              </div>
+              <div class="form-consent">
+                <input type="checkbox" id="cf-consent" name="consent" required />
+                <label for="cf-consent">I agree to the processing of my personal data for the purpose of responding to my inquiry.</label>
+              </div>
+              <button type="submit" class="btn btn--filled form-submit">send message →</button>
+            </form>
+          </div>
+          <div class="contact-page-grid__details">
+            <div class="contact-detail-block">
+              <p class="contact-detail-block__label">email</p>
+              <a href="mailto:office@wisehabit.com" class="contact-detail-block__value">office@wisehabit.com</a>
+            </div>
+            <div class="contact-detail-block">
+              <p class="contact-detail-block__label">phone</p>
+              <a href="tel:+48608561173" class="contact-detail-block__value">+48 608 561 173</a>
+            </div>
+            <div class="contact-detail-block">
+              <p class="contact-detail-block__label">address</p>
+              <p class="contact-detail-block__value">Warsaw, Poland</p>
+            </div>
+            <div class="contact-detail-block">
+              <p class="contact-detail-block__label">follow us</p>
+              <div class="footer-social" style="margin-top: 8px;">
+                <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+                <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -141,6 +572,7 @@
         <a class="footer-col__link" href="about.html">Overview</a>
         <a class="footer-col__link" href="sustainability.html">Sustainability</a>
         <a class="footer-col__link" href="design.html">Design</a>
+        <a class="footer-col__link" href="rd.html">R&amp;D</a>
         <a class="footer-col__link" href="exhibitions.html">Exhibitions</a>
         <a class="footer-col__link" href="library.html">Material Library</a>
         <a class="footer-col__link" href="archisnob.html">Archisnob</a>
@@ -179,6 +611,36 @@
   window.addEventListener('scroll', () => {
     strip.style.transform = `translateX(${-(window.scrollY * SPEED) % CYCLE_W}px)`;
   }, { passive: true });
+
+  /* ── PORTFOLIO SLIDER ── */
+  const track = document.getElementById('portfolioTrack');
+  const counter = document.getElementById('portfolioCounter');
+  const dotsContainer = document.getElementById('portfolioDots');
+  const slides = track ? track.querySelectorAll('.portfolio-slide') : [];
+  const total = slides.length;
+  let portIdx = 0;
+
+  if (total > 0) {
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'portfolio__dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(d);
+    });
+
+    function goTo(idx) {
+      portIdx = (idx + total) % total;
+      track.style.transform = `translateX(-${portIdx * 100}%)`;
+      counter.textContent = (portIdx + 1) + ' / ' + total;
+      dotsContainer.querySelectorAll('.portfolio__dot').forEach((d, i) => d.classList.toggle('active', i === portIdx));
+    }
+
+    document.getElementById('portPrev').addEventListener('click', () => goTo(portIdx - 1));
+    document.getElementById('portNext').addEventListener('click', () => goTo(portIdx + 1));
+  }
+
+  /* ── HAMBURGER ── */
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
   hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
