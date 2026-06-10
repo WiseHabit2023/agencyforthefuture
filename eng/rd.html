@@ -72,6 +72,28 @@
     .rd-cta-block { margin-top: 40px; text-align: center; }
     .rd-cta-block p { font-size: 17px; color: #444; margin-bottom: 16px; }
 
+    /* Quote (same as about.html) */
+    .rd-quote-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 80px var(--pad-h);
+      text-align: center;
+    }
+    .rd-quote-wrap__sup {
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      opacity: 0.45;
+      margin-bottom: 20px;
+    }
+    .rd-quote-wrap__text {
+      font-size: clamp(22px, 2.4vw, 36px);
+      font-weight: 400;
+      line-height: 1.4;
+      max-width: 860px;
+      margin: 0 auto;
+      letter-spacing: -0.3px;
+    }
+
     @media (max-width: 900px) {
       .rd-category-table td:first-child { min-width: unset; white-space: normal; }
     }
@@ -395,11 +417,11 @@
       </div>
     </section>
 
-    <!-- ══ QUOTE (same as index.html design-for-section, text only) ══ -->
-    <section class="design-for-section">
-      <div class="design-for-section__inner">
-        <p class="section-eyebrow">Design for meanings, feelings and business</p>
-        <h2 class="design-for-section__title">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</h2>
+    <!-- ══ QUOTE (same as about.html about-quote) ══ -->
+    <section class="page-section">
+      <div class="rd-quote-wrap">
+        <p class="rd-quote-wrap__sup">Design for meanings, feelings and business</p>
+        <p class="rd-quote-wrap__text">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</p>
       </div>
     </section>
 
