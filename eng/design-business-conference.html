@@ -313,9 +313,11 @@
     }
     .dbc-tickets__slide {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 55% 45%;
       gap: 0;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
+      border: 1.5px solid var(--dbc-accent);
+      overflow: hidden;
       align-items: stretch;
     }
     .dbc-tickets__img {
@@ -323,10 +325,9 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      border-radius: 0;
     }
     .dbc-tickets__info {
-      border: 1.5px solid var(--dbc-accent);
+      border-left: 1.5px solid var(--dbc-accent);
       padding: 32px 36px;
     }
     .dbc-tickets__name {
@@ -367,7 +368,8 @@
     }
     @media (max-width: 700px) {
       .dbc-tickets__slide { grid-template-columns: 1fr; }
-      .dbc-tickets__info { padding: 24px 0 0; }
+      .dbc-tickets__img { height: 180px; }
+      .dbc-tickets__info { border-left: none; border-top: 1.5px solid var(--dbc-accent); padding: 24px 20px; }
     }
 
     /* ── Venue bottom strip ── */
