@@ -62,6 +62,12 @@
     }
     .rd-category-table td:last-child { font-size: 14px; color: #666; line-height: 1.5; }
 
+    /* Fix: restore spacing between title and body text in page-intro-grid */
+    .page-intro-grid__left .section-title { margin-bottom: 24px; }
+
+    /* Portfolio section: center table vertically */
+    .rd-portfolio-section .page-intro-grid { align-items: center; }
+
     /* CTA block inside 2-col (centered) */
     .rd-cta-block { margin-top: 40px; text-align: center; }
     .rd-cta-block p { font-size: 17px; color: #444; margin-bottom: 16px; }
@@ -220,7 +226,7 @@
     </section>
 
     <!-- ══ PORTFOLIO OF 80 PRODUCTS (page-intro-grid) ══ -->
-    <section class="page-section">
+    <section class="page-section rd-portfolio-section">
       <div class="inner">
         <div class="page-intro-grid">
           <div class="page-intro-grid__left">
