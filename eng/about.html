@@ -105,15 +105,76 @@
     .about-bento-card.c8 { grid-column: 5/9; grid-row: 3; }
     .about-bento-card.c9 { grid-column: 9/13; grid-row: 3; }
 
+    /* ── Team ── */
+    .about-team { padding: 80px 0; border-top: 1px solid var(--border); }
+    .about-team__inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-h); }
+    .about-team__top { margin-bottom: 48px; }
+    .about-team__eyebrow { font-size: 15px; font-weight: 400; opacity: 0.55; margin-bottom: 16px; }
+    .about-team__title { font-size: clamp(28px, 3.2vw, 42px); font-weight: 500; letter-spacing: -0.5px; max-width: 700px; }
+
+    .about-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 44px 32px;
+    }
+    .about-team-card { display: flex; flex-direction: column; }
+
+    .about-team-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--bg);
+    }
+    .about-team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-team-bio {
+      position: absolute; inset: 0;
+      background: rgba(20, 20, 20, 0.86);
+      color: #fff;
+      padding: 24px;
+      font-size: 14px;
+      line-height: 1.55;
+      overflow-y: auto;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .about-team-photo:hover .about-team-bio,
+    .about-team-photo:focus-within .about-team-bio { opacity: 1; pointer-events: auto; }
+
+    .about-team-info { padding-top: 18px; }
+    .about-team-name { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+    .about-team-divider { border-top: 1px solid var(--border); margin-bottom: 10px; }
+    .about-team-role { font-size: 14px; opacity: 0.6; margin-bottom: 14px; }
+    .about-team-links { display: flex; gap: 10px; }
+    .about-team-links a {
+      width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border); border-radius: 50%;
+      color: var(--black); transition: all 0.15s;
+    }
+    .about-team-links a:hover { background: var(--black); color: #fff; border-color: var(--black); }
+
+    .about-team-card--open .about-team-photo {
+      display: flex; align-items: center; justify-content: center;
+      border: 1px dashed var(--border);
+    }
+    .about-team-card--open .about-team-photo p {
+      max-width: 220px; text-align: center; font-size: 16px; padding: 24px; opacity: 0.65;
+    }
+
     @media (max-width: 900px) {
       .about-office-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-office-grid__img img { height: 300px; }
       .about-fullimg-wrap img { height: 260px; }
       .about-bento-grid { grid-template-columns: 1fr 1fr; }
       .about-bento-card { grid-column: auto !important; grid-row: auto !important; min-height: 180px; }
+      .about-team-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
     }
     @media (max-width: 600px) {
       .about-bento-grid { grid-template-columns: 1fr; }
+      .about-team-grid { grid-template-columns: 1fr; }
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
@@ -259,8 +320,152 @@
       </div>
     </section>
 
+    <!-- ══ TEAM ══ -->
+    <section class="about-team" id="team">
+      <div class="about-team__inner">
+        <div class="about-team__top">
+          <p class="about-team__eyebrow">our team</p>
+          <h2 class="about-team__title">Built by professionals with adaptive mindset</h2>
+        </div>
+        <div class="about-team-grid">
+
+          <!-- Marcelina -->
+          <div class="about-team-card">
+            <div class="about-team-photo" tabindex="0">
+              <img src="../img/Conference_host_Marcelina_Plichta.webp" alt="Marcelina" loading="lazy" />
+              <div class="about-team-bio">School of Form lecturer, strategist, entrepreneur, businesswoman, trendsetter with an LLM degree. Experienced in various business fields in an international environment. Business consultant, former CEO at Tre Product and CPO at Mudita.</div>
+            </div>
+            <div class="about-team-info">
+              <p class="about-team-name">Marcelina</p>
+              <div class="about-team-divider"></div>
+              <p class="about-team-role">CEO &amp; Strategist</p>
+              <div class="about-team-links">
+                <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Martyna -->
+          <div class="about-team-card">
+            <div class="about-team-photo" tabindex="0">
+              <img src="../img/Conference_host_Marcelina_Plichta.webp" alt="Martyna" loading="lazy" />
+              <div class="about-team-bio">Driven by a commitment to sustainability and circularity in design, focused on experiences and meanings. Designer and strategist, honored by Red Dot Design Award, IF Design Award, German Design Award and other.</div>
+            </div>
+            <div class="about-team-info">
+              <p class="about-team-name">Martyna</p>
+              <div class="about-team-divider"></div>
+              <p class="about-team-role">Head of Design</p>
+              <div class="about-team-links">
+                <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Igor -->
+          <div class="about-team-card">
+            <div class="about-team-photo" tabindex="0">
+              <img src="../img/Conference_host_Marcelina_Plichta.webp" alt="Igor" loading="lazy" />
+              <div class="about-team-bio"><!-- TODO: dodaj bio Igora -->Bio coming soon.</div>
+            </div>
+            <div class="about-team-info">
+              <p class="about-team-name">Igor</p>
+              <div class="about-team-divider"></div>
+              <p class="about-team-role">Head of Sales</p>
+              <div class="about-team-links">
+                <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Iga -->
+          <div class="about-team-card">
+            <div class="about-team-photo" tabindex="0">
+              <img src="../img/Conference_host_Marcelina_Plichta.webp" alt="Iga" loading="lazy" />
+              <div class="about-team-bio"><!-- TODO: dodaj bio Igi -->Bio coming soon.</div>
+            </div>
+            <div class="about-team-info">
+              <p class="about-team-name">Iga</p>
+              <div class="about-team-divider"></div>
+              <p class="about-team-role">Head of Marketing <!-- TODO: potwierdź stanowisko --></p>
+              <div class="about-team-links">
+                <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mikołaj -->
+          <div class="about-team-card">
+            <div class="about-team-photo" tabindex="0">
+              <img src="../img/Conference_host_Marcelina_Plichta.webp" alt="Mikołaj" loading="lazy" />
+              <div class="about-team-bio"><!-- TODO: dodaj bio Mikołaja -->Bio coming soon.</div>
+            </div>
+            <div class="about-team-info">
+              <p class="about-team-name">Mikołaj</p>
+              <div class="about-team-divider"></div>
+              <p class="about-team-role">Industrial Designer</p>
+              <div class="about-team-links">
+                <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wiktoria -->
+          <div class="about-team-card">
+            <div class="about-team-photo" tabindex="0">
+              <img src="../img/Conference_host_Marcelina_Plichta.webp" alt="Wiktoria" loading="lazy" />
+              <div class="about-team-bio"><!-- TODO: dodaj bio Wiktorii -->Bio coming soon.</div>
+            </div>
+            <div class="about-team-info">
+              <p class="about-team-name">Wiktoria</p>
+              <div class="about-team-divider"></div>
+              <p class="about-team-role">Copywriter</p>
+              <div class="about-team-links">
+                <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Franek -->
+          <div class="about-team-card">
+            <div class="about-team-photo" tabindex="0">
+              <img src="../img/Conference_host_Marcelina_Plichta.webp" alt="Franek" loading="lazy" />
+              <div class="about-team-bio"><!-- TODO: dodaj bio Franka -->Bio coming soon.</div>
+            </div>
+            <div class="about-team-info">
+              <p class="about-team-name">Franek</p>
+              <div class="about-team-divider"></div>
+              <p class="about-team-role">IT Specialist</p>
+              <div class="about-team-links">
+                <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Open slot: specialist matched per project -->
+          <div class="about-team-card about-team-card--open">
+            <div class="about-team-photo">
+              <p>Plus a specialist matched to your project</p>
+            </div>
+            <div class="about-team-info">
+              <p class="about-team-name">+ Specialist</p>
+              <div class="about-team-divider"></div>
+              <p class="about-team-role">Brought in per project</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ══ AWARDS ══ -->
-    <section class="about-logoband">
+    <section class="about-logoband" id="awards">
       <div class="about-logoband__inner">
         <p class="about-logoband__label">awards</p>
         <div class="about-logoband__logos">
@@ -301,10 +506,6 @@
     <section style="padding: 64px 0 0;">
       <div class="about-fullimg-wrap">
         <img src="../img/Image_22.png" alt="Design for meanings, feelings and business" loading="lazy" />
-      </div>
-      <div class="about-quote">
-        <p class="about-quote__sup">Design for meanings, feelings and business</p>
-        <p class="about-quote__text">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</p>
       </div>
     </section>
 
