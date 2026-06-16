@@ -60,10 +60,60 @@
 
     .about-awards-img { max-width: 100%; height: auto; display: block; }
 
+    /* ── Logo band (awards / trusted by / media) — reused 3x on this page ── */
+    .about-logoband { border-top: 1px solid var(--border); }
+    .about-logoband__inner { max-width: var(--max-w); margin: 0 auto; padding: 56px var(--pad-h); }
+    .about-logoband__label { font-size: 15px; font-weight: 400; opacity: 0.55; margin-bottom: 28px; }
+    .about-logoband__logos img { max-width: 100%; height: auto; display: block; }
+    .about-logoband__links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28px; }
+    .about-logoband__links a { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; opacity: 0.75; }
+    .about-logoband__links a:hover { opacity: 1; }
+
+    /* ── "In a nutshell" — about-page-scoped copy of the bento grid,
+         kept separate from the homepage version so it can be restyled
+         independently later ── */
+    .about-nutshell { padding: 80px 0; }
+    .about-nutshell__inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-h); }
+    .about-nutshell__label { font-size: 15px; font-weight: 400; opacity: 0.55; margin-bottom: 28px; }
+    .about-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto auto;
+      gap: 16px;
+    }
+    .about-bento-card {
+      background: var(--bg);
+      border: 1px solid var(--black);
+      min-height: 260px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 12px;
+      border-radius: 6px;
+    }
+    .about-bento-card__num { font-size: 17px; font-weight: 400; opacity: 0.45; }
+    .about-bento-card__text { font-size: 22px; line-height: 1.55; font-weight: 400; color: var(--black); }
+    .about-bento-card__text strong { font-weight: 700; }
+    .about-bento-card.c1 { grid-column: 1/5; grid-row: 1; }
+    .about-bento-card.c2 { grid-column: 5/8; grid-row: 1; }
+    .about-bento-card.c3 { grid-column: 8/13; grid-row: 1; }
+    .about-bento-card.c4 { grid-column: 1/6; grid-row: 2; }
+    .about-bento-card.c5 { grid-column: 6/10; grid-row: 2; }
+    .about-bento-card.c6 { grid-column: 10/13; grid-row: 2; }
+    .about-bento-card.c7 { grid-column: 1/5; grid-row: 3; }
+    .about-bento-card.c8 { grid-column: 5/9; grid-row: 3; }
+    .about-bento-card.c9 { grid-column: 9/13; grid-row: 3; }
+
     @media (max-width: 900px) {
       .about-office-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-office-grid__img img { height: 300px; }
       .about-fullimg-wrap img { height: 260px; }
+      .about-bento-grid { grid-template-columns: 1fr 1fr; }
+      .about-bento-card { grid-column: auto !important; grid-row: auto !important; min-height: 180px; }
+    }
+    @media (max-width: 600px) {
+      .about-bento-grid { grid-template-columns: 1fr; }
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
@@ -209,6 +259,71 @@
       </div>
     </section>
 
+    <!-- ══ AWARDS ══ -->
+    <section class="about-logoband">
+      <div class="about-logoband__inner">
+        <p class="about-logoband__label">awards</p>
+        <div class="about-logoband__logos">
+          <img src="../img/Awards2.png" alt="must have · iF Design Award 2024 · Red Dot 2023 · A'Design Award 2022 · iF Design Award 2022" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ AGENCY FOR THE FUTURE — IN A NUTSHELL ══ -->
+    <section class="about-nutshell">
+      <div class="about-nutshell__inner">
+        <p class="about-nutshell__label">Agency for the Future — in a nutshell</p>
+        <div class="about-bento-grid">
+          <div class="about-bento-card c1"><p class="about-bento-card__num">1 –</p><p class="about-bento-card__text">Over <strong>20 years of entrepreneurs perspective</strong> enabling better understanding of business</p></div>
+          <div class="about-bento-card c2"><p class="about-bento-card__num">2 –</p><p class="about-bento-card__text"><strong>Holistic approach from idea to product</strong> on the market</p></div>
+          <div class="about-bento-card c3"><p class="about-bento-card__num">3 –</p><p class="about-bento-card__text">Design with <strong>sustainability in mind</strong>, approach with care of whole product life-cycle</p></div>
+          <div class="about-bento-card c4"><p class="about-bento-card__num">4 –</p><p class="about-bento-card__text">Portfolio of designs with <strong>International Design Awards</strong> &amp; title of Designer of the Year 2023 by Polish Institute of Design</p></div>
+          <div class="about-bento-card c5"><p class="about-bento-card__num">5 –</p><p class="about-bento-card__text"><strong>Empathetic understanding</strong> of client, user and other life forms involved in project</p></div>
+          <div class="about-bento-card c6"><p class="about-bento-card__num">6 –</p><p class="about-bento-card__text">Library of Sustainable Materials features <strong>more than 40 European brands</strong></p></div>
+          <div class="about-bento-card c7"><p class="about-bento-card__num">7 –</p><p class="about-bento-card__text"><strong>Diverse &amp; inclusive team</strong> build by professionals with adaptive mindset</p></div>
+          <div class="about-bento-card c8"><p class="about-bento-card__num">8 –</p><p class="about-bento-card__text">Access to <strong>350 verified suppliers &amp; manufacturers</strong> with huge range of materials and techniques</p></div>
+          <div class="about-bento-card c9"><p class="about-bento-card__num">9 –</p><p class="about-bento-card__text"><strong>Intellectual Property</strong> services to protect design and innovation</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TRUSTED BY ══ -->
+    <section class="about-logoband">
+      <div class="about-logoband__inner">
+        <p class="about-logoband__label">trusted by</p>
+        <div class="about-logoband__logos">
+          <img src="../img/Awards2.png" alt="must have · iF Design Award 2024 · Red Dot 2023 · A'Design Award 2022 · iF Design Award 2022" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FULL-WIDTH IMAGE ══ -->
+    <section style="padding: 64px 0 0;">
+      <div class="about-fullimg-wrap">
+        <img src="../img/Image_22.png" alt="Design for meanings, feelings and business" loading="lazy" />
+      </div>
+      <div class="about-quote">
+        <p class="about-quote__sup">Design for meanings, feelings and business</p>
+        <p class="about-quote__text">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</p>
+      </div>
+    </section>
+
+    <!-- ══ MEDIA ══ -->
+    <section class="about-logoband about-logoband--media">
+      <div class="about-logoband__inner">
+        <p class="about-logoband__label">media</p>
+        <div class="about-logoband__logos">
+          <img src="../img/Awards2.png" alt="must have · iF Design Award 2024 · Red Dot 2023 · A'Design Award 2022 · iF Design Award 2022" loading="lazy" />
+        </div>
+        <div class="about-logoband__links">
+          <!-- TODO: zamień na prawdziwe linki do artykułów / publikacji / wywiadów -->
+          <a href="#">Article title — Publication</a>
+          <a href="#">Interview — Publication</a>
+          <a href="#">Feature — Publication</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ══ OFFICE ══ -->
     <section class="page-section page-section--tinted">
       <div class="inner">
@@ -285,24 +400,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ══ FULL-WIDTH IMAGE ══ -->
-    <section style="padding: 64px 0 0;">
-      <div class="about-fullimg-wrap">
-        <img src="../img/Image_22.png" alt="Design for meanings, feelings and business" loading="lazy" />
-      </div>
-      <div class="about-quote">
-        <p class="about-quote__sup">Design for meanings, feelings and business</p>
-        <p class="about-quote__text">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</p>
-      </div>
-    </section>
-
-    <!-- ══ AWARDS ══ -->
-    <div style="max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-h);">
-      <div style="border-top: 1px solid var(--border); padding: 64px 0;">
-        <img class="about-awards-img" src="../img/Awards2.png" alt="must have · iF Design Award 2024 · Red Dot 2023 · A'Design Award 2022 · iF Design Award 2022" loading="lazy" />
-      </div>
-    </div>
 
     <!-- ══ CONTACT ══ -->
     <section class="contact-wrap" id="contact" style="border-top: 1px solid var(--border);">
