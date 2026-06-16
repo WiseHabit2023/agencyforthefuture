@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/team", "destination": "/about#team", "permanent": true },
+    { "source": "/awards", "destination": "/about#awards", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/eng/index.html" },
     { "source": "/:path((?!eng|pl|css|img|js|fonts).+)", "destination": "/eng/:path" }

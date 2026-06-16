@@ -72,11 +72,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://agencyforthefuture.wisehabit.com/team</loc>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://agencyforthefuture.wisehabit.com/clients</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
