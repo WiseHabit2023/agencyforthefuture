@@ -61,9 +61,8 @@
     .about-awards-img { max-width: 100%; height: auto; display: block; }
 
     /* ── Logo band (awards / trusted by / media) — reused 3x on this page ── */
-    .about-logoband { border-top: 1px solid var(--border); }
     .about-logoband__inner { max-width: var(--max-w); margin: 0 auto; padding: 56px var(--pad-h); }
-    .about-logoband__label { font-size: 15px; font-weight: 400; opacity: 0.55; margin-bottom: 28px; }
+    .about-logoband__label { font-size: clamp(28px, 3.2vw, 42px); font-weight: 500; letter-spacing: -0.5px; margin-bottom: 28px; }
     .about-logoband__logos img { max-width: 100%; height: auto; display: block; }
     .about-logoband__links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28px; }
     .about-logoband__links a { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; opacity: 0.75; }
@@ -92,8 +91,8 @@
       gap: 12px;
       border-radius: 6px;
     }
-    .about-bento-card__num { font-size: 17px; font-weight: 400; opacity: 0.45; }
-    .about-bento-card__text { font-size: 22px; line-height: 1.55; font-weight: 400; color: var(--black); }
+    .about-bento-card__num { font-size: clamp(48px, 6vw, 72px); font-weight: 700; opacity: 1; color: var(--black); line-height: 1; }
+    .about-bento-card__text { font-size: 24px; line-height: 1.5; font-weight: 400; color: var(--black); margin-top: auto; }
     .about-bento-card__text strong { font-weight: 700; }
     .about-bento-card.c1 { grid-column: 1/5; grid-row: 1; }
     .about-bento-card.c2 { grid-column: 5/8; grid-row: 1; }
@@ -110,7 +109,7 @@
     .about-team__inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-h); }
     .about-team__top { margin-bottom: 48px; }
     .about-team__eyebrow { font-size: 15px; font-weight: 400; opacity: 0.55; margin-bottom: 16px; }
-    .about-team__title { font-size: clamp(28px, 3.2vw, 42px); font-weight: 500; letter-spacing: -0.5px; max-width: 700px; }
+    .about-team__title { font-size: clamp(28px, 3.2vw, 42px); font-weight: 500; letter-spacing: -0.5px; }
 
     .about-team-grid {
       display: grid;
@@ -145,13 +144,13 @@
 
     .about-team-info { padding-top: 18px; }
     .about-team-name { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
-    .about-team-divider { border-top: 1px solid var(--border); margin-bottom: 10px; }
-    .about-team-role { font-size: 14px; opacity: 0.6; margin-bottom: 14px; }
+    .about-team-divider { border-top: 1px solid var(--black); margin-bottom: 10px; }
+    .about-team-role { font-size: 14px; color: var(--black); opacity: 1; margin-bottom: 14px; }
     .about-team-links { display: flex; gap: 10px; }
     .about-team-links a {
       width: 30px; height: 30px;
       display: flex; align-items: center; justify-content: center;
-      border: 1px solid var(--border); border-radius: 50%;
+      border: 1px solid var(--black); border-radius: 50%;
       color: var(--black); transition: all 0.15s;
     }
     .about-team-links a:hover { background: var(--black); color: #fff; border-color: var(--black); }
@@ -521,83 +520,6 @@
           <a href="#">Article title — Publication</a>
           <a href="#">Interview — Publication</a>
           <a href="#">Feature — Publication</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ OFFICE ══ -->
-    <section class="page-section page-section--tinted">
-      <div class="inner">
-        <div class="about-office-grid">
-          <div>
-            <p class="section-eyebrow">our office</p>
-            <h2 class="section-title">Space for meaningful designs &amp; collaborative partnerships</h2>
-            <p class="body-text">Enhanced competitiveness in a rapidly evolving world, addressing the growing demand for sustainable and regenerative solutions, resilient production, and societal shifts.</p>
-            <p class="body-text">Development of products tailored to the needs of users, societal and environmental concerns, fostering a long-term solutions supporting business stability and credibility.</p>
-          </div>
-          <div class="about-office-grid__img">
-            <img src="../img/Image_23.png" alt="Our office" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ SERVICES ══ -->
-    <section class="services">
-      <div class="services__header inner">
-        <p class="services__eyebrow">services</p>
-        <h2 class="services__title">We are convinced the change starts<br>from design and designers</h2>
-      </div>
-      <div class="services__grid">
-        <div class="service-col">
-          <div class="service-col__head">
-            <p class="service-col__title">Design</p>
-            <a href="design.html"><svg class="service-col__arrow icon-arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-          <ul class="service-col__list">
-            <li>Product Research &amp; Strategy</li>
-            <li>Circular Design Strategies</li>
-            <li>UX/UI Design</li>
-            <li>Graphic Design</li>
-            <li>Packaging Design</li>
-            <li>Exhibition Design</li>
-          </ul>
-        </div>
-        <div class="service-col">
-          <div class="service-col__head">
-            <p class="service-col__title">Strategy</p>
-            <a href="design.html"><svg class="service-col__arrow icon-arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-          <ul class="service-col__list">
-            <li>Market &amp; Trends Analysis</li>
-            <li>Product Vision</li>
-            <li>Product Pricing</li>
-            <li>Sales Strategy</li>
-            <li>Implementation Plan</li>
-            <li>Marketing &amp; Sales Assets</li>
-          </ul>
-        </div>
-        <div class="service-col">
-          <div class="service-col__head">
-            <p class="service-col__title">Production</p>
-            <a href="product-implementation.html"><svg class="service-col__arrow icon-arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-          <ul class="service-col__list">
-            <li>Supplier Sourcing</li>
-            <li>Production Budget</li>
-            <li>Prototyping</li>
-            <li>Production Supervision</li>
-          </ul>
-        </div>
-        <div class="service-col">
-          <div class="service-col__head">
-            <p class="service-col__title">More ✦</p>
-          </div>
-          <ul class="service-col__list">
-            <li>New Brand &amp; Identity</li>
-            <li>Branding &amp; Communication</li>
-            <li>Intellectual Property Support</li>
-          </ul>
         </div>
       </div>
     </section>
