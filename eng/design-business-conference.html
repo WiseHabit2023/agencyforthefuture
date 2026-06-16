@@ -17,7 +17,7 @@
     }
 
     /* ── Page wrapper ── */
-    .dbc-page { background: var(--bg); color: #222; }
+    .dbc-page { background: var(--bg); color: var(--black); }
 
     /* ── Hero + Intro combined grid ── */
     .dbc-hero-intro {
@@ -48,14 +48,14 @@
       color: var(--dbc-navy);
       font-weight: 400;
       font-style: italic;
-      opacity: 0.75;
+      opacity: 1;
       margin-bottom: 0;
       line-height: 1.4;
     }
     .dbc-intro__text { margin-top: 40px; }
-    .dbc-intro__text p { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    .dbc-intro__text p { font-size: 18px; line-height: 1.8; color: var(--black); margin-bottom: 20px; }
     .dbc-intro__text ul { margin: 0 0 20px 20px; }
-    .dbc-intro__text li { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 6px; }
+    .dbc-intro__text li { font-size: 18px; line-height: 1.8; color: var(--black); margin-bottom: 6px; }
     .dbc-hero__img {
       width: 100%;
       height: auto;
@@ -90,7 +90,7 @@
       color: var(--dbc-navy);
       font-weight: 400;
       margin-bottom: 40px;
-      opacity: 0.75;
+      opacity: 1;
     }
     .dbc-section__label {
       font-size: 13px;
@@ -107,9 +107,9 @@
       grid-template-columns: 1fr 1fr;
       gap: 64px;
     }
-    .dbc-2col p { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 18px; }
+    .dbc-2col p { font-size: 18px; line-height: 1.8; color: var(--black); margin-bottom: 18px; }
     .dbc-2col ul { margin: 0 0 18px 20px; }
-    .dbc-2col li { font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 6px; }
+    .dbc-2col li { font-size: 18px; line-height: 1.8; color: var(--black); margin-bottom: 6px; }
     .dbc-2col h3 {
       font-size: clamp(22px, 2.5vw, 32px);
       font-weight: 700;
@@ -179,12 +179,12 @@
     }
     .dbc-events-arrow {
       background: none;
-      border: 1px solid #111;
+      border: 1px solid var(--black);
       border-radius: 2px;
       width: 40px; height: 40px;
       font-size: 16px;
       cursor: pointer;
-      color: #111;
+      color: var(--black);
       transition: all 0.15s;
       display: flex; align-items: center; justify-content: center;
     }
@@ -210,7 +210,7 @@
     .dbc-col--manuf .dbc-spk-col__title   { color: var(--dbc-manuf); }
 
     .dbc-spk-card {
-      border: 1.5px solid #ddd;
+      border: 1.5px solid var(--black);
       border-radius: 8px;
       margin-bottom: 20px;
       overflow: hidden;
@@ -232,9 +232,9 @@
       background: #e0dbd5;
     }
     .dbc-spk-card__body { padding: 14px 16px 16px; }
-    .dbc-spk-card__name { font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; color: #222; }
-    .dbc-spk-card__role { font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.4; }
-    .dbc-spk-card__read { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: #333; }
+    .dbc-spk-card__name { font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; color: var(--black); }
+    .dbc-spk-card__role { font-size: 13px; color: var(--black); margin-bottom: 10px; line-height: 1.4; }
+    .dbc-spk-card__read { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: var(--black); }
     .dbc-spk-card__coming { font-size: 13px; font-weight: 700; color: var(--dbc-accent); margin-bottom: 6px; }
     .dbc-col--hosts .dbc-spk-card__name  { color: var(--dbc-hosts); }
     .dbc-col--design .dbc-spk-card__name { color: var(--dbc-design); }
@@ -271,7 +271,7 @@
     }
     .dbc-prog__time {
       font-size: 18px;
-      color: #555;
+      color: var(--black);
       padding-top: 20px;
     }
     .dbc-prog__box {
@@ -289,17 +289,17 @@
       align-items: center;
       gap: 12px;
     }
-    .dbc-prog__box-title { font-size: 20px; font-weight: 600; color: #333; }
-    .dbc-prog__box-note  { font-size: 15px; color: #666; margin-top: 8px; line-height: 1.6; }
-    .dbc-prog__box-plus  { font-size: 22px; color: #999; flex-shrink: 0; transition: transform 0.2s; }
+    .dbc-prog__box-title { font-size: 20px; font-weight: 600; color: var(--black); }
+    .dbc-prog__box-note  { font-size: 15px; color: var(--black); margin-top: 8px; line-height: 1.6; }
+    .dbc-prog__box-plus  { font-size: 22px; color: var(--black); flex-shrink: 0; transition: transform 0.2s; }
     .dbc-prog__box.open .dbc-prog__box-plus { transform: rotate(45deg); }
     .dbc-prog__box-content {
       display: none;
       margin-top: 10px;
       padding-top: 10px;
-      border-top: 1px solid #eee;
+      border-top: 1px solid var(--black);
       font-size: 15px;
-      color: #666;
+      color: var(--black);
       line-height: 1.6;
     }
     .dbc-prog__box.open .dbc-prog__box-content { display: block; }
@@ -329,13 +329,13 @@
     .dbc-tickets__name {
       font-size: clamp(18px, 2vw, 26px);
       font-weight: 700;
-      color: #222;
+      color: var(--black);
       margin-bottom: 4px;
       line-height: 1.2;
     }
     .dbc-tickets__date {
       font-size: 16px;
-      color: #666;
+      color: var(--black);
       margin-bottom: 20px;
       font-weight: 400;
     }
@@ -345,7 +345,7 @@
     }
     .dbc-tickets__list li {
       font-size: 15px;
-      color: #444;
+      color: var(--black);
       line-height: 1.7;
       margin-bottom: 6px;
     }
@@ -394,15 +394,15 @@
     .dbc-bottom__col-title {
       font-size: 20px;
       font-weight: 700;
-      color: #222;
+      color: var(--black);
       margin-bottom: 12px;
     }
     .dbc-bottom__addr {
       font-size: 15px;
-      color: #444;
+      color: var(--black);
       line-height: 1.8;
     }
-    .dbc-bottom__contact-text { font-size: 16px; color: #444; line-height: 1.7; margin-bottom: 16px; }
+    .dbc-bottom__contact-text { font-size: 16px; color: var(--black); line-height: 1.7; margin-bottom: 16px; }
     .dbc-bottom__email { font-size: 17px; font-weight: 600; color: var(--dbc-accent); }
 
     /* ── Modal ── */
@@ -419,7 +419,7 @@
     .dbc-modal {
       background: #fff;
       border-radius: 8px;
-      border: 2px solid #ccc;
+      border: 2px solid var(--black);
       max-width: 960px;
       width: 100%;
       display: grid;
@@ -435,7 +435,7 @@
     .dbc-modal__close {
       position: absolute; top: 18px; right: 24px;
       background: none; border: none; font-size: 28px;
-      cursor: pointer; color: #666;
+      cursor: pointer; color: var(--black);
     }
     .dbc-modal__img {
       width: 100%; aspect-ratio: 1/1;
@@ -444,9 +444,9 @@
     }
     .dbc-modal__content { padding-top: 8px; }
     .dbc-modal__cat  { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
-    .dbc-modal__name { font-size: 28px; font-weight: 700; margin-bottom: 6px; color: #222; line-height: 1.2; }
-    .dbc-modal__role { font-size: 17px; color: #666; margin-bottom: 24px; }
-    .dbc-modal__desc { font-size: 16px; line-height: 1.8; color: #333; }
+    .dbc-modal__name { font-size: 28px; font-weight: 700; margin-bottom: 6px; color: var(--black); line-height: 1.2; }
+    .dbc-modal__role { font-size: 17px; color: var(--black); margin-bottom: 24px; }
+    .dbc-modal__desc { font-size: 16px; line-height: 1.8; color: var(--black); }
 
     /* ── Responsive ── */
     @media (max-width: 1100px) {
@@ -503,10 +503,11 @@
       <ul class="nav__links">
         <li class="nav__dropdown"><span>about</span>
           <div class="nav__dropdown-menu">
-            <a href="about.html">overview</a>
-            <a href="team.html">team</a>
-            <a href="awards.html">awards</a>
+            <a href="about.html">about us</a>
+            <a href="about.html#team">team</a>
+            <a href="about.html#awards">awards</a>
             <a href="clients.html">clients</a>
+            <a href="about.html#media">media</a>
           </div>
         </li>
         <li><a href="sustainability.html">sustainability</a></li>
@@ -544,10 +545,11 @@
     <ul class="nav__mobile-links">
       <li><span>about</span>
         <ul class="nav__mobile-sub">
-          <li><a href="about.html">overview</a></li>
-          <li><a href="team.html">team</a></li>
-          <li><a href="awards.html">awards</a></li>
+          <li><a href="about.html">about us</a></li>
+          <li><a href="about.html#team">team</a></li>
+          <li><a href="about.html#awards">awards</a></li>
           <li><a href="clients.html">clients</a></li>
+          <li><a href="about.html#media">media</a></li>
         </ul>
       </li>
       <li><a href="sustainability.html">sustainability</a></li>
@@ -711,7 +713,7 @@
     <!-- ══ OUR EVENTS ══ -->
     <div class="dbc-section" style="padding-top:0;">
       <h2 class="dbc-section__heading">Our events</h2>
-      <p style="font-size:16px;color:#555;margin-top:8px;">A selection of events and conferences we have organised and co-created.</p>
+      <p style="font-size:16px;color:var(--black);margin-top:8px;">A selection of events and conferences we have organised and co-created.</p>
       <div class="dbc-events-wrap">
         <div class="dbc-events-grid" id="eventsTrack">
           <img src="../img/Labra.webp" alt="Event" loading="lazy" />

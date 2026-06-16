@@ -10,9 +10,9 @@
     .sust-img-wrap img { width: 100%; height: 520px; object-fit: cover; display: block; border-radius: 4px; }
 
     .sust-topics { width: 100%; }
-    .sust-topic-item { display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--border); font-size: 20px; font-weight: 400; line-height: 1.3; }
-    .sust-topic-item:first-child { border-top: 1px solid var(--border); }
-    .sust-topic-item__num { font-size: 13px; opacity: 0.4; flex-shrink: 0; min-width: 28px; }
+    .sust-topic-item { display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--black); font-size: 20px; font-weight: 400; line-height: 1.3; }
+    .sust-topic-item:first-child { border-top: 1px solid var(--black); }
+    .sust-topic-item__num { font-size: 13px; opacity: 1; flex-shrink: 0; min-width: 28px; }
 
     .sust-diagram-wrap { margin-top: 56px; }
     .sust-diagram-wrap img { width: 100%; height: auto; display: block; }
@@ -26,7 +26,7 @@
     .sust-planet__line1 { font-size: clamp(24px, 2.6vw, 40px); font-weight: 400; line-height: 1.4; letter-spacing: -0.3px; margin-bottom: 40px; }
     .sust-planet__line2 { font-size: clamp(22px, 2.2vw, 34px); font-weight: 400; line-height: 1.4; letter-spacing: -0.3px; margin-bottom: 40px; }
     .sust-planet__line3 { font-size: clamp(26px, 3vw, 48px); font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
-    .sust-planet__source { font-size: 13px; opacity: 0.45; text-align: right; max-width: var(--max-w); margin: 32px auto 0; padding: 0 var(--pad-h); }
+    .sust-planet__source { font-size: 13px; opacity: 1; text-align: right; max-width: var(--max-w); margin: 32px auto 0; padding: 0 var(--pad-h); }
     .sust-planet__source a { color: var(--black); text-decoration: underline; }
 
     .sust-sdg-main { width: 100%; height: auto; display: block; margin: 40px 0; border-radius: 4px; }
@@ -68,10 +68,11 @@
       <ul class="nav__links">
         <li class="nav__dropdown"><span>about</span>
           <div class="nav__dropdown-menu">
-            <a href="about.html">overview</a>
-            <a href="team.html">team</a>
-            <a href="awards.html">awards</a>
+            <a href="about.html">about us</a>
+            <a href="about.html#team">team</a>
+            <a href="about.html#awards">awards</a>
             <a href="clients.html">clients</a>
+            <a href="about.html#media">media</a>
           </div>
         </li>
         <li class="active"><a href="sustainability.html">sustainability</a></li>
@@ -108,10 +109,11 @@
     <ul class="nav__mobile-links">
       <li><span>about</span>
         <ul class="nav__mobile-sub">
-          <li><a href="about.html">overview</a></li>
-          <li><a href="team.html">team</a></li>
-          <li><a href="awards.html">awards</a></li>
+          <li><a href="about.html">about us</a></li>
+          <li><a href="about.html#team">team</a></li>
+          <li><a href="about.html#awards">awards</a></li>
           <li><a href="clients.html">clients</a></li>
+          <li><a href="about.html#media">media</a></li>
         </ul>
       </li>
       <li><a href="sustainability.html">sustainability</a></li>
@@ -264,7 +266,7 @@
             <h2 class="section-title">Sustainable Development Goals</h2>
             <p class="body-text">The SDGs are a comprehensive and ambitious plan of action to address a wide range of global challenges, including ending poverty and hunger, ensuring healthy lives, quality education, achieving gender equality, providing clean water, promoting sustainable economic growth, decent work, and combating climate change.</p>
             <img src="../img/SDG-all.webp" alt="All Sustainable Development Goals" style="width:100%; height:auto; display:block; margin-top: 32px; border-radius: 4px;" loading="lazy" />
-            <p style="font-size:13px; opacity:0.45; margin-top: 12px; text-align: center;">Source: https://sdgs.un.org</p>
+            <p style="font-size:13px; opacity:1; margin-top: 12px; text-align: center;">Source: https://sdgs.un.org</p>
           </div>
 
           <!-- RIGHT: Main goals -->

@@ -40,7 +40,7 @@
     .rd-quote__sup {
       font-size: 13px;
       letter-spacing: 0.05em;
-      opacity: 0.45;
+      opacity: 1;
       margin-bottom: 20px;
     }
     .rd-quote__text {
@@ -57,18 +57,18 @@
       width: 100%;
       border-collapse: collapse;
     }
-    .rd-category-table tr { border-top: 1px solid #ddd; }
-    .rd-category-table tr:last-child { border-bottom: 1px solid #ddd; }
+    .rd-category-table tr { border-top: 1px solid var(--black); }
+    .rd-category-table tr:last-child { border-bottom: 1px solid var(--black); }
     .rd-category-table td { padding: 18px 8px 18px 0; vertical-align: top; }
     .rd-category-table td:first-child {
       font-weight: 600;
       font-size: 17px;
-      color: #111;
+      color: var(--black);
       padding-right: 24px;
       min-width: 180px;
       white-space: nowrap;
     }
-    .rd-category-table td:last-child { font-size: 14px; color: #666; line-height: 1.5; }
+    .rd-category-table td:last-child { font-size: 14px; color: var(--black); line-height: 1.5; }
 
     /* Fix: restore spacing between title and body text in page-intro-grid */
     .page-intro-grid__left .section-title { margin-bottom: 24px; }
@@ -78,7 +78,7 @@
 
     /* CTA block inside 2-col (centered) */
     .rd-cta-block { margin-top: 40px; text-align: center; }
-    .rd-cta-block p { font-size: 17px; color: #444; margin-bottom: 16px; }
+    .rd-cta-block p { font-size: 17px; color: var(--black); margin-bottom: 16px; }
 
     /* Quote (same as about.html) */
     .rd-quote-wrap {
@@ -90,7 +90,7 @@
     .rd-quote-wrap__sup {
       font-size: 13px;
       letter-spacing: 0.05em;
-      opacity: 0.45;
+      opacity: 1;
       margin-bottom: 20px;
     }
     .rd-quote-wrap__text {
@@ -126,10 +126,11 @@
       <ul class="nav__links">
         <li class="nav__dropdown"><span>about</span>
           <div class="nav__dropdown-menu">
-            <a href="about.html">overview</a>
-            <a href="team.html">team</a>
-            <a href="awards.html">awards</a>
+            <a href="about.html">about us</a>
+            <a href="about.html#team">team</a>
+            <a href="about.html#awards">awards</a>
             <a href="clients.html">clients</a>
+            <a href="about.html#media">media</a>
           </div>
         </li>
         <li><a href="sustainability.html">sustainability</a></li>
@@ -166,10 +167,11 @@
     <ul class="nav__mobile-links">
       <li><span>about</span>
         <ul class="nav__mobile-sub">
-          <li><a href="about.html">overview</a></li>
-          <li><a href="team.html">team</a></li>
-          <li><a href="awards.html">awards</a></li>
+          <li><a href="about.html">about us</a></li>
+          <li><a href="about.html#team">team</a></li>
+          <li><a href="about.html#awards">awards</a></li>
           <li><a href="clients.html">clients</a></li>
+          <li><a href="about.html#media">media</a></li>
         </ul>
       </li>
       <li><a href="sustainability.html">sustainability</a></li>

@@ -46,7 +46,7 @@
     .about-quote__sup {
       font-size: 13px;
       letter-spacing: 0.05em;
-      opacity: 0.45;
+      opacity: 1;
       margin-bottom: 20px;
     }
     .about-quote__text {
@@ -65,7 +65,7 @@
     .about-logoband__label { font-size: clamp(28px, 3.2vw, 42px); font-weight: 500; letter-spacing: -0.5px; margin-bottom: 28px; }
     .about-logoband__logos img { max-width: 100%; height: auto; display: block; }
     .about-logoband__links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28px; }
-    .about-logoband__links a { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; opacity: 0.75; }
+    .about-logoband__links a { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; opacity: 1; }
     .about-logoband__links a:hover { opacity: 1; }
 
     /* ── "In a nutshell" — about-page-scoped copy of the bento grid,
@@ -73,7 +73,7 @@
          independently later ── */
     .about-nutshell { padding: 80px 0; }
     .about-nutshell__inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-h); }
-    .about-nutshell__label { font-size: 15px; font-weight: 400; opacity: 0.55; margin-bottom: 28px; }
+    .about-nutshell__label { font-size: 15px; font-weight: 400; opacity: 1; margin-bottom: 28px; }
     .about-bento-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -109,7 +109,7 @@
     .about-team { padding: 80px 0; }
     .about-team__inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-h); }
     .about-team__top { margin-bottom: 48px; }
-    .about-team__eyebrow { font-size: 15px; font-weight: 400; opacity: 0.55; margin-bottom: 16px; }
+    .about-team__eyebrow { font-size: 15px; font-weight: 400; opacity: 1; margin-bottom: 16px; }
     .about-team__title { font-size: clamp(28px, 3.2vw, 42px); font-weight: 500; letter-spacing: -0.5px; }
 
     .about-team-grid {
@@ -158,10 +158,10 @@
 
     .about-team-card--open .about-team-photo {
       display: flex; align-items: center; justify-content: center;
-      border: 1px dashed var(--border);
+      border: 1px dashed var(--black);
     }
     .about-team-card--open .about-team-photo p {
-      max-width: 220px; text-align: center; font-size: 16px; padding: 24px; opacity: 0.65;
+      max-width: 220px; text-align: center; font-size: 16px; padding: 24px; opacity: 1;
     }
 
     @media (max-width: 900px) {
@@ -206,10 +206,11 @@
       <ul class="nav__links">
         <li class="nav__dropdown active"><span>about</span>
           <div class="nav__dropdown-menu">
-            <a href="about.html">overview</a>
-            <a href="team.html">team</a>
-            <a href="awards.html">awards</a>
+            <a href="about.html">about us</a>
+            <a href="about.html#team">team</a>
+            <a href="about.html#awards">awards</a>
             <a href="clients.html">clients</a>
+            <a href="about.html#media">media</a>
           </div>
         </li>
         <li><a href="sustainability.html">sustainability</a></li>
@@ -246,10 +247,11 @@
     <ul class="nav__mobile-links">
       <li><span>about</span>
         <ul class="nav__mobile-sub">
-          <li><a href="about.html">overview</a></li>
-          <li><a href="team.html">team</a></li>
-          <li><a href="awards.html">awards</a></li>
+          <li><a href="about.html">about us</a></li>
+          <li><a href="about.html#team">team</a></li>
+          <li><a href="about.html#awards">awards</a></li>
           <li><a href="clients.html">clients</a></li>
+          <li><a href="about.html#media">media</a></li>
         </ul>
       </li>
       <li><a href="sustainability.html">sustainability</a></li>
@@ -510,7 +512,7 @@
     </section>
 
     <!-- ══ MEDIA ══ -->
-    <section class="about-logoband about-logoband--media">
+    <section class="about-logoband about-logoband--media" id="media">
       <div class="about-logoband__inner">
         <p class="about-logoband__label">Media</p>
         <div class="about-logoband__logos">
@@ -526,7 +528,7 @@
     </section>
 
     <!-- ══ CONTACT ══ -->
-    <section class="contact-wrap" id="contact" style="border-top: 1px solid var(--border);">
+    <section class="contact-wrap" id="contact" style="border-top: 1px solid var(--black);">
       <div class="contact-wrap__inner">
         <p class="contact-wrap__label">contact</p>
         <h2 class="contact-wrap__title">Let's collaborate</h2>

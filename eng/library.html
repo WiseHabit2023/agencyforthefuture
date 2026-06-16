@@ -28,7 +28,7 @@
     .lib-intro-col__text {
       font-size: 18px;
       line-height: 1.75;
-      color: #444;
+      color: var(--black);
     }
 
     /* Full-width library image */
@@ -54,12 +54,12 @@
       grid-template-columns: 48px 1fr;
       gap: 0;
       padding: 16px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--black);
     }
-    .lib-gain-item:first-child { border-top: 1px solid var(--border); }
+    .lib-gain-item:first-child { border-top: 1px solid var(--black); }
     .lib-gain-item__num {
       font-size: 14px;
-      opacity: 0.35;
+      opacity: 1;
       font-weight: 400;
       padding-top: 3px;
     }
@@ -114,10 +114,11 @@
       <ul class="nav__links">
         <li class="nav__dropdown"><span>about</span>
           <div class="nav__dropdown-menu">
-            <a href="about.html">overview</a>
-            <a href="team.html">team</a>
-            <a href="awards.html">awards</a>
+            <a href="about.html">about us</a>
+            <a href="about.html#team">team</a>
+            <a href="about.html#awards">awards</a>
             <a href="clients.html">clients</a>
+            <a href="about.html#media">media</a>
           </div>
         </li>
         <li><a href="sustainability.html">sustainability</a></li>
@@ -154,10 +155,11 @@
     <ul class="nav__mobile-links">
       <li><span>about</span>
         <ul class="nav__mobile-sub">
-          <li><a href="about.html">overview</a></li>
-          <li><a href="team.html">team</a></li>
-          <li><a href="awards.html">awards</a></li>
+          <li><a href="about.html">about us</a></li>
+          <li><a href="about.html#team">team</a></li>
+          <li><a href="about.html#awards">awards</a></li>
           <li><a href="clients.html">clients</a></li>
+          <li><a href="about.html#media">media</a></li>
         </ul>
       </li>
       <li><a href="sustainability.html">sustainability</a></li>

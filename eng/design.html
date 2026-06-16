@@ -13,17 +13,17 @@
     /* What we can accomplish — 2x2 grid + image */
     .design-accomplish-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: stretch; }
     .design-accomplish-items { display: grid; grid-template-columns: 1fr 1fr; gap: 56px 48px; align-content: start; }
-    .design-accomplish-item__title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
-    .design-accomplish-item__text { font-size: 19px; line-height: 1.75; color: #333; }
+    .design-accomplish-item__title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--black); }
+    .design-accomplish-item__text { font-size: 19px; line-height: 1.75; color: var(--black); }
     .design-accomplish-img { display: flex; }
     .design-accomplish-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block; }
 
     /* Scope numbered list */
     .design-scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .design-scope-list { width: 100%; }
-    .design-scope-item { display: flex; align-items: baseline; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 18px; font-weight: 400; }
-    .design-scope-item:first-child { border-top: 1px solid var(--border); }
-    .design-scope-item__num { font-size: 13px; opacity: 0.35; flex-shrink: 0; min-width: 24px; }
+    .design-scope-item { display: flex; align-items: baseline; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--black); font-size: 18px; font-weight: 400; }
+    .design-scope-item:first-child { border-top: 1px solid var(--black); }
+    .design-scope-item__num { font-size: 13px; opacity: 1; flex-shrink: 0; min-width: 24px; }
 
     /* Process diagram */
     .design-diagram { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-h) 64px; }
@@ -34,9 +34,9 @@
     .design-process-img { display: flex; }
     .design-process-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block; }
     .design-process-list { display: flex; flex-direction: column; }
-    .design-process-item { display: flex; align-items: baseline; gap: 20px; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 17px; }
-    .design-process-item:first-child { border-top: 1px solid var(--border); }
-    .design-process-item__num { font-size: 13px; opacity: 0.35; flex-shrink: 0; min-width: 28px; }
+    .design-process-item { display: flex; align-items: baseline; gap: 20px; padding: 11px 0; border-bottom: 1px solid var(--black); font-size: 17px; }
+    .design-process-item:first-child { border-top: 1px solid var(--black); }
+    .design-process-item__num { font-size: 13px; opacity: 1; flex-shrink: 0; min-width: 28px; }
 
     /* Circular economy */
     .design-circular-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -44,7 +44,7 @@
 
     /* Quote / holistic */
     .design-holistic { max-width: var(--max-w); margin: 0 auto; padding: 80px var(--pad-h); text-align: center; }
-    .design-holistic__sup { font-size: 13px; letter-spacing: 0.05em; opacity: 0.45; margin-bottom: 20px; }
+    .design-holistic__sup { font-size: 13px; letter-spacing: 0.05em; opacity: 1; margin-bottom: 20px; }
     .design-holistic__text { font-size: clamp(22px, 2.4vw, 36px); font-weight: 400; line-height: 1.4; max-width: 900px; margin: 0 auto 48px; letter-spacing: -0.3px; }
     .design-holistic img { max-width: 480px; margin: 0 auto; display: block; width: 100%; height: auto; }
 
@@ -83,10 +83,11 @@
       <ul class="nav__links">
         <li class="nav__dropdown"><span>about</span>
           <div class="nav__dropdown-menu">
-            <a href="about.html">overview</a>
-            <a href="team.html">team</a>
-            <a href="awards.html">awards</a>
+            <a href="about.html">about us</a>
+            <a href="about.html#team">team</a>
+            <a href="about.html#awards">awards</a>
             <a href="clients.html">clients</a>
+            <a href="about.html#media">media</a>
           </div>
         </li>
         <li><a href="sustainability.html">sustainability</a></li>
@@ -123,10 +124,11 @@
     <ul class="nav__mobile-links">
       <li><span>about</span>
         <ul class="nav__mobile-sub">
-          <li><a href="about.html">overview</a></li>
-          <li><a href="team.html">team</a></li>
-          <li><a href="awards.html">awards</a></li>
+          <li><a href="about.html">about us</a></li>
+          <li><a href="about.html#team">team</a></li>
+          <li><a href="about.html#awards">awards</a></li>
           <li><a href="clients.html">clients</a></li>
+          <li><a href="about.html#media">media</a></li>
         </ul>
       </li>
       <li><a href="sustainability.html">sustainability</a></li>
