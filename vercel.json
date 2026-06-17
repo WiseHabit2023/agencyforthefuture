@@ -2,7 +2,8 @@
   "redirects": [
     { "source": "/team", "destination": "/about#team", "permanent": true },
     { "source": "/awards", "destination": "/about#awards", "permanent": true },
-    { "source": "/media", "destination": "/about#media", "permanent": true }
+    { "source": "/media", "destination": "/about#media", "permanent": true },
+    { "source": "/clients", "destination": "/about#clients", "permanent": true }
   ],
   "rewrites": [
     { "source": "/", "destination": "/eng/index.html" },
