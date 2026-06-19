@@ -79,6 +79,13 @@
 
 html { scroll-behavior: smooth; }
 
+/* Sitewide scale-down — team confirmed 80% reads correctly on laptop/desktop
+   screens (was getting oversized on large monitors at 100%). Scoped above the
+   900px mobile/hamburger breakpoint so phone & tablet sizing stays untouched. */
+@media (min-width: 901px) {
+  html { zoom: 80%; }
+}
+
 body {
   font-family: var(--font);
   background: var(--bg);
