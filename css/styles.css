@@ -717,6 +717,28 @@ a { color: inherit; text-decoration: none; }
 .about-logoband__label { font-size: clamp(28px, 3.2vw, 42px); font-weight: 500; letter-spacing: -0.5px; margin-bottom: 28px; }
 .about-logoband__logos img { max-width: 100%; height: auto; display: block; }
 
+/* Awards logos: scrolling marquee (scoped to the Awards section only, id="awards") */
+#awards .about-logoband__logos {
+  overflow: hidden;
+}
+#awards .about-logoband__marquee {
+  display: flex;
+  width: max-content;
+  animation: awards-marquee 28s linear infinite;
+}
+#awards .about-logoband__marquee img {
+  max-width: none;
+  flex-shrink: 0;
+  height: auto;
+}
+#awards .about-logoband__logos:hover .about-logoband__marquee {
+  animation-play-state: paused;
+}
+@keyframes awards-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* Slider: full width overflow container */
 .portfolio-slider { overflow: hidden; }
 .portfolio-track { display: flex; transition: transform 0.5s ease; }
