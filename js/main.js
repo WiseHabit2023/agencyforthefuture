@@ -1,5 +1,5 @@
 // =============================================
-// WISE HABIT AGENCY — Main JavaScript
+// WISE HABIT AGENCY - Main JavaScript
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
