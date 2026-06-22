@@ -820,7 +820,8 @@ a { color: inherit; text-decoration: none; }
 
 .library-section__img {
   overflow: hidden;
-  height: 100%;
+  height: 420px;
+  align-self: center;
 }
 .library-section__img img {
   width: 100%;
