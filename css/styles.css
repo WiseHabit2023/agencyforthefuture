@@ -734,14 +734,12 @@ a { color: inherit; text-decoration: none; }
 .portfolio-grid__overlay-desc {
   font-size: 13px;
   line-height: 1.55;
-  opacity: 0.82;
 }
 
 .portfolio-grid__overlay-scope {
   font-size: 12px;
   line-height: 1.5;
-  opacity: 0.6;
-  border-top: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid #fff;
   padding-top: 10px;
   margin-top: 0;
 }
@@ -995,10 +993,10 @@ a { color: inherit; text-decoration: none; }
 
 .form-field label {
   font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  opacity: 0.6;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  opacity: 0.55;
 }
 
 .form-field input,
@@ -1083,9 +1081,9 @@ a { color: inherit; text-decoration: none; }
 
 .form-chips-label {
   font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
   opacity: 0.6;
   margin-bottom: 12px;
 }
@@ -1126,7 +1124,7 @@ a { color: inherit; text-decoration: none; }
 
 .footer-brand-block { display: flex; flex-direction: column; gap: 6px; }
 .footer-brand img { height: 22px; opacity: 0.85; }
-.footer-tagline { font-size: 12px; opacity: 0.4; letter-spacing: 0.04em; text-transform: uppercase; }
+.footer-tagline { font-size: 13px; opacity: 0.5; letter-spacing: 0; text-transform: none; }
 
 .footer-contact-block { display: flex; flex-direction: column; gap: 4px; }
 .footer-block-label {
@@ -1173,8 +1171,8 @@ a { color: inherit; text-decoration: none; }
 .footer-col--nav { display: flex; flex-direction: column; gap: 4px; }
 
 .footer-col__heading {
-  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; opacity: 0.35; margin-bottom: 8px;
+  font-size: 13px; font-weight: 400; letter-spacing: 0;
+  text-transform: none; opacity: 0.5; margin-bottom: 8px;
 }
 
 .footer-col__link {
@@ -1329,8 +1327,8 @@ footer.footer-bottom {
 }
 .contact-detail-block { margin-bottom: 32px; }
 .contact-detail-block__label {
-  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; opacity: 0.4; margin-bottom: 6px;
+  font-size: 13px; font-weight: 400; letter-spacing: 0;
+  text-transform: none; opacity: 0.5; margin-bottom: 6px;
 }
 .contact-detail-block__value {
   font-size: 17px; line-height: 1.6; color: var(--black); opacity: 0.8;
