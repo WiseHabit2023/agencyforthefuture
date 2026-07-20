@@ -149,6 +149,8 @@
     .about-team-role { font-size: 14px; color: var(--black); opacity: 1; margin-bottom: 14px; }
     .about-team-links { display: flex; gap: 12px; align-items: center; }
     .about-team-links a { display: inline-flex; align-items: center; }
+    .team-social-icon { opacity: 0.45; transition: opacity 0.2s ease; }
+    .team-social-icon:hover { opacity: 1; }
 
     .about-team-card--open .about-team-photo {
       display: flex; align-items: center; justify-content: center;
@@ -197,17 +199,18 @@
         <a class="nav__logo-agency" href="index.html"><img src="../img/logo_5_small.svg" alt="Agency for the Future" /></a>
         <a class="nav__logo-wh" href="https://wisehabit.com" target="_blank"><img src="../img/WH_head.svg" alt="wisehabit.com" /></a>
       </div>
-      <ul class="nav__links">
-        <li class="nav__dropdown active"><span>about</span>
+            <ul class="nav__links">
+        <li class="nav__dropdown"><span>about</span>
           <div class="nav__dropdown-menu">
             <a href="about.html">about us</a>
             <a href="about.html#team">team</a>
             <a href="about.html#awards">awards</a>
             <a href="about.html#clients">clients</a>
             <a href="about.html#media">media</a>
+            <a href="sustainability.html">sustainability</a>
+            <a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a>
           </div>
         </li>
-        <li><a href="sustainability.html">sustainability</a></li>
         <li class="nav__dropdown"><span>services</span>
           <div class="nav__dropdown-menu">
             <a href="design.html">design</a>
@@ -216,29 +219,24 @@
             <a href="branding-ip.html">branding &amp; IP</a>
           </div>
         </li>
-        <li class="nav__dropdown"><span>conferences</span>
+        <li><a href="library.html">library</a></li>
+        <li class="nav__dropdown"><span>exhibitions &amp; conferences</span>
           <div class="nav__dropdown-menu">
+            <a href="power-of-three.html">Ethical Design Exhibition</a>
             <a href="design-business-conference.html">design business conference</a>
             <a href="archive.html">Conferences We Participated In</a>
           </div>
         </li>
-        <li class="nav__dropdown"><span>exhibitions &amp; library</span>
-          <div class="nav__dropdown-menu">
-            <a href="power-of-three.html">Ethical Design Exhibition</a>
-            <a href="library.html">library</a>
-          </div>
-        </li>
         <li><a href="archisnob.html">archisnob</a></li>
-        <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
         <li><a href="contact.html">contact</a></li>
-        <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+        <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
       </ul>
       <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </div>
   </nav>
 
   <div class="nav__mobile" id="mobileNav">
-    <ul class="nav__mobile-links">
+        <ul class="nav__mobile-links">
       <li><span>about</span>
         <ul class="nav__mobile-sub">
           <li><a href="about.html">about us</a></li>
@@ -246,7 +244,30 @@
           <li><a href="about.html#awards">awards</a></li>
           <li><a href="about.html#clients">clients</a></li>
           <li><a href="about.html#media">media</a></li>
+          <li><a href="sustainability.html">sustainability</a></li>
+          <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
         </ul>
+      </li>
+      <li><span>services</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design.html">design</a></li>
+          <li><a href="rd.html">R&amp;D</a></li>
+          <li><a href="product-strategy.html">product strategy</a></li>
+          <li><a href="branding-ip.html">branding &amp; IP</a></li>
+        </ul>
+      </li>
+      <li><a href="library.html">library</a></li>
+      <li><span>exhibitions &amp; conferences</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="power-of-three.html">Ethical Design Exhibition</a></li>
+          <li><a href="design-business-conference.html">design business conference</a></li>
+          <li><a href="archive.html">Conferences We Participated In</a></li>
+        </ul>
+      </li>
+      <li><a href="archisnob.html">archisnob</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B sales</a></li>
+    </ul>
       </li>
       <li><a href="sustainability.html">sustainability</a></li>
       <li><span>services</span>
@@ -336,8 +357,8 @@
               <div class="about-team-divider"></div>
               <p class="about-team-role">CEO &amp; Strategist</p>
               <div class="about-team-links">
-                <a href="#" aria-label="LinkedIn" class="team-icon-link"><img class="icon-def" src="../img/LinkedIn%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
-                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-icon-link"><img class="icon-def" src="../img/Mail%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="#" aria-label="LinkedIn" class="team-social-icon"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-social-icon"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
               </div>
             </div>
           </div>
@@ -353,8 +374,8 @@
               <div class="about-team-divider"></div>
               <p class="about-team-role">Head of Design</p>
               <div class="about-team-links">
-                <a href="#" aria-label="LinkedIn" class="team-icon-link"><img class="icon-def" src="../img/LinkedIn%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
-                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-icon-link"><img class="icon-def" src="../img/Mail%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="#" aria-label="LinkedIn" class="team-social-icon"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-social-icon"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
               </div>
             </div>
           </div>
@@ -370,8 +391,8 @@
               <div class="about-team-divider"></div>
               <p class="about-team-role">Head of Sales</p>
               <div class="about-team-links">
-                <a href="#" aria-label="LinkedIn" class="team-icon-link"><img class="icon-def" src="../img/LinkedIn%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
-                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-icon-link"><img class="icon-def" src="../img/Mail%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="#" aria-label="LinkedIn" class="team-social-icon"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-social-icon"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
               </div>
             </div>
           </div>
@@ -387,8 +408,8 @@
               <div class="about-team-divider"></div>
               <p class="about-team-role">Head of Marketing <!-- TODO: potwierdź stanowisko --></p>
               <div class="about-team-links">
-                <a href="#" aria-label="LinkedIn" class="team-icon-link"><img class="icon-def" src="../img/LinkedIn%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
-                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-icon-link"><img class="icon-def" src="../img/Mail%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="#" aria-label="LinkedIn" class="team-social-icon"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-social-icon"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
               </div>
             </div>
           </div>
@@ -404,8 +425,8 @@
               <div class="about-team-divider"></div>
               <p class="about-team-role">Industrial Designer</p>
               <div class="about-team-links">
-                <a href="#" aria-label="LinkedIn" class="team-icon-link"><img class="icon-def" src="../img/LinkedIn%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
-                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-icon-link"><img class="icon-def" src="../img/Mail%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="#" aria-label="LinkedIn" class="team-social-icon"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-social-icon"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
               </div>
             </div>
           </div>
@@ -421,8 +442,8 @@
               <div class="about-team-divider"></div>
               <p class="about-team-role">Copywriter</p>
               <div class="about-team-links">
-                <a href="#" aria-label="LinkedIn" class="team-icon-link"><img class="icon-def" src="../img/LinkedIn%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
-                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-icon-link"><img class="icon-def" src="../img/Mail%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="#" aria-label="LinkedIn" class="team-social-icon"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-social-icon"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
               </div>
             </div>
           </div>
@@ -438,8 +459,8 @@
               <div class="about-team-divider"></div>
               <p class="about-team-role">IT Specialist</p>
               <div class="about-team-links">
-                <a href="#" aria-label="LinkedIn" class="team-icon-link"><img class="icon-def" src="../img/LinkedIn%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
-                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-icon-link"><img class="icon-def" src="../img/Mail%20Icon%20-%20Inactive.svg" width="20" height="20" alt=""><img class="icon-hov" src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="#" aria-label="LinkedIn" class="team-social-icon"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
+                <a href="mailto:office@wisehabit.com" aria-label="Email" class="team-social-icon"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt=""></a>
               </div>
             </div>
           </div>
