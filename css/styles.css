@@ -997,7 +997,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
-  opacity: 0.55;
+  opacity: 1;
 }
 
 .form-field input,
@@ -1019,6 +1019,12 @@ a { color: inherit; text-decoration: none; }
 .form-field textarea:focus,
 .form-field select:focus {
   border-bottom-color: var(--black);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--black);
+  opacity: 0.35;
 }
 
 .form-field textarea {
@@ -1061,12 +1067,12 @@ a { color: inherit; text-decoration: none; }
   display: inline-flex;
   align-items: center;
   padding: 9px 20px;
-  border: 1px solid var(--border);
-  border-radius: 100px;
+  border: 1px solid var(--black);
+  border-radius: 6px;
   font-family: var(--font);
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
   cursor: pointer;
   user-select: none;
   transition: border-color 0.15s, background 0.15s, color 0.15s;
@@ -1085,7 +1091,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
-  opacity: 0.6;
+  opacity: 1;
   margin-bottom: 12px;
 }
 
