@@ -910,6 +910,7 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   height: 420px;
   align-self: center;
+  border-radius: 6px;
 }
 .library-section__img img {
   width: 100%;
