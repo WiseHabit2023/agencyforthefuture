@@ -7,13 +7,15 @@
  * znacznik <!--LEAD:{...}--> w odpowiedzi, wysyłając zebrane dane do /api/lead.
  */
 (function () {
+  // Paleta i typografia wzięte wprost z css/styles.css strony (--black, --bg, --border, --font),
+  // żeby widget wyglądał jak natywny element strony, nie jak doklejony plugin.
   const COLORS = {
-    primary: "#1F3864",
-    primaryDark: "#16294a",
-    bg: "#ffffff",
-    bubbleBot: "#f2f2f2",
-    bubbleUser: "#1F3864",
+    black: "#000000",
+    bg: "#faf7f4",
+    border: "#d2d2d2",
+    bubbleBot: "#f2efe9",
   };
+  const FONT = "'CircularXX', 'Nunito', -apple-system, sans-serif";
 
   const state = {
     open: false,
@@ -25,38 +27,44 @@
   const style = document.createElement("style");
   style.textContent = `
     #ai-chat-launcher {
-      position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px;
-      border-radius: 50%; background: ${COLORS.primary}; color: #fff; border: none;
-      cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.25); z-index: 999999;
-      display: flex; align-items: center; justify-content: center; font-size: 24px;
-      transition: transform .15s ease;
+      position: fixed; bottom: 24px; right: 24px; width: 54px; height: 54px;
+      border-radius: 50%; background: ${COLORS.black}; border: 1.5px solid ${COLORS.black};
+      cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.2); z-index: 999999;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .18s ease, transform .15s ease;
     }
-    #ai-chat-launcher:hover { transform: scale(1.06); }
+    #ai-chat-launcher:hover { background: #222; transform: scale(1.05); }
+    #ai-chat-launcher svg { width: 22px; height: 22px; }
     #ai-chat-panel {
-      position: fixed; bottom: 92px; right: 24px; width: 340px; max-width: calc(100vw - 32px);
-      height: 460px; max-height: calc(100vh - 140px); background: ${COLORS.bg};
-      border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,.25); z-index: 999999;
-      display: none; flex-direction: column; overflow: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      position: fixed; bottom: 90px; right: 24px; width: 350px; max-width: calc(100vw - 32px);
+      height: 470px; max-height: calc(100vh - 140px); background: ${COLORS.bg};
+      border: 1.5px solid ${COLORS.black}; border-radius: 6px; box-shadow: 0 8px 30px rgba(0,0,0,.2);
+      z-index: 999999; display: none; flex-direction: column; overflow: hidden;
+      font-family: ${FONT};
     }
     #ai-chat-panel.open { display: flex; }
     #ai-chat-header {
-      background: ${COLORS.primary}; color: #fff; padding: 14px 16px; font-weight: 600; font-size: 15px;
-      display: flex; justify-content: space-between; align-items: center;
+      background: ${COLORS.black}; color: #fff; padding: 14px 16px; font-weight: 500; font-size: 15px;
+      letter-spacing: 0.2px; display: flex; justify-content: space-between; align-items: center;
     }
-    #ai-chat-header button { background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; }
-    #ai-chat-messages { flex: 1; overflow-y: auto; padding: 14px; background: #fafafa; }
-    .ai-msg { max-width: 82%; margin-bottom: 10px; padding: 9px 12px; border-radius: 12px; font-size: 13.5px; line-height: 1.4; white-space: pre-wrap; }
-    .ai-msg.user { background: ${COLORS.bubbleUser}; color: #fff; margin-left: auto; border-bottom-right-radius: 3px; }
-    .ai-msg.assistant { background: ${COLORS.bubbleBot}; color: #222; margin-right: auto; border-bottom-left-radius: 3px; }
-    .ai-msg.typing { font-style: italic; color: #888; background: transparent; padding: 0 4px; }
-    #ai-chat-inputbar { display: flex; border-top: 1px solid #eee; padding: 8px; gap: 6px; }
+    #ai-chat-header button { background: none; border: none; color: #fff; font-size: 16px; cursor: pointer; line-height: 1; padding: 4px; }
+    #ai-chat-messages { flex: 1; overflow-y: auto; padding: 14px; background: ${COLORS.bg}; }
+    .ai-msg { max-width: 84%; margin-bottom: 10px; padding: 9px 13px; border-radius: 4px; font-size: 13.5px; line-height: 1.5; white-space: pre-wrap; }
+    .ai-msg.user { background: ${COLORS.black}; color: #fff; margin-left: auto; }
+    .ai-msg.assistant { background: ${COLORS.bubbleBot}; color: ${COLORS.black}; margin-right: auto; border: 1px solid ${COLORS.border}; }
+    .ai-msg.typing { font-style: italic; color: #888; background: transparent; padding: 0 4px; border: none; }
+    #ai-chat-inputbar { display: flex; border-top: 1.5px solid ${COLORS.black}; padding: 8px; gap: 6px; }
     #ai-chat-input {
-      flex: 1; border: 1px solid #ddd; border-radius: 20px; padding: 8px 14px; font-size: 13.5px; outline: none;
+      flex: 1; border: 1.5px solid ${COLORS.border}; border-radius: 4px; padding: 8px 12px;
+      font-size: 13.5px; font-family: ${FONT}; outline: none; background: #fff; color: ${COLORS.black};
     }
+    #ai-chat-input:focus { border-color: ${COLORS.black}; }
     #ai-chat-send {
-      background: ${COLORS.primary}; color: #fff; border: none; border-radius: 20px; padding: 0 16px; cursor: pointer; font-size: 13px;
+      background: ${COLORS.black}; color: #fff; border: 1.5px solid ${COLORS.black}; border-radius: 4px;
+      padding: 0 16px; cursor: pointer; font-size: 13px; font-family: ${FONT}; font-weight: 500;
+      transition: background .18s ease;
     }
+    #ai-chat-send:hover:not(:disabled) { background: #222; }
     #ai-chat-send:disabled { opacity: .5; cursor: default; }
   `;
   document.head.appendChild(style);
@@ -65,14 +73,14 @@
   const launcher = document.createElement("button");
   launcher.id = "ai-chat-launcher";
   launcher.setAttribute("aria-label", "Open chat");
-  launcher.innerHTML = "💬";
+  launcher.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 5.5h16v11H8.5L4 20.5v-4H4z" stroke-linejoin="round" stroke-linecap="round"/></svg>';
 
   const panel = document.createElement("div");
   panel.id = "ai-chat-panel";
   panel.innerHTML = `
     <div id="ai-chat-header">
       <span>Chat with us</span>
-      <button id="ai-chat-close" aria-label="Close">✕</button>
+      <button id="ai-chat-close" aria-label="Close">&#10005;</button>
     </div>
     <div id="ai-chat-messages"></div>
     <div id="ai-chat-inputbar">
