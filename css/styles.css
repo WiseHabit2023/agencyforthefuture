@@ -824,7 +824,7 @@ a { color: inherit; text-decoration: none; }
   filter: brightness(0);
 }
 #clients .about-logoband__marquee img[src*="NKI"] {
-  height: 72px !important;
+  height: 144px !important;
 }
 #clients .about-logoband__marquee img[src*="Archisnob"] {
   height: 32px !important;
