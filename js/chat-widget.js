@@ -21,8 +21,8 @@
   // Używana jako avatar przy wiadomościach bota (i w headerze), NIE na przycisku uruchamiającym.
   const WH_ICON = '<svg viewBox="0 0 39 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30.3501 9.48997V0.5C25.006 0.5 20.6052 4.5306 20.0164 9.71724V0.5C14.7507 0.5 10.4014 4.41347 9.71165 9.48997H0.962891V20.5H11.973V10.9031H27.9904V20.5H39.0004V9.48997H30.3501Z" fill="currentColor"/><path d="M17.0502 15.4326C15.904 15.4326 14.9746 16.362 14.9746 17.5085H19.1258C19.1258 16.362 18.1964 15.4326 17.0502 15.4326Z" fill="currentColor"/><path d="M22.9135 15.5664C21.7673 15.5664 20.8379 16.4958 20.8379 17.6423H24.9891C24.9891 16.4958 24.0597 15.5664 22.9135 15.5664Z" fill="currentColor"/></svg>';
 
-  // Klasyczna ikona dymka rozmowy — na przycisku uruchamiającym, żeby od razu było wiadomo, że to czat.
-  const CHAT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>';
+  // Ikona dymka rozmowy (kwadratowa, z ogonkiem) — na przycisku uruchamiającym.
+  const CHAT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M4 5.5h16v11H8.5L4 20.5v-4H4z"/></svg>';
 
   const state = {
     open: false,
@@ -51,24 +51,24 @@
     }
     #ai-chat-panel.open { display: flex; }
     #ai-chat-header {
-      background: ${COLORS.black}; color: #fff; padding: 22px 24px; font-weight: 500; font-size: 15.5px;
+      background: transparent; color: ${COLORS.black}; padding: 18px 22px; font-weight: 500; font-size: 15.5px;
       letter-spacing: 0.2px; display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid ${COLORS.border};
     }
-    #ai-chat-header .ai-chat-header-left { display: flex; align-items: center; gap: 12px; }
-    #ai-chat-header .ai-chat-header-left svg { width: 22px; height: auto; color: #fff; }
+    #ai-chat-header .ai-chat-header-left { display: flex; align-items: center; gap: 10px; }
+    #ai-chat-header .ai-chat-header-left svg { width: 20px; height: auto; color: ${COLORS.black}; }
     #ai-chat-header button {
-      background: none; border: none; color: #fff; font-size: 15px; cursor: pointer; line-height: 1;
-      padding: 6px; opacity: .75; transition: opacity .15s ease;
+      background: none; border: none; color: ${COLORS.black}; font-size: 15px; cursor: pointer; line-height: 1;
+      padding: 6px; opacity: .6; transition: opacity .15s ease;
     }
     #ai-chat-header button:hover { opacity: 1; }
     #ai-chat-messages { flex: 1; overflow-y: auto; padding: 24px; background: ${COLORS.bg}; }
-    .ai-row { display: flex; align-items: flex-end; gap: 10px; margin-bottom: 18px; }
+    .ai-row { display: flex; align-items: flex-end; gap: 8px; margin-bottom: 18px; }
     .ai-row.user { justify-content: flex-end; }
     .ai-avatar {
-      flex: none; width: 28px; height: 28px; border-radius: 50%; background: ${COLORS.black};
-      display: flex; align-items: center; justify-content: center; color: #fff;
+      flex: none; width: 20px; display: flex; align-items: center; justify-content: center; color: ${COLORS.black};
     }
-    .ai-avatar svg { width: 14px; height: auto; }
+    .ai-avatar svg { width: 20px; height: auto; }
     .ai-msg { max-width: 78%; padding: 13px 17px; border-radius: 14px; font-size: 14.5px; line-height: 1.65; white-space: pre-wrap; }
     .ai-msg.user { background: ${COLORS.black}; color: #fff; border-bottom-right-radius: 4px; }
     .ai-msg.assistant { background: #ffffff; color: ${COLORS.black}; border: 1px solid ${COLORS.border}; border-bottom-left-radius: 4px; }
