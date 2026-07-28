@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
         name: lead.name,
         email: lead.email,
         company: lead.company,
-        subject: `Chatbot lead — ${lead.segment || "unspecified"} — ${lead.company || lead.name || ""}`,
+        subject: `Chatbot lead: ${lead.segment || "unspecified"}, ${lead.company || lead.name || ""}`,
         message: `New lead from the website chatbot.\n\nSegment: ${lead.segment || "n/a"}\nName: ${lead.name || "n/a"}\nEmail: ${lead.email || "n/a"}\nCompany: ${lead.company || "n/a"}\nNotes: ${lead.notes || "n/a"}`,
       }),
     });
