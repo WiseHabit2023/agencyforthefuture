@@ -519,20 +519,35 @@
       </div>
     </section>
 
-    <!-- ══ BENTO / NUTSHELL ══ -->
+    <!-- ══ NUTSHELL / STATS ══ -->
     <section class="nutshell">
       <div class="nutshell__inner">
-        <p class="nutshell__label">Agency for the Future - in a nutshell</p>
-        <div class="bento-grid">
-          <div class="bento-card c1"><p class="bento-card__num">1</p><p class="bento-card__text">Over <strong>20 years of entrepreneurs perspective</strong> enabling better understanding of business</p></div>
-          <div class="bento-card c2"><p class="bento-card__num">2</p><p class="bento-card__text"><strong>Holistic approach from idea to product</strong> on the market</p></div>
-          <div class="bento-card c3"><p class="bento-card__num">3</p><p class="bento-card__text">Design with <strong>sustainability in mind</strong>, approach with care of whole product life-cycle</p></div>
-          <div class="bento-card c4"><p class="bento-card__num">4</p><p class="bento-card__text">Portfolio of designs with <strong>International Design Awards</strong> &amp; title of Designer of the Year 2023 by Polish Institute of Design</p></div>
-          <div class="bento-card c5"><p class="bento-card__num">5</p><p class="bento-card__text"><strong>Empathetic understanding</strong> of client, user and other life forms involved in project</p></div>
-          <div class="bento-card c6"><p class="bento-card__num">6</p><p class="bento-card__text">Library of Sustainable Materials features <strong>more than 40 European brands</strong></p></div>
-          <div class="bento-card c7"><p class="bento-card__num">7</p><p class="bento-card__text"><strong>Diverse &amp; inclusive team</strong> build by professionals with adaptive mindset</p></div>
-          <div class="bento-card c8"><p class="bento-card__num">8</p><p class="bento-card__text">Access to <strong>350 verified suppliers &amp; manufacturers</strong> with huge range of materials and techniques</p></div>
-          <div class="bento-card c9"><p class="bento-card__num">9</p><p class="bento-card__text"><strong>Intellectual Property</strong> services to protect design and innovation</p></div>
+        <p class="nutshell__label">agency in a nutshell</p>
+        <div class="stats-grid">
+          <div class="stat-block">
+            <p class="stat-block__value">Holistic</p>
+            <p class="stat-block__desc">approach. Empathetic understanding of clients, users, and other life forms, together with a comprehensive approach from idea to product on the market.</p>
+          </div>
+          <div class="stat-block">
+            <p class="stat-block__value">350+</p>
+            <p class="stat-block__desc">Access to 350 verified suppliers &amp; manufacturers with huge range of materials and techniques.</p>
+          </div>
+          <div class="stat-block">
+            <p class="stat-block__value">Circular</p>
+            <p class="stat-block__desc">strategies. Design with sustainability in mind and the circular product lifecycle at its core.</p>
+          </div>
+          <div class="stat-block">
+            <p class="stat-block__value">20+</p>
+            <p class="stat-block__desc">Over 20 years of entrepreneurs perspective enabling better understanding of business.</p>
+          </div>
+          <div class="stat-block">
+            <p class="stat-block__value">Awards</p>
+            <p class="stat-block__desc">Portfolio of designs with international design awards &amp; title of Designer of the Year 2023 by Polish Institute of Industrial Design.</p>
+          </div>
+          <div class="stat-block">
+            <p class="stat-block__value">40+</p>
+            <p class="stat-block__desc">Library of Sustainable Materials features more than 40 European brands.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -647,86 +662,86 @@
     </section>
 
     <!-- ══ CONTACT ══ -->
-    <section class="contact-wrap" id="contact">
-      <div class="contact-wrap__inner">
-        <p class="contact-wrap__label">contact</p>
-        <h2 class="contact-wrap__title">Get in touch</h2>
+  </main>
 
-        <!-- Formspree - zamień YOUR_FORM_ID na swoje ID z formspree.io -->
+  <!-- ══ CONTACT + FOOTER ══ -->
+  <div class="collab-footer" id="contact">
+    <div class="collab-footer__inner">
+
+      <!-- Form -->
+      <div class="collab-form-area">
+        <h2 class="collab-footer__title">Let's collaborate</h2>
+        <p class="collab-footer__sub">Partner with us to form better future together</p>
+
         <form class="contact-form" action="https://formspree.io/f/mnjyvvgb" method="POST">
-
-          <!-- Service checkboxes -->
           <div>
-            <p class="form-chips-label">I'm interested in</p>
+            <p class="form-chips-label">What services do you need?</p>
             <div class="service-chips">
               <label class="service-chip"><input type="checkbox" name="service[]" value="Design" /> Design</label>
-              <label class="service-chip"><input type="checkbox" name="service[]" value="Implementation" /> Implementation</label>
               <label class="service-chip"><input type="checkbox" name="service[]" value="Product Strategy" /> Product Strategy</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Branding &amp; IP" /> Branding &amp; IP</label>
               <label class="service-chip"><input type="checkbox" name="service[]" value="ArchiSnob" /> ArchiSnob</label>
               <label class="service-chip"><input type="checkbox" name="service[]" value="Other" /> Other</label>
             </div>
           </div>
-
           <div class="form-row">
             <div class="form-field">
-              <label for="cf-name">name</label>
-              <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+              <input type="text" name="name" placeholder="Your name*" required />
             </div>
             <div class="form-field">
-              <label for="cf-company">company</label>
-              <input type="text" id="cf-company" name="company" placeholder="Your company" />
+              <input type="text" name="company" placeholder="Name of the company" />
             </div>
           </div>
           <div class="form-field">
-            <label for="cf-email">email</label>
-            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+            <input type="email" name="email" placeholder="E-mail*" required />
           </div>
           <div class="form-field">
-            <label for="cf-subject">subject</label>
-            <input type="text" id="cf-subject" name="subject" placeholder="What can we help you with?" />
+            <textarea name="message" placeholder="Write your inquiry" required></textarea>
           </div>
-          <div class="form-field">
-            <label for="cf-message">message</label>
-            <textarea id="cf-message" name="message" placeholder="Tell us about your project..." required></textarea>
-          </div>
-          <div class="form-consent">
-            <input type="checkbox" id="cf-consent" name="consent" required />
-            <label for="cf-consent">I agree to the processing of my personal data for the purpose of responding to my inquiry.</label>
-          </div>
-          <button type="submit" class="btn btn--filled form-submit">send message →</button>
+          <button type="submit" class="btn btn--filled form-submit">send us the message →</button>
+          <p class="form-disclaimer">We will reply as soon as possible. Data is processed in accordance with the <a href="#">privacy policy</a>. By submitting data, you accept privacy policy.</p>
         </form>
-
       </div>
-    </section>
 
-  </main>
-
-  <!-- ══ FOOTER ══ -->
-    <div class="footer-main">
-    <div class="footer-main__inner">
-      <div class="footer-contact-big">
-        <a href="mailto:office@wisehabit.com" class="footer-big-link">office@wisehabit.com</a>
-        <a href="tel:+48608561173" class="footer-big-link">+48 608 561 173</a>
-      </div>
-      <div class="footer-bottom-row">
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="22" height="22" alt=""></a>
-          <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram"><img src="../img/Instagram%20Icon%20-%20Hoover.svg" width="22" height="22" alt=""></a>
-          <a href="mailto:office@wisehabit.com" aria-label="Email"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="22" height="22" alt=""></a>
+      <!-- Footer row -->
+      <div class="collab-footer-row">
+        <div class="collab-footer-left">
+          <div class="footer-nav-cols">
+            <div class="footer-nav-col">
+              <a href="about.html">About</a>
+              <a href="design.html">Design</a>
+              <a href="product-strategy.html">Product Strategy</a>
+              <a href="branding-ip.html">Branding &amp; IP</a>
+              <a href="archisnob.html">ArchiSnob</a>
+            </div>
+            <div class="footer-nav-col">
+              <a href="library.html">Library</a>
+              <a href="sustainability.html">Sustainability</a>
+              <a href="design-business-conference.html">Design Business Conference</a>
+              <a href="contact.html">Contact</a>
+              <a href="rd.html">R&amp;D</a>
+            </div>
+          </div>
+          <div class="footer-social footer-social--circles">
+            <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="16" height="16" alt="" /></a>
+            <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram"><img src="../img/Instagram%20Icon%20-%20Hoover.svg" width="16" height="16" alt="" /></a>
+            <a href="mailto:office@wisehabit.com" aria-label="Email"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="16" height="16" alt="" /></a>
+          </div>
         </div>
-        <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-        </div>
-        <div class="footer-logo-right">
-          <a href="https://wisehabit.com" target="_blank">
+        <div class="collab-footer-right">
+          <div class="collab-contact-info">
+            <a href="mailto:office@wisehabit.com">office@wisehabit.com</a>
+            <a href="tel:+48608561173">+48 608 561 173</a>
+            <span>Warsaw, Poland</span>
+          </div>
+          <a href="https://wisehabit.com" target="_blank" class="collab-footer-logo">
             <img src="../img/WH_head.svg" alt="Wise Habit" />
           </a>
         </div>
       </div>
+
     </div>
   </div>
-  <footer class="footer-bottom" style="display:none"></footer>
 
   <!-- MODAL -->
   <div class="inTouchModal" id="inTouchModal">
