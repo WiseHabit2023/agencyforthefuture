@@ -79,12 +79,14 @@
 
 html { scroll-behavior: smooth; }
 
-/* Sitewide scale-down - team confirmed 80% reads correctly on laptop/desktop
-   screens (was getting oversized on large monitors at 100%). Scoped above the
-   900px mobile/hamburger breakpoint so phone & tablet sizing stays untouched. */
-@media (min-width: 901px) {
-  html { zoom: 80%; }
-}
+/* Sitewide zoom — scales progressively with monitor width.
+   Mobile (<= 900px) stays untouched (handled by dedicated mobile CSS).
+   Reference: MacBook Air M2 13.6" = 1280px CSS viewport = 100% (confirmed correct). */
+@media (min-width: 901px)  { html { zoom: 80%; } }  /* tablets / very small laptops */
+@media (min-width: 1100px) { html { zoom: 90%; } }  /* small laptops ~11–12" */
+@media (min-width: 1280px) { html { zoom: 100%; } } /* MacBook Air M2 13.6" — reference */
+@media (min-width: 1920px) { html { zoom: 115%; } } /* Full HD 1920p */
+@media (min-width: 2560px) { html { zoom: 140%; } } /* 2K / 4K monitors */
 
 body {
   font-family: var(--font);
