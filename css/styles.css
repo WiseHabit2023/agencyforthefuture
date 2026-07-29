@@ -533,8 +533,8 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px; font-weight: 400; margin-bottom: 40px; color: var(--black);
 }
 
-/* Stats grid */
-.stats-grid {
+/* Stats grid (nutshell — 3 cols) */
+.nutshell .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 48px;
@@ -1222,8 +1222,8 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 48px 0 48px;
-  margin-top: 32px;
+  padding: 24px 0 48px;
+  margin-top: 16px;
 }
 .collab-footer-left {
   display: flex;
@@ -1562,6 +1562,7 @@ a.contact-detail-block__value:hover { opacity: 1; }
   .nav__hamburger { display: flex; }
   .agency-intro__cards { flex-direction: column; align-items: center; }
   .intro-card { max-width: 100%; }
+  .nutshell .stats-grid { grid-template-columns: 1fr 1fr; column-gap: 24px; }
   .stats-grid { grid-template-columns: 1fr 1fr; column-gap: 24px; }
   .bento-grid { grid-template-columns: 1fr 1fr; }
   .bento-card { grid-column: auto !important; grid-row: auto !important; min-height: 180px; }
@@ -1577,6 +1578,7 @@ a.contact-detail-block__value:hover { opacity: 1; }
 }
 
 @media (max-width: 600px) {
+  .nutshell .stats-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr; }
   .bento-grid { grid-template-columns: 1fr; }
   .services__grid { grid-template-columns: 1fr; }
