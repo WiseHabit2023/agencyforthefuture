@@ -656,7 +656,7 @@ a { color: inherit; text-decoration: none; }
    ============================================= */
 
 .portfolio {
-  padding: 72px 0 80px;
+  padding: 72px 0 0;
 }
 
 .portfolio__header {
@@ -1192,7 +1192,7 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: stretch;
+  align-items: end;
   margin-top: 40px;
 }
 .collab-form-area .form-field label { display: none; }
