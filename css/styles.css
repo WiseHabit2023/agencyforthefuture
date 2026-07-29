@@ -1187,25 +1187,27 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 40px;
   opacity: 0.75;
 }
-/* Form + contact side by side */
-.collab-content-row {
+/* Two-column layout: form+nav+social LEFT / contact+logo RIGHT */
+.collab-two-col {
   display: flex;
   gap: 80px;
   align-items: stretch;
-  margin-top: 40px;
+  padding-bottom: 48px;
 }
-.collab-form-area {
+.collab-left-col {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
-.collab-form-area .form-field label { display: none; }
-.collab-form-area .contact-form {
+.collab-left-col .form-field label { display: none; }
+.collab-left-col .contact-form {
   background: transparent;
   padding: 0;
   border: none;
 }
 /* More visible form fields on colored bg */
-.collab-form-area .form-field input,
-.collab-form-area .form-field textarea {
+.collab-left-col .form-field input,
+.collab-left-col .form-field textarea {
   background: rgba(255,255,255,0.45);
   border: 1px solid rgba(0,0,0,0.45) !important;
   border-radius: 6px;
@@ -1219,15 +1221,9 @@ a { color: inherit; text-decoration: none; }
 }
 .form-disclaimer a { color: inherit; }
 
-/* Footer nav row */
-.collab-footer-row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 24px 0 48px;
-  margin-top: 16px;
-}
-.collab-footer-left {
+/* Footer nav (inside left column, below form) */
+.collab-footer-nav {
+  margin-top: 48px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -1250,7 +1246,7 @@ a { color: inherit; text-decoration: none; }
 }
 .footer-nav-col a:hover { opacity: 1; }
 
-/* Social icons — plain, no circles */
+/* Social icons */
 .footer-social--icons {
   display: flex;
   gap: 16px;
@@ -1259,19 +1255,17 @@ a { color: inherit; text-decoration: none; }
 .footer-social--icons a {
   display: flex;
   align-items: center;
-  color: var(--black);
   opacity: 0.75;
   transition: opacity 0.15s;
 }
-.footer-social--icons a svg {
+.footer-social--icons a img {
   display: block;
-  width: 20px;
-  height: 20px;
+  filter: brightness(0);
 }
 .footer-social--icons a:hover { opacity: 1; }
 
-/* Right side contact info — large, bottom-aligned */
-.collab-footer-right {
+/* Right column: contact info + logo, bottom-aligned to social icons level */
+.collab-right-col {
   flex: 1;
   display: flex;
   flex-direction: column;
