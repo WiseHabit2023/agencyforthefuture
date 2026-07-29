@@ -81,12 +81,14 @@ html { scroll-behavior: smooth; }
 
 /* Sitewide zoom — scales progressively with monitor width.
    Mobile (<= 900px) stays untouched (handled by dedicated mobile CSS).
-   Reference: MacBook Air M2 13.6" = 1280px CSS viewport = 100% (confirmed correct). */
-@media (min-width: 901px)  { html { zoom: 80%; } }  /* tablets / very small laptops */
-@media (min-width: 1100px) { html { zoom: 90%; } }  /* small laptops ~11–12" */
-@media (min-width: 1280px) { html { zoom: 100%; } } /* MacBook Air M2 13.6" — reference */
-@media (min-width: 1920px) { html { zoom: 115%; } } /* Full HD 1920p */
-@media (min-width: 2560px) { html { zoom: 140%; } } /* 2K / 4K monitors */
+   Reference: MacBook Air M2 13.6" = 1280px CSS viewport = 80%. */
+@media (min-width: 901px)  { html { zoom: 65%; } }  /* tablets / very small laptops */
+@media (min-width: 1100px) { html { zoom: 72%; } }  /* small laptops ~11–12" */
+@media (min-width: 1280px) { html { zoom: 80%; } }  /* MacBook Air M2 13.6" — reference */
+@media (min-width: 1440px) { html { zoom: 85%; } }  /* 15" laptops / 1440p */
+@media (min-width: 1680px) { html { zoom: 90%; } }  /* large monitors / 1680p */
+@media (min-width: 1920px) { html { zoom: 100%; } } /* Full HD 1920p */
+@media (min-width: 2560px) { html { zoom: 120%; } } /* 2K / 4K monitors */
 
 body {
   font-family: var(--font);
