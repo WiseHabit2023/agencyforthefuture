@@ -543,7 +543,6 @@ a { color: inherit; text-decoration: none; }
 
 .stat-block {
   padding: 40px 0;
-  border-top: 1px solid rgba(0,0,0,0.2);
 }
 
 .stat-block__value {
@@ -950,7 +949,7 @@ a { color: inherit; text-decoration: none; }
 .library-section-wrap {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 80px var(--pad-h);
+  padding: 60px var(--pad-h);
 }
 
 .library-section {
@@ -1188,14 +1187,25 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 40px;
   opacity: 0.75;
 }
-.collab-form-area {
-  max-width: 680px;
+/* Form + contact side by side */
+.collab-content-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-top: 40px;
 }
 .collab-form-area .form-field label { display: none; }
 .collab-form-area .contact-form {
   background: transparent;
   padding: 0;
   border: none;
+}
+/* More visible form fields on colored bg */
+.collab-form-area .form-field input,
+.collab-form-area .form-field textarea {
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(0,0,0,0.5);
 }
 .form-disclaimer {
   font-size: 12px;
@@ -1205,14 +1215,13 @@ a { color: inherit; text-decoration: none; }
 }
 .form-disclaimer a { color: inherit; }
 
-/* Footer row */
+/* Footer nav row */
 .collab-footer-row {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 64px 0 48px;
-  margin-top: 64px;
-  border-top: 1px solid rgba(0,0,0,0.18);
+  padding: 56px 0 48px;
+  margin-top: 56px;
 }
 .collab-footer-left {
   display: flex;
@@ -1237,61 +1246,53 @@ a { color: inherit; text-decoration: none; }
 }
 .footer-nav-col a:hover { opacity: 1; }
 
-/* Social icons as circles */
-.footer-social--circles {
+/* Social icons — plain, no circles */
+.footer-social--icons {
   display: flex;
-  gap: 10px;
+  gap: 16px;
+  align-items: center;
 }
-.footer-social--circles a {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--black);
+.footer-social--icons a {
   display: flex;
   align-items: center;
-  justify-content: center;
-  filter: none;
-  opacity: 1;
-  transition: background 0.15s;
+  opacity: 0.75;
+  transition: opacity 0.15s;
 }
-.footer-social--circles a img {
+.footer-social--icons a img {
   display: block;
   filter: brightness(0);
 }
-.footer-social--circles a:hover {
-  background: var(--black);
-  opacity: 1;
-}
-.footer-social--circles a:hover img { filter: brightness(10); }
+.footer-social--icons a:hover { opacity: 1; }
 
-/* Right side contact info */
+/* Right side contact info — large, bottom-aligned */
 .collab-footer-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 24px;
+  justify-content: flex-end;
+  gap: 32px;
 }
 .collab-contact-info {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 4px;
+  gap: 2px;
 }
 .collab-contact-info a,
 .collab-contact-info span {
-  font-size: clamp(20px, 2.4vw, 38px);
+  font-size: clamp(28px, 4vw, 60px);
   font-weight: 400;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
   color: var(--black);
   text-decoration: none;
-  line-height: 1.25;
+  line-height: 1.2;
   transition: opacity 0.15s;
 }
 .collab-contact-info a:hover { opacity: 0.6; }
 .collab-footer-logo img {
-  height: 36px;
+  height: 52px;
   filter: brightness(0);
-  opacity: 0.75;
+  opacity: 1;
 }
 
 /* =============================================
