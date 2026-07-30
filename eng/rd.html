@@ -106,7 +106,14 @@
       .rd-category-table td:first-child { min-width: unset; white-space: normal; }
     }
   </style>
-
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RC3VN9XZ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5RC3VN9XZ7');
+  </script>
 </head>
 <body>
 
@@ -220,11 +227,11 @@
 
   <main class="page-content">
 
-    <!-- HERO -->
+    <!-- ══ HERO ══ -->
     <section class="hero">
       <div class="hero__inner">
         <p class="hero__tag">product implementation</p>
-        <h1 class="hero__title">Reliability &amp; fairness<br>of new product implementation</h1>
+        <h1 class="hero__title">Reliability &amp; fairness<span class="line2">of new product implementation</span></h1>
         <div class="hero__ctas">
           <a href="#contact" class="btn btn--filled">get in touch <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="#learn-more" class="btn btn--outline">learn more <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -232,176 +239,275 @@
       </div>
     </section>
 
-    <!-- INTRO -->
-    <section class="page-section" id="learn-more">
-      <div class="page-intro-grid">
-        <div class="page-intro-grid__left">
-          <p class="section-eyebrow">Idea implementation</p>
-          <h2 class="section-title">Your idea introduced to the market</h2>
+    <!-- ══ 3-COL INTRO (agency-intro - same as index/about) ══ -->
+    <section class="agency-intro" id="learn-more">
+      <div class="agency-intro__top">
+        <p class="agency-intro__eyebrow">Idea implementation</p>
+        <h2 class="agency-intro__title">Your idea introduced to the market</h2>
+      </div>
+      <div class="agency-intro__cards">
+        <div class="intro-card">
+          <h3 class="intro-card__title">Reliability through experience</h3>
+          <p class="intro-card__text">With nearly 20 years of experience and our process ensures reliable services by focusing on every aspect of the product life cycle, engaging design, marketing, and sales to maximize success.</p>
         </div>
-        <div class="page-intro-grid__right">
-          <div class="lib-intro-grid">
-            <div class="lib-intro-col">
-              <h3 class="lib-intro-col__title">Reliability through experience</h3>
-              <p class="lib-intro-col__text">With nearly 20 years of experience our process ensures reliable services by focusing on every aspect of the product life cycle, engaging design, marketing, and sales to maximize success.</p>
-            </div>
-            <div class="lib-intro-col">
-              <h3 class="lib-intro-col__title">Innovation &amp; sustainability</h3>
-              <p class="lib-intro-col__text">Our implementation services at Agency for the Future are dedicated to innovation and sustainability, exploring new materials, technologies, and concepts to meet client needs while promoting sustainability and fairness.</p>
-            </div>
-            <div class="lib-intro-col">
-              <h3 class="lib-intro-col__title">Market success</h3>
-              <p class="lib-intro-col__text">From design concept, market analysis and budgeting to certification and marketing asset creation. Our services are designed to deliver market success while upholding principles of sustainability and fairness.</p>
-            </div>
-          </div>
-          <div style="margin-top: 48px;">
-            <img src="../img/image-5.png" alt="Product manufacturing" loading="lazy" style="width: 100%; height: 420px; object-fit: cover; border-radius: 4px; display: block;" />
-          </div>
+        <div class="intro-card">
+          <h3 class="intro-card__title">Innovation &amp; sustainability</h3>
+          <p class="intro-card__text">Our implementation services at Agency for the Future are dedicated to innovation and sustainability, exploring new materials, technologies, and concepts to meet client needs while promoting sustainability and fairness.</p>
+        </div>
+        <div class="intro-card">
+          <h3 class="intro-card__title">Market success</h3>
+          <p class="intro-card__text">From design concept, market analysis and budgeting to certification and marketing asset creation. Our services are designed to deliver market success while upholding principles of sustainability and fairness.</p>
         </div>
       </div>
     </section>
 
-    <!-- RELIABILITY LIST -->
-    <section class="page-section">
-      <div class="page-intro-grid">
-        <div class="page-intro-grid__left">
-          <p class="section-eyebrow">Reliability of our services</p>
-        </div>
-        <div class="page-intro-grid__right">
-          <ul class="lib-gains">
-            <li class="lib-gain-item"><span class="lib-gain-item__num">1</span><span class="lib-gain-item__text">Over <strong>20 years of entrepreneurs perspective</strong> enabling better understanding of business</span></li>
-            <li class="lib-gain-item"><span class="lib-gain-item__num">2</span><span class="lib-gain-item__text">Holistic approach <strong>from idea to product</strong> on the market</span></li>
-            <li class="lib-gain-item"><span class="lib-gain-item__num">3</span><span class="lib-gain-item__text">Design with <strong>sustainability in mind</strong>, approach with care of whole product life-cycle</span></li>
-            <li class="lib-gain-item"><span class="lib-gain-item__num">4</span><span class="lib-gain-item__text">Portfolio of designs with <strong>International Design Awards</strong> &amp; title of Designer of the Year 2023 by Polish Institute of Design</span></li>
-            <li class="lib-gain-item"><span class="lib-gain-item__num">5</span><span class="lib-gain-item__text"><strong>Empathetic understanding</strong> of client, user and other life forms involved in project</span></li>
-            <li class="lib-gain-item"><span class="lib-gain-item__num">6</span><span class="lib-gain-item__text">Library of Sustainable Materials features <strong>more than 40 European brands</strong></span></li>
-          </ul>
+    <!-- ══ FULL-WIDTH IMAGE (same pattern as about.html) ══ -->
+    <div class="rd-fullimg-wrap">
+      <img
+        src="../img/image-5.png"
+        alt="Product manufacturing"
+      loading="lazy" />
+    </div>
+
+    <!-- ══ RELIABILITY BENTO (same as index.html nutshell) ══ -->
+    <section class="nutshell">
+      <div class="nutshell__inner">
+        <p class="nutshell__label">Reliability of our services</p>
+        <div class="bento-grid">
+          <div class="bento-card c1"><p class="bento-card__num">1</p><p class="bento-card__text">Over <strong>20 years of entrepreneurs perspective</strong> enabling better understanding of business</p></div>
+          <div class="bento-card c2"><p class="bento-card__num">2</p><p class="bento-card__text">Holistic approach <strong>from idea to product</strong> on the market</p></div>
+          <div class="bento-card c3"><p class="bento-card__num">3</p><p class="bento-card__text">Design with <strong>sustainability in mind</strong>, approach with care of whole product life-cycle</p></div>
+          <div class="bento-card c4"><p class="bento-card__num">4</p><p class="bento-card__text">Portfolio of designs with <strong>International Design Awards</strong> &amp; title of Designer of the Year 2023 by Polish Institute of Design</p></div>
+          <div class="bento-card c5"><p class="bento-card__num">5</p><p class="bento-card__text"><strong>Empathetic understanding</strong> of client, user and other life forms involved in project</p></div>
+          <div class="bento-card c6"><p class="bento-card__num">6</p><p class="bento-card__text">Library of Sustainable Materials features <strong>more than 40 European brands</strong></p></div>
         </div>
       </div>
     </section>
 
-    <!-- PORTFOLIO SECTION -->
+    <!-- ══ PORTFOLIO OF 80 PRODUCTS (page-intro-grid) ══ -->
     <section class="page-section rd-portfolio-section">
-      <div class="page-intro-grid">
-        <div class="page-intro-grid__left">
-          <p class="section-eyebrow">Implementation of a new product</p>
-          <h2 class="section-title">Portfolio of over 80 products introduced to the market</h2>
-          <div class="rd-cta-block">
-            <p>Find out how can we help</p>
-            <a href="#contact" class="btn btn--filled">discuss a project <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="inner">
+        <div class="page-intro-grid">
+          <div class="page-intro-grid__left">
+            <p class="section-eyebrow">Implementation of a new product</p>
+            <h2 class="section-title">Portfolio of over 80 products introduced to the market</h2>
+            <p class="body-text">Our support extends beyond the design phase to the comprehensive implementation of a new product on the market. We offer services including market and competition research, trend reports tailored to your industry, support in obtaining funding for implementation, and assistance in preparing necessary documentation.</p>
+            <p class="body-text">We ensure efficient product implementation through collaboration with trusted suppliers worldwide, guidance for design competition entries, support for intellectual property protection, and industrial design registration.</p>
+            <div class="rd-cta-block">
+              <p>Find out how can we help</p>
+              <a href="#contact" class="btn btn--outline">discuss a project <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
           </div>
-        </div>
-        <div class="page-intro-grid__right">
-          <table class="rd-category-table">
-            <tr><td>Tableware</td><td>includes everything from dinnerware, glassware, cutlery, to serving pieces.</td></tr>
-            <tr><td>Furnishing</td><td>from sofas and dining tables for your living spaces to beds and wardrobes.</td></tr>
-            <tr><td>Home accessories</td><td>include storage solutions, textiles, lighting fixtures.</td></tr>
-            <tr><td>Consumer electronics</td><td>high-quality electronics, including lighting, alarm clocks and phones.</td></tr>
-            <tr><td>Watches</td><td>highest quality developed in Switzerland, with Swiss Made logo.</td></tr>
-          </table>
+          <div class="page-intro-grid__right">
+            <table class="rd-category-table">
+              <tr>
+                <td>Tableware</td>
+                <td>includes everything from dinnerware, glassware, cutlery, to serving pieces.</td>
+              </tr>
+              <tr>
+                <td>Furnishing</td>
+                <td>from sofas and dining tables for your living spaces to beds and wardrobes.</td>
+              </tr>
+              <tr>
+                <td>Home accessories</td>
+                <td>include storage solutions, textiles, lighting fixtures.</td>
+              </tr>
+              <tr>
+                <td>Consumer electronics</td>
+                <td>high-quality electronics, including lighting, alarm clocks and phones.</td>
+              </tr>
+              <tr>
+                <td>Watches</td>
+                <td>highest quality developed in Switzerland, with Swiss Made logo.</td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PORTFOLIO SLIDER -->
-    <section class="portfolio-slider page-section">
+    <!-- ══ PORTFOLIO SLIDER (same structure as index.html) ══ -->
+    <section class="portfolio">
       <div class="portfolio__header">
-        <p class="portfolio__eyebrow">our implementation portfolio</p>
-        <h2 class="portfolio__title">From idea to product on the market</h2>
-        <div class="portfolio__controls">
-          <button id="portPrev" class="portfolio__btn" aria-label="Previous">&#8592;</button>
-          <span id="portfolioCounter" class="portfolio__counter">1 / 6</span>
-          <button id="portNext" class="portfolio__btn" aria-label="Next">&#8594;</button>
+        <div class="portfolio__header-left">
+          <p class="portfolio__eyebrow">our implementation portfolio</p>
+          <h2 class="portfolio__title">From idea to product on the market</h2>
+        </div>
+        <div class="portfolio__controls" id="portfolioControls">
+          <p class="portfolio__counter" id="portfolioCounter">1 / 6</p>
+          <div class="portfolio__dots" id="portfolioDots"></div>
+          <div class="portfolio__nav">
+            <button class="portfolio__btn" id="portPrev" aria-label="Previous">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="portfolio__btn" id="portNext" aria-label="Next">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
       </div>
-      <div class="portfolio__track-wrap">
+      <div class="portfolio-slider">
         <div class="portfolio-track" id="portfolioTrack">
           <div class="portfolio-slide">
-            <img src="../img/implementation_slider_1.webp" alt="Vovo Glasses" loading="lazy" />
-            <div class="portfolio-slide__caption">
-              <h3>Vovo Glasses</h3>
-              <p><strong>Design:</strong> Ewa Hiller<br><strong>Materials &amp; production:</strong> borosilicate, coloured glass</p>
-              <p>Vovo Glasses are an object of art, born from fascination with two basic geometric forms. Coloured glass elements create various hues and an illusion of changing shapes.</p>
+            <img class="portfolio-slide__img" src="../img/implementation_slider_1.webp" alt="Vovo Glasses" loading="lazy" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Vovo Glasses</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Ewa Hiller<br><strong>Materials &amp; production:</strong> borosilicate, coloured glass</p>
+                <p class="portfolio-slide__desc">Vovo Glasses are an object of art, born from fascination with two basic geometric forms. Coloured glass elements create various hues and an illusion of changing shapes. Each cone matches each cylinder, which allows for versatility of usage and different combinations of colour and form.</p>
+              </div>
             </div>
           </div>
           <div class="portfolio-slide">
-            <img src="../img/implementation_slider_2.webp" alt="Piano Table" loading="lazy" />
-            <div class="portfolio-slide__caption">
-              <h3>Piano Table</h3>
-              <p><strong>Design:</strong> Ewa Hiller<br><strong>Materials &amp; production:</strong> handcrafted solid wood, varnished or painted</p>
-              <p>Designed around the ritual of extending the table, the tabletop extension visibly hangs within the frame. Made of solid wood with austere structure and clean lines.</p>
+            <img class="portfolio-slide__img" src="../img/implementation_slider_2.webp" alt="Piano Table" loading="lazy" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Piano Table</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Ewa Hiller<br><strong>Materials &amp; production:</strong> handcrafted solid wood, varnished or painted</p>
+                <p class="portfolio-slide__desc">Designed around the ritual of extending the table, the tabletop extension visibly hangs within the frame. It can be unfolded easily and placed securely within the top surface. Made of solid wood, the piece has an austere structure and clean lines. Its power of expression stems from simplicity, the selected materials and the novel way of folding.</p>
+              </div>
             </div>
           </div>
           <div class="portfolio-slide">
-            <img src="../img/implementation_slider_3.webp" alt="Mood Mirror" loading="lazy" />
-            <div class="portfolio-slide__caption">
-              <h3>Mood Mirror</h3>
-              <p><strong>Design:</strong> Dorothee Mainka<br><strong>Materials &amp; production:</strong> coloured mirror and powder coated steel frame</p>
-              <p>The Mood Mirror collection is made up of three wall mirrors of different proportions and colours. The metal shelf embraces the mirror face and wanders up each site.</p>
+            <img class="portfolio-slide__img" src="../img/implementation_slider_3.webp" alt="Mood Mirror" loading="lazy" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Mood Mirror</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Dorothee Mainka<br><strong>Materials &amp; production:</strong> coloured mirror and powder coated steel frame</p>
+                <p class="portfolio-slide__desc">The Mood Mirror collection is made up of three wall mirrors of different proportions and colours. The metal shelf embraces the mirror face and wanders up each site, while providing shelf space for small everyday objects. It embodies an immersion into a colorful life.</p>
+              </div>
             </div>
           </div>
           <div class="portfolio-slide">
-            <img src="../img/implementation_slider_4.webp" alt="Bowler Mug" loading="lazy" />
-            <div class="portfolio-slide__caption">
-              <h3>Bowler Mug</h3>
-              <p><strong>Design:</strong> Ola Mirecka<br><strong>Materials &amp; production:</strong> moulded and fired, unglazed porcelain; full-body coloured</p>
-              <p>Bowler Mug was designed for relaxed celebration of hot beverages. The mug has a ring that protects fingers from the hot surface.</p>
+            <img class="portfolio-slide__img" src="../img/implementation_slider_4.webp" alt="Bowler Mug" loading="lazy" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Bowler Mug</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Ola Mirecka<br><strong>Materials &amp; production:</strong> moulded and fired, unglazed porcelain; full-body coloured</p>
+                <p class="portfolio-slide__desc">Bowler Mug was designed for relaxed celebration of hot beverages. The mug has a ring that protects fingers from the hot surface and prevents it from slipping out of one's hand. It is made of specially developed porcelain that doesn't require glazing. The matt surface makes it unique and will age beautifully.</p>
+              </div>
             </div>
           </div>
           <div class="portfolio-slide">
-            <img src="../img/implementation_slider_5.webp" alt="Cork Stool" loading="lazy" />
-            <div class="portfolio-slide__caption">
-              <h3>Cork Stool</h3>
-              <p><strong>Design:</strong> Tomasz Rygalik<br><strong>Materials &amp; production:</strong> turned cork, expanded or natural</p>
-              <p>Cork Stool's shape was inspired by the material it is made of. Eco-friendly, highly endurable and very light, cork still seems underexploited in furniture design.</p>
+            <img class="portfolio-slide__img" src="../img/implementation_slider_5.webp" alt="Cork Stool" loading="lazy" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Cork Stool</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Tomasz Rygalik<br><strong>Materials &amp; production:</strong> turned cork, expanded or natural</p>
+                <p class="portfolio-slide__desc">Cork Stool's shape was inspired by the material it is made of. Eco-friendly, highly endurable and very light, cork still seems underexploited in furniture design. Well-balanced, geometric form corresponds perfectly with its function. Shades of brown will warm up any interior and the material used will serve generations.</p>
+              </div>
             </div>
           </div>
           <div class="portfolio-slide">
-            <img src="../img/implementation_slider_6.webp" alt="Dee Table" loading="lazy" />
-            <div class="portfolio-slide__caption">
-              <h3>Dee Table</h3>
-              <p><strong>Design:</strong> Fabio Hendry &amp; Martijn Rigters<br><strong>Materials &amp; production:</strong> anodized aluminum</p>
-              <p>The simple form of aluminium d-shaped side table resonates its modern look. Special advantage of anodised aluminium includes corrosion and scratch resistance.</p>
+            <img class="portfolio-slide__img" src="../img/implementation_slider_6.webp" alt="Dee Table" loading="lazy" />
+            <div class="portfolio-slide__info">
+              <h3 class="portfolio-slide__title">Dee Table</h3>
+              <div class="portfolio-slide__body">
+                <p class="portfolio-slide__meta"><strong>Design:</strong> Fabio Hendry &amp; Martijn Rigters<br><strong>Materials &amp; production:</strong> anodized aluminum</p>
+                <p class="portfolio-slide__desc">The simple form of aluminium d-shaped side table resonates its modern look. It has a very unique character that transcends onto the interior. Special advantage of anodised aluminium includes corrosion and scratch resistance.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div id="portfolioDots" class="portfolio__dots"></div>
     </section>
 
-    <!-- MATERIALS -->
+    <!-- ══ MATERIALS & MANUFACTURING (page-intro-grid) ══ -->
     <section class="page-section">
-      <div class="page-intro-grid">
-        <div class="page-intro-grid__left">
-          <p class="section-eyebrow">Materials &amp; manufacturing</p>
-          <h2 class="section-title">We are experienced in a wide array of materials and technologies.</h2>
-          <p class="body-text" style="margin-top: 24px;">From traditional, well-known glass, wood, metals, plastics to innovative, sustainable materials &ndash; we leverage a diverse array of possibilities to bring your vision to life. With established relationships with over 350 suppliers worldwide, we have the flexibility to optimize various aspects of our operations.</p>
-        </div>
-        <div class="page-intro-grid__right">
-          <img src="../img/image-9.png" alt="Sustainable materials" loading="lazy" style="width: 100%; height: 480px; object-fit: cover; border-radius: 4px; display: block;" />
+      <div class="inner">
+        <div class="page-intro-grid">
+          <div class="page-intro-grid__left">
+            <p class="section-eyebrow">Materials &amp; manufacturing</p>
+            <h2 class="section-title">We are experienced in a wide array of materials and technologies.</h2>
+            <p class="body-text">From traditional, well-known glass, wood, metals, plastics to innovative, sustainable materials - we leverage a diverse array of possibilities to bring your vision to life. With established relationships with over 350 suppliers worldwide, we have the flexibility to optimize various aspects of our operations.</p>
+            <p class="body-text">This includes expediting product development timelines and negotiating competitive pricing, allowing us to deliver high-quality products at accessible price points. Our quality control measures ensure that every product meets our exacting standards and exceeds customer expectations.</p>
+          </div>
+          <div class="page-intro-grid__right">
+            <img
+              src="../img/image-9.png"
+              alt="Sustainable materials"
+              style="width:100%;height:auto;display:block;"
+            loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CIRCULAR -->
+    <!-- ══ CIRCULAR ECONOMY (page-intro-grid, tinted) ══ -->
+    <section class="page-section page-section--tinted">
+      <div class="inner">
+        <div class="page-intro-grid">
+          <div class="page-intro-grid__left">
+            <h2 class="section-title">Solutions for more sustainable &amp; circular products</h2>
+            <p class="body-text">Our agency is dedicated to fostering a sustainable world through circular design practices and heightened environmental consciousness. Our goal is to actively contribute to the transition towards a circular economy, guiding businesses on the transformative journey from linear to circular models through purposeful design interventions.</p>
+            <p class="body-text">We envision a future where sustainable principles drive every aspect of new product implementation, empowering businesses and communities to thrive in harmony with the planet.</p>
+            <a href="sustainability.html" class="btn btn--outline" style="margin-top:24px;display:inline-flex;">learn more <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none" style="margin-left:6px;"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="page-intro-grid__right">
+            <img
+              src="../img/graf_-_sourcing_disposal-_desktop.svg"
+              alt="Circular economy diagram"
+              style="width:100%;height:auto;display:block;"
+            loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ QUOTE (same as about.html about-quote) ══ -->
     <section class="page-section">
-      <div class="page-intro-grid">
-        <div class="page-intro-grid__left">
-          <h2 class="section-title">Solutions for more sustainable &amp; circular products</h2>
-          <p class="body-text" style="margin-top: 24px;">Our agency is dedicated to fostering a sustainable world through circular design practices and heightened environmental consciousness. Our goal is to actively contribute to the transition towards a circular economy, guiding businesses on the transformative journey from linear to circular models through purposeful design interventions.</p>
-          <a href="sustainability.html" class="btn btn--filled" style="margin-top: 32px; display: inline-flex; align-items: center; gap: 8px;">learn more <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-        <div class="page-intro-grid__right">
-          <img src="../img/graf_-_sourcing_disposal-_desktop.svg" alt="Circular economy diagram" loading="lazy" style="width: 100%; height: auto; display: block;" />
-        </div>
+      <div class="rd-quote-wrap">
+        <p class="rd-quote-wrap__sup">Design for meanings, feelings and business</p>
+        <p class="rd-quote-wrap__text">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</p>
       </div>
     </section>
 
-    <!-- HOLISTIC QUOTE -->
-    <div class="rd-quote-wrap">
-      <p class="rd-quote-wrap__sup">Design for meanings, feelings and business</p>
-      <p class="rd-quote-wrap__text">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</p>
-    </div>
+    <!-- ══ CONTACT (same as index.html contact-wrap) ══ -->
+    <section class="contact-wrap" id="contact">
+      <div class="contact-wrap__inner">
+        <p class="contact-wrap__label">contact</p>
+        <h2 class="contact-wrap__title">Get in touch</h2>
+        <form class="contact-form" action="https://formspree.io/f/mnjyvvgb" method="POST">
+          <div>
+            <p class="form-chips-label">I'm interested in</p>
+            <div class="service-chips">
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Design" /> Design</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="R&D" /> R&amp;D</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Product Strategy" /> Product Strategy</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Implementation" /> Implementation</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Other" /> Other</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-name">name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="cf-company">company</label>
+              <input type="text" id="cf-company" name="company" placeholder="Your company" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">email</label>
+            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-field">
+            <label for="cf-subject">subject</label>
+            <input type="text" id="cf-subject" name="subject" placeholder="What can we help you with?" />
+          </div>
+          <div class="form-field">
+            <label for="cf-message">message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <div class="form-consent">
+            <input type="checkbox" id="cf-consent" name="consent" required />
+            <label for="cf-consent">I agree to the processing of my personal data for the purpose of responding to my inquiry.</label>
+          </div>
+          <button type="submit" class="btn btn--filled form-submit">send message →</button>
+        </form>
+      </div>
+    </section>
 
   </main>
 

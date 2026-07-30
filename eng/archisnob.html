@@ -170,15 +170,27 @@
   <meta property="og:description" content="Wise Habit x ArchiSnob - a partnership combining strategic design, architecture and culture." />
   <meta property="og:url" content="https://agencyforthefuture.wisehabit.com/archisnob" />
   <meta property="og:image" content="https://agencyforthefuture.wisehabit.com/img/og-image.jpg" />
-
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RC3VN9XZ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5RC3VN9XZ7');
+  </script>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
       <div class="nav__logo">
-        <a class="nav__logo-agency" href="index.html"><img src="../img/logo_5_small.svg" alt="Agency for the Future" /></a>
-        <a class="nav__logo-wh" href="https://wisehabit.com" target="_blank"><img src="../img/WH_head.svg" alt="wisehabit.com" /></a>
+        <a class="nav__logo-agency" href="index.html">
+          <img src="../img/logo_5_small.svg" alt="Agency for the Future" />
+        </a>
+        <a class="nav__logo-wh" href="https://wisehabit.com" target="_blank">
+          <img src="../img/WH_head.svg" alt="wisehabit.com" />
+        </a>
       </div>
             <ul class="nav__links">
         <li class="nav__dropdown"><span>about</span>
@@ -216,6 +228,7 @@
     </div>
   </nav>
 
+  <!-- MOBILE NAV -->
   <div class="nav__mobile" id="mobileNav">
         <ul class="nav__mobile-links">
       <li><span>about</span>
@@ -278,132 +291,193 @@
     </ul>
   </div>
 
+  <!-- COLOR STRIP -->
   <div class="color-strip-wrapper">
     <div class="color-strip" id="colorStrip"></div>
   </div>
 
   <main class="page-content">
 
-    <!-- HERO -->
+    <!-- ══ HERO ══ -->
     <section class="hero">
       <div class="hero__inner">
         <p class="hero__tag">new partnership</p>
-        <h1 class="hero__title">Wise Habit x<br>ArchiSnob</h1>
+        <h1 class="hero__title">Wise Habit x<span class="line2">ArchiSnob</span></h1>
         <div class="hero__ctas">
-          <a href="#contact" class="btn btn--filled">let's collaborate <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#contact" class="btn btn--filled">
+            let's collaborate
+            <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- PARTNERSHIP GRID -->
-    <section class="page-section">
-      <div class="page-intro-grid">
-        <div class="page-intro-grid__left">
-          <p class="section-eyebrow">about ArchiSnob</p>
-          <h2 class="section-title">Our partnership includes:</h2>
+    <!-- ══ PARTNERSHIP GRID 2×3 ══ -->
+    <section class="agency-intro archisnob-tinted">
+      <div class="agency-intro__top">
+        <p class="agency-intro__eyebrow">about ArchiSnob</p>
+        <h2 class="agency-intro__title">Our partnership includes:</h2>
+      </div>
+      <div class="partnership-grid" style="max-width: var(--max-w); margin-left: auto; margin-right: auto; padding-left: var(--pad-h); padding-right: var(--pad-h); padding-bottom: 80px;">
+        <!-- Row 1 -->
+        <div class="partnership-card">
+          <h3 class="partnership-card__title">ArchiSnob Magazine</h3>
+          <p class="partnership-card__text">ArchiSnob inspires conversations on architecture and design, combining critical thinking with real impact to shape the industry dialogue.</p>
         </div>
-        <div class="page-intro-grid__right">
-          <div class="partnership-grid">
-            <div class="partnership-card">
-              <h3 class="partnership-card__title">ArchiSnob Magazine</h3>
-              <p class="partnership-card__text">ArchiSnob inspires conversations on architecture and design, combining critical thinking with real impact to shape the industry dialogue.</p>
-            </div>
-            <div class="partnership-card">
-              <h3 class="partnership-card__title">Magazine Launches</h3>
-              <p class="partnership-card__text">ArchiSnob hosts original events in inspiring spaces, where architecture, music, and culture come together to tell one story.</p>
-            </div>
-            <div class="partnership-card">
-              <h3 class="partnership-card__title">Salon Warszawski</h3>
-              <p class="partnership-card__text">Marcin Szczelina's show where cuisine meets architecture through inspiring guests and conversations.</p>
-            </div>
-            <div class="partnership-card">
-              <h3 class="partnership-card__title">Curated Talks &amp; Conferences</h3>
-              <p class="partnership-card__text">Marcin Szczelina shares his expertise on architecture, design, and sustainability at conferences and industry events worldwide.</p>
-            </div>
-            <div class="partnership-card">
-              <h3 class="partnership-card__title">ArchiSnob Online</h3>
-              <p class="partnership-card__text">ArchiSnob.com is a vibrant digital space where architecture, design, and culture meet, extending the magazine beyond print.</p>
-            </div>
-            <div class="partnership-card">
-              <h3 class="partnership-card__title">Jury Participation</h3>
-              <p class="partnership-card__text">Marcin Szczelina has served as juror at leading events, including the Mies van der Rohe Award, SIMON Prize, and Venice Architecture Biennale.</p>
-            </div>
+        <div class="partnership-card">
+          <h3 class="partnership-card__title">Magazine Launches</h3>
+          <p class="partnership-card__text">ArchiSnob hosts original events in inspiring spaces, where architecture, music, and culture come together to tell one story.</p>
+        </div>
+        <div class="partnership-card">
+          <h3 class="partnership-card__title">Salon Warszawski</h3>
+          <p class="partnership-card__text">Marcin Szczelina's show where cuisine meets architecture through inspiring guests and conversations.</p>
+        </div>
+        <!-- Row 2 -->
+        <div class="partnership-card">
+          <h3 class="partnership-card__title">Curated Talks &amp; Conferences</h3>
+          <p class="partnership-card__text">Marcin Szczelina shares his expertise on architecture, design, and sustainability at conferences and industry events worldwide.</p>
+        </div>
+        <div class="partnership-card">
+          <h3 class="partnership-card__title">ArchiSnob Online</h3>
+          <p class="partnership-card__text">ArchiSnob.com is a vibrant digital space where architecture, design, and culture meet, extending the magazine beyond print.</p>
+        </div>
+        <div class="partnership-card">
+          <h3 class="partnership-card__title">Jury Participation</h3>
+          <p class="partnership-card__text">Marcin Szczelina has served as juror at leading events, including the Mies van der Rohe Award, SIMON Prize, and Venice Architecture Biennale.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SALON WARSZAWSKI PHOTO ══ -->
+    <div class="archisnob-video">
+      <a class="archisnob-video__link" href="https://www.youtube.com/@SalonWarszawski/videos" target="_blank" rel="noopener" title="Salon Warszawski on YouTube">
+        <img src="../img/photo3.webp" alt="Salon Warszawski" loading="lazy" />
+      </a>
+    </div>
+
+    <!-- ══ FOCUS AREAS ══ -->
+    <section class="focus-areas">
+      <h2 class="focus-areas__title">ArchiSnob Focus Areas:</h2>
+      <ul class="focus-areas__list">
+        <li class="focus-areas__item">1 – Architecture</li>
+        <li class="focus-areas__item">2 – Design</li>
+        <li class="focus-areas__item">3 – Culture &amp; Art</li>
+        <li class="focus-areas__item">4 – Lifestyle</li>
+      </ul>
+    </section>
+
+    <!-- ══ ARCHISNOB MAGAZINE ══ -->
+    <section style="background: #fff;">
+      <div class="magazine-split">
+        <div>
+          <img
+            class="magazine-split__img"
+            src="../img/photo1.webp"
+            alt="ArchiSnob Magazine"
+          loading="lazy" />
+        </div>
+        <div>
+          <h2 class="magazine-split__title">ArchiSnob</h2>
+          <div class="magazine-split__body">
+            <p>ArchiSnob is an independent platform of ideas shaping the conversation about architecture, design, and the culture of space. The magazine speaks to those who don't just observe change, but actively help shape the future of cities. Published simultaneously in Polish and English, it reaches both local readers and the international community of architects, designers, and curators. Its content goes beyond trends, remaining relevant over time and inspiring reflection and critical thinking about the spaces we inhabit.</p>
+            <p>Working with leading critics, curators, and experts from Poland and abroad, ArchiSnob's articles and interviews are cited in the media, discussed at conferences, and used in industry reports. The magazine not only documents change but anticipates it, offering insights for readers who want to understand design processes, investment decisions, and the lasting impact of architecture on culture, society, and city life.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VIDEO -->
-    <div class="archisnob-video">
-      <a href="https://www.youtube.com/@SalonWarszawski/videos" class="archisnob-video__link" target="_blank" rel="noopener noreferrer" title="Salon Warszawski on YouTube">
-        <img src="../img/photo3.webp" alt="Salon Warszawski" loading="lazy" />
-      </a>
-    </div>
-
-    <!-- FOCUS AREAS -->
-    <div class="focus-areas">
-      <h2 class="focus-areas__title">ArchiSnob Focus Areas:</h2>
-      <ul class="focus-areas__list">
-        <li class="focus-areas__item">1 &ndash; Architecture</li>
-        <li class="focus-areas__item">2 &ndash; Design</li>
-        <li class="focus-areas__item">3 &ndash; Culture &amp; Art</li>
-        <li class="focus-areas__item">4 &ndash; Lifestyle</li>
-      </ul>
-    </div>
-
-    <!-- MAGAZINE SPLIT -->
-    <div class="magazine-split">
-      <img src="../img/photo1.webp" alt="ArchiSnob Magazine" class="magazine-split__img" style="height: 520px;" loading="lazy" />
-      <div>
-        <p class="magazine-split__eyebrow">ArchiSnob</p>
-        <h2 class="magazine-split__title">ArchiSnob</h2>
-        <div class="magazine-split__body">
-          <p>ArchiSnob is an independent platform of ideas shaping the conversation about architecture, design, and the culture of space. The magazine speaks to those who don't just observe change, but actively help shape the future of cities. Published simultaneously in Polish and English, it reaches both local readers and the international community of architects, designers, and curators.</p>
-          <p>Working with leading critics, curators, and experts from Poland and abroad, ArchiSnob's articles and interviews are cited in the media, discussed at conferences, and used in industry reports. The magazine not only documents change but anticipates it, offering insights for readers who want to understand design processes, investment decisions, and the lasting impact of architecture on culture, society, and city life.</p>
+    <!-- ══ MAGAZINE LAUNCHES ══ -->
+    <section class="page-section" style="background: #fff;">
+      <div class="inner">
+        <div class="page-intro-grid" style="align-items: stretch;">
+          <div class="launches-text">
+            <h2 class="section-title">Magazine Launches</h2>
+            <p class="body-text">Each issue of ArchiSnob is launched with a special event designed as a cultural experience. Over the years, these premieres have taken place in iconic locations and remarkable interiors. In recent editions, they have been hosted at the National Library in Warsaw. New issues are now complemented by thematic one-day conferences, creating an extended platform for discussion.</p>
+            <p class="body-text">The events bring together the architectural community and have become an important meeting point for the industry in Poland. More than 400 architects from leading Polish design studios attend, along with curators, investors, critics, and opinion leaders. Each premiere also features a concert by a Polish music star or a specially created performance, adding a unique narrative to every issue.</p>
+          </div>
+          <div class="sust-impact-imgs">
+            <img src="../img/photo77.webp" alt="Magazine Launch event" loading="lazy" />
+            <img src="../img/photo79.webp" alt="PULSE Architecture Festival" loading="lazy" />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- MAGAZINE LAUNCHES -->
-    <div class="magazine-split magazine-split--reverse archisnob-tinted">
-      <div>
-        <p class="magazine-split__eyebrow">Magazine Launches</p>
-        <h2 class="magazine-split__title">Magazine Launches</h2>
-        <div class="magazine-split__body">
-          <p>Each issue of ArchiSnob is launched with a special event designed as a cultural experience. Over the years, these premieres have taken place in iconic locations and remarkable interiors. In recent editions, they have been hosted at the National Library in Warsaw. New issues are now complemented by thematic one-day conferences, creating an extended platform for discussion.</p>
-          <p>The events bring together the architectural community and have become an important meeting point for the industry in Poland. More than 400 architects from leading Polish design studios attend, along with curators, investors, critics, and opinion leaders.</p>
+    <!-- ══ SALON WARSZAWSKI + TALKS ══ -->
+    <section style="background: #fff;">
+      <div class="salon-talks">
+        <!-- Salon Warszawski -->
+        <div>
+          <h2 class="salon-talks__title">Salon Warszawski</h2>
+          <p class="salon-talks__body">Marcin Szczelina's personal show, where his two biggest passions - architecture and cooking - meet around the table. Each episode, he welcomes guests from architecture, design, and culture, preparing dishes inspired by classic Polish flavors with a modern twist. The show creates a space for thoughtful conversations about today's architecture, which Marcin loves to share. Every episode blends food and inspiring chats, offering fresh ways to see our world. SGI is the main partner for season two. You can watch it on <a href="https://www.youtube.com/@SalonWarszawski/videos" target="_blank" rel="noopener" style="text-decoration: underline;">YouTube</a>.</p>
+          <a href="https://www.youtube.com/@SalonWarszawski/videos" target="_blank" rel="noopener">
+            <img
+              class="salon-talks__img"
+              src="../img/photo6.webp"
+              alt="Salon Warszawski"
+            loading="lazy" />
+          </a>
+        </div>
+        <!-- Talks & Conferences -->
+        <div>
+          <h2 class="salon-talks__title">Talks &amp; Conferences</h2>
+          <p class="salon-talks__body">Marcin Szczelina combines his passion for architecture, design, and sustainable development, working actively in Poland and internationally. He is the chief curator of the PULSE international architecture festival, an expert for the Mies van der Rohe Award, and a member of the Advisory Board of the Czech Pavilion at the Venice Architecture Biennale.</p>
+          <p class="salon-talks__body" style="margin-top: 16px;">In 2020, he became the first Pole to create a project at the Mies van der Rohe Pavilion in Barcelona, together with artist Katarzyna Krakowiak. As an author and co-author of numerous publications in international magazines such as Domus, Aesthetica, and Azure, he shares his expertise at conferences and industry events worldwide.</p>
         </div>
       </div>
-      <div class="sust-impact-imgs">
-        <img src="../img/photo77.webp" alt="Magazine Launch event" loading="lazy" />
-        <img src="../img/photo79.webp" alt="PULSE Architecture Festival" loading="lazy" />
-      </div>
-    </div>
+    </section>
 
-    <!-- SALON WARSZAWSKI -->
-    <div class="salon-talks">
-      <div>
-        <h2 class="salon-talks__title">Salon Warszawski</h2>
-        <p class="salon-talks__body">Marcin Szczelina's personal show, where his two biggest passions &ndash; architecture and cooking &ndash; meet around the table. Each episode, he welcomes guests from architecture, design, and culture, preparing dishes inspired by classic Polish flavors with a modern twist. The show creates a space for thoughtful conversations about today's architecture, which Marcin loves to share. Every episode blends food and inspiring chats, offering fresh ways to see our world. You can watch it on <a href="https://www.youtube.com/@SalonWarszawski/videos" target="_blank">YouTube</a>.</p>
-      </div>
-      <a href="https://www.youtube.com/@SalonWarszawski/videos" target="_blank">
-        <img src="../img/photo6.webp" alt="Salon Warszawski" class="salon-talks__img" loading="lazy" />
-      </a>
-    </div>
+    <!-- ══ CONTACT FORM ══ -->
+    <section class="contact-wrap" id="contact">
+      <div class="contact-wrap__inner">
+        <p class="contact-wrap__label">contact</p>
+        <h2 class="contact-wrap__title">Let's collaborate</h2>
 
-    <!-- TALKS & CONFERENCES -->
-    <div class="magazine-split">
-      <div>
-        <p class="magazine-split__eyebrow">Talks &amp; Conferences</p>
-        <h2 class="magazine-split__title">Talks &amp; Conferences</h2>
-        <div class="magazine-split__body">
-          <p>Marcin Szczelina combines his passion for architecture, design, and sustainable development, working actively in Poland and internationally. He is the chief curator of the PULSE international architecture festival, an expert for the Mies van der Rohe Award, and a member of the Advisory Board of the Czech Pavilion at the Venice Architecture Biennale.</p>
-          <p>In 2020, he became the first Pole to create a project at the Mies van der Rohe Pavilion in Barcelona, together with artist Katarzyna Krakowiak. As an author and co-author of numerous publications in international magazines such as Domus, Aesthetica, and Azure, he shares his expertise at conferences and industry events worldwide.</p>
-        </div>
+        <form class="contact-form" action="https://formspree.io/f/mnjyvvgb" method="POST">
+          <div>
+            <p class="form-chips-label">I'm interested in</p>
+            <div class="service-chips">
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Design" /> Design</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Implementation" /> Implementation</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Product Strategy" /> Product Strategy</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="ArchiSnob" /> ArchiSnob</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Other" /> Other</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-name">name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="cf-company">company</label>
+              <input type="text" id="cf-company" name="company" placeholder="Your company" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">email</label>
+            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-field">
+            <label for="cf-subject">subject</label>
+            <input type="text" id="cf-subject" name="subject" placeholder="What can we help you with?" />
+          </div>
+          <div class="form-field">
+            <label for="cf-message">message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <div class="form-consent">
+            <input type="checkbox" id="cf-consent" name="consent" required />
+            <label for="cf-consent">I agree to the processing of my personal data for the purpose of responding to my inquiry.</label>
+          </div>
+          <button type="submit" class="btn btn--filled form-submit">send message →</button>
+        </form>
       </div>
-    </div>
+    </section>
 
   </main>
+
+  <!-- ══ FOOTER ══ -->
 
   <!-- ══ CONTACT + FOOTER ══ -->
   <div class="collab-footer" id="contact">

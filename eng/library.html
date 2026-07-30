@@ -94,7 +94,14 @@
   <meta property="og:description" content="A curated resource library empowering designers and businesses to make sustainable material choices." />
   <meta property="og:url" content="https://agencyforthefuture.wisehabit.com/library" />
   <meta property="og:image" content="https://agencyforthefuture.wisehabit.com/img/og-image.jpg" />
-
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RC3VN9XZ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5RC3VN9XZ7');
+  </script>
 </head>
 <body>
 
@@ -141,7 +148,7 @@
   </nav>
 
   <div class="nav__mobile" id="mobileNav">
-        <ul class="nav__mobile-links">
+    <ul class="nav__mobile-links">
       <li><span>about</span>
         <ul class="nav__mobile-sub">
           <li><a href="about.html">about us</a></li>
@@ -173,33 +180,6 @@
       <li><a href="contact.html">contact</a></li>
       <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B</a></li>
     </ul>
-      </li>
-      <li><a href="sustainability.html">sustainability</a></li>
-      <li><span>services</span>
-        <ul class="nav__mobile-sub">
-          <li><a href="design.html">design</a></li>
-          <li><a href="rd.html">R&amp;D</a></li>
-          <li><a href="product-strategy.html">product strategy</a></li>
-          <li><a href="branding-ip.html">branding &amp; IP</a></li>
-        </ul>
-      </li>
-      <li><span>conferences</span>
-        <ul class="nav__mobile-sub">
-          <li><a href="design-business-conference.html">design business conference</a></li>
-          <li><a href="archive.html">Conferences We Participated In</a></li>
-        </ul>
-      </li>
-      <li><span>exhibitions &amp; library</span>
-        <ul class="nav__mobile-sub">
-          <li><a href="power-of-three.html">Ethical Design Exhibition</a></li>
-          <li><a href="library.html">library</a></li>
-        </ul>
-      </li>
-      <li><a href="archisnob.html">archisnob</a></li>
-      <li><a href="https://b2b.wisehabit.com/" target="_blank">B2B</a></li>
-      <li><a href="contact.html">contact</a></li>
-      <li><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
-    </ul>
   </div>
 
   <div class="color-strip-wrapper">
@@ -208,80 +188,149 @@
 
   <main class="page-content">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero__inner">
-        <p class="hero__tag">library of sustainable materials</p>
-        <h1 class="hero__title">Empowering sustainable<br>design choices</h1>
-        <div class="hero__ctas">
-          <a href="#learn-more" class="btn btn--outline">learn more <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="contact.html" class="btn btn--filled">let's talk <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <!-- ══ HERO ══ -->
+    <section class="hero hero--carousel">
+      <div class="hero-slider" id="heroSlider">
+        <div class="hero-track" id="heroTrack">
+          <div class="hero-slide">
+            <img class="hero-slide__img" src="../img/library_banner.webp" alt="" />
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- INTRO -->
-    <section class="page-section" id="learn-more">
-      <div class="page-intro-grid">
-        <div class="page-intro-grid__left">
-          <p class="section-eyebrow">Wise Habit Library of Sustainable Materials</p>
-          <h2 class="section-title">We are convinced the change starts from design and designers</h2>
+      <div class="hero-content">
+        <div class="hero-content__panel active" data-slide="0">
+          <p class="hero__tag">library of sustainable materials</p>
+          <h1 class="hero__title">Empowering sustainable<span class="line2">design choices</span></h1>
         </div>
-        <div class="page-intro-grid__right">
-          <div class="lib-intro-grid">
-            <div class="lib-intro-col">
-              <h3 class="lib-intro-col__title">Aim of the Library</h3>
-              <p class="lib-intro-col__text">We provide a comprehensive collection of regenerative and sustainable materials that considers various factors such as the origin of material, its lifecycle, biodegradability or recyclability potential and its application in design.</p>
-            </div>
-            <div class="lib-intro-col">
-              <h3 class="lib-intro-col__title">Empowerment of designers</h3>
-              <p class="lib-intro-col__text">We are committed to empower designers and architects with the knowledge and resources necessary to make conscious and responsible design decisions that contribute to environmental preservation and sustainable development.</p>
-            </div>
-            <div class="lib-intro-col">
-              <h3 class="lib-intro-col__title">Access to Library</h3>
-              <p class="lib-intro-col__text">Located in Warsaw, our library is both a physical &amp; online resource for sustainable and regenerative materials.</p>
+        <div class="hero-content__bottom-row">
+          <div class="hero__ctas">
+            <div class="hero__ctas-set active" data-slide="0">
+              <a href="#learn-more" class="btn btn--filled">learn more <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a href="contact.html" class="btn btn--outline">let's talk <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- IMAGE -->
-    <div class="lib-image-wrap">
-      <img src="../img/image-3.png" alt="Library of Sustainable Materials" loading="lazy" />
-    </div>
-
-    <!-- WHAT YOU GAIN -->
-    <section class="page-section">
-      <div class="page-intro-grid">
-        <div class="page-intro-grid__left">
-          <p class="section-eyebrow">what you gain</p>
-          <h2 class="section-title">What you gain from Library of Sustainable Materials</h2>
+    <!-- ══ AGENCY-INTRO ══ -->
+    <section class="agency-intro" id="learn-more">
+      <div class="agency-intro__top">
+        <p class="agency-intro__eyebrow">Wise Habit Library of Sustainable Materials</p>
+        <h2 class="agency-intro__title">We are convinced the change starts from design and designers</h2>
+      </div>
+      <div class="agency-intro__cards">
+        <div class="intro-card">
+          <h3 class="intro-card__title" style="font-weight:400;">Aim of the Library</h3>
+          <p class="intro-card__text">We provide a comprehensive collection of regenerative and sustainable materials that considers various factors such as the origin of material, its lifecycle, biodegradability or recyclability potential and its application in design.</p>
         </div>
-        <div class="page-intro-grid__right">
-          <ul class="lib-gains">
-            <li class="lib-gain-item"><span class="lib-gain-item__num">1 &ndash;</span><span class="lib-gain-item__text">Access to curated industry-leading innovations in regenerative and sustainable materials to inspire.</span></li>
-            <li class="lib-gain-item"><span class="lib-gain-item__num">2 &ndash;</span><span class="lib-gain-item__text">Discover and connect with suppliers who dare to challenge typical materials and do better things for the Planet.</span></li>
-            <li class="lib-gain-item"><span class="lib-gain-item__num">3 &ndash;</span><span class="lib-gain-item__text">Sample renting options of all included materials needed for your projects.</span></li>
-            <li class="lib-gain-item"><span class="lib-gain-item__num">4 &ndash;</span><span class="lib-gain-item__text">Consultation sessions with our experts on material-related aspects of your project.</span></li>
-          </ul>
+        <div class="intro-card">
+          <h3 class="intro-card__title" style="font-weight:400;">Empowerment of designers</h3>
+          <p class="intro-card__text">We are committed to empower designers and architects with the knowledge and resources necessary to make conscious and responsible design decisions that contribute to environmental preservation and sustainable development.</p>
+        </div>
+        <div class="intro-card">
+          <h3 class="intro-card__title" style="font-weight:400;">Access to Library</h3>
+          <p class="intro-card__text">Located in Warsaw, our library is both a physical &amp; online resource for sustainable and regenerative materials.</p>
         </div>
       </div>
     </section>
 
-    <!-- OPEN TO PUBLIC -->
+    <!-- ══ FULL-WIDTH IMAGE ══ -->
+    <section style="padding-bottom: 80px;">
+      <div class="lib-image-wrap">
+        <img src="../img/image-3.png" alt="Library of Sustainable Materials" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- ══ WHAT YOU GAIN ══ -->
+    <section class="page-section page-section--tinted">
+      <div class="inner">
+        <p class="section-eyebrow">what you gain</p>
+        <h2 class="section-title">What you gain from Library<br>of Sustainable Materials</h2>
+        <div class="lib-gains">
+          <div class="lib-gain-item">
+            <span class="lib-gain-item__num">1 –</span>
+            <p class="lib-gain-item__text">Access to curated industry-leading innovations in regenerative and sustainable materials to inspire.</p>
+          </div>
+          <div class="lib-gain-item">
+            <span class="lib-gain-item__num">2 –</span>
+            <p class="lib-gain-item__text">Discover and connect with suppliers who dare to challenge typical materials and do better things for the Planet.</p>
+          </div>
+          <div class="lib-gain-item">
+            <span class="lib-gain-item__num">3 –</span>
+            <p class="lib-gain-item__text">Sample renting options of all included materials needed for your projects.</p>
+          </div>
+          <div class="lib-gain-item">
+            <span class="lib-gain-item__num">4 –</span>
+            <p class="lib-gain-item__text">Consultation sessions with our experts on material-related aspects of your project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ OPEN TO PUBLIC ══ -->
     <section class="page-section">
-      <div class="page-intro-grid">
-        <div class="page-intro-grid__left">
-          <p class="section-eyebrow">our library is open to the public</p>
-          <h2 class="section-title">Join us in working towards a better future</h2>
+      <div class="inner">
+        <div class="lib-open-grid">
+          <div class="lib-open-grid__text">
+            <p class="section-eyebrow">our library is open to the public</p>
+            <h2 class="section-title">Join us in working towards a better future</h2>
+            <p class="body-text">Design is more than aesthetics - it's the beginning of the impact we have on the world. From the concept stage, we make material decisions that shape not only the project itself, but also its environmental footprint.</p>
+            <p class="body-text">At Wise Habit, we believe that architects, designers, and creators need a modern tool that not only supports them in making responsible choices, but also truly makes their daily work easier.</p>
+            <p class="body-text">Thanks to professional curation, expert consultations, and direct support in communication with manufacturers, the Library of Sustainable Materials gives designers the space to act. Because today, time is one of the most valuable resources.</p>
+            <a href="https://b2b.wisehabit.com/eng_m_material-library-439.html" target="_blank" class="btn btn--filled" style="margin-top: 12px;">go to library <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div>
+            <img src="../img/image-1.png" alt="Library interior" style="width: 100%; border-radius: 4px; display: block;" loading="lazy" />
+          </div>
         </div>
-        <div class="page-intro-grid__right">
-          <p class="body-text">Design is more than aesthetics &ndash; it's the beginning of the impact we have on the world. From the concept stage, we make material decisions that shape not only the project itself, but also its environmental footprint.</p>
-          <p class="body-text" style="margin-top: 20px;">At Wise Habit, we believe that architects, designers, and creators need a modern tool that not only supports them in making responsible choices, but also truly makes their daily work easier.</p>
-          <p class="body-text" style="margin-top: 20px;">Thanks to professional curation, expert consultations, and direct support in communication with manufacturers, the Library of Sustainable Materials gives designers the space to act. Because today, time is one of the most valuable resources.</p>
-          <div style="margin-top: 32px;"><a href="https://b2b.wisehabit.com/eng_m_material-library-439.html" class="btn btn--filled">go to library <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ══ -->
+    <section class="contact-wrap" id="contact">
+      <div class="contact-wrap__inner">
+        <p class="contact-wrap__label">contact</p>
+        <h2 class="contact-wrap__title">Get in touch</h2>
+        <form class="contact-form" action="https://formspree.io/f/mnjyvvgb" method="POST">
+          <div>
+            <p class="form-chips-label">I'm interested in</p>
+            <div class="service-chips">
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Design" /> Design</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Implementation" /> Implementation</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Product Strategy" /> Product Strategy</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="ArchiSnob" /> ArchiSnob</label>
+              <label class="service-chip"><input type="checkbox" name="service[]" value="Other" /> Other</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="lib-name">name</label>
+              <input type="text" id="lib-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="lib-company">company</label>
+              <input type="text" id="lib-company" name="company" placeholder="Your company" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="lib-email">email</label>
+            <input type="email" id="lib-email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-field">
+            <label for="lib-subject">subject</label>
+            <input type="text" id="lib-subject" name="subject" placeholder="What can we help you with?" />
+          </div>
+          <div class="form-field">
+            <label for="lib-message">message</label>
+            <textarea id="lib-message" name="message" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <div class="form-consent">
+            <input type="checkbox" id="lib-consent" name="consent" required />
+            <label for="lib-consent">I agree to the processing of my personal data for the purpose of responding to my inquiry.</label>
+          </div>
+          <button type="submit" class="btn btn--filled form-submit">send message →</button>
+        </form>
       </div>
     </section>
 
