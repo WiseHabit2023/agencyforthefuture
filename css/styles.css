@@ -68,7 +68,7 @@
 
 :root {
   --black: #000000;
-  --bg: #F4F4F4;
+  --bg: #FAFAFA;
   --border: #d2d2d2;
   --font: 'CircularXX', 'Nunito', sans-serif;
   --nav-height: 64px;
@@ -94,7 +94,7 @@ body {
   font-family: var(--font);
   background: var(--bg);
   color: var(--black);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -299,7 +299,7 @@ a { color: inherit; text-decoration: none; }
 
 .hero__title {
   font-size: clamp(52px, 5.2vw, 90px);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.05;
   letter-spacing: -1.5px;
   color: var(--black);
@@ -456,7 +456,7 @@ a { color: inherit; text-decoration: none; }
    ============================================= */
 
 .agency-intro {
-  padding: 80px 0;
+  padding: 120px 0;
 }
 
 .agency-intro__top {
@@ -505,7 +505,7 @@ a { color: inherit; text-decoration: none; }
 
 .intro-card__title { font-size: 24px; font-weight: 500; }
 
-.intro-card__text { font-size: 20px; line-height: 1.7; color: var(--black); flex: 1; }
+.intro-card__text { font-size: 15px; line-height: 1.7; color: var(--black); flex: 1; }
 
 .intro-card__link {
   display: inline-flex; align-items: center; gap: 6px;
@@ -523,7 +523,7 @@ a { color: inherit; text-decoration: none; }
    ============================================= */
 
 .nutshell {
-  padding: 80px 0;
+  padding: 120px 0;
   background: #BDD8FF;
 }
 
@@ -551,14 +551,14 @@ a { color: inherit; text-decoration: none; }
 
 .stat-block__value {
   font-size: clamp(48px, 6.5vw, 92px);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1;
   letter-spacing: -2px;
   margin-bottom: 20px;
 }
 
 .stat-block__desc {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
   font-weight: 400;
   max-width: 380px;
@@ -586,7 +586,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .bento-card__num { font-size: clamp(48px, 6vw, 72px); font-weight: 700; line-height: 1; color: var(--black); }
-.bento-card__text { font-size: 22px; line-height: 1.55; font-weight: 400; color: var(--black); margin-top: auto; }
+.bento-card__text { font-size: 15px; line-height: 1.55; font-weight: 400; color: var(--black); margin-top: auto; }
 .bento-card__text strong { font-weight: 700; }
 
 .bento-card.c1 { grid-column: 1/5; grid-row: 1; }
@@ -604,7 +604,7 @@ a { color: inherit; text-decoration: none; }
    ============================================= */
 
 .services {
-  padding: 80px 0;
+  padding: 120px 0;
   background: #C2D0D3;
 }
 
@@ -789,7 +789,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ── Awards / Trusted-by logoband (shared with about.html) ── */
-.about-logoband__inner { max-width: var(--max-w); margin: 0 auto; padding: 80px var(--pad-h); }
+.about-logoband__inner { max-width: var(--max-w); margin: 0 auto; padding: 120px var(--pad-h); }
 .about-logoband__label { font-size: clamp(32px, 3.6vw, 50px); font-weight: 500; letter-spacing: -0.5px; margin-bottom: 28px; }
 .about-logoband__logos img { max-width: 100%; height: auto; display: block; }
 
@@ -802,7 +802,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 120px;
   width: max-content;
-  animation: awards-marquee 55s linear infinite;
+  animation: awards-marquee 120s linear infinite;
 }
 #awards .about-logoband__marquee img {
   max-width: none;
@@ -836,7 +836,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 96px;
   width: max-content;
-  animation: clients-marquee 40s linear infinite;
+  animation: clients-marquee 120s linear infinite;
 }
 #clients .about-logoband__marquee img {
   max-width: none;
@@ -990,7 +990,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 400; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 20px;
 }
 .library-section__text {
-  font-size: 20px; line-height: 1.8; color: var(--black); margin-bottom: 32px;
+  font-size: 15px; line-height: 1.8; color: var(--black); margin-bottom: 32px;
 }
 .library-section__content .btn {
   align-self: flex-start;
@@ -1014,7 +1014,7 @@ a { color: inherit; text-decoration: none; }
    ============================================= */
 
 .contact-wrap {
-  padding: 80px 0 90px;
+  padding: 120px 0;
 }
 
 .contact-wrap__inner {
@@ -1288,7 +1288,7 @@ a { color: inherit; text-decoration: none; }
 .collab-contact-info a,
 .collab-contact-info span {
   font-size: clamp(28px, 4vw, 60px);
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: -1px;
   color: var(--black);
   text-decoration: none;
@@ -1404,7 +1404,7 @@ a { color: inherit; text-decoration: none; }
    SUBPAGE SHARED COMPONENTS
    ============================================= */
 
-.page-section { padding: 80px 0; }
+.page-section { padding: 120px 0; }
 .page-section--tinted { background: #f2ede8; }
 
 .section-eyebrow {
@@ -1420,7 +1420,7 @@ a { color: inherit; text-decoration: none; }
 .section-title.centered { text-align: center; max-width: 860px; margin-left: auto; margin-right: auto; }
 
 .body-text {
-  font-size: 20px; line-height: 1.8; color: var(--black); margin-bottom: 20px;
+  font-size: 15px; line-height: 1.8; color: var(--black); margin-bottom: 20px;
 }
 
 /* 2-col intro grid */
@@ -1453,7 +1453,7 @@ a { color: inherit; text-decoration: none; }
 .value-card { display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 1px solid var(--black); }
 .value-card__num { font-size: 13px; opacity: 1; font-weight: 400; }
 .value-card__title { font-size: 22px; font-weight: 500; line-height: 1.2; }
-.value-card__text { font-size: 20px; line-height: 1.7; color: var(--black); }
+.value-card__text { font-size: 15px; line-height: 1.7; color: var(--black); }
 
 /* Awards list */
 .awards-list { display: flex; flex-direction: column; gap: 0; }
@@ -1477,7 +1477,7 @@ a { color: inherit; text-decoration: none; }
   display: flex; flex-direction: column; gap: 12px;
 }
 .service-detail-card__title { font-size: 18px; font-weight: 500; line-height: 1.2; }
-.service-detail-card__text { font-size: 16px; line-height: 1.7; color: var(--black); }
+.service-detail-card__text { font-size: 15px; line-height: 1.7; color: var(--black); }
 
 /* Process list */
 .process-list { display: flex; flex-direction: column; gap: 0; max-width: 860px; }
@@ -1490,11 +1490,62 @@ a { color: inherit; text-decoration: none; }
 .process-step:first-child { border-top: 1px solid var(--black); }
 .process-step__num { font-size: 14px; opacity: 1; padding-top: 4px; }
 .process-step__title { font-size: 20px; font-weight: 500; margin-bottom: 8px; }
-.process-step__text { font-size: 16px; line-height: 1.7; color: var(--black); }
+.process-step__text { font-size: 15px; line-height: 1.7; color: var(--black); }
+
+/* ── Design "accomplish" v2 — olive bg, 2-col ── */
+.design-accomplish-v2 {
+  display: flex;
+  background: #E3D7AE;
+  min-height: 600px;
+}
+.design-accomplish-v2__left {
+  flex: 0 0 55%;
+  padding: 80px 64px 80px var(--pad-h);
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+.design-accomplish-v2__title {
+  font-size: clamp(24px, 2.4vw, 36px);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--black);
+  max-width: 420px;
+}
+.design-accomplish-v2__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 40px;
+}
+.design-accomplish-v2__word {
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 300;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 16px;
+  color: var(--black);
+}
+.design-accomplish-v2__desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--black);
+  opacity: 0.75;
+}
+.design-accomplish-v2__right {
+  flex: 0 0 45%;
+  overflow: hidden;
+}
+.design-accomplish-v2__right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 /* Page CTA section */
 .page-cta {
-  padding: 100px 0;
+  padding: 120px 0;
   text-align: center;
 }
 .page-cta__title {
@@ -1516,13 +1567,13 @@ a { color: inherit; text-decoration: none; }
   text-transform: none; opacity: 0.5; margin-bottom: 6px;
 }
 .contact-detail-block__value {
-  font-size: 17px; line-height: 1.6; color: var(--black); opacity: 0.8;
+  font-size: 15px; line-height: 1.6; color: var(--black); opacity: 0.8;
   transition: opacity 0.15s; display: block;
 }
 a.contact-detail-block__value:hover { opacity: 1; }
 
 /* ── We design for ── */
-.design-for-section { padding: 80px 0; }
+.design-for-section { padding: 120px 0; }
 .design-for-section__inner {
   max-width: var(--max-w);
   margin: 0 auto;
