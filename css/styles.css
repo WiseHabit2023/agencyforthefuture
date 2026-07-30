@@ -1500,7 +1500,7 @@ a { color: inherit; text-decoration: none; }
 }
 .design-accomplish-v2__left {
   flex: 0 0 55%;
-  padding: 80px 64px 80px var(--pad-h);
+  padding: 80px 64px 80px max(var(--pad-h), calc((100vw - var(--max-w)) / 2 + var(--pad-h)));
   display: flex;
   flex-direction: column;
   gap: 56px;
@@ -1534,13 +1534,16 @@ a { color: inherit; text-decoration: none; }
 }
 .design-accomplish-v2__right {
   flex: 0 0 45%;
-  overflow: hidden;
+  padding: 48px max(var(--pad-h), calc((100vw - var(--max-w)) / 2 + var(--pad-h))) 48px 0;
+  display: flex;
+  align-items: stretch;
 }
 .design-accomplish-v2__right img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
 }
 
 /* Page CTA section */
