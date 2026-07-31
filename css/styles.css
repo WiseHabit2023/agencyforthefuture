@@ -1689,4 +1689,14 @@ a.contact-detail-block__value:hover { opacity: 1; }
   .footer-big-link { font-size: clamp(32px, 10vw, 52px); }
   .footer-bottom-row { flex-direction: column; align-items: flex-start; gap: 16px; }
   .footer-legal { flex-wrap: wrap; gap: 12px; }
+
+  /* ── Collab footer (contact form section) ── */
+  .collab-footer__title { font-size: 40px; letter-spacing: -1px; }
+  .collab-two-col { flex-direction: column; gap: 40px; }
+  .collab-right-col { align-items: flex-start; }
+  .collab-contact-info { align-items: flex-start; margin-top: 0; }
+  .collab-contact-info a,
+  .collab-contact-info span { font-size: clamp(22px, 6vw, 32px); letter-spacing: -0.5px; }
+  .collab-footer-logo { margin-top: 24px; }
+  .collab-footer-logo img { height: 36px; }
 }
