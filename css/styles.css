@@ -1500,7 +1500,7 @@ a { color: inherit; text-decoration: none; }
   min-height: 600px;
 }
 .design-accomplish-v2__left {
-  flex: 0 0 55%;
+  flex: 0 0 60%;
   padding: 80px 64px 80px max(var(--pad-h), calc((100vw - var(--max-w)) / 2 + var(--pad-h)));
   display: flex;
   flex-direction: column;
@@ -1534,7 +1534,7 @@ a { color: inherit; text-decoration: none; }
   opacity: 0.75;
 }
 .design-accomplish-v2__right {
-  flex: 0 0 45%;
+  flex: 0 0 40%;
   padding: 48px max(var(--pad-h), calc((100vw - var(--max-w)) / 2 + var(--pad-h))) 48px 0;
   overflow: hidden;
 }
