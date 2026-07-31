@@ -77,7 +77,7 @@
   --max-w: 1560px;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 /* Sitewide zoom — scales progressively with monitor width.
    Mobile (<= 900px) stays untouched (handled by dedicated mobile CSS).
@@ -1644,16 +1644,49 @@ a.contact-detail-block__value:hover { opacity: 1; }
 }
 
 @media (max-width: 600px) {
+  :root { --pad-h: 20px; }
   .nutshell .stats-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr; }
   .bento-grid { grid-template-columns: 1fr; }
   .services__grid { grid-template-columns: 1fr; }
   .service-col { border-right: none; }
   .footer-main__inner { grid-template-columns: 1fr; }
-  .hero__title { font-size: 44px; letter-spacing: -0.5px; }
+  .hero__title { font-size: 40px; letter-spacing: -0.5px; }
   .portfolio-slide__img { width: 100%; max-width: 100%; }
   .values-grid { grid-template-columns: 1fr; }
   .services-detail-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .process-step { grid-template-columns: 48px 1fr; gap: 16px; }
+
+  /* ── Section vertical padding ── */
+  .page-section { padding: 56px 0; }
+  .nutshell { padding: 64px 0; }
+  .agency-intro { padding: 64px 0; }
+  .about-logoband__inner { padding: 56px var(--pad-h); }
+
+  /* ── Hero ── */
+  .hero-content { padding: 28px var(--pad-h) 40px; }
+  .hero__tag { font-size: 13px; }
+  .hero__ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero__ctas .btn { width: 100%; justify-content: center; min-width: unset; }
+  .hero__ctas-set .btn { min-width: unset; width: 100%; }
+  .hero-content__bottom-row { gap: 16px; margin-top: 28px; }
+  .hero__dots { display: none; }
+
+  /* ── Portfolio grid ── */
+  .portfolio-grid { grid-template-columns: 1fr; gap: 12px; }
+  .portfolio-grid__header { padding-bottom: 24px; }
+
+  /* ── Design accomplish ── */
+  .design-accomplish-v2__inner { flex-direction: column; min-height: unset; padding: 48px var(--pad-h); gap: 32px; }
+  .design-accomplish-v2__right { flex: none; padding: 0; }
+  .design-accomplish-v2__left { padding: 0; }
+
+  /* ── Page intro grid ── */
+  .page-intro-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  /* ── Footer ── */
+  .footer-big-link { font-size: clamp(32px, 10vw, 52px); }
+  .footer-bottom-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .footer-legal { flex-wrap: wrap; gap: 12px; }
 }
