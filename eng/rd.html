@@ -105,6 +105,9 @@
     @media (max-width: 900px) {
       .rd-category-table td:first-child { min-width: unset; white-space: normal; }
     }
+
+    /* R&D-specific tinted section colour */
+    .page-section--tinted { background: #C2D0D3; }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RC3VN9XZ7"></script>
@@ -333,89 +336,75 @@
       </div>
     </section>
 
-    <!-- ══ PORTFOLIO SLIDER (same structure as index.html) ══ -->
+    <!-- ══ PORTFOLIO GRID ══ -->
     <section class="portfolio">
-      <div class="portfolio__header">
-        <div class="portfolio__header-left">
-          <p class="portfolio__eyebrow">our implementation portfolio</p>
-          <h2 class="portfolio__title">From idea to product on the market</h2>
-        </div>
-        <div class="portfolio__controls" id="portfolioControls">
-          <p class="portfolio__counter" id="portfolioCounter">1 / 6</p>
-          <div class="portfolio__dots" id="portfolioDots"></div>
-          <div class="portfolio__nav">
-            <button class="portfolio__btn" id="portPrev" aria-label="Previous">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <button class="portfolio__btn" id="portNext" aria-label="Next">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-        </div>
+      <div class="portfolio-grid__header">
+        <p class="portfolio__eyebrow">our implementation portfolio</p>
+        <h2 class="portfolio__title">From idea to product on the market</h2>
+        <p class="portfolio-grid__desc">From concept development to full-scale production — we guide each product through every stage of implementation with precision, reliability and care for quality.</p>
       </div>
-      <div class="portfolio-slider">
-        <div class="portfolio-track" id="portfolioTrack">
-          <div class="portfolio-slide">
-            <img class="portfolio-slide__img" src="../img/implementation_slider_1.webp" alt="Vovo Glasses" loading="lazy" />
-            <div class="portfolio-slide__info">
-              <h3 class="portfolio-slide__title">Vovo Glasses</h3>
-              <div class="portfolio-slide__body">
-                <p class="portfolio-slide__meta"><strong>Design:</strong> Ewa Hiller<br><strong>Materials &amp; production:</strong> borosilicate, coloured glass</p>
-                <p class="portfolio-slide__desc">Vovo Glasses are an object of art, born from fascination with two basic geometric forms. Coloured glass elements create various hues and an illusion of changing shapes. Each cone matches each cylinder, which allows for versatility of usage and different combinations of colour and form.</p>
-              </div>
+
+      <div class="portfolio-grid">
+        <a href="rd.html" class="portfolio-grid__item">
+          <img src="../img/implementation_slider_1.webp" alt="Vovo Glasses" loading="lazy" />
+          <div class="portfolio-grid__overlay">
+            <h3 class="portfolio-grid__overlay-title">Vovo Glasses</h3>
+            <div class="portfolio-grid__overlay-designer">
+              <p class="portfolio-grid__overlay-desc">An object of art born from fascination with two basic geometric forms. Coloured glass elements create various hues and an illusion of changing shapes.</p>
             </div>
+            <p class="portfolio-grid__overlay-scope">Materials: borosilicate, coloured glass · Design: Ewa Hiller</p>
           </div>
-          <div class="portfolio-slide">
-            <img class="portfolio-slide__img" src="../img/implementation_slider_2.webp" alt="Piano Table" loading="lazy" />
-            <div class="portfolio-slide__info">
-              <h3 class="portfolio-slide__title">Piano Table</h3>
-              <div class="portfolio-slide__body">
-                <p class="portfolio-slide__meta"><strong>Design:</strong> Ewa Hiller<br><strong>Materials &amp; production:</strong> handcrafted solid wood, varnished or painted</p>
-                <p class="portfolio-slide__desc">Designed around the ritual of extending the table, the tabletop extension visibly hangs within the frame. It can be unfolded easily and placed securely within the top surface. Made of solid wood, the piece has an austere structure and clean lines. Its power of expression stems from simplicity, the selected materials and the novel way of folding.</p>
-              </div>
+        </a>
+        <a href="rd.html" class="portfolio-grid__item">
+          <img src="../img/implementation_slider_2.webp" alt="Piano Table" loading="lazy" />
+          <div class="portfolio-grid__overlay">
+            <h3 class="portfolio-grid__overlay-title">Piano Table</h3>
+            <div class="portfolio-grid__overlay-designer">
+              <p class="portfolio-grid__overlay-desc">Designed around the ritual of extending the table. Made of solid wood with austere structure and clean lines — power of expression stems from simplicity.</p>
             </div>
+            <p class="portfolio-grid__overlay-scope">Materials: handcrafted solid wood · Design: Ewa Hiller</p>
           </div>
-          <div class="portfolio-slide">
-            <img class="portfolio-slide__img" src="../img/implementation_slider_3.webp" alt="Mood Mirror" loading="lazy" />
-            <div class="portfolio-slide__info">
-              <h3 class="portfolio-slide__title">Mood Mirror</h3>
-              <div class="portfolio-slide__body">
-                <p class="portfolio-slide__meta"><strong>Design:</strong> Dorothee Mainka<br><strong>Materials &amp; production:</strong> coloured mirror and powder coated steel frame</p>
-                <p class="portfolio-slide__desc">The Mood Mirror collection is made up of three wall mirrors of different proportions and colours. The metal shelf embraces the mirror face and wanders up each site, while providing shelf space for small everyday objects. It embodies an immersion into a colorful life.</p>
-              </div>
+        </a>
+        <a href="rd.html" class="portfolio-grid__item">
+          <img src="../img/implementation_slider_3.webp" alt="Mood Mirror" loading="lazy" />
+          <div class="portfolio-grid__overlay">
+            <h3 class="portfolio-grid__overlay-title">Mood Mirror</h3>
+            <div class="portfolio-grid__overlay-designer">
+              <p class="portfolio-grid__overlay-desc">Three wall mirrors of different proportions and colours. The metal shelf embraces the mirror face, providing space for small everyday objects.</p>
             </div>
+            <p class="portfolio-grid__overlay-scope">Materials: coloured mirror, powder coated steel · Design: Dorothee Mainka</p>
           </div>
-          <div class="portfolio-slide">
-            <img class="portfolio-slide__img" src="../img/implementation_slider_4.webp" alt="Bowler Mug" loading="lazy" />
-            <div class="portfolio-slide__info">
-              <h3 class="portfolio-slide__title">Bowler Mug</h3>
-              <div class="portfolio-slide__body">
-                <p class="portfolio-slide__meta"><strong>Design:</strong> Ola Mirecka<br><strong>Materials &amp; production:</strong> moulded and fired, unglazed porcelain; full-body coloured</p>
-                <p class="portfolio-slide__desc">Bowler Mug was designed for relaxed celebration of hot beverages. The mug has a ring that protects fingers from the hot surface and prevents it from slipping out of one's hand. It is made of specially developed porcelain that doesn't require glazing. The matt surface makes it unique and will age beautifully.</p>
-              </div>
+        </a>
+        <a href="rd.html" class="portfolio-grid__item">
+          <img src="../img/implementation_slider_4.webp" alt="Bowler Mug" loading="lazy" />
+          <div class="portfolio-grid__overlay">
+            <h3 class="portfolio-grid__overlay-title">Bowler Mug</h3>
+            <div class="portfolio-grid__overlay-designer">
+              <p class="portfolio-grid__overlay-desc">Designed for relaxed celebration of hot beverages. Made of specially developed unglazed porcelain — the matt surface makes it unique and will age beautifully.</p>
             </div>
+            <p class="portfolio-grid__overlay-scope">Materials: unglazed porcelain · Design: Ola Mirecka</p>
           </div>
-          <div class="portfolio-slide">
-            <img class="portfolio-slide__img" src="../img/implementation_slider_5.webp" alt="Cork Stool" loading="lazy" />
-            <div class="portfolio-slide__info">
-              <h3 class="portfolio-slide__title">Cork Stool</h3>
-              <div class="portfolio-slide__body">
-                <p class="portfolio-slide__meta"><strong>Design:</strong> Tomasz Rygalik<br><strong>Materials &amp; production:</strong> turned cork, expanded or natural</p>
-                <p class="portfolio-slide__desc">Cork Stool's shape was inspired by the material it is made of. Eco-friendly, highly endurable and very light, cork still seems underexploited in furniture design. Well-balanced, geometric form corresponds perfectly with its function. Shades of brown will warm up any interior and the material used will serve generations.</p>
-              </div>
+        </a>
+        <a href="rd.html" class="portfolio-grid__item">
+          <img src="../img/implementation_slider_5.webp" alt="Cork Stool" loading="lazy" />
+          <div class="portfolio-grid__overlay">
+            <h3 class="portfolio-grid__overlay-title">Cork Stool</h3>
+            <div class="portfolio-grid__overlay-designer">
+              <p class="portfolio-grid__overlay-desc">Shape inspired by the material it is made of. Eco-friendly, highly endurable and very light — cork still seems underexploited in furniture design.</p>
             </div>
+            <p class="portfolio-grid__overlay-scope">Materials: turned cork · Design: Tomasz Rygalik</p>
           </div>
-          <div class="portfolio-slide">
-            <img class="portfolio-slide__img" src="../img/implementation_slider_6.webp" alt="Dee Table" loading="lazy" />
-            <div class="portfolio-slide__info">
-              <h3 class="portfolio-slide__title">Dee Table</h3>
-              <div class="portfolio-slide__body">
-                <p class="portfolio-slide__meta"><strong>Design:</strong> Fabio Hendry &amp; Martijn Rigters<br><strong>Materials &amp; production:</strong> anodized aluminum</p>
-                <p class="portfolio-slide__desc">The simple form of aluminium d-shaped side table resonates its modern look. It has a very unique character that transcends onto the interior. Special advantage of anodised aluminium includes corrosion and scratch resistance.</p>
-              </div>
+        </a>
+        <a href="rd.html" class="portfolio-grid__item">
+          <img src="../img/implementation_slider_6.webp" alt="Dee Table" loading="lazy" />
+          <div class="portfolio-grid__overlay">
+            <h3 class="portfolio-grid__overlay-title">Dee Table</h3>
+            <div class="portfolio-grid__overlay-designer">
+              <p class="portfolio-grid__overlay-desc">The simple form of an aluminium d-shaped side table resonates its modern look. Corrosion and scratch resistant thanks to anodising.</p>
             </div>
+            <p class="portfolio-grid__overlay-scope">Materials: anodized aluminum · Design: Fabio Hendry &amp; Martijn Rigters</p>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
