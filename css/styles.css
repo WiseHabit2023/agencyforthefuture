@@ -1626,6 +1626,7 @@ a.contact-detail-block__value:hover { opacity: 1; }
   :root { --pad-h: 24px; }
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
+  .nav__logo-wh { display: none; }
   .agency-intro__cards { flex-direction: column; align-items: center; }
   .intro-card { max-width: 100%; }
   .nutshell .stats-grid { grid-template-columns: 1fr 1fr; column-gap: 24px; }
@@ -1649,7 +1650,7 @@ a.contact-detail-block__value:hover { opacity: 1; }
   .stats-grid { grid-template-columns: 1fr; }
   .bento-grid { grid-template-columns: 1fr; }
   .services__grid { grid-template-columns: 1fr; }
-  .service-col { border-right: none; }
+  .service-col { border-right: none; padding: 28px 0; }
   .footer-main__inner { grid-template-columns: 1fr; }
   .hero__title { font-size: 40px; letter-spacing: -0.5px; }
   .portfolio-slide__img { width: 100%; max-width: 100%; }
