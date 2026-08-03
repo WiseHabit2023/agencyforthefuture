@@ -1461,7 +1461,7 @@ a { color: inherit; text-decoration: none; }
 .award-item {
   padding: 20px 0; border-bottom: 1px solid var(--black);
 }
-.award-item:first-child { border-top: 1px solid var(--black); }
+.award-item:last-child { border-bottom: none; }
 .award-item__name { font-size: 17px; font-weight: 400; margin-bottom: 4px; }
 .award-item__project { font-size: 15px; opacity: 1; }
 
@@ -1488,7 +1488,7 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 1px solid var(--black);
   align-items: start;
 }
-.process-step:first-child { border-top: 1px solid var(--black); }
+.process-step:last-child { border-bottom: none; }
 .process-step__num { font-size: 14px; opacity: 1; padding-top: 4px; }
 .process-step__title { font-size: 20px; font-weight: 300; margin-bottom: 8px; }
 .process-step__text { font-size: 15px; line-height: 1.7; color: var(--black); }

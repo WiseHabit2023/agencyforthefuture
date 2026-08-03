@@ -35,7 +35,7 @@
     .design-process-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block; }
     .design-process-list { display: flex; flex-direction: column; }
     .design-process-item { display: flex; align-items: baseline; gap: 20px; padding: 11px 0; border-bottom: 1px solid var(--black); font-size: 17px; }
-    .design-process-item:first-child { border-top: 1px solid var(--black); }
+    .design-process-item:last-child { border-bottom: none; }
     .design-process-item__num { font-size: 13px; opacity: 1; flex-shrink: 0; min-width: 28px; }
 
     /* Circular economy */
@@ -43,15 +43,19 @@
     .design-circular-text .body-text { font-size: 17px; }
 
     /* Quote / holistic */
-    .design-holistic { max-width: var(--max-w); margin: 0 auto; padding: 80px var(--pad-h); text-align: center; }
+    .design-holistic { max-width: var(--max-w); margin: 0 auto; padding: 80px var(--pad-h); display: flex; align-items: center; gap: 80px; }
+    .design-holistic__img { flex: 0 0 440px; }
+    .design-holistic__img img { width: 100%; height: auto; display: block; }
+    .design-holistic__body { flex: 1; }
     .design-holistic__sup { font-size: 13px; letter-spacing: 0.05em; opacity: 1; margin-bottom: 20px; }
-    .design-holistic__text { font-size: clamp(22px, 2.4vw, 36px); font-weight: 400; line-height: 1.4; max-width: 900px; margin: 0 auto 48px; letter-spacing: -0.3px; }
-    .design-holistic img { max-width: 480px; margin: 0 auto; display: block; width: 100%; height: auto; }
+    .design-holistic__text { font-size: clamp(22px, 2.4vw, 36px); font-weight: 400; line-height: 1.4; letter-spacing: -0.3px; margin: 0; }
 
     @media (max-width: 900px) {
       .design-accomplish-grid, .design-scope-grid, .design-process-grid, .design-circular-grid { grid-template-columns: 1fr; gap: 40px; }
       .design-accomplish-items { grid-template-columns: 1fr; }
       .design-img-wrap img { height: 280px; }
+      .design-holistic { flex-direction: column; gap: 40px; }
+      .design-holistic__img { flex: none; width: 100%; max-width: 360px; margin: 0 auto; }
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
@@ -472,7 +476,7 @@
     </section>
 
     <!-- OUR DESIGN PROCESS numbered + image -->
-    <section class="page-section page-section--tinted" style="background: #9EB59E;">
+    <section class="page-section">
       <div class="inner">
         <div class="design-process-grid">
           <div>
@@ -500,7 +504,7 @@
     </section>
 
     <!-- CIRCULAR ECONOMY -->
-    <section class="page-section">
+    <section class="page-section page-section--tinted" style="background: #9EB59E;">
       <div class="inner">
         <div class="design-circular-grid">
           <div class="design-circular-text">
@@ -559,9 +563,13 @@
 
     <!-- HOLISTIC QUOTE + DIAGRAM -->
     <div class="design-holistic">
-      <p class="design-holistic__sup">Design for meanings</p>
-      <p class="design-holistic__text">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</p>
-      <img src="../img/graf_-_we_design_for_-_desktop_CONDENSED_1.svg" alt="We design for: business & market success, feelings & attachment, future societies & environment, stories & meanings" loading="lazy" />
+      <div class="design-holistic__img">
+        <img src="../img/graf_-_we_design_for_-_desktop_CONDENSED_1.svg" alt="We design for: business & market success, feelings & attachment, future societies & environment, stories & meanings" loading="lazy" />
+      </div>
+      <div class="design-holistic__body">
+        <p class="design-holistic__sup">Design for meanings</p>
+        <p class="design-holistic__text">Holistic perspective is at heart of everything we do as we recognize the interconnectedness of all our actions and creations.</p>
+      </div>
     </div>
 
   </main>
