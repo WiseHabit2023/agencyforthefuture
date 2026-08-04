@@ -56,7 +56,7 @@
       padding: 16px 0;
       border-bottom: 1px solid var(--black);
     }
-    .lib-gain-item:first-child { border-top: 1px solid var(--black); }
+    .lib-gain-item:last-child { border-bottom: none; }
     .lib-gain-item__num {
       font-size: 14px;
       opacity: 1;
@@ -69,12 +69,23 @@
       font-weight: 400;
     }
 
+    /* What you gain - 2-col */
+    .lib-gain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .lib-gain-grid__text { }
+    .lib-gain-grid__img img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 4px; }
+    .lib-gains { max-width: none; }
+
     /* Open to public - 2-col */
     .lib-open-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: start;
+      align-items: center;
     }
     .lib-open-grid__text .body-text + .body-text { margin-top: 0; }
 
@@ -83,6 +94,7 @@
       .lib-intro-col { padding-right: 0; }
       .lib-image-wrap img { height: 280px; }
       .lib-open-grid { grid-template-columns: 1fr; gap: 40px; }
+      .lib-gain-grid { grid-template-columns: 1fr; gap: 40px; }
     }
     /* What you gain - background override */
     .page-section--tinted { background: #C2D0D3; }
@@ -231,34 +243,34 @@
       </div>
     </section>
 
-    <!-- ══ FULL-WIDTH IMAGE ══ -->
-    <section style="padding-bottom: 80px;">
-      <div class="lib-image-wrap">
-        <img src="../img/image-3.png" alt="Library of Sustainable Materials" loading="lazy" />
-      </div>
-    </section>
-
     <!-- ══ WHAT YOU GAIN ══ -->
     <section class="page-section page-section--tinted">
       <div class="inner">
-        <p class="section-eyebrow">what you gain</p>
-        <h2 class="section-title">What you gain from Library<br>of Sustainable Materials</h2>
-        <div class="lib-gains">
-          <div class="lib-gain-item">
-            <span class="lib-gain-item__num">1 –</span>
-            <p class="lib-gain-item__text">Access to curated industry-leading innovations in regenerative and sustainable materials to inspire.</p>
+        <div class="lib-gain-grid">
+          <div class="lib-gain-grid__text">
+            <p class="section-eyebrow">what you gain</p>
+            <h2 class="section-title">What you gain from Library<br>of Sustainable Materials</h2>
+            <div class="lib-gains">
+              <div class="lib-gain-item">
+                <span class="lib-gain-item__num">1 –</span>
+                <p class="lib-gain-item__text">Access to curated industry-leading innovations in regenerative and sustainable materials to inspire.</p>
+              </div>
+              <div class="lib-gain-item">
+                <span class="lib-gain-item__num">2 –</span>
+                <p class="lib-gain-item__text">Discover and connect with suppliers who dare to challenge typical materials and do better things for the Planet.</p>
+              </div>
+              <div class="lib-gain-item">
+                <span class="lib-gain-item__num">3 –</span>
+                <p class="lib-gain-item__text">Sample renting options of all included materials needed for your projects.</p>
+              </div>
+              <div class="lib-gain-item">
+                <span class="lib-gain-item__num">4 –</span>
+                <p class="lib-gain-item__text">Consultation sessions with our experts on material-related aspects of your project.</p>
+              </div>
+            </div>
           </div>
-          <div class="lib-gain-item">
-            <span class="lib-gain-item__num">2 –</span>
-            <p class="lib-gain-item__text">Discover and connect with suppliers who dare to challenge typical materials and do better things for the Planet.</p>
-          </div>
-          <div class="lib-gain-item">
-            <span class="lib-gain-item__num">3 –</span>
-            <p class="lib-gain-item__text">Sample renting options of all included materials needed for your projects.</p>
-          </div>
-          <div class="lib-gain-item">
-            <span class="lib-gain-item__num">4 –</span>
-            <p class="lib-gain-item__text">Consultation sessions with our experts on material-related aspects of your project.</p>
+          <div class="lib-gain-grid__img">
+            <img src="../img/image-3.png" alt="Library of Sustainable Materials" loading="lazy" />
           </div>
         </div>
       </div>
