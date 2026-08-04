@@ -33,10 +33,19 @@
     .sust-sdg-goals { display: grid; grid-template-columns: repeat(3, 120px); gap: 12px; margin-top: 32px; }
     .sust-sdg-goals img { width: 120px; height: 120px; object-fit: cover; display: block; border-radius: 4px; }
 
+    .sust-challenges-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: stretch; }
+    .sust-challenges-grid__img { display: flex; }
+    .sust-challenges-grid__img img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; display: block; border-radius: 4px; }
+    .sust-challenge-item { display: grid; grid-template-columns: 48px 1fr; gap: 0; padding: 16px 0; border-bottom: 1px solid var(--black); }
+    .sust-challenge-item:last-child { border-bottom: none; }
+    .sust-challenge-item__num { font-size: 14px; font-weight: 400; padding-top: 3px; }
+    .sust-challenge-item__text { font-size: 20px; line-height: 1.6; font-weight: 400; }
+
     @media (max-width: 900px) {
       .sust-img-wrap img { height: 280px; }
       .sust-impact-imgs { grid-template-columns: 1fr; }
       .sust-sdg-goals { grid-template-columns: 1fr; }
+      .sust-challenges-grid { grid-template-columns: 1fr; gap: 40px; }
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
@@ -211,19 +220,34 @@
     </section>
 
     <!-- CRUCIAL TOPICS -->
-    <section class="design-accomplish-v2" style="background: #C2D0D3;">
-      <div class="design-accomplish-v2__inner">
-        <div class="design-accomplish-v2__left">
-          <h2 class="design-accomplish-v2__title">The most crucial topics for Wise Habit</h2>
-          <div class="design-accomplish-v2__grid">
-            <div><p class="design-accomplish-v2__word" style="font-size: clamp(28px, 3vw, 46px); margin-bottom: 0;">Consumerism</p></div>
-            <div><p class="design-accomplish-v2__word" style="font-size: clamp(28px, 3vw, 46px); margin-bottom: 0;">Customer education</p></div>
-            <div><p class="design-accomplish-v2__word" style="font-size: clamp(28px, 3vw, 46px); margin-bottom: 0;">Linear models</p></div>
-            <div><p class="design-accomplish-v2__word" style="font-size: clamp(28px, 3vw, 46px); margin-bottom: 0;">Transparency</p></div>
+    <section class="page-section page-section--tinted" style="background: #C2D0D3;">
+      <div class="inner">
+        <div class="sust-challenges-grid">
+          <div class="sust-challenges-grid__text">
+            <p class="section-eyebrow">challenges we face</p>
+            <h2 class="section-title">The most crucial topics for Wise Habit</h2>
+            <div>
+              <div class="sust-challenge-item">
+                <span class="sust-challenge-item__num">1 –</span>
+                <p class="sust-challenge-item__text">Consumerism</p>
+              </div>
+              <div class="sust-challenge-item">
+                <span class="sust-challenge-item__num">2 –</span>
+                <p class="sust-challenge-item__text">Customer education</p>
+              </div>
+              <div class="sust-challenge-item">
+                <span class="sust-challenge-item__num">3 –</span>
+                <p class="sust-challenge-item__text">Linear production models</p>
+              </div>
+              <div class="sust-challenge-item">
+                <span class="sust-challenge-item__num">4 –</span>
+                <p class="sust-challenge-item__text">Decline in transparency</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="design-accomplish-v2__right">
-          <img src="../img/image-2.png" alt="Sustainability at Wise Habit" loading="lazy" />
+          <div class="sust-challenges-grid__img">
+            <img src="../img/image-2.png" alt="Sustainability at Wise Habit" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
