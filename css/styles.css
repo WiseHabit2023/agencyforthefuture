@@ -1205,7 +1205,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   gap: 80px;
   align-items: stretch;
-  padding-bottom: 48px;
+  padding-bottom: 0;
 }
 .collab-left-col {
   flex: 1;
@@ -1282,6 +1282,7 @@ a { color: inherit; text-decoration: none; }
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: flex-end;
 }
 .collab-contact-info {
@@ -1292,7 +1293,8 @@ a { color: inherit; text-decoration: none; }
   gap: 2px;
 }
 .collab-footer-logo {
-  margin-top: 32px;
+  margin-top: auto;
+  align-self: flex-end;
 }
 .collab-contact-info a,
 .collab-contact-info span {
