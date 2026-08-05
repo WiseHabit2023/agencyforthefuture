@@ -1287,6 +1287,7 @@ a { color: inherit; text-decoration: none; }
 }
 .collab-contact-info {
   margin-top: auto;
+  margin-bottom: 200px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
