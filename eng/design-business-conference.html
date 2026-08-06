@@ -362,10 +362,10 @@
       pointer-events: none;
       letter-spacing: 0.03em;
     }
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
       .dbc-tickets__slide { grid-template-columns: 1fr; }
-      .dbc-tickets__img { height: 180px; object-fit: cover; }
-      .dbc-tickets__info { padding: 24px 0; }
+      .dbc-tickets__img { width: 100%; height: 220px; object-fit: cover; max-width: 100%; }
+      .dbc-tickets__info { padding: 24px 0; border-left: none; border-right: none; }
     }
 
     /* ── Venue bottom strip ── */
@@ -462,11 +462,12 @@
     }
     @media (max-width: 640px) {
       .dbc-hero-intro, .dbc-section, .dbc-prog, .dbc-img-pair, .dbc-img-full,
-      .dbc-bottom__inner { padding-left: 20px; padding-right: 20px; }
+      .dbc-tickets, .dbc-bottom__inner { padding-left: 20px; padding-right: 20px; }
       .dbc-spk-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .dbc-prog__row { grid-template-columns: 1fr; gap: 8px; }
       .dbc-prog__time { padding-top: 0; font-size: 15px; }
       .dbc-events-grid img { height: 220px; }
+      .dbc-bottom__venue-cols { grid-template-columns: 1fr; gap: 24px; }
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
