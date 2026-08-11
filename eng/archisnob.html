@@ -137,18 +137,6 @@
       object-fit: cover;
     }
 
-    /* ── Hero banner ── */
-    .archisnob-banner {
-      width: 100%;
-      line-height: 0;
-      overflow: hidden;
-    }
-    .archisnob-banner img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
     /* ── Section tinted bg ── */
     .archisnob-tinted {
       background: #f0ede8;
@@ -285,23 +273,23 @@
   <main class="page-content">
 
     <!-- ══ HERO ══ -->
-    <section class="hero">
-      <div class="hero__inner">
+    <section class="hero hero--carousel">
+      <div class="hero-slider" id="heroSlider">
+        <div class="hero-track" id="heroTrack">
+          <div class="hero-slide">
+            <img class="hero-slide__img" src="../img/archisnob_banner.webp" alt="Wise Habit x ArchiSnob" loading="eager" />
+          </div>
+        </div>
+      </div>
+      <div class="hero-content">
         <p class="hero__tag">new partnership</p>
         <h1 class="hero__title">Wise Habit x<span class="line2">ArchiSnob</span></h1>
-        <div class="hero__ctas">
-          <a href="#contact" class="btn btn--filled">
-            let's collaborate
-            <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+        <div class="hero__ctas" style="margin-top:36px;">
+          <a href="#learn-more" class="btn btn--outline">learn more <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="contact.html" class="btn btn--filled">let's talk <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </section>
-
-    <!-- ══ HERO BANNER ══ -->
-    <div class="archisnob-banner">
-      <img src="../img/archisnob_banner.webp" alt="Wise Habit x ArchiSnob" loading="eager" />
-    </div>
 
     <!-- ══ PARTNERSHIP GRID 2×3 ══ -->
     <section class="agency-intro archisnob-tinted">
