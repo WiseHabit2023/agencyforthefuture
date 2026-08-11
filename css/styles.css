@@ -349,7 +349,9 @@ a { color: inherit; text-decoration: none; }
 .btn--filled {
   background: var(--black); color: #fff; border: 1.5px solid var(--black);
 }
-.btn--filled:hover { background: #222; border-color: #222; }
+.btn--filled:hover { background: transparent; color: var(--black); border-color: var(--black); }
+.btn--filled:hover .icon-arr { color: var(--black); }
+.btn--filled:hover img { filter: none; }
 .btn--filled img { filter: invert(1); height: 11px; }
 .btn--filled .icon-arr { color: #fff; }
 
@@ -979,7 +981,7 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   height: 420px;
   align-self: center;
-  border-radius: 6px;
+  
 }
 .library-section__img img {
   width: 100%;
@@ -1509,7 +1511,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ── Design "accomplish" v2 — olive bg, 2-col ── */
 .design-accomplish-v2 {
-  background: #E3D7AE;
+  background: #CCE2FC;
 }
 .design-accomplish-v2__inner {
   display: flex;
@@ -1563,7 +1565,7 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  
   display: block;
 }
 
