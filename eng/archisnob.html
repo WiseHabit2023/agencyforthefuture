@@ -147,47 +147,29 @@
       gap: 80px;
       align-items: start;
     }
-    .mag-card__gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .mag-card__main-img {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      display: block;
-    }
-    .mag-card__thumbs {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-    .mag-card__thumb {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-      cursor: pointer;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-    .mag-card__thumb:hover,
-    .mag-card__thumb--active { opacity: 1; }
-    .mag-card__info { display: flex; flex-direction: column; gap: 0; }
-    .mag-card__eyebrow { font-size: 13px; font-weight: 350; letter-spacing: 0.04em; margin-bottom: 12px; }
-    .mag-card__title { font-size: clamp(28px, 3vw, 44px); font-weight: 300; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 24px; }
-    .mag-card__desc { font-size: 15px; line-height: 1.8; font-weight: 350; margin-bottom: 24px; }
-    .mag-card__features { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 8px; }
-    .mag-card__features li { font-size: 15px; font-weight: 350; padding-left: 16px; position: relative; }
-    .mag-card__features li::before { content: '—'; position: absolute; left: 0; }
-    .mag-card__divider { border: none; border-top: 1px solid var(--black); margin: 0 0 24px; opacity: 0.15; }
-    .mag-card__meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin-bottom: 32px; }
-    .mag-card__meta-label { font-size: 13px; font-weight: 350; opacity: 0.5; }
-    .mag-card__meta-value { font-size: 13px; font-weight: 350; }
-    .mag-card__price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-    .mag-card__price { font-size: clamp(24px, 2.5vw, 36px); font-weight: 300; letter-spacing: -0.5px; }
-    .mag-card__shipping { font-size: 13px; font-weight: 350; opacity: 0.5; margin-bottom: 24px; }
+    .mag-card__gallery { display: flex; flex-direction: column; gap: 12px; }
+    .mag-card__main-img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+    .mag-card__thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .mag-card__thumb { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; cursor: pointer; opacity: 0.5; transition: opacity 0.2s; }
+    .mag-card__thumb:hover, .mag-card__thumb--active { opacity: 1; }
+
+    .mag-card__info { display: flex; flex-direction: column; }
+    .mag-card__title { font-size: clamp(22px, 2.6vw, 36px); font-weight: 350; line-height: 1.2; margin-bottom: 20px; }
+    .mag-card__desc { font-size: 15px; line-height: 1.8; font-weight: 350; margin-bottom: 20px; }
+    .mag-card__features { list-style: disc; padding-left: 18px; margin-bottom: 28px; display: flex; flex-direction: column; gap: 6px; }
+    .mag-card__features li { font-size: 15px; font-weight: 350; line-height: 1.6; }
+    .mag-card__divider { border: none; border-top: 1px solid #000; margin: 0 0 20px; }
+    .mag-card__meta-row { display: grid; grid-template-columns: 120px 1fr; gap: 10px 0; margin-bottom: 20px; }
+    .mag-card__meta-label { font-size: 14px; font-weight: 350; color: #000; }
+    .mag-card__meta-value { font-size: 14px; font-weight: 350; }
+    .mag-card__meta-sub { font-size: 13px; font-weight: 350; opacity: 0.6; }
+    .mag-card__price { font-size: 20px; font-weight: 350; margin-bottom: 12px; }
+    .mag-card__btn { display: flex; align-items: center; justify-content: space-between; width: 100%; background: #000; color: #fff; border: none; border-radius: 0; padding: 16px 24px; font-size: 15px; font-weight: 350; cursor: pointer; margin-bottom: 10px; text-decoration: none; }
+    .mag-card__btn:hover { background: transparent; color: #000; outline: 1px solid #000; }
+    .mag-card__btn-price { font-size: 17px; }
+    .mag-card__note { font-size: 12px; font-weight: 350; opacity: 0.55; margin-bottom: 20px; }
+    .mag-card__ship { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 350; margin-bottom: 4px; }
+    .mag-card__ship-sub { font-size: 12px; font-weight: 350; opacity: 0.55; margin-bottom: 20px; padding-left: 28px; }
     @media (max-width: 900px) {
       .mag-card { grid-template-columns: 1fr; gap: 40px; }
     }
@@ -352,47 +334,61 @@
 
         <!-- LEFT: gallery -->
         <div class="mag-card__gallery">
-          <img class="mag-card__main-img" src="../img/ArchiSnob_2.webp" alt="ArchiSnob Magazine" loading="lazy" />
+          <img class="mag-card__main-img" src="../img/Archisnob_magasin.jpg" alt="ArchiSnob Magazine" loading="lazy" />
           <div class="mag-card__thumbs">
-            <img class="mag-card__thumb mag-card__thumb--active" src="../img/ArchiSnob_2.webp" alt="ArchiSnob cover" loading="lazy" />
+            <img class="mag-card__thumb mag-card__thumb--active" src="../img/Archisnob_magasin.jpg" alt="ArchiSnob cover" loading="lazy" />
             <img class="mag-card__thumb" src="../img/ArchiSnob.webp" alt="ArchiSnob inside" loading="lazy" />
-            <img class="mag-card__thumb" src="../img/Archisnob_magasin.jpg" alt="ArchiSnob event" loading="lazy" />
+            <img class="mag-card__thumb" src="../img/ArchiSnob_2.webp" alt="ArchiSnob event" loading="lazy" />
           </div>
         </div>
 
         <!-- RIGHT: info -->
         <div class="mag-card__info">
-          <p class="mag-card__eyebrow">ArchiSnob Magazine</p>
-          <h2 class="mag-card__title">Issue #24 —<br>Architecture &amp; Identity</h2>
-          <p class="mag-card__desc">The newest issue of ArchiSnob explores the relationship between architecture and cultural identity. Featuring leading architects, curators and critics from Poland and abroad — published simultaneously in Polish and English.</p>
+          <h2 class="mag-card__title">ArchiSnob Magazine</h2>
+          <p class="mag-card__desc">The newest issue of ArchiSnob explores the relationship between architecture and cultural identity. Featuring leading architects, curators and critics from Poland and abroad, published simultaneously in Polish and English.</p>
+          <p class="mag-card__desc">Each issue curated by Marcin Szczelina — editor-in-chief, architecture critic, and jury member at the Mies van der Rohe Award and Venice Architecture Biennale.</p>
           <ul class="mag-card__features">
             <li>Print + digital edition</li>
-            <li>Available in Polish &amp; English</li>
-            <li>Curated by Marcin Szczelina</li>
+            <li>Available in Polish and English</li>
+            <li>180 pages, quarterly</li>
             <li>International distribution</li>
           </ul>
 
+          <p class="mag-card__price">39 PLN</p>
+          <a href="https://archisnob.pl" target="_blank" rel="noopener" class="mag-card__btn">
+            <span>order now</span>
+            <span class="mag-card__btn-price">39 PLN</span>
+          </a>
+          <p class="mag-card__note">Lowest price from the last 30 days</p>
+
+          <div class="mag-card__ship">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#000" stroke-width="1.2"/><path d="M9 5v4l2.5 2.5" stroke="#000" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <strong>Available in selected bookstores</strong>
+          </div>
+          <p class="mag-card__ship-sub">Also available at archisnob.pl</p>
+
           <hr class="mag-card__divider" />
 
-          <div class="mag-card__meta">
-            <span class="mag-card__meta-label">Format</span>
-            <span class="mag-card__meta-value">240 × 320 mm</span>
-            <span class="mag-card__meta-label">Pages</span>
-            <span class="mag-card__meta-value">180</span>
-            <span class="mag-card__meta-label">Frequency</span>
-            <span class="mag-card__meta-value">Quarterly</span>
-            <span class="mag-card__meta-label">Publisher</span>
-            <span class="mag-card__meta-value">ArchiSnob / Warsaw</span>
+          <div class="mag-card__meta-row">
+            <span class="mag-card__meta-label">format</span>
+            <div><span class="mag-card__meta-value">240 × 320 mm</span></div>
+            <span class="mag-card__meta-label">pages</span>
+            <div><span class="mag-card__meta-value">180</span></div>
+            <span class="mag-card__meta-label">frequency</span>
+            <div><span class="mag-card__meta-value">Quarterly</span></div>
           </div>
 
           <hr class="mag-card__divider" />
 
-          <div class="mag-card__price-row">
-            <span class="mag-card__price">49 PLN</span>
+          <div class="mag-card__meta-row">
+            <span class="mag-card__meta-label">about</span>
+            <div>
+              <span class="mag-card__meta-sub">editor-in-chief:</span><br>
+              <span class="mag-card__meta-value">Marcin Szczelina</span><br><br>
+              <span class="mag-card__meta-sub">publisher:</span><br>
+              <span class="mag-card__meta-value">ArchiSnob / Warsaw</span>
+            </div>
           </div>
-          <p class="mag-card__shipping">Available in selected bookstores &amp; online</p>
-
-          <a href="https://archisnob.pl" target="_blank" rel="noopener" class="btn btn--filled">order now <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
 
       </div>
