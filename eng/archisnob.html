@@ -137,6 +137,61 @@
       object-fit: cover;
     }
 
+    /* ── Magazine product card ── */
+    .mag-card {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 80px var(--pad-h);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .mag-card__gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mag-card__main-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+    .mag-card__thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .mag-card__thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .mag-card__thumb:hover,
+    .mag-card__thumb--active { opacity: 1; }
+    .mag-card__info { display: flex; flex-direction: column; gap: 0; }
+    .mag-card__eyebrow { font-size: 13px; font-weight: 350; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .mag-card__title { font-size: clamp(28px, 3vw, 44px); font-weight: 300; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 24px; }
+    .mag-card__desc { font-size: 15px; line-height: 1.8; font-weight: 350; margin-bottom: 24px; }
+    .mag-card__features { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 8px; }
+    .mag-card__features li { font-size: 15px; font-weight: 350; padding-left: 16px; position: relative; }
+    .mag-card__features li::before { content: '—'; position: absolute; left: 0; }
+    .mag-card__divider { border: none; border-top: 1px solid var(--black); margin: 0 0 24px; opacity: 0.15; }
+    .mag-card__meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin-bottom: 32px; }
+    .mag-card__meta-label { font-size: 13px; font-weight: 350; opacity: 0.5; }
+    .mag-card__meta-value { font-size: 13px; font-weight: 350; }
+    .mag-card__price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .mag-card__price { font-size: clamp(24px, 2.5vw, 36px); font-weight: 300; letter-spacing: -0.5px; }
+    .mag-card__shipping { font-size: 13px; font-weight: 350; opacity: 0.5; margin-bottom: 24px; }
+    @media (max-width: 900px) {
+      .mag-card { grid-template-columns: 1fr; gap: 40px; }
+    }
+
     /* ── Section tinted bg ── */
     .archisnob-tinted {
       background: #ECECEC;
@@ -288,6 +343,58 @@
           <a href="#learn-more" class="btn btn--outline">learn more <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="contact.html" class="btn btn--filled">let's talk <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
+      </div>
+    </section>
+
+    <!-- ══ MAGAZINE PRODUCT CARD ══ -->
+    <section>
+      <div class="mag-card">
+
+        <!-- LEFT: gallery -->
+        <div class="mag-card__gallery">
+          <img class="mag-card__main-img" src="../img/ArchiSnob_2.webp" alt="ArchiSnob Magazine" loading="lazy" />
+          <div class="mag-card__thumbs">
+            <img class="mag-card__thumb mag-card__thumb--active" src="../img/ArchiSnob_2.webp" alt="ArchiSnob cover" loading="lazy" />
+            <img class="mag-card__thumb" src="../img/ArchiSnob.webp" alt="ArchiSnob inside" loading="lazy" />
+            <img class="mag-card__thumb" src="../img/Archisnob_magasin.jpg" alt="ArchiSnob event" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- RIGHT: info -->
+        <div class="mag-card__info">
+          <p class="mag-card__eyebrow">ArchiSnob Magazine</p>
+          <h2 class="mag-card__title">Issue #24 —<br>Architecture &amp; Identity</h2>
+          <p class="mag-card__desc">The newest issue of ArchiSnob explores the relationship between architecture and cultural identity. Featuring leading architects, curators and critics from Poland and abroad — published simultaneously in Polish and English.</p>
+          <ul class="mag-card__features">
+            <li>Print + digital edition</li>
+            <li>Available in Polish &amp; English</li>
+            <li>Curated by Marcin Szczelina</li>
+            <li>International distribution</li>
+          </ul>
+
+          <hr class="mag-card__divider" />
+
+          <div class="mag-card__meta">
+            <span class="mag-card__meta-label">Format</span>
+            <span class="mag-card__meta-value">240 × 320 mm</span>
+            <span class="mag-card__meta-label">Pages</span>
+            <span class="mag-card__meta-value">180</span>
+            <span class="mag-card__meta-label">Frequency</span>
+            <span class="mag-card__meta-value">Quarterly</span>
+            <span class="mag-card__meta-label">Publisher</span>
+            <span class="mag-card__meta-value">ArchiSnob / Warsaw</span>
+          </div>
+
+          <hr class="mag-card__divider" />
+
+          <div class="mag-card__price-row">
+            <span class="mag-card__price">49 PLN</span>
+          </div>
+          <p class="mag-card__shipping">Available in selected bookstores &amp; online</p>
+
+          <a href="https://archisnob.pl" target="_blank" rel="noopener" class="btn btn--filled">order now <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+
       </div>
     </section>
 
