@@ -148,28 +148,24 @@
       align-items: start;
     }
     .mag-card__gallery { display: flex; flex-direction: column; gap: 12px; }
-    .mag-card__main-img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
-    .mag-card__thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .mag-card__thumb { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; cursor: pointer; opacity: 0.5; transition: opacity 0.2s; }
-    .mag-card__thumb:hover, .mag-card__thumb--active { opacity: 1; }
+    .mag-card__main-img { width: 50%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
 
     .mag-card__info { display: flex; flex-direction: column; }
-    .mag-card__title { font-size: clamp(22px, 2.6vw, 36px); font-weight: 350; line-height: 1.2; margin-bottom: 20px; }
-    .mag-card__desc { font-size: 15px; line-height: 1.8; font-weight: 350; margin-bottom: 20px; }
-    .mag-card__features { list-style: disc; padding-left: 18px; margin-bottom: 28px; display: flex; flex-direction: column; gap: 6px; }
-    .mag-card__features li { font-size: 15px; font-weight: 350; line-height: 1.6; }
-    .mag-card__divider { border: none; border-top: 1px solid #000; margin: 0 0 20px; }
-    .mag-card__meta-row { display: grid; grid-template-columns: 120px 1fr; gap: 10px 0; margin-bottom: 20px; }
+    .mag-card__title { font-size: clamp(22px, 2.6vw, 36px); font-weight: 350; line-height: 1.2; margin-bottom: 12px; }
+    .mag-card__desc { font-size: 15px; line-height: 1.7; font-weight: 350; margin-bottom: 12px; }
+    .mag-card__features { list-style: disc; padding-left: 18px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 4px; }
+    .mag-card__features li { font-size: 15px; font-weight: 350; line-height: 1.5; }
+    .mag-card__divider { border: none; border-top: 1px solid #000; margin: 0 0 14px; }
+    .mag-card__meta-row { display: grid; grid-template-columns: 120px 1fr; gap: 8px 0; margin-bottom: 14px; }
     .mag-card__meta-label { font-size: 14px; font-weight: 350; color: #000; }
     .mag-card__meta-value { font-size: 14px; font-weight: 350; }
     .mag-card__meta-sub { font-size: 13px; font-weight: 350; opacity: 0.6; }
-    .mag-card__price { font-size: 20px; font-weight: 350; margin-bottom: 12px; }
-    .mag-card__btn { display: flex; align-items: center; justify-content: space-between; width: 100%; background: #000; color: #fff; border: none; border-radius: 0; padding: 16px 24px; font-size: 15px; font-weight: 350; cursor: pointer; margin-bottom: 10px; text-decoration: none; }
-    .mag-card__btn:hover { background: transparent; color: #000; outline: 1px solid #000; }
+    .mag-card__price { font-size: 20px; font-weight: 350; margin-bottom: 10px; }
+    .mag-card__btn { display: flex; align-items: center; justify-content: space-between; width: 100%; background: #000; color: #fff; border: none; border-radius: 0; padding: 14px 24px; font-size: 15px; font-weight: 350; cursor: default; margin-bottom: 8px; text-decoration: none; opacity: 0.6; }
     .mag-card__btn-price { font-size: 17px; }
-    .mag-card__note { font-size: 12px; font-weight: 350; opacity: 0.55; margin-bottom: 20px; }
+    .mag-card__note { font-size: 12px; font-weight: 350; opacity: 0.55; margin-bottom: 14px; }
     .mag-card__ship { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 350; margin-bottom: 4px; }
-    .mag-card__ship-sub { font-size: 12px; font-weight: 350; opacity: 0.55; margin-bottom: 20px; padding-left: 28px; }
+    .mag-card__ship-sub { font-size: 12px; font-weight: 350; opacity: 0.55; margin-bottom: 14px; padding-left: 28px; }
     @media (max-width: 900px) {
       .mag-card { grid-template-columns: 1fr; gap: 40px; }
     }
@@ -335,11 +331,6 @@
         <!-- LEFT: gallery -->
         <div class="mag-card__gallery">
           <img class="mag-card__main-img" src="../img/Archisnob_magasin.jpg" alt="ArchiSnob Magazine" loading="lazy" />
-          <div class="mag-card__thumbs">
-            <img class="mag-card__thumb mag-card__thumb--active" src="../img/Archisnob_magasin.jpg" alt="ArchiSnob cover" loading="lazy" />
-            <img class="mag-card__thumb" src="../img/ArchiSnob.webp" alt="ArchiSnob inside" loading="lazy" />
-            <img class="mag-card__thumb" src="../img/ArchiSnob_2.webp" alt="ArchiSnob event" loading="lazy" />
-          </div>
         </div>
 
         <!-- RIGHT: info -->
@@ -355,10 +346,10 @@
           </ul>
 
           <p class="mag-card__price">39 PLN</p>
-          <a href="https://archisnob.pl" target="_blank" rel="noopener" class="mag-card__btn">
-            <span>order now</span>
+          <div class="mag-card__btn">
+            <span>available soon</span>
             <span class="mag-card__btn-price">39 PLN</span>
-          </a>
+          </div>
           <p class="mag-card__note">Lowest price from the last 30 days</p>
 
           <div class="mag-card__ship">
