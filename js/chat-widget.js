@@ -247,4 +247,24 @@
   inputEl.addEventListener("keydown", (e) => {
     if (e.key === "Enter") sendMessage();
   });
+
+  // Przesuń launcher ponad blok kontaktowy gdy jest widoczny
+  function adjustLauncherPosition() {
+    const contactInfo = document.querySelector('.collab-contact-info');
+    if (!contactInfo) return;
+    const rect = contactInfo.getBoundingClientRect();
+    const viewportH = window.innerHeight;
+
+    if (rect.top < viewportH) {
+      // Blok kontaktowy widoczny — ustaw bottom ponad górną krawędzią bloku
+      const distFromBottom = viewportH - rect.top + 16;
+      launcher.style.bottom = Math.max(distFromBottom, 28) + 'px';
+    } else {
+      launcher.style.bottom = '28px';
+    }
+  }
+
+  window.addEventListener('scroll', adjustLauncherPosition, { passive: true });
+  window.addEventListener('resize', adjustLauncherPosition, { passive: true });
+  adjustLauncherPosition();
 })();
