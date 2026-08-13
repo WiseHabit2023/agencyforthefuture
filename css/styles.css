@@ -727,7 +727,7 @@ a { color: inherit; text-decoration: none; }
 
 .portfolio-grid__item img {
   width: 100%;
-  aspect-ratio: 7 / 4;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   display: block;
   transition: transform 0.35s ease;
