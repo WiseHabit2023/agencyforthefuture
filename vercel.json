@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/main-pol.html", "destination": "/", "permanent": true },
     { "source": "/team", "destination": "/about#team", "permanent": true },
     { "source": "/awards", "destination": "/about#awards", "permanent": true },
     { "source": "/media", "destination": "/about#media", "permanent": true },
