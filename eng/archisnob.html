@@ -159,7 +159,25 @@
       align-items: center;
     }
     .mag-card__gallery { display: flex; flex-direction: column; gap: 12px; }
+
+    /* Slider */
+    .mag-card__slider { position: relative; overflow: hidden; cursor: zoom-in; }
+    .mag-card__slides { display: flex; transition: transform 0.35s ease; }
+    .mag-card__slide { min-width: 100%; flex-shrink: 0; }
     .mag-card__main-img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+    .mag-card__arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.92); border: none; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; }
+    .mag-card__arrow--prev { left: 10px; }
+    .mag-card__arrow--next { right: 10px; }
+    .mag-card__arrow svg { width: 16px; height: 16px; }
+    .mag-card__dots { display: flex; gap: 6px; justify-content: center; margin-top: 10px; }
+    .mag-card__dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(0,0,0,0.2); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
+    .mag-card__dot.active { background: var(--black); }
+
+    /* Lightbox */
+    .mag-lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center; cursor: zoom-out; }
+    .mag-lightbox.open { display: flex; }
+    .mag-lightbox__img { max-width: 92vw; max-height: 92vh; object-fit: contain; display: block; pointer-events: none; }
+    .mag-lightbox__close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; line-height: 1; }
 
     .mag-card__info { display: flex; flex-direction: column; }
     .mag-card__title { font-size: clamp(22px, 2.6vw, 36px); font-weight: 350; line-height: 1.2; margin-bottom: 12px; }
@@ -339,9 +357,34 @@
     <section>
       <div class="mag-card">
 
-        <!-- LEFT: gallery -->
+        <!-- LEFT: gallery / slider -->
         <div class="mag-card__gallery">
-          <img class="mag-card__main-img" src="../img/archisnob-13-cover-spread.webp" alt="ArchiSnob Magazine Issue 13" loading="lazy" />
+          <div class="mag-card__slider" id="magSlider">
+            <div class="mag-card__slides" id="magSlides">
+              <div class="mag-card__slide">
+                <img class="mag-card__main-img" src="../img/archisnob-13-cover-spread.webp" alt="ArchiSnob Magazine Issue 13 — Cover" loading="lazy" />
+              </div>
+              <div class="mag-card__slide">
+                <img class="mag-card__main-img" src="../img/archisnob-13-inner-spread.webp" alt="ArchiSnob Magazine Issue 13 — Inner spread" loading="lazy" />
+              </div>
+            </div>
+            <button class="mag-card__arrow mag-card__arrow--prev" id="magPrev" aria-label="Previous">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="mag-card__arrow mag-card__arrow--next" id="magNext" aria-label="Next">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="mag-card__dots">
+            <button class="mag-card__dot active" data-idx="0" aria-label="Slide 1"></button>
+            <button class="mag-card__dot" data-idx="1" aria-label="Slide 2"></button>
+          </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="mag-lightbox" id="magLightbox">
+          <button class="mag-lightbox__close" id="magLightboxClose">&#215;</button>
+          <img class="mag-lightbox__img" id="magLightboxImg" src="" alt="" />
         </div>
 
         <!-- RIGHT: info -->
@@ -349,6 +392,8 @@
           <h2 class="mag-card__title">ArchiSnob Magazine — Summer Issue 2026</h2>
           <p class="mag-card__desc" style="opacity:0.55; font-size:13px; margin-bottom:8px;">Summer 2026 · 208 pages</p>
           <p class="mag-card__desc">ArchiSnob is a beautifully designed quarterly coffee-table magazine bringing together architecture, design, culture and lifestyle through a carefully curated selection of projects, conversations and critical perspectives from Poland and around the world.</p>
+          <p class="mag-card__desc">The 208-page Summer Issue, featuring renowned Polish designer Jerzy Porębski on the cover, turns its attention to interiors and product design — and to the relationship between objects, spaces and the people who create and inhabit them. The issue looks at how contemporary interiors are changing, what makes an object meaningful beyond its function, and how architects and designers are redefining the way we think about everyday space.</p>
+          <p class="mag-card__desc">Through interviews, essays and selected projects, ArchiSnob presents an independent perspective on the people, ideas and objects shaping contemporary design today.</p>
           <ul class="mag-card__features">
             <li>Quarterly coffee-table format</li>
             <li>Architecture, design, culture &amp; lifestyle</li>
@@ -357,18 +402,16 @@
             <li>International distribution</li>
           </ul>
 
-          <div class="mag-card__btn">
-            <span>available soon</span>
-            <span class="mag-card__btn-price">39 PLN</span>
-          </div>
-
-          <div class="mag-card__ship" style="margin-top:12px;">
+          <div class="mag-card__ship" style="margin-bottom:12px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#000" stroke-width="1.2"/><path d="M9 5v4l2.5 2.5" stroke="#000" stroke-width="1.2" stroke-linecap="round"/></svg>
             <strong>Shipped within 14 days</strong>
           </div>
-          <p class="mag-card__ship-sub">available soon</p>
+          <p class="mag-card__ship-sub" style="margin-bottom:16px;">available soon</p>
 
-          <hr class="mag-card__divider" />
+          <div class="mag-card__btn" style="width:44%; margin-left:auto;">
+            <span>available soon</span>
+            <span class="mag-card__btn-price">39 PLN</span>
+          </div>
         </div>
 
       </div>
@@ -626,5 +669,46 @@
   }));
   </script>
   <script src="../js/chat-widget.js" defer></script>
+  <script>
+  (function () {
+    const slides = document.getElementById('magSlides');
+    const dots = document.querySelectorAll('.mag-card__dot');
+    const lightbox = document.getElementById('magLightbox');
+    const lightboxImg = document.getElementById('magLightboxImg');
+    let current = 0;
+
+    function goTo(idx) {
+      current = idx;
+      slides.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    document.getElementById('magPrev').addEventListener('click', e => { e.stopPropagation(); goTo(current === 0 ? 1 : 0); });
+    document.getElementById('magNext').addEventListener('click', e => { e.stopPropagation(); goTo(current === 0 ? 1 : 0); });
+    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+
+    // Swipe
+    let startX = 0;
+    slides.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    slides.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? 1 : 0);
+    }, { passive: true });
+
+    // Lightbox
+    document.getElementById('magSlider').addEventListener('click', () => {
+      const src = slides.querySelectorAll('.mag-card__main-img')[current].src;
+      const alt = slides.querySelectorAll('.mag-card__main-img')[current].alt;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+    document.getElementById('magLightboxClose').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+  </script>
 </body>
 </html>
