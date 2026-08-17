@@ -357,34 +357,9 @@
     <section>
       <div class="mag-card">
 
-        <!-- LEFT: gallery / slider -->
+        <!-- LEFT: gallery -->
         <div class="mag-card__gallery">
-          <div class="mag-card__slider" id="magSlider">
-            <div class="mag-card__slides" id="magSlides">
-              <div class="mag-card__slide">
-                <img class="mag-card__main-img" src="../img/archisnob-13-cover-spread.webp" alt="ArchiSnob Magazine Issue 13 — Front Cover" loading="lazy" style="object-position: right center;" />
-              </div>
-              <div class="mag-card__slide">
-                <img class="mag-card__main-img" src="../img/archisnob-13-inner-spread.webp" alt="ArchiSnob Magazine Issue 13 — Inner spread" loading="lazy" />
-              </div>
-            </div>
-            <button class="mag-card__arrow mag-card__arrow--prev" id="magPrev" aria-label="Previous">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <button class="mag-card__arrow mag-card__arrow--next" id="magNext" aria-label="Next">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-          <div class="mag-card__dots">
-            <button class="mag-card__dot active" data-idx="0" aria-label="Slide 1"></button>
-            <button class="mag-card__dot" data-idx="1" aria-label="Slide 2"></button>
-          </div>
-        </div>
-
-        <!-- Lightbox -->
-        <div class="mag-lightbox" id="magLightbox">
-          <button class="mag-lightbox__close" id="magLightboxClose">&#215;</button>
-          <img class="mag-lightbox__img" id="magLightboxImg" src="" alt="" />
+          <img class="mag-card__main-img" src="../img/archisnob-13-cover-spread.webp" alt="ArchiSnob Magazine Issue 13" loading="lazy" style="object-position: right center;" />
         </div>
 
         <!-- RIGHT: info -->
@@ -669,46 +644,5 @@
   }));
   </script>
   <script src="../js/chat-widget.js" defer></script>
-  <script>
-  (function () {
-    const slides = document.getElementById('magSlides');
-    const dots = document.querySelectorAll('.mag-card__dot');
-    const lightbox = document.getElementById('magLightbox');
-    const lightboxImg = document.getElementById('magLightboxImg');
-    let current = 0;
-
-    function goTo(idx) {
-      current = idx;
-      slides.style.transform = `translateX(-${idx * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-    }
-
-    document.getElementById('magPrev').addEventListener('click', e => { e.stopPropagation(); goTo(current === 0 ? 1 : 0); });
-    document.getElementById('magNext').addEventListener('click', e => { e.stopPropagation(); goTo(current === 0 ? 1 : 0); });
-    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
-
-    // Swipe
-    let startX = 0;
-    slides.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    slides.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) goTo(dx < 0 ? 1 : 0);
-    }, { passive: true });
-
-    // Lightbox
-    document.getElementById('magSlider').addEventListener('click', () => {
-      const src = slides.querySelectorAll('.mag-card__main-img')[current].src;
-      const alt = slides.querySelectorAll('.mag-card__main-img')[current].alt;
-      lightboxImg.src = src;
-      lightboxImg.alt = alt;
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-    function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
-    document.getElementById('magLightboxClose').addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-  })();
-  </script>
 </body>
 </html>
