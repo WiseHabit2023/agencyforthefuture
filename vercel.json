@@ -1,6 +1,17 @@
 {
   "redirects": [
     { "source": "/main-pol.html", "destination": "/", "permanent": true },
+    { "source": "/contact-eng.html", "destination": "/contact", "permanent": true },
+    { "source": "/eng_m_:path*", "destination": "/", "permanent": true },
+    { "source": "/pol_m_:path*", "destination": "/", "permanent": true },
+    { "source": "/eng_p_:path*", "destination": "/", "permanent": true },
+    { "source": "/pol_p_:path*", "destination": "/", "permanent": true },
+    { "source": "/product-pol-:path*", "destination": "/", "permanent": true },
+    { "source": "/product-eng-:path*", "destination": "/", "permanent": true },
+    { "source": "/:path*-blog-eng-:id([0-9]+).html", "destination": "/", "permanent": true },
+    { "source": "/:path*-blog-pol-:id([0-9]+).html", "destination": "/", "permanent": true },
+    { "source": "/:path*-stock-:id([0-9]+)-eng.html", "destination": "/", "permanent": true },
+    { "source": "/:path*.phtml", "destination": "/", "permanent": true },
     { "source": "/team", "destination": "/about#team", "permanent": true },
     { "source": "/awards", "destination": "/about#awards", "permanent": true },
     { "source": "/media", "destination": "/about#media", "permanent": true },
