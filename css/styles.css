@@ -750,7 +750,10 @@ a { color: inherit; text-decoration: none; }
   transition: opacity 0.25s ease;
 }
 
-.portfolio-grid__item:hover .portfolio-grid__overlay { opacity: 1; }
+.portfolio-grid__item:hover .portfolio-grid__overlay,
+.portfolio-grid__item.active .portfolio-grid__overlay { opacity: 1; }
+
+.portfolio-grid__item.active img { transform: scale(1.04); }
 
 .portfolio-grid__overlay-title {
   font-size: 22px;

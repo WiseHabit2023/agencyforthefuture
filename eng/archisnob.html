@@ -71,17 +71,24 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: start;
+      align-items: stretch;
       padding: 80px var(--pad-h);
       max-width: var(--max-w);
       margin: 0 auto;
     }
     .magazine-split--reverse { direction: rtl; }
     .magazine-split--reverse > * { direction: ltr; }
+    .magazine-split__img-wrap {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
     .magazine-split__img {
       width: 100%;
-      
+      height: 100%;
       object-fit: cover;
+      object-position: center;
+      display: block;
     }
     .magazine-split__eyebrow {
       font-size: 0.8125rem;
@@ -102,6 +109,10 @@
       color: var(--black);
     }
     .magazine-split__body p + p { margin-top: 16px; }
+    .magazine-split__specs { list-style: none; margin: 24px 0 0; padding: 0; border-top: 1px solid var(--black); }
+    .magazine-split__specs li { font-size: 14px; font-weight: 350; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.15); }
+    .magazine-split__specs li::before { content: "— "; }
+    .magazine-split__price { font-size: 22px; font-weight: 300; margin-top: 24px !important; }
 
     /* ── Magazine launches - używa page-intro-grid + sust-impact-imgs z sustainability ── */
     .sust-impact-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -430,18 +441,27 @@
     <!-- ══ ARCHISNOB MAGAZINE ══ -->
     <section style="background: #fff;">
       <div class="magazine-split">
-        <div>
+        <div class="magazine-split__img-wrap">
           <img
             class="magazine-split__img"
-            src="../img/photo1.webp"
-            alt="ArchiSnob Magazine"
+            src="../img/archisnob-13-cover-spread.webp"
+            alt="ArchiSnob Magazine Issue 13 Cover"
           loading="lazy" />
         </div>
         <div>
-          <h2 class="magazine-split__title">ArchiSnob</h2>
+          <h2 class="magazine-split__title">ArchiSnob Magazine — Summer Issue 2026</h2>
           <div class="magazine-split__body">
-            <p>ArchiSnob is an independent platform of ideas shaping the conversation about architecture, design, and the culture of space. The magazine speaks to those who don't just observe change, but actively help shape the future of cities. Published simultaneously in Polish and English, it reaches both local readers and the international community of architects, designers, and curators. Its content goes beyond trends, remaining relevant over time and inspiring reflection and critical thinking about the spaces we inhabit.</p>
-            <p>Working with leading critics, curators, and experts from Poland and abroad, ArchiSnob's articles and interviews are cited in the media, discussed at conferences, and used in industry reports. The magazine not only documents change but anticipates it, offering insights for readers who want to understand design processes, investment decisions, and the lasting impact of architecture on culture, society, and city life.</p>
+            <p>ArchiSnob is a beautifully designed quarterly coffee-table magazine bringing together architecture, design, culture and lifestyle through a carefully curated selection of projects, conversations and critical perspectives from Poland and around the world.</p>
+            <p>The 208-page Summer Issue, featuring renowned Polish designer Jerzy Porębski on the cover, turns its attention to interiors and product design — and to the relationship between objects, spaces and the people who create and inhabit them. The issue looks at how contemporary interiors are changing, what makes an object meaningful beyond its function, and how architects and designers are redefining the way we think about everyday space.</p>
+            <p>Through interviews, essays and selected projects, ArchiSnob presents an independent perspective on the people, ideas and objects shaping contemporary design today.</p>
+            <ul class="magazine-split__specs">
+              <li>Quarterly coffee-table format</li>
+              <li>Architecture, design, culture &amp; lifestyle</li>
+              <li>208 pages</li>
+              <li>New bilingual edition: Polish &amp; English</li>
+              <li>International distribution</li>
+            </ul>
+            <p class="magazine-split__price">39 PLN</p>
           </div>
         </div>
       </div>
