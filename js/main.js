@@ -141,6 +141,39 @@ function initPortfolioSlider() {
 }
 
 // =============================================
+// =============================================
+// PORTFOLIO GRID – TOUCH OVERLAY
+// =============================================
+(function () {
+  function initPortfolioTouch() {
+    const items = document.querySelectorAll('.portfolio-grid__item');
+    if (!items.length) return;
+
+    items.forEach(item => {
+      item.addEventListener('touchend', e => {
+        if (item.classList.contains('active')) return; // second tap – do nothing, let it close naturally
+        e.preventDefault();
+        items.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      }, { passive: false });
+    });
+
+    document.addEventListener('touchstart', e => {
+      if (!e.target.closest('.portfolio-grid__item')) {
+        document.querySelectorAll('.portfolio-grid__item.active')
+          .forEach(i => i.classList.remove('active'));
+      }
+    }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPortfolioTouch);
+  } else {
+    initPortfolioTouch();
+  }
+})();
+
+// =============================================
 // ACTIVE NAV LINK
 // =============================================
 function setActiveNavLink() {
