@@ -161,10 +161,11 @@
     .mag-card__gallery { display: flex; flex-direction: column; gap: 12px; }
 
     /* Slider */
-    .mag-card__slider { position: relative; overflow: hidden; cursor: zoom-in; }
-    .mag-card__slides { display: flex; transition: transform 0.35s ease; }
-    .mag-card__slide { min-width: 100%; flex-shrink: 0; }
-    .mag-card__main-img { width: 100%; aspect-ratio: 5 / 3; object-fit: cover; object-position: center; display: block; }
+    .mag-card__slider { width: 100%; position: relative; aspect-ratio: 5 / 3; overflow: hidden; cursor: zoom-in; }
+    .mag-card__slides { position: relative; width: 100%; height: 100%; }
+    .mag-card__slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.45s ease; }
+    .mag-card__slide.active { opacity: 1; }
+    .mag-card__main-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
     .mag-card__arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.92); border: none; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; }
     .mag-card__arrow--prev { left: 10px; }
     .mag-card__arrow--next { right: 10px; }
@@ -178,8 +179,8 @@
     .mag-lightbox.open { display: flex; }
     .mag-lightbox__close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; line-height: 1; z-index: 2; }
     .mag-lightbox__inner { position: relative; width: 90vw; max-width: 1300px; overflow: hidden; cursor: default; }
-    .mag-lightbox__slides { display: flex; transition: transform 0.35s ease; }
-    .mag-lightbox__slide { min-width: 100%; flex-shrink: 0; }
+    .mag-lightbox__slides { display: flex; transition: transform 0.35s ease; width: 200%; }
+    .mag-lightbox__slide { flex: 0 0 50%; }
     .mag-lightbox__slide img { width: 100%; max-height: 85vh; object-fit: contain; display: block; }
     .mag-lightbox__arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; z-index: 2; transition: background 0.2s; }
     .mag-lightbox__arrow:hover { background: rgba(255,255,255,0.3); }
@@ -371,7 +372,7 @@
         <div class="mag-card__gallery">
           <div class="mag-card__slider" id="magSlider">
             <div class="mag-card__slides" id="magSlides">
-              <div class="mag-card__slide">
+              <div class="mag-card__slide active">
                 <img class="mag-card__main-img" src="../img/archisnob-13-cover-spread.webp" alt="ArchiSnob Magazine Issue 13 — Cover" loading="lazy" />
               </div>
               <div class="mag-card__slide">
@@ -696,7 +697,7 @@
     var lbIdx = 0;
 
     // ── Slider elements ──
-    var slides   = document.getElementById('magSlides');
+    var slideEls = document.querySelectorAll('.mag-card__slide');
     var prevBtn  = document.getElementById('magPrev');
     var nextBtn  = document.getElementById('magNext');
     var dots     = document.querySelectorAll('[data-mag-idx]');
@@ -710,10 +711,10 @@
     var lbClose  = document.getElementById('magLbClose');
     var lbDots   = document.querySelectorAll('[data-lb-idx]');
 
-    // ── Slider ──
+    // ── Slider: fade via .active class ──
     function goSlider(idx) {
       sliderIdx = (idx + COUNT) % COUNT;
-      slides.style.transform = 'translateX(-' + sliderIdx * 100 + '%)';
+      slideEls.forEach(function (s, i) { s.classList.toggle('active', i === sliderIdx); });
       dots.forEach(function (d) { d.classList.toggle('active', +d.dataset.magIdx === sliderIdx); });
     }
 
@@ -731,11 +732,13 @@
       }, { passive: true });
     }
 
-    // ── Open lightbox ──
+    // ── Lightbox: transform-based (slides track = 200%, each slide = 50%) ──
+    function lbTransform(idx) { return 'translateX(-' + idx * 50 + '%)'; }
+
     function openLb(idx) {
       lbIdx = idx;
       lbSlides.style.transition = 'none';
-      lbSlides.style.transform = 'translateX(-' + lbIdx * 100 + '%)';
+      lbSlides.style.transform = lbTransform(lbIdx);
       lbDots.forEach(function (d) { d.classList.toggle('active', +d.dataset.lbIdx === lbIdx); });
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -744,7 +747,7 @@
     function goLb(idx) {
       lbIdx = (idx + COUNT) % COUNT;
       lbSlides.style.transition = 'transform 0.35s ease';
-      lbSlides.style.transform = 'translateX(-' + lbIdx * 100 + '%)';
+      lbSlides.style.transform = lbTransform(lbIdx);
       lbDots.forEach(function (d) { d.classList.toggle('active', +d.dataset.lbIdx === lbIdx); });
     }
 
@@ -753,7 +756,7 @@
       document.body.style.overflow = '';
     }
 
-    // Click on slider image opens lightbox at same index
+    // Click on slider opens lightbox at same index
     if (slider) {
       slider.addEventListener('click', function (e) {
         if (!e.target.closest('button')) openLb(sliderIdx);
@@ -779,8 +782,8 @@
     // Keyboard
     document.addEventListener('keydown', function (e) {
       if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape')    closeLb();
-      if (e.key === 'ArrowLeft') goLb(lbIdx - 1);
+      if (e.key === 'Escape')     closeLb();
+      if (e.key === 'ArrowLeft')  goLb(lbIdx - 1);
       if (e.key === 'ArrowRight') goLb(lbIdx + 1);
     });
   })();
