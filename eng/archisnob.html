@@ -154,13 +154,13 @@
       margin: 0 auto;
       padding: 80px var(--pad-h);
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: 2fr 3fr;
       gap: 80px;
-      align-items: stretch;
+      align-items: start;
     }
-    .mag-card__gallery { position: relative; min-height: 300px; }
-    .mag-card__cover-wrap { position: absolute; inset: 0; cursor: zoom-in; overflow: hidden; }
-    .mag-card__main-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .mag-card__gallery { }
+    .mag-card__cover-wrap { cursor: zoom-in; display: block; }
+    .mag-card__main-img { width: 100%; height: auto; display: block; }
 
     /* Lightbox */
     .mag-lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; flex-direction: column; align-items: center; justify-content: center; cursor: zoom-out; }
