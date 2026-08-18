@@ -154,7 +154,7 @@
       margin: 0 auto;
       padding: 80px var(--pad-h);
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 3fr 2fr;
       gap: 80px;
       align-items: center;
     }
@@ -164,7 +164,7 @@
     .mag-card__slider { position: relative; overflow: hidden; cursor: zoom-in; }
     .mag-card__slides { display: flex; transition: transform 0.35s ease; }
     .mag-card__slide { min-width: 100%; flex-shrink: 0; }
-    .mag-card__main-img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+    .mag-card__main-img { width: 100%; aspect-ratio: 5 / 3; object-fit: cover; object-position: center; display: block; }
     .mag-card__arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.92); border: none; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; }
     .mag-card__arrow--prev { left: 10px; }
     .mag-card__arrow--next { right: 10px; }
@@ -174,10 +174,20 @@
     .mag-card__dot.active { background: var(--black); }
 
     /* Lightbox */
-    .mag-lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center; cursor: zoom-out; }
+    .mag-lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; flex-direction: column; align-items: center; justify-content: center; cursor: zoom-out; }
     .mag-lightbox.open { display: flex; }
-    .mag-lightbox__img { max-width: 92vw; max-height: 92vh; object-fit: contain; display: block; pointer-events: none; }
-    .mag-lightbox__close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; line-height: 1; }
+    .mag-lightbox__close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; line-height: 1; z-index: 2; }
+    .mag-lightbox__inner { position: relative; width: 90vw; max-width: 1300px; overflow: hidden; cursor: default; }
+    .mag-lightbox__slides { display: flex; transition: transform 0.35s ease; }
+    .mag-lightbox__slide { min-width: 100%; flex-shrink: 0; }
+    .mag-lightbox__slide img { width: 100%; max-height: 85vh; object-fit: contain; display: block; }
+    .mag-lightbox__arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; z-index: 2; transition: background 0.2s; }
+    .mag-lightbox__arrow:hover { background: rgba(255,255,255,0.3); }
+    .mag-lightbox__arrow--prev { left: 10px; }
+    .mag-lightbox__arrow--next { right: 10px; }
+    .mag-lightbox__dots { display: flex; gap: 8px; margin-top: 16px; }
+    .mag-lightbox__dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.35); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
+    .mag-lightbox__dot.active { background: #fff; }
 
     .mag-card__info { display: flex; flex-direction: column; }
     .mag-card__title { font-size: clamp(22px, 2.6vw, 36px); font-weight: 350; line-height: 1.2; margin-bottom: 12px; }
@@ -357,9 +367,28 @@
     <section>
       <div class="mag-card">
 
-        <!-- LEFT: gallery -->
+        <!-- LEFT: gallery / slider -->
         <div class="mag-card__gallery">
-          <img class="mag-card__main-img" src="../img/archisnob-13-cover-spread.webp" alt="ArchiSnob Magazine Issue 13" loading="lazy" style="object-position: right center;" />
+          <div class="mag-card__slider" id="magSlider">
+            <div class="mag-card__slides" id="magSlides">
+              <div class="mag-card__slide">
+                <img class="mag-card__main-img" src="../img/archisnob-13-cover-spread.webp" alt="ArchiSnob Magazine Issue 13 — Cover" loading="lazy" />
+              </div>
+              <div class="mag-card__slide">
+                <img class="mag-card__main-img" src="../img/archisnob-13-inner-spread.webp" alt="ArchiSnob Magazine Issue 13 — Inside" loading="lazy" />
+              </div>
+            </div>
+            <button class="mag-card__arrow mag-card__arrow--prev" id="magPrev" aria-label="Previous image">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="mag-card__arrow mag-card__arrow--next" id="magNext" aria-label="Next image">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="mag-card__dots">
+              <button class="mag-card__dot active" data-mag-idx="0" aria-label="Image 1"></button>
+              <button class="mag-card__dot" data-mag-idx="1" aria-label="Image 2"></button>
+            </div>
+          </div>
         </div>
 
         <!-- RIGHT: info -->
@@ -443,6 +472,26 @@
         <li class="focus-areas__item">3 – Culture &amp; Art</li>
         <li class="focus-areas__item">4 – Lifestyle</li>
       </ul>
+    </section>
+
+    <!-- ══ ARCHISNOB MAGAZINE INFO ══ -->
+    <section style="background: #fff;">
+      <div class="magazine-split">
+        <div class="magazine-split__img-wrap">
+          <img
+            class="magazine-split__img"
+            src="../img/Archisnob_magasin.jpg"
+            alt="ArchiSnob Magazine"
+          loading="lazy" />
+        </div>
+        <div>
+          <h2 class="magazine-split__title">ArchiSnob</h2>
+          <div class="magazine-split__body">
+            <p>ArchiSnob is an independent platform of ideas shaping the conversation about architecture, design, and the culture of space. The magazine speaks to those who don't just observe change, but actively help shape the future of cities. Published simultaneously in Polish and English, it reaches both local readers and the international community of architects, designers, and curators. Its content goes beyond trends, remaining relevant over time and inspiring reflection and critical thinking about the spaces we inhabit.</p>
+            <p>Working with leading critics, curators, and experts from Poland and abroad, ArchiSnob's articles and interviews are cited in the media, discussed at conferences, and used in industry reports. The magazine not only documents change but anticipates it, offering insights for readers who want to understand design processes, investment decisions, and the lasting impact of architecture on culture, society, and city life.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ══ MAGAZINE LAUNCHES ══ -->
@@ -614,5 +663,127 @@
   }));
   </script>
   <script src="../js/chat-widget.js" defer></script>
+
+  <!-- ══ MAG LIGHTBOX ══ -->
+  <div class="mag-lightbox" id="magLightbox" role="dialog" aria-modal="true" aria-label="Magazine preview">
+    <button class="mag-lightbox__close" id="magLbClose" aria-label="Close">&#x2715;</button>
+    <div class="mag-lightbox__inner">
+      <div class="mag-lightbox__slides" id="magLbSlides">
+        <div class="mag-lightbox__slide">
+          <img src="../img/archisnob-13-cover-spread.webp" alt="ArchiSnob Magazine Issue 13 — Cover" />
+        </div>
+        <div class="mag-lightbox__slide">
+          <img src="../img/archisnob-13-inner-spread.webp" alt="ArchiSnob Magazine Issue 13 — Inside" />
+        </div>
+      </div>
+      <button class="mag-lightbox__arrow mag-lightbox__arrow--prev" id="magLbPrev" aria-label="Previous image">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="mag-lightbox__arrow mag-lightbox__arrow--next" id="magLbNext" aria-label="Next image">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="mag-lightbox__dots">
+      <button class="mag-lightbox__dot active" data-lb-idx="0" aria-label="Image 1"></button>
+      <button class="mag-lightbox__dot" data-lb-idx="1" aria-label="Image 2"></button>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var COUNT = 2;
+    var sliderIdx = 0;
+    var lbIdx = 0;
+
+    // ── Slider elements ──
+    var slides   = document.getElementById('magSlides');
+    var prevBtn  = document.getElementById('magPrev');
+    var nextBtn  = document.getElementById('magNext');
+    var dots     = document.querySelectorAll('[data-mag-idx]');
+    var slider   = document.getElementById('magSlider');
+
+    // ── Lightbox elements ──
+    var lb       = document.getElementById('magLightbox');
+    var lbSlides = document.getElementById('magLbSlides');
+    var lbPrev   = document.getElementById('magLbPrev');
+    var lbNext   = document.getElementById('magLbNext');
+    var lbClose  = document.getElementById('magLbClose');
+    var lbDots   = document.querySelectorAll('[data-lb-idx]');
+
+    // ── Slider ──
+    function goSlider(idx) {
+      sliderIdx = (idx + COUNT) % COUNT;
+      slides.style.transform = 'translateX(-' + sliderIdx * 100 + '%)';
+      dots.forEach(function (d) { d.classList.toggle('active', +d.dataset.magIdx === sliderIdx); });
+    }
+
+    prevBtn && prevBtn.addEventListener('click', function () { goSlider(sliderIdx - 1); });
+    nextBtn && nextBtn.addEventListener('click', function () { goSlider(sliderIdx + 1); });
+    dots.forEach(function (d) { d.addEventListener('click', function () { goSlider(+d.dataset.magIdx); }); });
+
+    // Touch swipe on slider
+    var touchStartX = 0;
+    if (slider) {
+      slider.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+      slider.addEventListener('touchend', function (e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goSlider(diff > 0 ? sliderIdx + 1 : sliderIdx - 1);
+      }, { passive: true });
+    }
+
+    // ── Open lightbox ──
+    function openLb(idx) {
+      lbIdx = idx;
+      lbSlides.style.transition = 'none';
+      lbSlides.style.transform = 'translateX(-' + lbIdx * 100 + '%)';
+      lbDots.forEach(function (d) { d.classList.toggle('active', +d.dataset.lbIdx === lbIdx); });
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function goLb(idx) {
+      lbIdx = (idx + COUNT) % COUNT;
+      lbSlides.style.transition = 'transform 0.35s ease';
+      lbSlides.style.transform = 'translateX(-' + lbIdx * 100 + '%)';
+      lbDots.forEach(function (d) { d.classList.toggle('active', +d.dataset.lbIdx === lbIdx); });
+    }
+
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Click on slider image opens lightbox at same index
+    if (slider) {
+      slider.addEventListener('click', function (e) {
+        if (!e.target.closest('button')) openLb(sliderIdx);
+      });
+    }
+
+    lbPrev  && lbPrev.addEventListener('click',  function (e) { e.stopPropagation(); goLb(lbIdx - 1); });
+    lbNext  && lbNext.addEventListener('click',  function (e) { e.stopPropagation(); goLb(lbIdx + 1); });
+    lbClose && lbClose.addEventListener('click', closeLb);
+    lb      && lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    lbDots.forEach(function (d) { d.addEventListener('click', function (e) { e.stopPropagation(); goLb(+d.dataset.lbIdx); }); });
+
+    // Touch swipe in lightbox
+    var lbTouchX = 0;
+    if (lb) {
+      lb.addEventListener('touchstart', function (e) { lbTouchX = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener('touchend', function (e) {
+        var diff = lbTouchX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goLb(diff > 0 ? lbIdx + 1 : lbIdx - 1);
+      }, { passive: true });
+    }
+
+    // Keyboard
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')    closeLb();
+      if (e.key === 'ArrowLeft') goLb(lbIdx - 1);
+      if (e.key === 'ArrowRight') goLb(lbIdx + 1);
+    });
+  })();
+  </script>
 </body>
 </html>
