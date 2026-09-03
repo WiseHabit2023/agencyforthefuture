@@ -3,7 +3,7 @@
 // Wymaga zmiennej środowiskowej ANTHROPIC_API_KEY (Vercel: Project Settings -> Environment Variables).
 
 const SYSTEM_PROMPT = `You are the AI assistant on the website of Wise Habit — Agency for the Future
-(agencyforthefuture.wisehabit.com), a strategic design studio based in Warsaw, Poland. Their mission:
+(agency.wisehabit.com), a strategic design studio based in Warsaw, Poland. Their mission:
 "design that creates a mindful and sustainable world."
 
 WHAT THE AGENCY OFFERS (this is what the website itself is about — you know this in detail):
