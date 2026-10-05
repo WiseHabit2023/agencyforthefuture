@@ -141,7 +141,7 @@
 
     /* ── Generic section ── */
     .dbc-section {
-      padding: 96px var(--pad-h);
+      padding: 48px var(--pad-h);
       max-width: var(--max-w);
       margin: 0 auto;
     }
@@ -149,7 +149,7 @@
       background: #dde6e6;
     }
     .dbc-section--bg .dbc-section__inner {
-      padding: 72px var(--pad-h);
+      padding: 40px var(--pad-h);
       max-width: var(--max-w);
       margin: 0 auto;
     }
@@ -455,15 +455,15 @@
 
     /* ── Venue bottom strip ── */
     .dbc-bottom {
-      background: #dde6e6;
+      background: var(--lfl-bg);
     }
     .dbc-bottom__inner {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 72px var(--pad-h);
+      padding: 48px var(--pad-h);
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
     }
     .dbc-bottom__section-title {
       font-size: clamp(24px, 3vw, 42px);
@@ -939,7 +939,7 @@
               onerror="this.style.background='#e0dbd5';this.removeAttribute('src')" />
             <div class="dbc-spk-card__body">
               <div class="dbc-spk-card__name">Oskar Markiewicz</div>
-              <div class="dbc-spk-card__role">AI Solutions - Can AI Have Good Taste?</div>
+              <div class="dbc-spk-card__role">AI Solutions<br>Can AI Have Good Taste?</div>
               <div class="dbc-spk-card__read">+ READ MORE</div>
             </div>
           </div>
@@ -1286,29 +1286,6 @@
     </div>
 
     <!-- ══ TICKETS ══ -->
-    <div class="dbc-tickets">
-      <h2 class="dbc-prog__title">Tickets</h2>
-
-      <div class="dbc-tickets__slide">
-        <img class="dbc-tickets__img" src="../img/lfl-ticket.jpg" alt="Lust for Life. Lust for Business. - 29.09.2026"
-          onerror="this.style.background='#B80000';this.style.minHeight='320px';this.removeAttribute('src')"
-          loading="lazy" />
-        <div class="dbc-tickets__info" style="border-color:var(--lfl-pink);">
-          <h3 class="dbc-tickets__name">Conference + Evening (29.09.2026)</h3>
-          <p class="dbc-tickets__date">SARP Headquarters, Foksal, Warsaw · 10:30 – 23:00</p>
-          <ul class="dbc-tickets__list">
-            <li>Access to both conference blocks (full day)</li>
-            <li>Coffee breaks &amp; lunch included</li>
-            <li>Evening: ArchiSnob TASTE premiere, Tymek concert, Katarzyna Krakowiak performance, DJ Set until 23:00</li>
-            <li>250 participants - shared table seating</li>
-          </ul>
-          <p style="font-size:15px;font-weight:500;color:var(--lfl-pink);margin-bottom:16px;">Only with invitation</p>
-          <a class="dbc-tickets__btn" href="mailto:marcelina.plichta@wisehabit.com" style="cursor:pointer;pointer-events:auto;">marcelina.plichta@wisehabit.com</a>
-        </div>
-      </div>
-
-    </div>
-
     <!-- ══ VENUE / CONTACT FOOTER ══ -->
     <div class="dbc-bottom">
       <div class="dbc-bottom__inner">
@@ -1321,7 +1298,7 @@
             </div>
             <div>
               <div class="dbc-bottom__col-title">Date</div>
-              <p class="dbc-bottom__addr">29 September 2026<br>10:00 – late<br>ArchiSnob × Wise Habit</p>
+              <p class="dbc-bottom__addr">29 September 2026<br>10:30 – late<br>ArchiSnob × Wise Habit</p>
             </div>
           </div>
         </div>
@@ -1329,6 +1306,11 @@
           <h2 class="dbc-bottom__section-title">Contact us</h2>
           <p class="dbc-bottom__contact-text">Questions about the conference, partnership, or press accreditation?</p>
           <a href="mailto:marketing@wisehabit.com" class="dbc-bottom__email">marketing@wisehabit.com</a>
+        </div>
+        <div>
+          <h2 class="dbc-bottom__section-title">Tickets</h2>
+          <p style="font-size:15px;font-weight:600;color:var(--lfl-pink);margin-bottom:12px;">Only with invitation</p>
+          <a href="mailto:marcelina.plichta@wisehabit.com" class="dbc-bottom__email">marcelina.plichta@wisehabit.com</a>
         </div>
       </div>
     </div>
