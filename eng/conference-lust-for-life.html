@@ -118,7 +118,7 @@
       line-height: 1.4;
     }
     .dbc-intro__text { margin-top: 40px; }
-    .dbc-intro__text p { font-size: 17px; line-height: 1.75; color: var(--black); margin-bottom: 18px; }
+    .dbc-intro__text p { font-size: 17px; line-height: 1.65; color: var(--black); margin-bottom: 8px; }
     .dbc-intro__text ul { margin: 0 0 20px 20px; }
     .dbc-intro__text li { font-size: 18px; line-height: 1.8; color: var(--black); margin-bottom: 6px; }
     .dbc-hero__img {
@@ -172,7 +172,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 64px;
     }
-    .dbc-2col p { font-size: 17px; line-height: 1.7; color: var(--black); margin-bottom: 10px; }
+    .dbc-2col p { font-size: 17px; line-height: 1.65; color: var(--black); margin-bottom: 6px; }
     .dbc-2col ul { margin: 0 0 18px 20px; }
     .dbc-2col li { font-size: 17px; line-height: 1.75; color: var(--black); margin-bottom: 6px; }
     .dbc-2col h3 {
@@ -270,6 +270,9 @@
       margin-bottom: 20px;
       padding-bottom: 12px;
       border-bottom: 3px solid currentColor;
+      min-height: 3.2em;
+      display: flex;
+      align-items: flex-end;
     }
     .dbc-col--hosts .dbc-spk-col__title   { color: var(--dbc-hosts); }
     .dbc-col--design .dbc-spk-col__title  { color: var(--dbc-design); }
@@ -338,13 +341,12 @@
       display: grid;
       grid-template-columns: 60px 1fr;
       gap: 20px;
-      align-items: start;
+      align-items: center;
       margin-bottom: 20px;
     }
     .dbc-prog__time {
       font-size: 18px;
       color: var(--black);
-      padding-top: 20px;
     }
     .dbc-prog__box {
       border: 1.5px solid var(--dbc-accent);
