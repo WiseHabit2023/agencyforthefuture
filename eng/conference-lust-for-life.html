@@ -6,18 +6,53 @@
   <title>Conference: Lust for Life - Wise Habit Agency for the Future</title>
   <link rel="stylesheet" href="../css/styles.css" />
   <style>
-    /* ── DBC palette ── */
+    /* ── LFL palette ── */
     :root {
       --dbc-navy:    #111111;
-      --dbc-hosts:   #55926B;
-      --dbc-design:  #89A8AB;
-      --dbc-product: #A5BFCA;
-      --dbc-manuf:   #CCDBDF;
-      --dbc-accent:  #55926B;
+      --dbc-hosts:   #E8195A;   /* hot pink — Block I */
+      --dbc-design:  #3AE000;   /* lime green — Block II */
+      --dbc-product: #E8195A;   /* hot pink — Hosts */
+      --dbc-manuf:   #999999;   /* neutral — AI & Evening */
+      --dbc-accent:  #E8195A;   /* primary accent: hot pink */
+      --lfl-red:     #B80000;   /* dark red from poster */
+      --lfl-green:   #3AE000;   /* lime green from poster */
+      --lfl-pink:    #E8195A;   /* hot pink from poster */
     }
 
     /* ── Page wrapper ── */
     .dbc-page { background: var(--bg); color: var(--black); }
+
+    /* ── LFL Hero dark background ── */
+    .lfl-hero-wrap {
+      background: var(--lfl-red);
+      background: linear-gradient(160deg, #C50000 0%, #8B0000 100%);
+    }
+    .lfl-hero-wrap .dbc-hero-intro {
+      padding-top: clamp(100px, 14vw, 180px);
+      padding-bottom: 80px;
+    }
+    .lfl-hero-wrap .dbc-hero__date {
+      color: var(--lfl-green);
+    }
+    .lfl-hero-wrap .dbc-hero__title {
+      color: #fff;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: -2px;
+      font-size: clamp(40px, 6vw, 84px);
+    }
+    .lfl-hero-wrap .dbc-hero__sub {
+      color: var(--lfl-green);
+      font-style: normal;
+      font-weight: 700;
+      font-size: clamp(22px, 3vw, 38px);
+    }
+    .lfl-hero-wrap .dbc-intro__text p {
+      color: rgba(255,255,255,0.88);
+    }
+    .lfl-hero-wrap .dbc-intro__text strong {
+      color: #fff;
+    }
 
     /* ── Hero + Intro combined grid ── */
     .dbc-hero-intro {
@@ -583,22 +618,24 @@
   <main class="page-content dbc-page">
 
     <!-- ══ HERO + INTRO ══ -->
-    <div class="dbc-hero-intro">
-      <div>
-        <p class="dbc-hero__date">29.09.2026 — Warsaw</p>
-        <h1 class="dbc-hero__title">Lust for Life.<br>Lust for Business.</h1>
-        <p class="dbc-hero__sub">Architecture. Design. Desire.</p>
-        <div class="dbc-intro__text">
-          <p>"Lust for Life," sang Iggy Pop. Half a century later, the appetite remains. Objects, spaces, images, experiences — the hunger for more does not disappear. It evolves.</p>
-          <p>LUST FOR LIFE. LUST FOR BUSINESS looks at the space between need and desire, choice and influence, growth and business. Where does taste come from — and who decides what's worth wanting?</p>
-          <p>A joint conference by ArchiSnob and Wise Habit — where designing for people meets commercial thinking about product. 250 professionals in one room. One day. Two blocks. No rows — shared tables.</p>
+    <div class="lfl-hero-wrap">
+      <div class="dbc-hero-intro">
+        <div>
+          <p class="dbc-hero__date">29.09.2026 — Warsaw · 10:30</p>
+          <h1 class="dbc-hero__title">Lust for Life.<br>Lust for Business.</h1>
+          <p class="dbc-hero__sub">Architecture. Design. Desire.</p>
+          <div class="dbc-intro__text">
+            <p>"Lust for Life," sang Iggy Pop. Half a century later, the appetite remains. Objects, spaces, images, experiences — the hunger for more does not disappear. It evolves.</p>
+            <p>LUST FOR LIFE. LUST FOR BUSINESS looks at the space between need and desire, choice and influence, growth and business. Where does taste come from — and who decides what's worth wanting?</p>
+            <p>A joint conference by ArchiSnob and Wise Habit — where designing for people meets commercial thinking about product. <strong>250 professionals in one room.</strong> One day. Two blocks. No rows — shared tables.</p>
+          </div>
         </div>
+        <img class="dbc-hero__img"
+          src="../img/lfl-poster.webp"
+          alt="Lust for Life. Lust for Business. — ArchiSnob × Wise Habit, 29.09.2026"
+          onerror="this.style.background='#8B0000';this.style.minHeight='400px';this.removeAttribute('src')"
+        loading="lazy" />
       </div>
-      <img class="dbc-hero__img"
-        src="../img/lfl-poster.webp"
-        alt="Lust for Life. Lust for Business. — ArchiSnob × Wise Habit, 29.09.2026"
-        onerror="this.style.background='#111111';this.style.minHeight='400px';this.removeAttribute('src')"
-      loading="lazy" />
     </div>
 
     <!-- ══ ABOUT ══ -->
@@ -936,28 +973,37 @@
       <p class="dbc-prog__date">29.09.2026 — SARP Headquarters, Foksal, Warsaw</p>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">9:00 – 10:00</div>
+        <div class="dbc-prog__time">10:30</div>
         <div class="dbc-prog__box">
-          <div class="dbc-prog__box-title">Registration &amp; Coffee</div>
+          <div class="dbc-prog__box-title">Welcoming Guests</div>
         </div>
       </div>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">10:00 – 10:15</div>
-        <div class="dbc-prog__box">
-          <div class="dbc-prog__box-title">Opening — Marcelina Plichta-Wabnik &amp; Marcin Szczelina</div>
-        </div>
-      </div>
-
-      <p class="dbc-prog__block-title">Block I — The Business of Desire<br><span style="font-size:16px;font-weight:300;color:var(--dbc-accent);">Product, Manufacturing &amp; Sales</span></p>
-
-      <div class="dbc-prog__row">
-        <div class="dbc-prog__time">10:15 – 11:00</div>
+        <div class="dbc-prog__time">11:00</div>
         <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
+              <div class="dbc-prog__box-title">Opening Speech</div>
+              <div class="dbc-prog__box-note">15 min</div>
+            </div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speakers:</strong> Marcelina Plichta-Wabnik × Marcin Szczelina × Fabrizio Todeschini
+          </div>
+        </div>
+      </div>
+
+      <p class="dbc-prog__block-title" style="color:var(--lfl-pink);">1 — The Business of Desire<br><span style="font-size:16px;font-weight:300;color:var(--black);">Product, Manufacturing &amp; Sales</span></p>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">11:15</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-pink);" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div>
               <div class="dbc-prog__box-title">Why People Buy Things?</div>
-              <div class="dbc-prog__box-note">Keynote lecture</div>
+              <div class="dbc-prog__box-note">Lecture · 45 min · Keynote Speaker</div>
             </div>
             <div class="dbc-prog__box-plus">+</div>
           </div>
@@ -968,12 +1014,12 @@
       </div>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">11:00 – 11:40</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+        <div class="dbc-prog__time">12:00</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-pink);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">From Good Design to Good Business</div>
-              <div class="dbc-prog__box-note">Lecture</div>
+              <div class="dbc-prog__box-note">Lecture · 30 min</div>
             </div>
             <div class="dbc-prog__box-plus">+</div>
           </div>
@@ -984,69 +1030,101 @@
       </div>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">11:40 – 12:20</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+        <div class="dbc-prog__time">12:30</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-pink);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">Can Responsibility Be Profitable?</div>
-              <div class="dbc-prog__box-note">Lecture</div>
+              <div class="dbc-prog__box-note">Lecture · 30 min</div>
             </div>
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speaker:</strong> Wojciech Bagiński — BCorp certification, ethical business models, and whether values and revenue can coexist at scale.
+            <strong>Speaker:</strong> Wojtek Bagiński — BCorp certification, ethical business models, and whether values and revenue can coexist at scale.
           </div>
         </div>
       </div>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">12:20 – 13:15</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+        <div class="dbc-prog__time">13:00</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-pink);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
-              <div class="dbc-prog__box-title">Discussion: The Future of Product, Manufacturing &amp; Sales</div>
-              <div class="dbc-prog__box-note">Panel</div>
+              <div class="dbc-prog__box-title">Discussion Sum-Up</div>
+              <div class="dbc-prog__box-note">Discussion · 30 min</div>
             </div>
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Participants:</strong> Phil Barden, Wojciech Bagiński, Michał Kiciński (special guest, CD Projekt co-founder), Marcelina Plichta-Wabnik.
+            <strong>Participants:</strong> Wojtek Bagiński, Michał Kiciński (special guest, CD Projekt), Karolina Janczyk, Marcelina Plichta-Wabnik.
           </div>
         </div>
       </div>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">13:15 – 14:15</div>
-        <div class="dbc-prog__box">
-          <div class="dbc-prog__box-title">Lunch Break</div>
+        <div class="dbc-prog__time">13:30</div>
+        <div class="dbc-prog__box" style="background:#f0f0ee;">
+          <div class="dbc-prog__box-title">Lunch Break &amp; Networking · 60 min</div>
         </div>
       </div>
 
-      <p class="dbc-prog__block-title">Block II — Architecture, Taste &amp; Power<br><span style="font-size:16px;font-weight:300;color:var(--dbc-accent);">Who Taught You What to Like</span></p>
+      <p class="dbc-prog__block-title" style="color:var(--lfl-green);">2 — Architecture, Taste &amp; Power<br><span style="font-size:16px;font-weight:300;color:var(--black);">Who Taught You What to Like</span></p>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">14:15 – 14:45</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+        <div class="dbc-prog__time">14:30</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
-              <div class="dbc-prog__box-title">Can AI Have Good Taste?</div>
-              <div class="dbc-prog__box-note">Algorithm Architecture — practical solutions</div>
+              <div class="dbc-prog__box-title">Architecture of AI: Designing Tools That Scale Your Sales</div>
+              <div class="dbc-prog__box-note">Lecture · 20 min</div>
             </div>
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speakers:</strong> Oskar Markiewicz &amp; Bartłomiej Spasowski — how AI tools are changing the aesthetics of space, what they can already do, and what remains irreducibly human.
+            <strong>Speaker:</strong> Oskar Markiewicz — practical AI tools that change how designers and manufacturers reach the market.
           </div>
         </div>
       </div>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">14:45 – 15:30</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+        <div class="dbc-prog__time">14:50</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
-              <div class="dbc-prog__box-title">Do You Have Good Taste?</div>
-              <div class="dbc-prog__box-note">Keynote — Taste, Beauty and Power in Architecture</div>
+              <div class="dbc-prog__box-title">Architecture of AI: When Designing the Process Becomes the Highest Form of Creation</div>
+              <div class="dbc-prog__box-note">Lecture · 20 min</div>
+            </div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speaker:</strong> Bartłomiej Spasowski — when the algorithm stops being a tool and starts being a co-author.
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">15:10</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div>
+              <div class="dbc-prog__box-title">Who Makes the Decision: Human or Machine?</div>
+              <div class="dbc-prog__box-note">Discussion · 15 min</div>
+            </div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Participants:</strong> Anna Domin, Oskar Markiewicz, Bartłomiej Spasowski.
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">15:25</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div>
+              <div class="dbc-prog__box-title">Beauty as a Force</div>
+              <div class="dbc-prog__box-note">Lecture · 45 min · Keynote Speaker</div>
             </div>
             <div class="dbc-prog__box-plus">+</div>
           </div>
@@ -1057,42 +1135,111 @@
       </div>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">15:30 – 16:15</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+        <div class="dbc-prog__time">16:10</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
-              <div class="dbc-prog__box-title">Do We Really Need Another Building?</div>
-              <div class="dbc-prog__box-note">Keynote — The Architecture of Enough</div>
+              <div class="dbc-prog__box-title">Who Gets to Build the City?</div>
+              <div class="dbc-prog__box-note">Lecture · 30 min</div>
             </div>
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speakers:</strong> Deadline Architects — Britta Jürgens &amp; Matthew Griffin, Berlin. On restraint, sufficiency, and the political act of not building more.
+            <strong>Speakers:</strong> Deadline Architects — Britta Jürgens &amp; Matthew Griffin, Berlin. On restraint, sufficiency, and the political act of building less.
           </div>
         </div>
       </div>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">16:15 – 17:15</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+        <div class="dbc-prog__time">16:40</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
-              <div class="dbc-prog__box-title">What Do We Really Want From Architecture?</div>
-              <div class="dbc-prog__box-note">Discussion — Designing the Good Life</div>
+              <div class="dbc-prog__box-title">Who Has the Power to Shape the City?</div>
+              <div class="dbc-prog__box-note">Lecture · 15 min</div>
             </div>
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Participants:</strong> Fernando Menis, Deadline Architects, Didier Fiúza Faustino, David Basulto (ArchDaily co-founder), Marcin Szczelina.
+            <strong>Speakers:</strong> David Basulto × Deadline Architects — on media, platforms, and the power to decide what architecture the world sees.
           </div>
         </div>
       </div>
 
       <div class="dbc-prog__row">
-        <div class="dbc-prog__time">from 18:00</div>
-        <div class="dbc-prog__box">
-          <div class="dbc-prog__box-title">Evening — ArchiSnob "TASTE" Premiere</div>
-          <div class="dbc-prog__box-note">Tymek (performance) · Katarzyna Krakowiak (special performance) · "The Real Ones" Exhibition by Łukasz Klimek</div>
+        <div class="dbc-prog__time">16:55</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div>
+              <div class="dbc-prog__box-title">Can Good Architecture Be Good Business?</div>
+              <div class="dbc-prog__box-note">Lecture · 15 min</div>
+            </div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speaker:</strong> Karol Fiedor
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">17:10</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div>
+              <div class="dbc-prog__box-title">From Taste to Value</div>
+              <div class="dbc-prog__box-note">Discussion · 15 min</div>
+            </div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Participants:</strong> Marcin Szczelina × Karol Fiedor
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">17:30</div>
+        <div class="dbc-prog__box dbc-prog__box--toggle" onclick="toggleProg(this)">
+          <div class="dbc-prog__box-header">
+            <div>
+              <div class="dbc-prog__box-title">Closing Speech</div>
+              <div class="dbc-prog__box-note">How we can design and produce ethically? · 20 min</div>
+            </div>
+            <div class="dbc-prog__box-plus">+</div>
+          </div>
+          <div class="dbc-prog__box-content">
+            <strong>Speakers:</strong> Marcelina Plichta-Wabnik × Marcin Szczelina × Fabrizio Todeschini
+          </div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">18:00</div>
+        <div class="dbc-prog__box" style="background:#f0f0ee;">
+          <div class="dbc-prog__box-title">Networking · 60 min</div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">19:00</div>
+        <div class="dbc-prog__box" style="background:#111;border-color:#111;">
+          <div class="dbc-prog__box-title" style="color:#fff;">ArchiSnob Evening Gala · 60 min</div>
+          <div class="dbc-prog__box-note" style="color:rgba(255,255,255,0.7);">ArchiSnob "TASTE" issue premiere · Katarzyna Krakowiak — special performance · "The Real Ones" Exhibition by Łukasz Klimek</div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">20:15</div>
+        <div class="dbc-prog__box" style="background:var(--lfl-red);border-color:var(--lfl-red);">
+          <div class="dbc-prog__box-title" style="color:#fff;">Tymek · Event Concert · 45 min</div>
+        </div>
+      </div>
+
+      <div class="dbc-prog__row">
+        <div class="dbc-prog__time">21:00</div>
+        <div class="dbc-prog__box" style="background:#111;border-color:#111;">
+          <div class="dbc-prog__box-title" style="color:#fff;">DJ Set · until 23:00</div>
         </div>
       </div>
 
@@ -1104,18 +1251,19 @@
 
       <div class="dbc-tickets__slide">
         <img class="dbc-tickets__img" src="../img/lfl-ticket.jpg" alt="Lust for Life. Lust for Business. — 29.09.2026"
-          onerror="this.style.background='#111';this.style.minHeight='320px';this.removeAttribute('src')"
+          onerror="this.style.background='#B80000';this.style.minHeight='320px';this.removeAttribute('src')"
           loading="lazy" />
-        <div class="dbc-tickets__info">
+        <div class="dbc-tickets__info" style="border-color:var(--lfl-pink);">
           <h3 class="dbc-tickets__name">Conference + Evening (29.09.2026)</h3>
-          <p class="dbc-tickets__date">SARP Headquarters, Foksal, Warsaw</p>
+          <p class="dbc-tickets__date">SARP Headquarters, Foksal, Warsaw · 10:30 – 23:00</p>
           <ul class="dbc-tickets__list">
             <li>Access to both conference blocks (full day)</li>
             <li>Coffee breaks &amp; lunch included</li>
-            <li>Evening access: ArchiSnob TASTE premiere, Tymek performance, Katarzyna Krakowiak, "The Real Ones" exhibition</li>
+            <li>Evening: ArchiSnob TASTE premiere, Tymek concert, Katarzyna Krakowiak performance, DJ Set until 23:00</li>
             <li>250 participants — shared table seating</li>
           </ul>
-          <a class="dbc-tickets__btn" href="#">Coming soon</a>
+          <p style="font-size:15px;font-weight:500;color:var(--lfl-pink);margin-bottom:16px;">Only with invitation</p>
+          <a class="dbc-tickets__btn" href="mailto:marcelina.plichta@wisehabit.com" style="cursor:pointer;pointer-events:auto;">marcelina.plichta@wisehabit.com</a>
         </div>
       </div>
 
@@ -1251,7 +1399,7 @@
   <script>
   /* ── COLOR STRIP ── */
   const COLORS = [
-    {c:'#C2D0D3',w:320},{c:'#8DA6B1',w:140},{c:'#5B7D93',w:130},{c:'#DE999F',w:110},{c:'#0F130F',w:300},{c:'#183518',w:250}
+    {c:'#B80000',w:320},{c:'#E8195A',w:180},{c:'#111111',w:200},{c:'#3AE000',w:140},{c:'#8B0000',w:260},{c:'#E8195A',w:120},{c:'#111111',w:180}
   ];
   const SPEED = 0.12;
   const strip = document.getElementById('colorStrip');
@@ -1302,98 +1450,126 @@
       name: 'Phil Barden',
       role: 'Author of "Decoded: The Science Behind Why We Buy" — Keynote',
       desc: 'Phil Barden is one of the world\'s leading authorities on the science of decision-making and consumer desire. His book "Decoded" unlocks the neuroscience behind why people buy things — and what it means for product, brand, and design. He applies behavioural science to real commercial challenges.',
-      img: 'img/lfl-phil-barden.webp'
+      img: '../img/lfl-phil-barden.webp'
     },
     'michal': {
       cat: 'Block I — Special Guest', color: '#55926B',
       name: 'Michał Kiciński',
       role: 'Co-founder of CD Projekt',
       desc: 'Michał Kiciński is the co-founder of CD Projekt, creators of The Witcher series and Cyberpunk 2077. One of the most successful product stories in the history of Polish business — built on a combination of creative ambition and commercial discipline. A conversation about desire, product love, and what it takes to build something people really want.',
-      img: 'img/lfl-michal-kicinski.webp'
+      img: '../img/lfl-michal-kicinski.webp'
     },
     'wojciech': {
       cat: 'Block I — The Business of Desire', color: '#55926B',
       name: 'Wojciech Bagiński',
       role: 'BCorp — Can Responsibility Be Profitable?',
       desc: 'Wojciech Bagiński explores the question of whether ethical business models and commercial success can genuinely coexist. Through the lens of BCorp certification and sustainable production, he argues that responsibility is not a constraint on profit — it is increasingly its precondition.',
-      img: 'img/lfl-wojciech-baginski.webp'
+      img: '../img/lfl-wojciech-baginski.webp'
     },
     'marcelina': {
       cat: 'Block I — The Business of Desire', color: '#55926B',
       name: 'Marcelina Plichta-Wabnik',
       role: 'From Good Design to Good Business — Wise Habit',
       desc: 'Founder and CEO of Wise Habit. An entrepreneur and strategist who has brought over 300 products to market. She explores how design decisions translate into commercial results — from concept through production to the shelf — and what separates products that endure from those that disappear.',
-      img: 'img/Conference_host_Marcelina_Plichta.webp'
+      img: '../img/Conference_host_Marcelina_Plichta.webp'
     },
     'menis': {
       cat: 'Block II — Architecture, Taste & Power', color: '#89A8AB',
       name: 'Fernando Menis',
       role: 'Architect — World Building of the Year WAF 2025 — Keynote',
       desc: 'Fernando Menis is a Spanish architect whose work is defined by its relationship to materiality, memory, and place. Winner of the World Building of the Year at the World Architecture Festival 2025. His practice explores how built form can carry meaning — and what it means for a building to be genuinely beautiful rather than merely impressive.',
-      img: 'img/lfl-fernando-menis.webp'
+      img: '../img/lfl-fernando-menis.webp'
     },
     'deadline': {
       cat: 'Block II — Architecture, Taste & Power', color: '#89A8AB',
       name: 'Deadline Architects',
       role: 'Britta Jürgens & Matthew Griffin — Keynote, Berlin',
       desc: 'Deadline Architects (Britta Jürgens and Matthew Griffin, Berlin) ask the question nobody wants to ask: do we really need another building? Their work and practice explore the architecture of restraint — what it means to design for sufficiency, and what the political act of building less might look like.',
-      img: 'img/lfl-deadline-architects.webp'
+      img: '../img/lfl-deadline-architects.webp'
     },
     'basulto': {
       cat: 'Block II — Special Guest', color: '#89A8AB',
       name: 'David Basulto',
       role: 'Co-founder of ArchDaily',
       desc: 'David Basulto is the co-founder of ArchDaily, the world\'s most visited architecture website. From that position, he has watched how architectural taste is formed, spread, and contested on a global scale — and what it means when a single platform shapes what the profession considers beautiful or relevant.',
-      img: 'img/lfl-david-basulto.webp'
+      img: '../img/lfl-david-basulto.webp'
     },
     'faustino': {
       cat: 'Block II — Architecture, Taste & Power', color: '#89A8AB',
       name: 'Didier Fiúza Faustino',
       role: 'Architect & Artist, Paris/Lisbon',
       desc: 'Didier Fiúza Faustino is a French-Portuguese architect and artist whose practice blurs the boundaries between architecture, installation, and political gesture. His work treats the body, space, and desire as inseparable — and provocatively asks who architecture is really for.',
-      img: 'img/lfl-didier-faustino.webp'
+      img: '../img/lfl-didier-faustino.webp'
     },
     'marcin': {
       cat: 'Host & Organizer', color: '#A5BFCA',
       name: 'Marcin Szczelina',
       role: 'Architecture critic & curator, founder of ArchiSnob',
       desc: 'Marcin Szczelina is a leading architecture critic and curator, founder of ArchiSnob. He shapes the dialogue around architecture through critical thinking, cultural insight, and the conviction that what we build reveals what we value.',
-      img: 'img/Architecture_critic_Marcin_Szczelina.webp'
+      img: '../img/Architecture_critic_Marcin_Szczelina.webp'
     },
     'marcelina2': {
       cat: 'Host & Organizer', color: '#A5BFCA',
       name: 'Marcelina Plichta-Wabnik',
       role: 'Founder & CEO, Wise Habit',
       desc: 'An entrepreneur and strategist, she has been helping brands grow in a consistent, authentic, and scalable way for years. She specializes in brand building, commercialization of products and services, and optimization of implementation and production processes, having successfully brought over 300 products to market.',
-      img: 'img/Conference_host_Marcelina_Plichta.webp'
+      img: '../img/Conference_host_Marcelina_Plichta.webp'
     },
     'oskar': {
       cat: 'AI — Can AI Have Good Taste?', color: '#CCDBDF',
       name: 'Oskar Markiewicz',
       role: 'AI Solutions Developer',
       desc: 'Oskar Markiewicz explores how AI tools are changing the aesthetics of architectural and product design — what they can already do, where they are heading, and what remains irreducibly human about the act of creating space.',
-      img: 'img/lfl-oskar-markiewicz.webp'
+      img: '../img/lfl-oskar-markiewicz.webp'
     },
     'bartlomiej': {
       cat: 'AI — Can AI Have Good Taste?', color: '#CCDBDF',
       name: 'Bartłomiej Spasowski',
       role: 'AI Solutions Developer',
       desc: 'Bartłomiej Spasowski works at the intersection of artificial intelligence and architectural practice, developing practical tools that change how designers work. A pragmatic voice in the debate about what algorithms can — and cannot — bring to questions of taste.',
-      img: 'img/lfl-bartlomiej-spasowski.webp'
+      img: '../img/lfl-bartlomiej-spasowski.webp'
     },
     'tymek': {
       cat: 'Evening — Artistic Performance', color: '#CCDBDF',
       name: 'Tymek',
       role: 'Musical Artist',
       desc: 'Tymek is a Polish musician and performer whose work sits at the intersection of contemporary music and cultural identity. The evening performance marks the premiere of the ArchiSnob TASTE issue — a continuation of the conference\'s themes in a different register.',
-      img: 'img/lfl-tymek.webp'
+      img: '../img/lfl-tymek.webp'
     },
     'krakowiak': {
-      cat: 'Evening — Special Performance', color: '#CCDBDF',
+      cat: 'Evening — Special Performance', color: '#999999',
       name: 'Katarzyna Krakowiak',
       role: 'Artist & Performer',
       desc: 'Katarzyna Krakowiak is an artist whose practice explores space, sound, and perception. Her special performance at the ArchiSnob TASTE premiere offers a sensory counterpoint to the day\'s conversations — an encounter with space that resists explanation.',
-      img: 'img/lfl-katarzyna-krakowiak.webp'
+      img: '../img/lfl-katarzyna-krakowiak.webp'
+    },
+    'fabrizio': {
+      cat: 'Opening & Closing Speech', color: '#E8195A',
+      name: 'Fabrizio Todeschini',
+      role: 'Speaker — Opening & Closing',
+      desc: 'Fabrizio Todeschini participates in both the opening and closing speeches of the conference, contributing to the framing of the day\'s central themes across the two blocks.',
+      img: '../img/lfl-fabrizio-todeschini.webp'
+    },
+    'karolina': {
+      cat: 'Block I — Discussion', color: '#E8195A',
+      name: 'Karolina Janczyk',
+      role: 'Discussion Sum-Up — Block I',
+      desc: 'Karolina Janczyk joins the Block I closing discussion, contributing perspectives on product, manufacturing, and the relationship between commercial thinking and design ethics.',
+      img: '../img/lfl-karolina-janczyk.webp'
+    },
+    'anna': {
+      cat: 'Block II — AI Discussion', color: '#3AE000',
+      name: 'Anna Domin',
+      role: 'Discussion: Who Makes the Decision — Human or Machine?',
+      desc: 'Anna Domin joins the AI discussion in Block II, bringing perspectives on design decision-making in the age of algorithmic tools and artificial intelligence.',
+      img: '../img/lfl-anna-domin.webp'
+    },
+    'karol': {
+      cat: 'Block II — Architecture, Taste & Power', color: '#3AE000',
+      name: 'Karol Fiedor',
+      role: 'Can Good Architecture Be Good Business? + From Taste to Value',
+      desc: 'Karol Fiedor appears twice in Block II: first with a lecture on the relationship between architectural quality and commercial viability, then in a closing discussion with Marcin Szczelina on how taste translates into value.',
+      img: '../img/lfl-karol-fiedor.webp'
     }
   };
 
