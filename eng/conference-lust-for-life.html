@@ -6,46 +6,74 @@
   <title>Conference: Lust for Life - Wise Habit Agency for the Future</title>
   <link rel="stylesheet" href="../css/styles.css" />
   <style>
+    /* ── LFL extra fonts (Bold/Black Italic not in global styles.css) ── */
+    @font-face {
+      font-family: 'CircularXX';
+      src: url('../fonts/CircularXXTT-BoldItalic.ttf') format('truetype');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CircularXX';
+      src: url('../fonts/CircularXXTT-BlackItalic.ttf') format('truetype');
+      font-weight: 900;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CircularXX';
+      src: url('../fonts/CircularXXTT-ExtraBlackItalic.ttf') format('truetype');
+      font-weight: 950;
+      font-style: italic;
+      font-display: swap;
+    }
+
     /* ── LFL palette ── */
     :root {
-      --dbc-navy:    #111111;
-      --dbc-hosts:   #E8195A;   /* hot pink — Block I */
-      --dbc-design:  #3AE000;   /* lime green — Block II */
-      --dbc-product: #E8195A;   /* hot pink — Hosts */
-      --dbc-manuf:   #999999;   /* neutral — AI & Evening */
-      --dbc-accent:  #E8195A;   /* primary accent: hot pink */
-      --lfl-red:     #B80000;   /* dark red from poster */
-      --lfl-green:   #3AE000;   /* lime green from poster */
-      --lfl-pink:    #E8195A;   /* hot pink from poster */
+      --dbc-navy:    #0000FF;   /* blue — main heading colour */
+      --dbc-hosts:   #0000FF;   /* Block I */
+      --dbc-design:  #5E95FF;   /* Block II */
+      --dbc-product: #5E95FF;   /* Hosts */
+      --dbc-manuf:   #FFAAFF;   /* AI & Evening */
+      --dbc-accent:  #0000FF;   /* primary accent */
+      --lfl-blue:    #0000FF;   /* hero bg + main blue */
+      --lfl-blue2:   #5E95FF;   /* secondary blue */
+      --lfl-neon:    #6EFFDA;   /* neon teal — use sparingly */
+      --lfl-pink:    #FFAAFF;   /* pink — use sparingly */
+      --lfl-bg:      #ECF2F2;   /* page background */
     }
 
     /* ── Page wrapper ── */
-    .dbc-page { background: var(--bg); color: var(--black); }
+    .dbc-page { background: var(--lfl-bg); color: var(--black); }
 
     /* ── LFL Hero dark background ── */
     .lfl-hero-wrap {
-      background: var(--lfl-red);
-      background: linear-gradient(160deg, #C50000 0%, #8B0000 100%);
+      background: var(--lfl-blue);
     }
     .lfl-hero-wrap .dbc-hero-intro {
       padding-top: clamp(100px, 14vw, 180px);
       padding-bottom: 80px;
     }
     .lfl-hero-wrap .dbc-hero__date {
-      color: var(--lfl-green);
+      color: var(--lfl-neon);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.05em;
     }
     .lfl-hero-wrap .dbc-hero__title {
       color: #fff;
-      font-weight: 700;
+      font-weight: 950;
       font-style: italic;
       letter-spacing: -2px;
       font-size: clamp(40px, 6vw, 84px);
     }
     .lfl-hero-wrap .dbc-hero__sub {
-      color: var(--lfl-green);
-      font-style: normal;
-      font-weight: 700;
+      color: var(--lfl-neon);
+      font-style: italic;
+      font-weight: 900;
       font-size: clamp(22px, 3vw, 38px);
+      letter-spacing: -0.5px;
     }
     .lfl-hero-wrap .dbc-intro__text p {
       color: rgba(255,255,255,0.88);
@@ -106,7 +134,7 @@
       margin: 0 auto;
     }
     .dbc-section--bg {
-      background: #f8f7f5;
+      background: #dde6e6;
     }
     .dbc-section--bg .dbc-section__inner {
       padding: 72px var(--pad-h);
@@ -114,22 +142,24 @@
       margin: 0 auto;
     }
     .dbc-section__heading {
-      font-size: clamp(24px, 3vw, 40px);
-      font-weight: 300;
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 700;
+      font-style: italic;
       color: var(--dbc-navy);
       margin-bottom: 8px;
-      line-height: 1.15;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
     }
     .dbc-section__sub {
       font-size: 20px;
       color: var(--dbc-navy);
-      font-weight: 400;
+      font-weight: 700;
       margin-bottom: 40px;
       opacity: 1;
     }
     .dbc-section__label {
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--dbc-accent);
@@ -147,7 +177,8 @@
     .dbc-2col li { font-size: 18px; line-height: 1.8; color: var(--black); margin-bottom: 6px; }
     .dbc-2col h3 {
       font-size: clamp(22px, 2.5vw, 32px);
-      font-weight: 300;
+      font-weight: 700;
+      font-style: italic;
       color: var(--dbc-navy);
       margin-bottom: 20px;
     }
@@ -234,7 +265,8 @@
     }
     .dbc-spk-col__title {
       font-size: 22px;
-      font-weight: 400;
+      font-weight: 700;
+      font-style: italic;
       margin-bottom: 20px;
       padding-bottom: 12px;
       border-bottom: 3px solid currentColor;
@@ -267,7 +299,7 @@
       background: #e0dbd5;
     }
     .dbc-spk-card__body { padding: 14px 16px 16px; }
-    .dbc-spk-card__name { font-size: 15px; font-weight: 400; margin-bottom: 4px; line-height: 1.3; color: var(--black); }
+    .dbc-spk-card__name { font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; color: var(--black); }
     .dbc-spk-card__role { font-size: 13px; color: var(--black); margin-bottom: 10px; line-height: 1.4; }
     .dbc-spk-card__read { font-size: 12px; font-weight: 400; letter-spacing: 0.05em; color: var(--black); }
     .dbc-spk-card__coming { font-size: 13px; font-weight: 400; color: var(--dbc-accent); margin-bottom: 6px; }
@@ -282,20 +314,25 @@
     }
     .dbc-prog__title {
       font-size: clamp(32px, 4vw, 56px);
-      font-weight: 300;
+      font-weight: 900;
+      font-style: italic;
       margin-bottom: 48px;
+      letter-spacing: -1px;
     }
     .dbc-prog__date {
-      font-size: clamp(20px, 2.5vw, 28px);
-      font-weight: 300;
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 400;
       color: var(--dbc-navy);
-      margin: 48px 0 24px;
+      margin: 0 0 40px;
+      opacity: 0.6;
     }
     .dbc-prog__block-title {
-      font-size: clamp(20px, 2.5vw, 28px);
-      font-weight: 300;
+      font-size: clamp(22px, 2.8vw, 36px);
+      font-weight: 900;
+      font-style: italic;
       color: var(--dbc-navy);
-      margin: 48px 0 24px;
+      margin: 56px 0 28px;
+      letter-spacing: -0.5px;
     }
     .dbc-prog__row {
       display: grid;
@@ -324,7 +361,7 @@
       align-items: center;
       gap: 12px;
     }
-    .dbc-prog__box-title { font-size: 20px; font-weight: 400; color: var(--black); }
+    .dbc-prog__box-title { font-size: 20px; font-weight: 700; color: var(--black); }
     .dbc-prog__box-note  { font-size: 15px; color: var(--black); margin-top: 8px; line-height: 1.6; }
     .dbc-prog__box-plus  { font-size: 22px; color: var(--black); flex-shrink: 0; transition: transform 0.2s; }
     .dbc-prog__box.open .dbc-prog__box-plus { transform: rotate(45deg); }
@@ -363,7 +400,8 @@
     }
     .dbc-tickets__name {
       font-size: clamp(18px, 2vw, 26px);
-      font-weight: 300;
+      font-weight: 700;
+      font-style: italic;
       color: var(--black);
       margin-bottom: 4px;
       line-height: 1.2;
@@ -405,7 +443,7 @@
 
     /* ── Venue bottom strip ── */
     .dbc-bottom {
-      background: #f8f7f5;
+      background: #dde6e6;
     }
     .dbc-bottom__inner {
       max-width: var(--max-w);
@@ -417,7 +455,8 @@
     }
     .dbc-bottom__section-title {
       font-size: clamp(24px, 3vw, 42px);
-      font-weight: 300;
+      font-weight: 700;
+      font-style: italic;
       color: var(--dbc-navy);
       margin-bottom: 28px;
     }
@@ -622,7 +661,9 @@
       <div class="dbc-hero-intro">
         <div>
           <p class="dbc-hero__date">29.09.2026 — Warsaw · 10:30</p>
-          <h1 class="dbc-hero__title">Lust for Life.<br>Lust for Business.</h1>
+          <h1 class="dbc-hero__title" style="font-size:0;line-height:0;margin:0;">
+            <img src="../img/Frame-1136.svg" alt="Lust for Life. Lust for Business." style="width:100%;max-width:600px;display:block;margin-bottom:20px;" />
+          </h1>
           <p class="dbc-hero__sub">Architecture. Design. Desire.</p>
           <div class="dbc-intro__text">
             <p>"Lust for Life," sang Iggy Pop. Half a century later, the appetite remains. Objects, spaces, images, experiences — the hunger for more does not disappear. It evolves.</p>
@@ -633,7 +674,7 @@
         <img class="dbc-hero__img"
           src="../img/lfl-poster.webp"
           alt="Lust for Life. Lust for Business. — ArchiSnob × Wise Habit, 29.09.2026"
-          onerror="this.style.background='#8B0000';this.style.minHeight='400px';this.removeAttribute('src')"
+          onerror="this.style.background='#0000FF';this.style.minHeight='400px';this.removeAttribute('src')"
         loading="lazy" />
       </div>
     </div>
@@ -1068,11 +1109,11 @@
         </div>
       </div>
 
-      <p class="dbc-prog__block-title" style="color:var(--lfl-green);">2 — Architecture, Taste &amp; Power<br><span style="font-size:16px;font-weight:300;color:var(--black);">Who Taught You What to Like</span></p>
+      <p class="dbc-prog__block-title" style="color:var(--lfl-neon);">2 — Architecture, Taste &amp; Power<br><span style="font-size:16px;font-weight:300;color:var(--black);">Who Taught You What to Like</span></p>
 
       <div class="dbc-prog__row">
         <div class="dbc-prog__time">14:30</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-neon);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">Architecture of AI: Designing Tools That Scale Your Sales</div>
@@ -1088,7 +1129,7 @@
 
       <div class="dbc-prog__row">
         <div class="dbc-prog__time">14:50</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-neon);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">Architecture of AI: When Designing the Process Becomes the Highest Form of Creation</div>
@@ -1104,7 +1145,7 @@
 
       <div class="dbc-prog__row">
         <div class="dbc-prog__time">15:10</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-neon);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">Who Makes the Decision: Human or Machine?</div>
@@ -1120,7 +1161,7 @@
 
       <div class="dbc-prog__row">
         <div class="dbc-prog__time">15:25</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-neon);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">Beauty as a Force</div>
@@ -1136,7 +1177,7 @@
 
       <div class="dbc-prog__row">
         <div class="dbc-prog__time">16:10</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-neon);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">Who Gets to Build the City?</div>
@@ -1152,7 +1193,7 @@
 
       <div class="dbc-prog__row">
         <div class="dbc-prog__time">16:40</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-neon);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">Who Has the Power to Shape the City?</div>
@@ -1168,7 +1209,7 @@
 
       <div class="dbc-prog__row">
         <div class="dbc-prog__time">16:55</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-neon);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">Can Good Architecture Be Good Business?</div>
@@ -1184,7 +1225,7 @@
 
       <div class="dbc-prog__row">
         <div class="dbc-prog__time">17:10</div>
-        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-green);" onclick="toggleProg(this)">
+        <div class="dbc-prog__box dbc-prog__box--toggle" style="border-color:var(--lfl-neon);" onclick="toggleProg(this)">
           <div class="dbc-prog__box-header">
             <div>
               <div class="dbc-prog__box-title">From Taste to Value</div>
@@ -1231,7 +1272,7 @@
 
       <div class="dbc-prog__row">
         <div class="dbc-prog__time">20:15</div>
-        <div class="dbc-prog__box" style="background:var(--lfl-red);border-color:var(--lfl-red);">
+        <div class="dbc-prog__box" style="background:var(--lfl-blue);border-color:var(--lfl-blue);">
           <div class="dbc-prog__box-title" style="color:#fff;">Tymek · Event Concert · 45 min</div>
         </div>
       </div>
@@ -1399,7 +1440,7 @@
   <script>
   /* ── COLOR STRIP ── */
   const COLORS = [
-    {c:'#B80000',w:320},{c:'#E8195A',w:180},{c:'#111111',w:200},{c:'#3AE000',w:140},{c:'#8B0000',w:260},{c:'#E8195A',w:120},{c:'#111111',w:180}
+    {c:'#0000FF',w:320},{c:'#5E95FF',w:180},{c:'#ECF2F2',w:120},{c:'#6EFFDA',w:140},{c:'#0000FF',w:280},{c:'#FFAAFF',w:140},{c:'#5E95FF',w:160}
   ];
   const SPEED = 0.12;
   const strip = document.getElementById('colorStrip');
