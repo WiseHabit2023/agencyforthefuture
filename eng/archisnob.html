@@ -189,7 +189,8 @@
     .mag-card__meta-value { font-size: 14px; font-weight: 350; }
     .mag-card__meta-sub { font-size: 13px; font-weight: 350; opacity: 0.6; }
     .mag-card__price { font-size: 20px; font-weight: 350; margin-bottom: 10px; }
-    .mag-card__btn { display: flex; align-items: center; justify-content: space-between; width: 100%; background: #000; color: #fff; border: none; border-radius: 0; padding: 14px 24px; font-size: 15px; font-weight: 350; cursor: default; margin-bottom: 8px; text-decoration: none; opacity: 0.6; }
+    .mag-card__btn { display: flex; align-items: center; justify-content: space-between; width: 100%; background: #000; color: #fff; border: none; border-radius: 0; padding: 14px 24px; font-size: 15px; font-weight: 350; cursor: pointer; margin-bottom: 8px; text-decoration: none; opacity: 1; transition: opacity 0.2s; }
+    .mag-card__btn:hover { opacity: 0.75; }
     .mag-card__btn-price { font-size: 17px; }
     .mag-card__note { font-size: 12px; font-weight: 350; opacity: 0.55; margin-bottom: 14px; }
     .mag-card__ship { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 350; margin-bottom: 4px; }
@@ -276,7 +277,7 @@
         <li class="nav__dropdown"><span>exhibitions &amp; conferences</span>
           <div class="nav__dropdown-menu">
             <a href="power-of-three.html">Ethical Design Exhibition</a>
-            <a href="design-business-conference.html">design business conference</a>
+            <a href="design-business-conference.html" style="display:none">design business conference</a>
             <a href="archive.html" style="display:none">Conferences We Participated In</a>
           </div>
         </li>
@@ -314,7 +315,7 @@
       <li><span>exhibitions &amp; conferences</span>
         <ul class="nav__mobile-sub">
           <li><a href="power-of-three.html">Ethical Design Exhibition</a></li>
-          <li><a href="design-business-conference.html">design business conference</a></li>
+          <li><a href="design-business-conference.html" style="display:none">design business conference</a></li>
           <li style="display:none"><a href="archive.html">Conferences We Participated In</a></li>
         </ul>
       </li>
@@ -382,10 +383,10 @@
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#000" stroke-width="1.2"/><path d="M9 5v4l2.5 2.5" stroke="#000" stroke-width="1.2" stroke-linecap="round"/></svg>
               <strong>Shipped within 14 days</strong>
             </div>
-            <div class="mag-card__btn" style="width:44%; margin:0;">
-              <span>available soon</span>
+            <a class="mag-card__btn" href="https://wisehabit.com/product-eng-359-ArchiSnob-Magazine-Summer-Issue-2026.html" target="_blank" style="width:44%; margin:0; text-decoration:none;">
+              <span>buy now</span>
               <span class="mag-card__btn-price">39 PLN</span>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -564,7 +565,7 @@
               <div class="footer-nav-col">
                 <a href="library.html">Library</a>
                 <a href="sustainability.html">Sustainability</a>
-                <a href="design-business-conference.html">Design Business Conference</a>
+                <a href="design-business-conference.html" style="display:none">Design Business Conference</a>
                 <a href="contact.html">Contact</a>
                 <a href="rd.html">R&amp;D</a>
               </div>
