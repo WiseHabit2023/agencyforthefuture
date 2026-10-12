@@ -245,9 +245,42 @@
       width: auto;
       aspect-ratio: 4/3;
       object-fit: cover;
-      
       display: block;
+      cursor: zoom-in;
+      transition: opacity 0.15s;
     }
+    .dbc-events-grid img:hover { opacity: 0.88; }
+    /* Lightbox */
+    .lfl-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lfl-lightbox.open { display: flex; }
+    .lfl-lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 2px;
+    }
+    .lfl-lightbox__close {
+      position: absolute;
+      top: 20px; right: 28px;
+      font-size: 36px;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.8;
+    }
+    .lfl-lightbox__close:hover { opacity: 1; }
     .dbc-events-arrows {
       display: flex;
       align-items: center;
@@ -387,6 +420,8 @@
       color: var(--black);
       line-height: 1.6;
     }
+    .dbc-prog__box-content p { margin: 0 0 8px; }
+    .dbc-prog__box-content p:last-child { margin-bottom: 0; }
     .dbc-prog__box.open .dbc-prog__box-content { display: block; }
 
     /* ── Tickets list ── */
@@ -455,6 +490,56 @@
     }
 
     /* ── Venue bottom strip ── */
+    /* ── Partners ── */
+    .lfl-partners { padding: 48px var(--pad-h); background: var(--lfl-bg); }
+    .lfl-partners__title { font-size: clamp(26px, 3.5vw, 40px); font-weight: 700; font-style: italic; color: var(--lfl-blue); margin-bottom: 32px; }
+    .lfl-partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 16px;
+    }
+    .lfl-partner-card {
+      background: #fff;
+      border: 1.5px solid #d0d8d8;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .lfl-partner-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+    .lfl-partner-card__img {
+      width: 100%;
+      aspect-ratio: 2/1;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      background: #e8eeed;
+    }
+    .lfl-partner-card__body { padding: 10px 12px 12px; }
+    .lfl-partner-card__name { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 6px; line-height: 1.3; }
+    .lfl-partner-card__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .lfl-partner-card__label { font-size: 11px; color: var(--black); opacity: 0.6; }
+    .lfl-partner-card__plus { font-size: 18px; color: var(--black); flex-shrink: 0; transition: transform 0.2s; }
+    .lfl-partner-card.open .lfl-partner-card__plus { transform: rotate(45deg); }
+    .lfl-partner-card__desc {
+      display: none;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #d0d8d8;
+      font-size: 13px;
+      color: var(--black);
+      line-height: 1.6;
+    }
+    .lfl-partner-card.open .lfl-partner-card__desc { display: block; }
+    @media (max-width: 600px) {
+      .lfl-partner-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+
     .dbc-bottom {
       background: var(--lfl-bg);
     }
@@ -833,21 +918,55 @@
           <p style="font-size:15px;color:var(--dbc-accent);margin-top:8px;">Event Partner: CIFF - China International Furniture Fair, Guangzhou</p>
         </div>
       </div>
+      <div class="dbc-events-wrap" style="margin-top:40px;">
+        <div class="dbc-events-grid" id="formatTrack">
+          <img src="../img/Labra.webp" alt="Event" loading="lazy" />
+          <img src="../img/WH_talks.webp" alt="Event" loading="lazy" />
+          <img src="../img/Our_events.webp" alt="Event" loading="lazy" />
+          <img src="../img/ArchiSnob.webp" alt="Event" loading="lazy" />
+          <img src="../img/LG.webp" alt="Event" loading="lazy" />
+          <img src="../img/Jedzenie.webp" alt="Event" loading="lazy" />
+          <img src="../img/WH_opening.webp" alt="Event" loading="lazy" />
+          <img src="../img/AW2025.webp" alt="Event" loading="lazy" />
+          <img src="../img/ArchiSnob_2.webp" alt="Event" loading="lazy" />
+        </div>
+        <div class="dbc-events-arrows">
+          <button class="dbc-events-arrow" id="formatPrev" aria-label="Previous">←</button>
+          <button class="dbc-events-arrow" id="formatNext" aria-label="Next">→</button>
+        </div>
+      </div>
     </div>
 
     <!-- ══ AFTER THE CONFERENCE ══ -->
     <div class="dbc-section" >
       <h2 class="dbc-section__heading">Accompanying Events</h2>
-      <div class="dbc-2col">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:64px;margin-top:32px;">
         <div>
           <p class="dbc-section__sub">ArchiSnob "TASTE" Issue Premiere</p>
           <p>Following the conference, guests are invited to the official premiere of the new ArchiSnob issue - "TASTE". An evening that extends the conversation of the day into a more sensory, less formal register.</p>
-          <p>The evening includes a special artistic performance by <strong>Tymek</strong> - a musical guest whose work sits at the intersection of culture and desire - and a special performance by <strong>Katarzyna Krakowiak</strong>.</p>
         </div>
         <div>
           <p class="dbc-section__sub">"The Real Ones" Exhibition</p>
           <p>The evening also marks the opening of <strong>The Real Ones</strong> - an exhibition by photographer and artist <strong>Łukasz Klimek</strong>. A visual response to the themes of the day: what is genuine, what is performed, and where the line between them runs.</p>
           <p>400+ guests. Architects, curators, designers, developers, and opinion leaders. One evening where the industry stops performing and starts talking.</p>
+        </div>
+        <div>
+          <p class="dbc-section__sub">Tymek - Concert</p>
+          <p><strong>Tymek</strong> is a Polish musician and performer whose work sits at the intersection of contemporary music and cultural identity. His evening concert marks the premiere of the ArchiSnob TASTE issue - a continuation of the conference's themes in a different register.</p>
+          <p>A live set that closes the day and opens the night.</p>
+        </div>
+      </div>
+      <div class="dbc-events-wrap" style="margin-top:40px;">
+        <div class="dbc-events-grid" id="accompTrack">
+          <img src="../img/Gala.webp" alt="Accompanying event" loading="lazy" />
+          <img src="../img/ArchiSnob.webp" alt="Accompanying event" loading="lazy" />
+          <img src="../img/lfl-lukasz-klimek.webp" alt="Łukasz Klimek" loading="lazy" />
+          <img src="../img/lfl-tymek.webp" alt="Tymek" loading="lazy" />
+          <img src="../img/AW2025.webp" alt="Accompanying event" loading="lazy" />
+        </div>
+        <div class="dbc-events-arrows">
+          <button class="dbc-events-arrow" id="accompPrev" aria-label="Previous">←</button>
+          <button class="dbc-events-arrow" id="accompNext" aria-label="Next">→</button>
         </div>
       </div>
     </div>
@@ -862,29 +981,6 @@
         </div>
         <div>
           <p>Each session is designed to generate a specific question: not just about what the speaker has done, but about what it means for the people in the room. The format is built for exchange, not broadcasting.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ OUR EVENTS ══ -->
-    <div class="dbc-section" >
-      <h2 class="dbc-section__heading">Our events</h2>
-      <p style="font-size:16px;color:var(--black);margin-top:8px;">A selection of events and conferences we have organised and co-created.</p>
-      <div class="dbc-events-wrap">
-        <div class="dbc-events-grid" id="eventsTrack">
-          <img src="../img/Labra.webp" alt="Event" loading="lazy" />
-          <img src="../img/WH_talks.webp" alt="Event" loading="lazy" />
-          <img src="../img/Our_events.webp" alt="Event" loading="lazy" />
-          <img src="../img/ArchiSnob.webp" alt="Event" loading="lazy" />
-          <img src="../img/LG.webp" alt="Event" loading="lazy" />
-          <img src="../img/Jedzenie.webp" alt="Event" loading="lazy" />
-          <img src="../img/WH_opening.webp" alt="Event" loading="lazy" />
-          <img src="../img/AW2025.webp" alt="Event" loading="lazy" />
-          <img src="../img/ArchiSnob_2.webp" alt="Event" loading="lazy" />
-        </div>
-        <div class="dbc-events-arrows">
-          <button class="dbc-events-arrow" id="eventsPrev" aria-label="Previous">←</button>
-          <button class="dbc-events-arrow" id="eventsNext" aria-label="Next">→</button>
         </div>
       </div>
     </div>
@@ -1054,29 +1150,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('tymek','#CCDBDF')">
-            <img class="dbc-spk-card__img"
-              src="../img/lfl-tymek.webp"
-              alt="Tymek" loading="lazy"
-              onerror="this.style.background='#e0dbd5';this.removeAttribute('src')" />
-            <div class="dbc-spk-card__body">
-              <div class="dbc-spk-card__name">Tymek</div>
-              <div class="dbc-spk-card__role">Evening - Artistic Performance</div>
-              <div class="dbc-spk-card__read">+ READ MORE</div>
-            </div>
-          </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('krakowiak','#CCDBDF')">
-            <img class="dbc-spk-card__img"
-              src="../img/lfl-katarzyna-krakowiak.webp"
-              alt="Katarzyna Krakowiak" loading="lazy"
-              onerror="this.style.background='#e0dbd5';this.removeAttribute('src')" />
-            <div class="dbc-spk-card__body">
-              <div class="dbc-spk-card__name">Katarzyna Krakowiak</div>
-              <div class="dbc-spk-card__role">Evening - Special Performance</div>
-              <div class="dbc-spk-card__read">+ READ MORE</div>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -1146,7 +1220,9 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speaker:</strong> Phil Barden - author of "Decoded: The Science Behind Why We Buy". The neuroscience of desire applied to product, brand, and retail strategy.
+            <p><strong>Speaker:</strong> Phil Barden — author of <em>Decoded: The Science Behind Why We Buy</em>. An experienced marketer with more than 25 years in the field, including senior international roles at Unilever, Diageo, and T-Mobile.</p>
+            <p>If you understand why people buy, you are already one step ahead in reaching them effectively with your products and services. <em>Decoded</em> offers a groundbreaking look at the science behind the buying process — specifically why decision science has proven invaluable in marketing, helping to explain purchasing behaviour.</p>
+            <p>A practical framework for applying behavioural insight in everyday marketing: from brand strategy and implementation through to new product development.</p>
           </div>
         </div>
       </div>
@@ -1162,7 +1238,9 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speaker:</strong> Marcelina Plichta-Wabnik - how design decisions translate into commercial results. From strategy to shelves.
+            <p><strong>Speaker:</strong> Marcelina Plichta-Wabnik — Wise Habit.</p>
+            <p>What makes a good design turn into good business? Can success be designed the same way a product can — along with the right moment and cultural chemistry? This is a conversation about money, without pretending that design doesn't need it.</p>
+            <p>Design today no longer ends with designing objects. We ask where design ends and marketing begins — and whether it's even still possible to draw a line between them.</p>
           </div>
         </div>
       </div>
@@ -1178,7 +1256,9 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speaker:</strong> Wojtek Bagiński - BCorp certification, ethical business models, and whether values and revenue can coexist at scale.
+            <p><strong>Speaker:</strong> Wojtek Bagiński.</p>
+            <p>We all want to produce responsibly. But can sustainable production create things just as desirable as those that promise novelty, luxury, and instant pleasure?</p>
+            <p>We talk about materials, technology, durability, and responsibility — but above all about the biggest paradox of contemporary design: how do you sell less in a world built on the desire for more?</p>
           </div>
         </div>
       </div>
@@ -1194,7 +1274,8 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Participants:</strong> Wojtek Bagiński, Michał Kiciński (special guest, CD Projekt), Karolina Janczyk, Marcelina Plichta-Wabnik.
+            <p><strong>Participants:</strong> Wojtek Bagiński, Michał Kiciński (special guest, CD Projekt), Karolina Janczyk, Marcelina Plichta-Wabnik.</p>
+            <p>A closing discussion on the future of product, manufacturing, and sales. Where is design headed? What will it mean to produce, sell, and desire in the next decade?</p>
           </div>
         </div>
       </div>
@@ -1219,7 +1300,9 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speaker:</strong> Oskar Markiewicz - practical AI tools that change how designers and manufacturers reach the market.
+            <p><strong>Speaker:</strong> Oskar Markiewicz.</p>
+            <p>AI can already generate a thousand buildings before an architect manages to sketch the first one. But can it tell the difference between a design that's interesting and one that's banal?</p>
+            <p>This lecture looks at practical AI tools that are already reshaping how designers and manufacturers reach the market — and what happens when the algorithm starts taking part in decisions that used to belong to the designer.</p>
           </div>
         </div>
       </div>
@@ -1235,7 +1318,9 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speaker:</strong> Bartłomiej Spasowski - when the algorithm stops being a tool and starts being a co-author.
+            <p><strong>Speaker:</strong> Bartłomiej Spasowski.</p>
+            <p>We're not talking about yet more programs and tools. We're interested in the moment when the algorithm starts interpreting, selecting, proposing — and learning our aesthetic obsessions. When designing the process itself becomes the highest form of creation.</p>
+            <p>The question is no longer just whether AI will replace the architect. Perhaps the more interesting one is: how can we use AI?</p>
           </div>
         </div>
       </div>
@@ -1251,7 +1336,8 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Participants:</strong> Anna Domin, Oskar Markiewicz, Bartłomiej Spasowski.
+            <p><strong>Participants:</strong> Anna Domin, Oskar Markiewicz, Bartłomiej Spasowski.</p>
+            <p>A live discussion on AI and authorship in architecture and design: who makes the decisions, and where does human judgement end?</p>
           </div>
         </div>
       </div>
@@ -1267,7 +1353,9 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speaker:</strong> Fernando Menis - World Building of the Year (WAF 2025). Architecture as an argument about what beauty is and who gets to decide.
+            <p><strong>Speaker:</strong> Fernando Menis — World Building of the Year (WAF 2025).</p>
+            <p>You have good taste? Great. Now try to prove that it exists. What one era considered a masterpiece, the next could dismiss as kitsch — and vice versa. What one culture calls elegance, another may read as dullness, ostentation, or banality.</p>
+            <p>A keynote on beauty and ugliness, class and status, education, media, awards, and the cultural codes hidden within architecture. Who actually has the power to say that one building represents "good taste," and another doesn't?</p>
           </div>
         </div>
       </div>
@@ -1283,7 +1371,9 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speakers:</strong> Deadline Architects - Britta Jürgens &amp; Matthew Griffin, Berlin. On restraint, sufficiency, and the political act of building less.
+            <p><strong>Speakers:</strong> Deadline Architects — Britta Jürgens &amp; Matthew Griffin, Berlin.</p>
+            <p>For centuries, architecture has celebrated the act of building. More square metres, more icons, more spectacular projects. But perhaps the most radical project of the 21st century will be the one we don't build.</p>
+            <p>In a world of empty offices, underused buildings, a housing crisis, and the enormous environmental cost of new development — we ask about adaptation, renovation, reuse, and an architecture that can work with what already exists. Can the architect give up their own lust for life — the constant desire to leave something new behind?</p>
           </div>
         </div>
       </div>
@@ -1299,7 +1389,8 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Speakers:</strong> David Basulto × Deadline Architects - on media, platforms, and the power to decide what architecture the world sees.
+            <p><strong>Speakers:</strong> David Basulto × Deadline Architects.</p>
+            <p>On media, platforms, and the power to decide what architecture the world sees — and why we care so much about ending up on the right side of that line.</p>
           </div>
         </div>
       </div>
@@ -1331,7 +1422,9 @@
             <div class="dbc-prog__box-plus">+</div>
           </div>
           <div class="dbc-prog__box-content">
-            <strong>Participants:</strong> Marcin Szczelina × Karol Fiedor
+            <p><strong>Participants:</strong> Marcin Szczelina × Karol Fiedor.</p>
+            <p>What do we actually want from architecture? Beauty? Comfort? Status? Security? Spectacle? Or maybe just a good life?</p>
+            <p>To close, we flip the industry's most worn-out question. We're not interested in yet another forecast of the "future of architecture." We're interested in the future of life — and the architecture we'll need for it. Because the future of design doesn't begin with the next trend, material, or technology. It begins with a decision about what we want. And what we're willing to give up.</p>
           </div>
         </div>
       </div>
@@ -1363,7 +1456,7 @@
         <div class="dbc-prog__time">19:00</div>
         <div class="dbc-prog__box" style="background:#111;border-color:#111;">
           <div class="dbc-prog__box-title" style="color:#fff;">ArchiSnob Evening Gala · 60 min</div>
-          <div class="dbc-prog__box-note" style="color:rgba(255,255,255,0.7);">ArchiSnob "TASTE" issue premiere · Katarzyna Krakowiak - special performance · "The Real Ones" Exhibition by Łukasz Klimek</div>
+          <div class="dbc-prog__box-note" style="color:rgba(255,255,255,0.7);">ArchiSnob "TASTE" issue premiere · "The Real Ones" Exhibition by Łukasz Klimek</div>
         </div>
       </div>
 
@@ -1413,7 +1506,236 @@
       </div>
     </div>
 
+    <!-- ══ PARTNERS ══ -->
+    <div class="lfl-partners">
+      <h2 class="lfl-partners__title">Partners</h2>
+      <div class="lfl-partner-grid">
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">LD Seating</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">IKEA</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Artemide</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">USM</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Foksal</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Muuto</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">BMW</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Unitra</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">CIFF</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Hushoffice</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Focus Hotel</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Strategic Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Wise Habit</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Organiser</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Jung</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Strategic Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Tubądzin</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">ArchiSnob</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Organiser</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Pap Deco</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══ OUR EVENTS ══ -->
+    <div class="dbc-section">
+      <h2 class="dbc-section__heading">Our events</h2>
+      <p style="font-size:16px;color:var(--black);margin-top:8px;">A selection of events and conferences we have organised and co-created.</p>
+      <div class="dbc-events-wrap">
+        <div class="dbc-events-grid" id="eventsTrack">
+          <img src="../img/Labra.webp" alt="Event" loading="lazy" />
+          <img src="../img/WH_talks.webp" alt="Event" loading="lazy" />
+          <img src="../img/Our_events.webp" alt="Event" loading="lazy" />
+          <img src="../img/ArchiSnob.webp" alt="Event" loading="lazy" />
+          <img src="../img/LG.webp" alt="Event" loading="lazy" />
+          <img src="../img/Jedzenie.webp" alt="Event" loading="lazy" />
+          <img src="../img/WH_opening.webp" alt="Event" loading="lazy" />
+          <img src="../img/AW2025.webp" alt="Event" loading="lazy" />
+          <img src="../img/ArchiSnob_2.webp" alt="Event" loading="lazy" />
+        </div>
+        <div class="dbc-events-arrows">
+          <button class="dbc-events-arrow" id="eventsPrev" aria-label="Previous">←</button>
+          <button class="dbc-events-arrow" id="eventsNext" aria-label="Next">→</button>
+        </div>
+      </div>
+    </div>
+
   </main>
+
+  <!-- ══ LIGHTBOX ══ -->
+  <div class="lfl-lightbox" id="lflLightbox" onclick="closeLightbox(event)">
+    <button class="lfl-lightbox__close" onclick="closeLightbox()">×</button>
+    <img id="lflLightboxImg" src="" alt="" />
+  </div>
 
   <!-- ══ SPEAKER MODAL ══ -->
   <div class="dbc-modal-overlay" id="dbcModal" onclick="closeSpkModalOnOverlay(event)">
@@ -1552,6 +1874,16 @@
 
   /* ── EVENTS CAROUSEL ── */
   (function() {
+    const accompTrack = document.getElementById('accompTrack');
+    const stepA = 400;
+    document.getElementById('accompPrev').addEventListener('click', () => { accompTrack.scrollLeft -= stepA; });
+    document.getElementById('accompNext').addEventListener('click', () => { accompTrack.scrollLeft += stepA; });
+
+    const formatTrack = document.getElementById('formatTrack');
+    const stepF = 400;
+    document.getElementById('formatPrev').addEventListener('click', () => { formatTrack.scrollLeft -= stepF; });
+    document.getElementById('formatNext').addEventListener('click', () => { formatTrack.scrollLeft += stepF; });
+
     const track = document.getElementById('eventsTrack');
     const step = 440;
     document.getElementById('eventsPrev').addEventListener('click', () => { track.scrollLeft -= step; });
@@ -1562,6 +1894,10 @@
   /* ── PROGRAM ACCORDION ── */
   function toggleProg(box) {
     box.classList.toggle('open');
+  }
+
+  function togglePartner(card) {
+    card.classList.toggle('open');
   }
 
   /* ── SPEAKER DATA ── */
@@ -1657,13 +1993,6 @@
       desc: 'Tymek is a Polish musician and performer whose work sits at the intersection of contemporary music and cultural identity. The evening performance marks the premiere of the ArchiSnob TASTE issue - a continuation of the conference\'s themes in a different register.',
       img: '../img/lfl-tymek.webp'
     },
-    'krakowiak': {
-      cat: 'Evening - Special Performance', color: '#999999',
-      name: 'Katarzyna Krakowiak',
-      role: 'Artist & Performer',
-      desc: 'Katarzyna Krakowiak is an artist whose practice explores space, sound, and perception. Her special performance at the ArchiSnob TASTE premiere offers a sensory counterpoint to the day\'s conversations - an encounter with space that resists explanation.',
-      img: '../img/lfl-katarzyna-krakowiak.webp'
-    },
     'fabrizio': {
       cat: 'Opening & Closing Speech', color: '#E8195A',
       name: 'Fabrizio Todeschini',
@@ -1716,7 +2045,22 @@
   function closeSpkModalOnOverlay(e) {
     if (e.target === document.getElementById('dbcModal')) closeSpkModal();
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSpkModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSpkModal(); closeLightbox(); } });
+
+  // Lightbox
+  function openLightbox(src) {
+    document.getElementById('lflLightboxImg').src = src;
+    document.getElementById('lflLightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e) {
+    if (e && e.target === document.getElementById('lflLightboxImg')) return;
+    document.getElementById('lflLightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.dbc-events-grid img').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src));
+  });
   </script>
   <script src="../js/chat-widget.js" defer></script>
 </body>
