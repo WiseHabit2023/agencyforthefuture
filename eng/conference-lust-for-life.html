@@ -491,12 +491,16 @@
 
     /* ── Venue bottom strip ── */
     /* ── Partners ── */
-    .lfl-partners { padding: 48px var(--pad-h); background: var(--lfl-bg); }
+    .lfl-partners {
+      padding: 48px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
     .lfl-partners__title { font-size: clamp(26px, 3.5vw, 40px); font-weight: 700; font-style: italic; color: var(--lfl-blue); margin-bottom: 32px; }
     .lfl-partner-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 20px;
     }
     .lfl-partner-card {
       background: #fff;
@@ -723,6 +727,12 @@
       .lfl-post-hero__content { grid-template-columns: 1fr; gap: 24px; }
       .lfl-post-hero__btns { flex-wrap: wrap; }
     }
+
+    /* ── LFL-specific overrides for shared components ── */
+    .collab-footer { background: var(--lfl-bg) !important; }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select { background: #fff; }
   </style>
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <meta name="description" content="Lust for Life. Lust for Business. - A conference on architecture, design, and desire. ArchiSnob × Wise Habit. 29 September 2026, SARP Headquarters, Warsaw." />
@@ -1124,7 +1134,7 @@
 
         <!-- AI & Evening -->
         <div class="dbc-spk-col dbc-col--manuf">
-          <div class="dbc-spk-col__title">AI &amp; Evening</div>
+          <div class="dbc-spk-col__title">AI</div>
 
           <div class="dbc-spk-card" onclick="openSpkModal('oskar','#CCDBDF')">
             <img class="dbc-spk-card__img"
@@ -1177,6 +1187,206 @@
         alt="SARP Headquarters, Foksal, Warsaw"
         onerror="this.style.background='#d0ccc5';this.style.minHeight='400px';this.removeAttribute('src')"
       loading="lazy" />
+    </div>
+
+    <!-- ══ PARTNERS ══ -->
+    <div class="lfl-partners">
+      <h2 class="lfl-partners__title">Partners</h2>
+      <div class="lfl-partner-grid">
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">LD Seating</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">IKEA</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Artemide</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">USM</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Foksal</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Muuto</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">BMW</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Unitra</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">CIFF</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Hushoffice</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Focus Hotel</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Strategic Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Wise Habit</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Organiser</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Jung</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Strategic Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Tubądzin</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">ArchiSnob</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Organiser</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+        <div class="lfl-partner-card" onclick="togglePartner(this)">
+          <div class="lfl-partner-card__img"></div>
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Pap Deco</div>
+            <div class="lfl-partner-card__toggle">
+              <span class="lfl-partner-card__label">Partner</span>
+              <span class="lfl-partner-card__plus">+</span>
+            </div>
+            <div class="lfl-partner-card__desc">Description coming soon.</div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- ══ PROGRAM ══ -->
@@ -1476,7 +1686,6 @@
 
     </div>
 
-    <!-- ══ TICKETS ══ -->
     <!-- ══ VENUE / CONTACT FOOTER ══ -->
     <div class="dbc-bottom">
       <div class="dbc-bottom__inner">
@@ -1503,206 +1712,6 @@
           <p style="font-size:15px;font-weight:600;color:var(--black);margin-bottom:12px;">Only with invitation</p>
           <a href="mailto:marcelina.plichta@wisehabit.com" class="dbc-bottom__email">marcelina.plichta@wisehabit.com</a>
         </div>
-      </div>
-    </div>
-
-    <!-- ══ PARTNERS ══ -->
-    <div class="lfl-partners">
-      <h2 class="lfl-partners__title">Partners</h2>
-      <div class="lfl-partner-grid">
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">LD Seating</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">IKEA</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Artemide</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">USM</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Foksal</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Muuto</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">BMW</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Unitra</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">CIFF</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Hushoffice</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Focus Hotel</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Strategic Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Wise Habit</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Organiser</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Jung</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Strategic Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Tubądzin</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">ArchiSnob</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Organiser</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
-          <div class="lfl-partner-card__img"></div>
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Pap Deco</div>
-            <div class="lfl-partner-card__toggle">
-              <span class="lfl-partner-card__label">Partner</span>
-              <span class="lfl-partner-card__plus">+</span>
-            </div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
-          </div>
-        </div>
-
       </div>
     </div>
 
