@@ -683,11 +683,12 @@
     }
     .lfl-post-hero__content {
       padding-top: 32px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: end;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 32px;
     }
+    .lfl-post-hero__content > div:first-child { flex: 1 1 300px; }
     .lfl-post-hero__label {
       font-size: 13px;
       font-weight: 700;
@@ -716,6 +717,7 @@
     .lfl-post-hero__btn {
       display: inline-block;
       padding: 13px 26px;
+      min-width: 160px;
       font-family: 'CircularXX', sans-serif;
       font-size: 14px;
       font-weight: 600;
@@ -749,9 +751,9 @@
       vertical-align: middle;
       letter-spacing: 0.03em;
     }
-    @media (max-width: 768px) {
-      .lfl-post-hero__content { grid-template-columns: 1fr; gap: 24px; }
-      .lfl-post-hero__btns { flex-direction: row; flex-wrap: wrap; }
+    @media (max-width: 600px) {
+      .lfl-post-hero__btns { width: 100%; }
+      .lfl-post-hero__btn { flex: 1; min-width: 0; }
     }
 
     /* ── LFL-specific overrides for shared components ── */
