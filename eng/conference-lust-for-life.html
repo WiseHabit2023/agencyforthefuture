@@ -559,6 +559,11 @@
       .lfl-partner-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
 
+    /* Partner modal overrides */
+    .lfl-partner-modal { grid-template-columns: 260px 1fr; min-height: unset; }
+    .lfl-partner-modal__img { aspect-ratio: 2/1; object-position: center; }
+    @media (max-width: 640px) { .lfl-partner-modal { grid-template-columns: 1fr; } }
+
     .dbc-bottom {
       background: var(--lfl-bg);
     }
@@ -1082,6 +1087,18 @@
               <div class="dbc-spk-card__read">+ READ MORE</div>
             </div>
           </div>
+
+          <div class="dbc-spk-card" onclick="openSpkModal('karolina','#55926B')">
+            <img class="dbc-spk-card__img"
+              src="../img/lfl-karolina-janczy.webp"
+              alt="Dr Karolina Janczy" loading="lazy"
+              onerror="this.style.background='#e0dbd5';this.removeAttribute('src')" />
+            <div class="dbc-spk-card__body">
+              <div class="dbc-spk-card__name">Dr Karolina Janczy</div>
+              <div class="dbc-spk-card__role">Interior Architecture - Where Desire Meets Space</div>
+              <div class="dbc-spk-card__read">+ READ MORE</div>
+            </div>
+          </div>
         </div>
 
         <!-- Block II: Architecture, Taste & Power -->
@@ -1227,144 +1244,127 @@
 
       <!-- Partnerzy główni -->
       <div class="lfl-partner-grid--main">
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('ld-seating')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-ld-seating.webp" alt="LD Seating" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">LD Seating</div>
-            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner główny</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
+            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Main Partner</span><span class="lfl-partner-card__plus">+</span></div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('ciff')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-ciff.webp" alt="CIFF" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">CIFF</div>
-            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner główny</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
+            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Main Partner</span><span class="lfl-partner-card__plus">+</span></div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('foksal')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-foksal.webp" alt="Foksal" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Foksal</div>
-            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner główny</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
+            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Main Partner</span><span class="lfl-partner-card__plus">+</span></div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('sarp')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-sarp.webp" alt="SARP" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">SARP</div>
-            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner główny</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
+            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Main Partner</span><span class="lfl-partner-card__plus">+</span></div>
           </div>
         </div>
       </div>
 
       <!-- Pozostali partnerzy -->
       <div class="lfl-partner-grid">
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('ikea')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-ikea.webp" alt="IKEA" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">IKEA</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('artemide')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-artemide.webp" alt="Artemide" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Artemide</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('usm')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-usm.webp" alt="USM" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">USM</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('muuto')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-muuto.webp" alt="Muuto" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Muuto</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('bmw')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-bmw.webp" alt="BMW" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">BMW</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('unitra')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-unitra.webp" alt="Unitra" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Unitra</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('hushoffice')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-hushoffice.webp" alt="Hushoffice" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Hushoffice</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('focus-hotel')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-focus-hotel.webp" alt="Focus Hotel" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Focus Hotel</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Strategic Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('wise-habit')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-wise-habit.webp" alt="Wise Habit" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Wise Habit</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Organiser</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('jung')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-jung.webp" alt="Jung" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Jung</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Strategic Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('tubadzin')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-tubadzin.webp" alt="Tubądzin" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Tubądzin</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('archisnob')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-archisnob.webp" alt="ArchiSnob" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">ArchiSnob</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Organiser</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="togglePartner(this)">
+        <div class="lfl-partner-card" onclick="openPartnerModal('pap-deco')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-pap-deco.webp" alt="Pap Deco" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Pap Deco</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
-            <div class="lfl-partner-card__desc">Description coming soon.</div>
           </div>
         </div>
       </div>
@@ -1728,6 +1728,21 @@
   </div>
 
   <!-- ══ SPEAKER MODAL ══ -->
+  <!-- ══ PARTNER MODAL ══ -->
+  <div class="dbc-modal-overlay" id="partnerModal" onclick="closePartnerModalOnOverlay(event)">
+    <div class="dbc-modal lfl-partner-modal" id="partnerModalInner">
+      <button class="dbc-modal__close" onclick="closePartnerModal()">×</button>
+      <div>
+        <img class="dbc-modal__img lfl-partner-modal__img" id="partnerModalImg" src="" alt="" loading="lazy" />
+      </div>
+      <div class="dbc-modal__content">
+        <div class="dbc-modal__cat" id="partnerModalLabel"></div>
+        <div class="dbc-modal__name" id="partnerModalName"></div>
+        <div class="dbc-modal__desc" id="partnerModalDesc"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="dbc-modal-overlay" id="dbcModal" onclick="closeSpkModalOnOverlay(event)">
     <div class="dbc-modal" id="dbcModalInner">
       <button class="dbc-modal__close" onclick="closeSpkModal()">×</button>
@@ -1890,6 +1905,131 @@
     card.classList.toggle('open');
   }
 
+  /* ── PARTNER DATA ── */
+  const PARTNERS = {
+    'ld-seating': {
+      label: 'Main Partner',
+      name: 'LD Seating',
+      desc: 'LD Seating is a family-run business from Boskovice, Czech Republic, with over 30 years of experience as a leading seating manufacturer in the Czech and European markets. We design, develop and produce seating solutions with a commitment to trust and reliability. Each chair reflects the care and craftsmanship of our dedicated team, meeting the expectations of global partners and customers. Our evolution is driven by continuous innovation and expertise, and by pushing the limits of design and craftsmanship with every chair.',
+      img: '../img/lfl-partner-ld-seating.webp'
+    },
+    'ciff': {
+      label: 'Main Partner',
+      name: 'CIFF',
+      desc: 'Established in 1998, China International Furniture Fair (CIFF) has been successfully held for 57 sessions. Since September 2015, it takes place twice yearly in both Guangzhou in March and Shanghai in September. In May 2024, CIFF (Tianjin) debuted in Tianjin. Over the years, CIFF has built itself as the world\'s largest home furnishing fair with the entire industry chain. CIFF Guangzhou hosts over 5,100 brands from China and abroad and draws more than 380,000 professional visitors from more than 200 countries and regions, making it the foremost exhibition for Design Trend, Intelligent Manufacturing, Trade Promotion, and Quality Consumption.',
+      img: '../img/lfl-partner-ciff.webp'
+    },
+    'foksal': {
+      label: 'Main Partner',
+      name: 'Foksal',
+      desc: 'The Foksal Palace was built between 1875 and 1877 for Konstanty Zamoyski, an aristocrat and member of the prominent magnate family. The architect was the distinguished Leandro Marconi, who gave the building the style of French neo-Renaissance with classical elements. The Zamoyski Palace is a unique residence with over 150 years of history. Its extraordinary architecture, aristocratic past and prestigious location make it one of the most recognizable urban palaces in the capital.',
+      img: '../img/lfl-partner-foksal.webp'
+    },
+    'sarp': {
+      label: 'Main Partner',
+      name: 'SARP',
+      desc: 'The history of the association of Polish architects spans 135 years. After regaining independence, the Circle of Architects in Warsaw organized the First General Congress of Architects in 1919. In 1926, the Association of Polish Architects — SAP — was established in Warsaw. In July 1934, the General Delegate Assembly established SARP — uniting all architectural organizations. In 1952, the name was changed to the Association of Polish Architects, retaining the traditional abbreviation SARP. The association has played a key role in shaping Polish architecture, setting professional standards, organizing competitions, and representing architects on the national and international stage.',
+      img: '../img/lfl-partner-sarp.webp'
+    },
+    'ikea': {
+      label: 'Partner',
+      name: 'IKEA',
+      desc: 'The IKEA story began in the Swedish town of Älmhult in the 1940s, with an enterprising boy who hoped to improve the lives of people everywhere. What started as a tiny mail order company in rural Sweden has now become a global home furnishing brand that brings affordability, design and comfort to people all over the world. We may have come a long way since our humble beginnings, but our vision remains the same: to create a better everyday life for the many people.',
+      img: '../img/lfl-partner-ikea.webp'
+    },
+    'artemide': {
+      label: 'Partner',
+      name: 'Artemide',
+      desc: 'Founded in 1960 by Ernesto Gismondi, Artemide is based in Pregnana Milanese, Italy, and operates through 18 subsidiaries. Its distribution network includes 14 branded showrooms in the main cities around the world. Known for its "The Human Light" philosophy, Artemide boasts high skills in light design and innovation, with products originating from research and high-quality manufacturing. Technological research, partnerships with outstanding architects, and sociocultural investigation have been at the origin of innovative projects capable of illuminating the future with unabated power.',
+      img: '../img/lfl-partner-artemide.webp'
+    },
+    'usm': {
+      label: 'Partner',
+      name: 'USM',
+      desc: 'Founded in 1885, the USM family-owned company is now managed by the fourth generation. Synonymous with adaptable, timeless design, the USM brand stands for quality and precision, high-quality raw materials, meticulous artisans and unconditional dedication. Driven by customer interest and respect for the environment. Today, USM is synonymous with timeless, sustainable design that evolves with our needs, generation after generation, whether in the workplace or at home.',
+      img: '../img/lfl-partner-usm.webp'
+    },
+    'muuto': {
+      label: 'Partner',
+      name: 'Muuto',
+      desc: 'Muuto is rooted in the Scandinavian design tradition characterized by enduring aesthetics, functionality, craftsmanship and an honest expression. By expanding this heritage with forward-looking materials, techniques and bold creative thinking, our ambition is to deliver new perspectives on Scandinavian design. Our name comes from muutos, meaning "new perspective" in Finnish. We handpick leading contemporary designers who are strong interpreters of our philosophy — objects made sublime through new perspectives, enjoyed across the world, representing the best of Scandinavian design today.',
+      img: '../img/lfl-partner-muuto.webp'
+    },
+    'bmw': {
+      label: 'Partner',
+      name: 'BMW',
+      desc: 'BMW Group is a world leader among manufacturers of premium automobiles and motorcycles, combining the highest standards with outstanding quality. Our innovations create emotions, fascinations and enthusiasm, while promises for the future are born from an exceptional history of reinvention. At BMW Group, we are driven by the belief that great design and engineering can move people — not just from place to place, but in ways that matter.',
+      img: '../img/lfl-partner-bmw.webp'
+    },
+    'unitra': {
+      label: 'Partner',
+      name: 'Unitra',
+      desc: 'Unitra is an iconic brand symbolizing 30 years of audio-video equipment production in Poland. It is fair to say that every household in the country had a device bearing this brand\'s name. For people, Unitra was more than just hardware — it was a breath of modernity, access to previously unattainable technology, enabling them to listen to music and watch television. Today we produce devices in new economic and social realities, yet as in the past, we want to evoke emotions with our products. We believe that engineering is an art, and we want to inspire that passion in people.',
+      img: '../img/lfl-partner-unitra.webp'
+    },
+    'hushoffice': {
+      label: 'Partner',
+      name: 'Hushoffice',
+      desc: 'Hushoffice is a brand belonging to Mikomax — one of Europe\'s leading manufacturers of professional acoustic pods for work and meetings in peace and quiet. Hushoffice acoustic pods are designed to absorb and block sound transmission, relying on the physical properties of sound waves to ensure the acoustic comfort that office workers expect. Our company has over 30 years of experience in contract furniture production and over 8 years in acoustic pods. Our products are available in more than 50 countries on almost every continent, with over 100 trade partners in export markets. Our production facility is located in Łódź, Poland.',
+      img: '../img/lfl-partner-hushoffice.webp'
+    },
+    'focus-hotel': {
+      label: 'Strategic Partner',
+      name: 'Focus Hotel',
+      desc: 'Hotels with soul and history. Exceptional places such as Focus Łódź and Focus Premium Pod Orłem — venues that once served a different purpose than they do today. A stay at these hotels is an extraordinary journey through time and an opportunity to explore a history through which thousands of people have passed. Both properties are listed as historic monuments. Focus Hotels are also the ideal choice for business meetings: each hotel features modern, air-conditioned conference rooms and professional service, guaranteeing the success of every event.',
+      img: '../img/lfl-partner-focus-hotel.webp'
+    },
+    'wise-habit': {
+      label: 'Organiser',
+      name: 'Wise Habit',
+      desc: 'Wise Habit is an umbrella company for brands and the services of the Wise Habit concept store. We produce under the tre product and Wise Habit brands, and provide services in design, product development, strategy and sales. We stand for design that creates a mindful and sustainable world. We believe that products shape our lives — that is why at Wise Habit we choose ideas and products that support you every step of the way, helping you build wise habits to live a conscious, meaningful life. Everything we do is united by our shared values: design, sustainability and mindfulness.',
+      img: '../img/lfl-partner-wise-habit.webp'
+    },
+    'jung': {
+      label: 'Strategic Partner',
+      name: 'Jung',
+      desc: 'German precision since 1912. JUNG electrical systems combine innovation with uncompromising quality, creating solutions for the most demanding projects. Since its founding, JUNG has continuously developed and played a key role in the dynamic evolution of electronics — from light switches, through blind controls, security systems, sensors, radio technology and KNX, to energy monitoring. Since 1993, the company has been led by Harald Jung, representing the third generation of the founding family, guided by the principle that has ensured market success to date: progress as tradition.',
+      img: '../img/lfl-partner-jung.webp'
+    },
+    'tubadzin': {
+      label: 'Partner',
+      name: 'Tubądzin',
+      desc: 'For 40 years, Tubądzin has set design trends, with products characterized by world-class quality thanks to the use of the most advanced technologies. In 2016, the company launched the most modern production plant in this part of Europe, becoming a Polish pioneer in the production of large-format tiles reaching up to 120 × 275 cm. Tubądzin tiles are made from natural and noble raw materials, colored with dyes that are safe for health and the environment. They can be used in any space — not only bathrooms — and work excellently as original and durable furniture cladding as well as façade coverings.',
+      img: '../img/lfl-partner-tubadzin.webp'
+    },
+    'archisnob': {
+      label: 'Organiser',
+      name: 'ArchiSnob',
+      desc: 'We are architecture snobs. We come from that part of Europe variously called Central, Eastern, or the Intermarium. We believe architecture matters — and it concerns absolutely everyone. What architects design and build typically lasts for generations, influencing people\'s lives, shaping neighborhoods, cities and countries. The better we understand architecture, the better world we can create. That is why we want to spark discussion about the spaces we live in and the buildings we inhabit — especially among those who until now have had little knowledge of architecture and design. Architecture should not be hermetic; the ArchiSnob platform provides tools for this broader conversation.',
+      img: '../img/lfl-partner-archisnob.webp'
+    },
+    'pap-deco': {
+      label: 'Partner',
+      name: 'Pap Deco',
+      desc: 'PAP DECO is craftsmanship, generational tradition and beauty captured in brass. It is the traditional brass casting technique — known for decades — expressed in the extraordinary form of furniture handles and wall decorations. It is a timeless material and form that will withstand any test of time. Our mission is to inspire people to surround themselves with the beauty born from skilled hands and to create extraordinary experiences every day.',
+      img: '../img/lfl-partner-pap-deco.webp'
+    }
+  };
+
+  function openPartnerModal(id) {
+    const p = PARTNERS[id];
+    if (!p) return;
+    document.getElementById('partnerModalImg').src = p.img;
+    document.getElementById('partnerModalImg').alt = p.name;
+    document.getElementById('partnerModalLabel').textContent = p.label;
+    document.getElementById('partnerModalName').textContent = p.name;
+    document.getElementById('partnerModalDesc').textContent = p.desc;
+    document.getElementById('partnerModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePartnerModal() {
+    document.getElementById('partnerModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closePartnerModalOnOverlay(e) {
+    if (e.target === document.getElementById('partnerModal')) closePartnerModal();
+  }
+
   /* ── SPEAKER DATA ── */
   const SPEAKERS = {
     'philbarden': {
@@ -1919,6 +2059,13 @@
       role: 'From Good Design to Good Business - Wise Habit',
       desc: 'Founder and CEO of Wise Habit. An entrepreneur and strategist who has brought over 300 products to market. She explores how design decisions translate into commercial results - from concept through production to the shelf - and what separates products that endure from those that disappear.',
       img: '../img/Conference_host_Marcelina_Plichta.webp'
+    },
+    'karolina': {
+      cat: 'Block I - The Business of Desire', color: '#55926B',
+      name: 'Dr Karolina Janczy',
+      role: 'Interior Architecture - Where Desire Meets Space',
+      desc: 'Dr Karolina Janczy is a Polish interior architect, designer, set designer and academic lecturer with over twenty years of experience. She is the founder and lead designer of Janczy Studio, established in 2004, with projects spanning Milan, Venice, Shanghai and Paris. A graduate of the Jan Matejko Academy of Fine Arts in Kraków, where she also earned her doctorate in interior architecture. Her practice is known for modern elegance, meticulous attention to detail, and a rigorous focus on function and ergonomics - from bespoke furniture and custom interiors to theatre set and costume design.',
+      img: '../img/lfl-karolina-janczy.webp'
     },
     'menis': {
       cat: 'Block II - Architecture, Taste & Power', color: '#89A8AB',
@@ -2035,7 +2182,7 @@
   function closeSpkModalOnOverlay(e) {
     if (e.target === document.getElementById('dbcModal')) closeSpkModal();
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSpkModal(); closeLightbox(); } });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSpkModal(); closePartnerModal(); closeLightbox(); } });
 
   // Lightbox
   function openLightbox(src) {
