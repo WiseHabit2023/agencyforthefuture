@@ -561,7 +561,10 @@
 
     /* Partner modal overrides */
     .lfl-partner-modal { grid-template-columns: 260px 1fr; min-height: unset; }
-    .lfl-partner-modal__img { aspect-ratio: 2/1; object-position: center; }
+    .lfl-partner-modal .dbc-modal__img { aspect-ratio: 2/1; object-position: center; object-fit: contain; background: #f4f4f2; }
+    .lfl-partner-modal__link { display: inline-block; margin-top: 20px; font-size: 14px; font-weight: 700; color: var(--lfl-blue); text-decoration: none; border-bottom: 1.5px solid var(--lfl-blue); padding-bottom: 1px; }
+    .lfl-partner-modal__link:hover { opacity: 0.7; }
+    .lfl-partner-modal__link[href="#"] { display: none; }
     @media (max-width: 640px) { .lfl-partner-modal { grid-template-columns: 1fr; } }
 
     .dbc-bottom {
@@ -667,67 +670,73 @@
     }
     /* ── Post-event hero ── */
     .lfl-post-hero {
-      background: var(--lfl-bg);
+      position: relative;
+      background: #000;
+      overflow: hidden;
     }
     .lfl-post-hero__img {
       width: 100%;
       height: auto;
       display: block;
+      opacity: 0.82;
     }
     .lfl-post-hero__content {
+      position: absolute;
+      inset: 0;
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 40px var(--pad-h) 48px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 48px;
-      align-items: end;
+      padding: 0 var(--pad-h);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 48px;
+      left: 0; right: 0;
     }
     .lfl-post-hero__label {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      color: var(--lfl-blue);
+      color: rgba(255,255,255,0.7);
       margin-bottom: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
     .lfl-post-hero__title {
       font-family: 'CircularXX', sans-serif;
-      font-size: clamp(34px, 5vw, 68px);
+      font-size: clamp(32px, 4.5vw, 64px);
       font-weight: 700;
       font-style: italic;
-      color: var(--lfl-blue);
+      color: #fff;
       line-height: 1.05;
       letter-spacing: -0.5px;
-      margin: 0;
+      margin: 0 0 28px;
     }
     .lfl-post-hero__btns {
       display: flex;
       flex-direction: row;
       gap: 12px;
-      flex-shrink: 0;
-      align-items: center;
+      flex-wrap: wrap;
     }
     .lfl-post-hero__btn {
       display: inline-block;
-      padding: 14px 28px;
+      padding: 13px 26px;
       font-family: 'CircularXX', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 600;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 3px;
       white-space: nowrap;
       transition: opacity 0.2s;
-      text-align: center;
     }
     .lfl-post-hero__btn:hover { opacity: 0.8; }
     .lfl-post-hero__btn--outline {
-      border: 1.5px solid var(--lfl-blue);
-      color: var(--lfl-blue);
+      border: 1.5px solid rgba(255,255,255,0.7);
+      color: #fff;
       background: transparent;
     }
     .lfl-post-hero__btn--filled {
-      background: var(--lfl-blue);
-      color: #fff;
-      border: 1.5px solid var(--lfl-blue);
+      background: #fff;
+      color: var(--lfl-blue);
+      border: 1.5px solid #fff;
     }
     /* Past event badge */
     .lfl-past-badge {
@@ -743,7 +752,7 @@
       letter-spacing: 0.03em;
     }
     @media (max-width: 768px) {
-      .lfl-post-hero__content { grid-template-columns: 1fr; gap: 24px; }
+      .lfl-post-hero__content { padding-bottom: 28px; }
       .lfl-post-hero__btns { flex-wrap: wrap; }
     }
 
@@ -808,7 +817,7 @@
         <li class="nav__dropdown"><span>exhibitions &amp; conferences</span>
           <div class="nav__dropdown-menu">
             <a href="power-of-three.html">Ethical Design Exhibition</a>
-            <a href="conference-lust-for-life.html">lust for life</a>
+            <a href="conference-lust-for-life.html">Lust for Life Lust for Business</a>
             <a href="archive.html" style="display:none">Conferences We Participated In</a>
           </div>
         </li>
@@ -846,7 +855,7 @@
       <li><span>exhibitions &amp; conferences</span>
         <ul class="nav__mobile-sub">
           <li><a href="power-of-three.html">Ethical Design Exhibition</a></li>
-          <li><a href="conference-lust-for-life.html">lust for life</a></li>
+          <li><a href="conference-lust-for-life.html">Lust for Life Lust for Business</a></li>
           <li style="display:none"><a href="archive.html">Conferences We Participated In</a></li>
         </ul>
       </li>
@@ -867,15 +876,13 @@
 
     <!-- ══ POST-EVENT HERO ══ -->
     <div class="lfl-post-hero">
-      <img class="lfl-post-hero__img" src="../img/lfl-baner.webp" alt="Lust for Life. Lust for Business. - 29.09.2026" loading="eager" />
+      <img class="lfl-post-hero__img" src="../img/lfl-baner2.webp" alt="Lust for Life. Lust for Business. - 29.09.2026" loading="eager" />
       <div class="lfl-post-hero__content">
-        <div>
-          <p class="lfl-post-hero__label">Lust for Life. Lust for Business. · 29.09.2026 · SARP Foksal, Warsaw</p>
-          <h2 class="lfl-post-hero__title">Thank you for joining.<br>See you in February.</h2>
-        </div>
+        <p class="lfl-post-hero__label">Lust for Life. Lust for Business. · 29.09.2026 · SARP Foksal, Warsaw</p>
+        <h2 class="lfl-post-hero__title">Thank you for joining.<br>See you in February.</h2>
         <div class="lfl-post-hero__btns">
           <a href="#program" class="lfl-post-hero__btn lfl-post-hero__btn--outline">learn more →</a>
-          <a href="mailto:marcelina.plichta@wisehabit.com" class="lfl-post-hero__btn lfl-post-hero__btn--filled">let's talk →</a>
+          <a href="mailto:office@wisehabit.com" class="lfl-post-hero__btn lfl-post-hero__btn--filled">let's talk →</a>
         </div>
       </div>
     </div>
@@ -1075,7 +1082,7 @@
             </div>
           </div>
 
-          <div class="dbc-spk-card" onclick="openSpkModal('karolina','#55926B')">
+          <div class="dbc-spk-card" onclick="openSpkModal('karolina-janczy','#55926B')">
             <img class="dbc-spk-card__img"
               src="../img/lfl-karolina-janczy.webp"
               alt="Dr Karolina Janczy" loading="lazy"
@@ -1319,13 +1326,6 @@
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Strategic Partner</span><span class="lfl-partner-card__plus">+</span></div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="openPartnerModal('wise-habit')">
-          <img class="lfl-partner-card__img" src="../img/lfl-partner-wise-habit.webp" alt="Wise Habit" loading="lazy">
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">Wise Habit</div>
-            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Organiser</span><span class="lfl-partner-card__plus">+</span></div>
-          </div>
-        </div>
         <div class="lfl-partner-card" onclick="openPartnerModal('jung')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-jung.webp" alt="Jung" loading="lazy">
           <div class="lfl-partner-card__body">
@@ -1340,18 +1340,18 @@
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
           </div>
         </div>
-        <div class="lfl-partner-card" onclick="openPartnerModal('archisnob')">
-          <img class="lfl-partner-card__img" src="../img/lfl-partner-archisnob.webp" alt="ArchiSnob" loading="lazy">
-          <div class="lfl-partner-card__body">
-            <div class="lfl-partner-card__name">ArchiSnob</div>
-            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Organiser</span><span class="lfl-partner-card__plus">+</span></div>
-          </div>
-        </div>
         <div class="lfl-partner-card" onclick="openPartnerModal('pap-deco')">
           <img class="lfl-partner-card__img" src="../img/lfl-partner-pap-deco.webp" alt="Pap Deco" loading="lazy">
           <div class="lfl-partner-card__body">
             <div class="lfl-partner-card__name">Pap Deco</div>
             <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Partner</span><span class="lfl-partner-card__plus">+</span></div>
+          </div>
+        </div>
+        <div class="lfl-partner-card" onclick="openPartnerModal('wise-habit')">
+          <img class="lfl-partner-card__img" src="../img/lfl-partner-wise-habit.webp" alt="Wise Habit" loading="lazy">
+          <div class="lfl-partner-card__body">
+            <div class="lfl-partner-card__name">Wise Habit</div>
+            <div class="lfl-partner-card__toggle"><span class="lfl-partner-card__label">Organiser</span><span class="lfl-partner-card__plus">+</span></div>
           </div>
         </div>
       </div>
@@ -1726,6 +1726,7 @@
         <div class="dbc-modal__cat" id="partnerModalLabel"></div>
         <div class="dbc-modal__name" id="partnerModalName"></div>
         <div class="dbc-modal__desc" id="partnerModalDesc"></div>
+        <a class="lfl-partner-modal__link" id="partnerModalLink" href="#" target="_blank" rel="noopener">Visit website →</a>
       </div>
     </div>
   </div>
@@ -1897,102 +1898,112 @@
     'ld-seating': {
       label: 'Main Partner',
       name: 'LD Seating',
+      url: 'https://www.ldseating.com',
       desc: 'LD Seating is a family-run business from Boskovice, Czech Republic, with over 30 years of experience as a leading seating manufacturer in the Czech and European markets. We design, develop and produce seating solutions with a commitment to trust and reliability. Each chair reflects the care and craftsmanship of our dedicated team, meeting the expectations of global partners and customers. Our evolution is driven by continuous innovation and expertise, and by pushing the limits of design and craftsmanship with every chair.',
       img: '../img/lfl-partner-ld-seating.webp'
     },
     'ciff': {
       label: 'Main Partner',
       name: 'CIFF',
+      url: 'https://www.ciff-gz.com',
       desc: 'Established in 1998, China International Furniture Fair (CIFF) has been successfully held for 57 sessions. Since September 2015, it takes place twice yearly in both Guangzhou in March and Shanghai in September. In May 2024, CIFF (Tianjin) debuted in Tianjin. Over the years, CIFF has built itself as the world\'s largest home furnishing fair with the entire industry chain. CIFF Guangzhou hosts over 5,100 brands from China and abroad and draws more than 380,000 professional visitors from more than 200 countries and regions, making it the foremost exhibition for Design Trend, Intelligent Manufacturing, Trade Promotion, and Quality Consumption.',
       img: '../img/lfl-partner-ciff.webp'
     },
     'foksal': {
       label: 'Main Partner',
       name: 'Foksal',
+      url: 'https://palacfoksal.pl',
       desc: 'The Foksal Palace was built between 1875 and 1877 for Konstanty Zamoyski, an aristocrat and member of the prominent magnate family. The architect was the distinguished Leandro Marconi, who gave the building the style of French neo-Renaissance with classical elements. The Zamoyski Palace is a unique residence with over 150 years of history. Its extraordinary architecture, aristocratic past and prestigious location make it one of the most recognizable urban palaces in the capital.',
       img: '../img/lfl-partner-foksal.webp'
     },
     'sarp': {
       label: 'Main Partner',
       name: 'SARP',
+      url: 'https://www.sarp.org.pl',
       desc: 'The history of the association of Polish architects spans 135 years. After regaining independence, the Circle of Architects in Warsaw organized the First General Congress of Architects in 1919. In 1926, the Association of Polish Architects — SAP — was established in Warsaw. In July 1934, the General Delegate Assembly established SARP — uniting all architectural organizations. In 1952, the name was changed to the Association of Polish Architects, retaining the traditional abbreviation SARP. The association has played a key role in shaping Polish architecture, setting professional standards, organizing competitions, and representing architects on the national and international stage.',
       img: '../img/lfl-partner-sarp.webp'
     },
     'ikea': {
       label: 'Partner',
       name: 'IKEA',
+      url: 'https://www.ikea.com',
       desc: 'The IKEA story began in the Swedish town of Älmhult in the 1940s, with an enterprising boy who hoped to improve the lives of people everywhere. What started as a tiny mail order company in rural Sweden has now become a global home furnishing brand that brings affordability, design and comfort to people all over the world. We may have come a long way since our humble beginnings, but our vision remains the same: to create a better everyday life for the many people.',
       img: '../img/lfl-partner-ikea.webp'
     },
     'artemide': {
       label: 'Partner',
       name: 'Artemide',
+      url: 'https://www.artemide.com',
       desc: 'Founded in 1960 by Ernesto Gismondi, Artemide is based in Pregnana Milanese, Italy, and operates through 18 subsidiaries. Its distribution network includes 14 branded showrooms in the main cities around the world. Known for its "The Human Light" philosophy, Artemide boasts high skills in light design and innovation, with products originating from research and high-quality manufacturing. Technological research, partnerships with outstanding architects, and sociocultural investigation have been at the origin of innovative projects capable of illuminating the future with unabated power.',
       img: '../img/lfl-partner-artemide.webp'
     },
     'usm': {
       label: 'Partner',
       name: 'USM',
+      url: 'https://www.usm.com',
       desc: 'Founded in 1885, the USM family-owned company is now managed by the fourth generation. Synonymous with adaptable, timeless design, the USM brand stands for quality and precision, high-quality raw materials, meticulous artisans and unconditional dedication. Driven by customer interest and respect for the environment. Today, USM is synonymous with timeless, sustainable design that evolves with our needs, generation after generation, whether in the workplace or at home.',
       img: '../img/lfl-partner-usm.webp'
     },
     'muuto': {
       label: 'Partner',
       name: 'Muuto',
+      url: 'https://www.muuto.com',
       desc: 'Muuto is rooted in the Scandinavian design tradition characterized by enduring aesthetics, functionality, craftsmanship and an honest expression. By expanding this heritage with forward-looking materials, techniques and bold creative thinking, our ambition is to deliver new perspectives on Scandinavian design. Our name comes from muutos, meaning "new perspective" in Finnish. We handpick leading contemporary designers who are strong interpreters of our philosophy — objects made sublime through new perspectives, enjoyed across the world, representing the best of Scandinavian design today.',
       img: '../img/lfl-partner-muuto.webp'
     },
     'bmw': {
       label: 'Partner',
       name: 'BMW',
+      url: 'https://www.bmw.pl',
       desc: 'BMW Group is a world leader among manufacturers of premium automobiles and motorcycles, combining the highest standards with outstanding quality. Our innovations create emotions, fascinations and enthusiasm, while promises for the future are born from an exceptional history of reinvention. At BMW Group, we are driven by the belief that great design and engineering can move people — not just from place to place, but in ways that matter.',
       img: '../img/lfl-partner-bmw.webp'
     },
     'unitra': {
       label: 'Partner',
       name: 'Unitra',
+      url: 'https://unitra.pl',
       desc: 'Unitra is an iconic brand symbolizing 30 years of audio-video equipment production in Poland. It is fair to say that every household in the country had a device bearing this brand\'s name. For people, Unitra was more than just hardware — it was a breath of modernity, access to previously unattainable technology, enabling them to listen to music and watch television. Today we produce devices in new economic and social realities, yet as in the past, we want to evoke emotions with our products. We believe that engineering is an art, and we want to inspire that passion in people.',
       img: '../img/lfl-partner-unitra.webp'
     },
     'hushoffice': {
       label: 'Partner',
       name: 'Hushoffice',
+      url: 'https://hushoffice.com',
       desc: 'Hushoffice is a brand belonging to Mikomax — one of Europe\'s leading manufacturers of professional acoustic pods for work and meetings in peace and quiet. Hushoffice acoustic pods are designed to absorb and block sound transmission, relying on the physical properties of sound waves to ensure the acoustic comfort that office workers expect. Our company has over 30 years of experience in contract furniture production and over 8 years in acoustic pods. Our products are available in more than 50 countries on almost every continent, with over 100 trade partners in export markets. Our production facility is located in Łódź, Poland.',
       img: '../img/lfl-partner-hushoffice.webp'
     },
     'focus-hotel': {
       label: 'Strategic Partner',
       name: 'Focus Hotel',
+      url: 'https://www.focushotels.pl',
       desc: 'Hotels with soul and history. Exceptional places such as Focus Łódź and Focus Premium Pod Orłem — venues that once served a different purpose than they do today. A stay at these hotels is an extraordinary journey through time and an opportunity to explore a history through which thousands of people have passed. Both properties are listed as historic monuments. Focus Hotels are also the ideal choice for business meetings: each hotel features modern, air-conditioned conference rooms and professional service, guaranteeing the success of every event.',
       img: '../img/lfl-partner-focus-hotel.webp'
     },
     'wise-habit': {
       label: 'Organiser',
       name: 'Wise Habit',
+      url: 'https://wisehabit.com',
       desc: 'Wise Habit is an umbrella company for brands and the services of the Wise Habit concept store. We produce under the tre product and Wise Habit brands, and provide services in design, product development, strategy and sales. We stand for design that creates a mindful and sustainable world. We believe that products shape our lives — that is why at Wise Habit we choose ideas and products that support you every step of the way, helping you build wise habits to live a conscious, meaningful life. Everything we do is united by our shared values: design, sustainability and mindfulness.',
       img: '../img/lfl-partner-wise-habit.webp'
     },
     'jung': {
       label: 'Strategic Partner',
       name: 'Jung',
+      url: 'https://www.jung.de',
       desc: 'German precision since 1912. JUNG electrical systems combine innovation with uncompromising quality, creating solutions for the most demanding projects. Since its founding, JUNG has continuously developed and played a key role in the dynamic evolution of electronics — from light switches, through blind controls, security systems, sensors, radio technology and KNX, to energy monitoring. Since 1993, the company has been led by Harald Jung, representing the third generation of the founding family, guided by the principle that has ensured market success to date: progress as tradition.',
       img: '../img/lfl-partner-jung.webp'
     },
     'tubadzin': {
       label: 'Partner',
       name: 'Tubądzin',
+      url: 'https://www.tubadzin.pl',
       desc: 'For 40 years, Tubądzin has set design trends, with products characterized by world-class quality thanks to the use of the most advanced technologies. In 2016, the company launched the most modern production plant in this part of Europe, becoming a Polish pioneer in the production of large-format tiles reaching up to 120 × 275 cm. Tubądzin tiles are made from natural and noble raw materials, colored with dyes that are safe for health and the environment. They can be used in any space — not only bathrooms — and work excellently as original and durable furniture cladding as well as façade coverings.',
       img: '../img/lfl-partner-tubadzin.webp'
-    },
-    'archisnob': {
-      label: 'Organiser',
-      name: 'ArchiSnob',
-      desc: 'We are architecture snobs. We come from that part of Europe variously called Central, Eastern, or the Intermarium. We believe architecture matters — and it concerns absolutely everyone. What architects design and build typically lasts for generations, influencing people\'s lives, shaping neighborhoods, cities and countries. The better we understand architecture, the better world we can create. That is why we want to spark discussion about the spaces we live in and the buildings we inhabit — especially among those who until now have had little knowledge of architecture and design. Architecture should not be hermetic; the ArchiSnob platform provides tools for this broader conversation.',
-      img: '../img/lfl-partner-archisnob.webp'
     },
     'pap-deco': {
       label: 'Partner',
       name: 'Pap Deco',
+      url: 'https://papdeco.pl',
       desc: 'PAP DECO is craftsmanship, generational tradition and beauty captured in brass. It is the traditional brass casting technique — known for decades — expressed in the extraordinary form of furniture handles and wall decorations. It is a timeless material and form that will withstand any test of time. Our mission is to inspire people to surround themselves with the beauty born from skilled hands and to create extraordinary experiences every day.',
       img: '../img/lfl-partner-pap-deco.webp'
     }
@@ -2006,6 +2017,8 @@
     document.getElementById('partnerModalLabel').textContent = p.label;
     document.getElementById('partnerModalName').textContent = p.name;
     document.getElementById('partnerModalDesc').textContent = p.desc;
+    const link = document.getElementById('partnerModalLink');
+    link.href = p.url || '#';
     document.getElementById('partnerModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -2047,7 +2060,7 @@
       desc: 'Founder and CEO of Wise Habit. An entrepreneur and strategist who has brought over 300 products to market. She explores how design decisions translate into commercial results - from concept through production to the shelf - and what separates products that endure from those that disappear.',
       img: '../img/Conference_host_Marcelina_Plichta.webp'
     },
-    'karolina': {
+    'karolina-janczy': {
       cat: 'Block I - The Business of Desire', color: '#55926B',
       name: 'Dr Karolina Janczy',
       role: 'Interior Architecture - Where Desire Meets Space',
@@ -2126,10 +2139,10 @@
     },
     'karolina': {
       cat: 'Block I - Discussion', color: '#E8195A',
-      name: 'Karolina Janczyk',
+      name: 'Dr Karolina Janczy',
       role: 'Discussion Sum-Up - Block I',
-      desc: 'Karolina Janczyk joins the Block I closing discussion, contributing perspectives on product, manufacturing, and the relationship between commercial thinking and design ethics.',
-      img: '../img/lfl-karolina-janczyk.webp'
+      desc: 'Dr Karolina Janczy joins the Block I closing discussion, contributing perspectives on product, manufacturing, and the relationship between commercial thinking and design ethics.',
+      img: '../img/lfl-karolina-janczy.webp'
     },
     'anna': {
       cat: 'Block II - AI Discussion', color: '#3AE000',
