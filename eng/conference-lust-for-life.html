@@ -670,51 +670,47 @@
     }
     /* ── Post-event hero ── */
     .lfl-post-hero {
-      position: relative;
-      background: #000;
-      overflow: hidden;
+      background: var(--lfl-bg);
+      padding: 48px var(--pad-h);
+      max-width: var(--max-w);
+      margin: 0 auto;
     }
     .lfl-post-hero__img {
       width: 100%;
       height: auto;
       display: block;
-      opacity: 0.82;
+      border-radius: 4px;
     }
     .lfl-post-hero__content {
-      position: absolute;
-      inset: 0;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--pad-h);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding-bottom: 48px;
-      left: 0; right: 0;
+      padding-top: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: end;
     }
     .lfl-post-hero__label {
       font-size: 13px;
       font-weight: 700;
-      color: rgba(255,255,255,0.7);
+      color: var(--lfl-blue);
       margin-bottom: 10px;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
     .lfl-post-hero__title {
       font-family: 'CircularXX', sans-serif;
-      font-size: clamp(32px, 4.5vw, 64px);
+      font-size: clamp(28px, 4vw, 56px);
       font-weight: 700;
       font-style: italic;
-      color: #fff;
+      color: var(--lfl-blue);
       line-height: 1.05;
       letter-spacing: -0.5px;
-      margin: 0 0 28px;
+      margin: 0;
     }
     .lfl-post-hero__btns {
       display: flex;
-      flex-direction: row;
-      gap: 12px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
     }
     .lfl-post-hero__btn {
       display: inline-block;
@@ -726,17 +722,18 @@
       border-radius: 3px;
       white-space: nowrap;
       transition: opacity 0.2s;
+      text-align: center;
     }
     .lfl-post-hero__btn:hover { opacity: 0.8; }
     .lfl-post-hero__btn--outline {
-      border: 1.5px solid rgba(255,255,255,0.7);
-      color: #fff;
+      border: 1.5px solid var(--lfl-blue);
+      color: var(--lfl-blue);
       background: transparent;
     }
     .lfl-post-hero__btn--filled {
-      background: #fff;
-      color: var(--lfl-blue);
-      border: 1.5px solid #fff;
+      background: var(--lfl-blue);
+      color: #fff;
+      border: 1.5px solid var(--lfl-blue);
     }
     /* Past event badge */
     .lfl-past-badge {
@@ -752,8 +749,8 @@
       letter-spacing: 0.03em;
     }
     @media (max-width: 768px) {
-      .lfl-post-hero__content { padding-bottom: 28px; }
-      .lfl-post-hero__btns { flex-wrap: wrap; }
+      .lfl-post-hero__content { grid-template-columns: 1fr; gap: 24px; }
+      .lfl-post-hero__btns { flex-direction: row; flex-wrap: wrap; }
     }
 
     /* ── LFL-specific overrides for shared components ── */
@@ -878,8 +875,10 @@
     <div class="lfl-post-hero">
       <img class="lfl-post-hero__img" src="../img/lfl-baner2.webp" alt="Lust for Life. Lust for Business. - 29.09.2026" loading="eager" />
       <div class="lfl-post-hero__content">
-        <p class="lfl-post-hero__label">Lust for Life. Lust for Business. · 29.09.2026 · SARP Foksal, Warsaw</p>
-        <h2 class="lfl-post-hero__title">Thank you for joining.<br>See you in February.</h2>
+        <div>
+          <p class="lfl-post-hero__label">Lust for Life. Lust for Business. · 29.09.2026 · SARP Foksal, Warsaw</p>
+          <h2 class="lfl-post-hero__title">Thank you for joining.<br>See you in February.</h2>
+        </div>
         <div class="lfl-post-hero__btns">
           <a href="#program" class="lfl-post-hero__btn lfl-post-hero__btn--outline">learn more →</a>
           <a href="mailto:office@wisehabit.com" class="lfl-post-hero__btn lfl-post-hero__btn--filled">let's talk →</a>
