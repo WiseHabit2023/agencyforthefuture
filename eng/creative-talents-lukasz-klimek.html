@@ -80,7 +80,7 @@
     }
     .talent-profile__role { margin-top: 20px; }
     .talent-profile__intro { font-size: 18px; line-height: 1.7; margin-top: 48px; }
-    .talent-profile__cta { margin-top: 36px; }
+    .talent-profile__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
     .talent-profile .btn { border-radius: 0; }
 
     /* Details list - echoes the "szczegóły" block on the WH product page */
@@ -98,7 +98,11 @@
 
     /* ── Content sections - separated by whitespace, no rules ── */
     .talent-section { padding: 0 0 140px; }
-    .talent-section .section-title { margin-bottom: 48px; }
+    .talent-section .section-title {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--black);
+      margin-bottom: 44px;
+    }
 
     /* Biography - two text columns */
     .talent-bio { column-count: 2; column-gap: 96px; }
@@ -174,7 +178,7 @@
       .talent-breadcrumb { margin-bottom: 32px; }
       .talent-profile__intro { margin-top: 32px; }
       .talent-section { padding-bottom: 88px; }
-      .talent-section .section-title { margin-bottom: 32px; }
+      .talent-section .section-title { padding-bottom: 16px; margin-bottom: 32px; }
       .talent-bio { column-count: 1; }
       .talent-projects { grid-template-columns: 1fr; gap: 56px; }
       .talent-project--featured { grid-template-columns: 1fr; gap: 20px; }
@@ -341,9 +345,8 @@
       <div class="inner talent-profile__grid">
 
         <div class="talent-profile__photo">
-          <!-- TODO: replace placeholder once lukasklimek.webp is provided -->
-          <!-- Expected file: img/creative-talent-lukasz-klimek.webp (3:4 portrait). Grey box shows until it exists. -->
-          <img src="../img/creative-talent-lukasz-klimek.webp" alt="Łukasz Klimek" fetchpriority="high" onerror="this.style.display='none'" />
+          <!-- Portrait: img/creative-talent-lukasz-klimek.webp (3:4, 887×1183). Grey background shows if the file is missing. -->
+          <img src="../img/creative-talent-lukasz-klimek.webp" alt="Łukasz Klimek" width="887" height="1183" fetchpriority="high" onerror="this.style.display='none'" />
         </div>
 
         <div class="talent-profile__info">
@@ -360,6 +363,7 @@
           <p class="talent-profile__intro">Łukasz Klimek is a photographer and creative producer working between Warsaw and Berlin. He creates fine art portraits, editorial photography and brand imagery, collaborating with artists, entrepreneurs, brands and cultural institutions. Before photography he worked as an actor, musician and street performer. He brings that experience to every session, building an atmosphere in which subjects feel at ease and reveal their own personality. He is the author of “The Real Ones / Voice of the City”, a multimedia project combining photography, film and conversation.</p>
 
           <div class="talent-profile__cta">
+            <a href="#contact" class="btn btn--filled js-scroll-contact">Get in touch <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             <a href="https://www.lukasklimek.com" target="_blank" rel="noopener" class="btn btn--outline">Visit website <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
 
@@ -648,5 +652,15 @@
   mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }));
   </script>
   <script src="../js/chat-widget.js" defer></script>
+<script>
+/* "Get in touch" -> footer contact form on this page.
+   Handled in JS because at /creative-talents/lukasz-klimek the <base href="/"> would turn "#contact" into the homepage. */
+document.querySelectorAll('.js-scroll-contact').forEach(a => a.addEventListener('click', e => {
+  const target = document.getElementById('contact');
+  if (!target) return;
+  e.preventDefault();
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}));
+</script>
 </body>
 </html>
