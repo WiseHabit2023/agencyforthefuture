@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Talents — Wise Habit Agency for the Future</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    /* ── Creative Talents (listing) - page-specific ── */
+
+    /* Nav: current section inside the "about" dropdown */
+    .nav__dropdown-menu a.active,
+    .nav__mobile-sub a.active {
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 5px;
+    }
+
+    /* Text-only dark hero (reuses .hero / .hero__inner / .hero__tag / .hero__title) */
+    .talents-hero {
+      background: var(--black);
+      color: #fff;
+      padding: 120px 0;
+    }
+    .talents-hero .hero__tag,
+    .talents-hero .hero__title { color: #fff; }
+    .talents-hero .hero__title { margin-bottom: 28px; }
+    .talents-hero__sub {
+      font-size: clamp(18px, 1.5vw, 22px);
+      font-weight: 350;
+      line-height: 1.55;
+      max-width: 760px;
+      opacity: 0.75;
+    }
+
+    /* Talent grid - large portrait, name + specialization below */
+    .talents { padding: 96px 0 120px; }
+    .talents-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 56px 24px;
+    }
+    .talent-card { display: block; color: inherit; }
+    .talent-card:focus-visible { outline: 1.5px solid var(--black); outline-offset: 6px; }
+    .talent-card__media {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: #e8e8e8; /* placeholder tone - visible until a photo is provided */
+      margin-bottom: 18px;
+    }
+    .talent-card__media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+    .talent-card:hover .talent-card__media img,
+    .talent-card:focus-visible .talent-card__media img { transform: scale(1.02); }
+    .talent-card__name {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.3;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+    .talent-card:hover .talent-card__name,
+    .talent-card:focus-visible .talent-card__name { text-decoration-line: underline; }
+    .talent-card__role,
+    .talent-card__loc {
+      font-size: 15px;
+      font-weight: 350;
+      line-height: 1.5;
+      opacity: 0.6;
+    }
+    .talent-card__role { margin-top: 4px; }
+
+    @media (max-width: 900px) {
+      .talents-hero { padding: 88px 0; }
+      .talents { padding: 64px 0 88px; }
+      .talents-grid { grid-template-columns: repeat(2, 1fr); gap: 44px 20px; }
+    }
+    @media (max-width: 600px) {
+      .talents-hero { padding: 72px 0; }
+      .talents-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <meta name="description" content="Independent creatives, photographers, producers and designers working with Wise Habit Agency for the Future." />
+  <link rel="canonical" href="https://agency.wisehabit.com/creative-talents" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Wise Habit Agency for the Future" />
+  <meta property="og:title" content="Creative Talents — Wise Habit Agency for the Future" />
+  <meta property="og:description" content="Independent creatives, photographers, producers and designers working with Wise Habit Agency for the Future." />
+  <meta property="og:url" content="https://agency.wisehabit.com/creative-talents" />
+  <meta property="og:image" content="https://agency.wisehabit.com/img/og-image.jpg" />
+  <!-- Structured data: add each real talent to itemListElement as their profile goes live -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://agency.wisehabit.com/creative-talents#webpage",
+    "url": "https://agency.wisehabit.com/creative-talents",
+    "name": "Creative Talents — Wise Habit Agency for the Future",
+    "description": "Independent creatives, photographers, producers and designers working with Wise Habit Agency for the Future.",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Wise Habit Agency for the Future",
+      "url": "https://agency.wisehabit.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Wise Habit",
+      "url": "https://agency.wisehabit.com"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 1,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Person",
+            "name": "Łukasz Klimek",
+            "jobTitle": "Photographer & Creative Producer",
+            "url": "https://agency.wisehabit.com/creative-talents/lukasz-klimek"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RC3VN9XZ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5RC3VN9XZ7');
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__logo">
+        <a class="nav__logo-agency" href="index.html"><img src="../img/logo_5_small.svg" alt="Agency for the Future" /></a>
+        <a class="nav__logo-wh" href="https://wisehabit.com" target="_blank"><img src="../img/WH_head.svg" alt="wisehabit.com" /></a>
+      </div>
+            <ul class="nav__links">
+        <li class="nav__dropdown"><span>about</span>
+          <div class="nav__dropdown-menu">
+            <a href="about.html">about us</a>
+            <a href="about.html#team">team</a>
+            <a href="creative-talents.html" class="active" aria-current="page">creative talents</a>
+            <a href="about.html#awards">awards</a>
+            <a href="about.html#clients">clients</a>
+            <a href="about.html#media">media</a>
+            <a href="sustainability.html">sustainability</a>
+            <a href="https://wisehabit.com/blog-eng.phtml" target="_blank" style="display:none">news</a>
+          </div>
+        </li>
+        <li class="nav__dropdown"><span>services</span>
+          <div class="nav__dropdown-menu">
+            <a href="design.html">design</a>
+            <a href="rd.html">R&amp;D</a>
+            <a href="product-strategy.html" style="display:none">product strategy</a>
+            <a href="branding-ip.html" style="display:none">branding &amp; IP</a>
+          </div>
+        </li>
+        <li><a href="library.html">library</a></li>
+        <li class="nav__dropdown"><span>exhibitions &amp; conferences</span>
+          <div class="nav__dropdown-menu">
+            <a href="power-of-three.html">Ethical Design Exhibition</a>
+            <a href="design-business-conference.html" style="display:none">design business conference</a>
+            <a href="conference-lust-for-life.html">Lust for Life Lust for Business</a>
+            <a href="archive.html" style="display:none">Conferences We Participated In</a>
+          </div>
+        </li>
+        <li><a href="archisnob.html">archisnob</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li style="display:none"><a href="https://b2b.wisehabit.com/" target="_blank">B2B</a></li>
+      </ul>
+      <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobileNav">
+    <ul class="nav__mobile-links">
+      <li><span>about</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="about.html">about us</a></li>
+          <li><a href="about.html#team">team</a></li>
+          <li><a href="creative-talents.html" class="active" aria-current="page">creative talents</a></li>
+          <li><a href="about.html#awards">awards</a></li>
+          <li><a href="about.html#clients">clients</a></li>
+          <li><a href="about.html#media">media</a></li>
+          <li><a href="sustainability.html">sustainability</a></li>
+          <li style="display:none"><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+        </ul>
+      </li>
+      <li><span>services</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design.html">design</a></li>
+          <li><a href="rd.html">R&amp;D</a></li>
+          <li style="display:none"><a href="product-strategy.html">product strategy</a></li>
+          <li style="display:none"><a href="branding-ip.html">branding &amp; IP</a></li>
+        </ul>
+      </li>
+      <li><a href="library.html">library</a></li>
+      <li><span>exhibitions &amp; conferences</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="power-of-three.html">Ethical Design Exhibition</a></li>
+          <li><a href="design-business-conference.html" style="display:none">design business conference</a>
+            <a href="conference-lust-for-life.html">Lust for Life Lust for Business</a></li>
+          <li style="display:none"><a href="archive.html">Conferences We Participated In</a></li>
+        </ul>
+      </li>
+      <li><a href="archisnob.html">archisnob</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li style="display:none"><a href="https://b2b.wisehabit.com/" target="_blank">B2B</a></li>
+    </ul>
+  </div>
+
+  <div class="color-strip-wrapper">
+    <div class="color-strip" id="colorStrip"></div>
+  </div>
+
+  <main class="page-content">
+
+    <!-- ══ HERO (text only) ══ -->
+    <section class="hero talents-hero">
+      <div class="hero__inner">
+        <p class="hero__tag">who we work with</p>
+        <h1 class="hero__title">Creative Talents</h1>
+        <p class="talents-hero__sub">Independent artists, photographers, producers and designers who shape the visual and conceptual language of our projects.</p>
+      </div>
+    </section>
+
+    <!-- ══ TALENTS GRID ══ -->
+    <section class="talents" aria-label="Creative talents">
+      <div class="inner">
+        <ul class="talents-grid">
+
+          <!-- 1 · Łukasz Klimek -->
+          <li>
+            <a class="talent-card" href="creative-talents-lukasz-klimek.html">
+              <div class="talent-card__media">
+                <!-- TODO: replace placeholder once lukasklimek.webp is provided -->
+                <!-- Expected file: img/creative-talent-lukasz-klimek.webp (3:4 portrait). Grey box shows until it exists. -->
+                <img src="../img/creative-talent-lukasz-klimek.webp" alt="Łukasz Klimek" loading="lazy" onerror="this.style.display='none'" />
+              </div>
+              <h2 class="talent-card__name">Łukasz Klimek</h2>
+              <p class="talent-card__role">Photographer &amp; Creative Producer</p>
+              <p class="talent-card__loc">Warsaw / Berlin</p>
+            </a>
+          </li>
+
+          <!-- 2–8 · PLACEHOLDERS: swap in real talents (photo, name, specialization, profile link) -->
+          <li>
+            <a class="talent-card talent-card--placeholder" href="#">
+              <div class="talent-card__media" aria-hidden="true"></div>
+              <h2 class="talent-card__name">Person 2</h2>
+              <p class="talent-card__role">Designer</p>
+            </a>
+          </li>
+          <li>
+            <a class="talent-card talent-card--placeholder" href="#">
+              <div class="talent-card__media" aria-hidden="true"></div>
+              <h2 class="talent-card__name">Person 3</h2>
+              <p class="talent-card__role">Architect</p>
+            </a>
+          </li>
+          <li>
+            <a class="talent-card talent-card--placeholder" href="#">
+              <div class="talent-card__media" aria-hidden="true"></div>
+              <h2 class="talent-card__name">Person 4</h2>
+              <p class="talent-card__role">Art Director</p>
+            </a>
+          </li>
+          <li>
+            <a class="talent-card talent-card--placeholder" href="#">
+              <div class="talent-card__media" aria-hidden="true"></div>
+              <h2 class="talent-card__name">Person 5</h2>
+              <p class="talent-card__role">Illustrator</p>
+            </a>
+          </li>
+          <li>
+            <a class="talent-card talent-card--placeholder" href="#">
+              <div class="talent-card__media" aria-hidden="true"></div>
+              <h2 class="talent-card__name">Person 6</h2>
+              <p class="talent-card__role">Film Producer</p>
+            </a>
+          </li>
+          <li>
+            <a class="talent-card talent-card--placeholder" href="#">
+              <div class="talent-card__media" aria-hidden="true"></div>
+              <h2 class="talent-card__name">Person 7</h2>
+              <p class="talent-card__role">Set Designer</p>
+            </a>
+          </li>
+          <li>
+            <a class="talent-card talent-card--placeholder" href="#">
+              <div class="talent-card__media" aria-hidden="true"></div>
+              <h2 class="talent-card__name">Person 8</h2>
+              <p class="talent-card__role">Stylist</p>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ CONTACT + FOOTER ══ -->
+  <div class="collab-footer" id="contact">
+    <div class="collab-footer__inner">
+
+      <h2 class="collab-footer__title">Let's collaborate</h2>
+      <p class="collab-footer__sub">Partner with us to form better future together</p>
+
+      <!-- Two-column: LEFT = form + nav + social | RIGHT = contact + logo (bottom-aligned) -->
+      <div class="collab-two-col">
+
+        <!-- LEFT: form, then nav links, then social icons -->
+        <div class="collab-left-col">
+          <form class="contact-form" action="https://formspree.io/f/mnjyvvgb" method="POST">
+            <div>
+              <p class="form-chips-label">What services do you need?</p>
+              <div class="service-chips">
+                <label class="service-chip"><input type="checkbox" name="service[]" value="Design" /> Design</label>
+                <label class="service-chip"><input type="checkbox" name="service[]" value="Product Strategy" /> Product Strategy</label>
+                <label class="service-chip"><input type="checkbox" name="service[]" value="Branding &amp; IP" /> Branding &amp; IP</label>
+                <label class="service-chip"><input type="checkbox" name="service[]" value="ArchiSnob" /> ArchiSnob</label>
+                <label class="service-chip"><input type="checkbox" name="service[]" value="Other" /> Other</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <input type="text" name="name" placeholder="Your name*" required />
+              </div>
+              <div class="form-field">
+                <input type="text" name="company" placeholder="Name of the company" />
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="email" name="email" placeholder="E-mail*" required />
+            </div>
+            <div class="form-field">
+              <textarea name="message" placeholder="Write your inquiry" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--filled form-submit">send us the message →</button>
+            <p class="form-disclaimer">We will reply as soon as possible. Data is processed in accordance with the <a href="#">privacy policy</a>. By submitting data, you accept privacy policy.</p>
+          </form>
+
+          <div class="collab-footer-nav">
+            <div class="footer-nav-cols">
+              <div class="footer-nav-col">
+                <a href="about.html">About</a>
+                <a href="design.html">Design</a>
+                <a href="product-strategy.html">Product Strategy</a>
+                <a href="branding-ip.html">Branding &amp; IP</a>
+                <a href="archisnob.html">ArchiSnob</a>
+              </div>
+              <div class="footer-nav-col">
+                <a href="library.html">Library</a>
+                <a href="sustainability.html">Sustainability</a>
+                <a href="design-business-conference.html" style="display:none">Design Business Conference</a>
+                <a href="conference-lust-for-life.html">Lust for Life Lust for Business</a>
+                <a href="contact.html">Contact</a>
+                <a href="rd.html">R&amp;D</a>
+              </div>
+            </div>
+            <div class="footer-social footer-social--icons">
+              <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt="" /></a>
+              <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram"><img src="../img/Instagram%20Icon%20-%20Hoover.svg" width="20" height="20" alt="" /></a>
+              <a href="mailto:office@wisehabit.com" aria-label="Email"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt="" /></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: contact info + logo, bottom-aligned to social icons level -->
+        <div class="collab-right-col">
+          <div class="collab-contact-info">
+            <a href="mailto:office@wisehabit.com">office@wisehabit.com</a>
+            <a href="tel:+48608561173">+48 608 561 173</a>
+            <span>Warsaw, Poland</span>
+          </div>
+          <a href="https://wisehabit.com" target="_blank" class="collab-footer-logo">
+            <img src="../img/WH_head.svg" alt="Wise Habit" />
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+  /* ── COLOR STRIP ── */
+  const COLORS = [
+    {c:'#00003C',w:25},{c:'#000080',w:70},{c:'#0000A4',w:35},{c:'#58071D',w:55},{c:'#DE999F',w:45},{c:'#36803E',w:28},{c:'#0000D3',w:22},{c:'#FF670D',w:12},
+    {c:'#58071D',w:95},{c:'#000000',w:65},{c:'#C2D0D3',w:85},{c:'#8DA6B1',w:28},{c:'#5B7D93',w:35},{c:'#DE999F',w:28},
+    {c:'#0F130F',w:38},{c:'#183518',w:38},{c:'#BFD8D3',w:60},{c:'#4B1672',w:35},{c:'#010052',w:22},{c:'#4B1672',w:28},{c:'#43866B',w:30},{c:'#DE999F',w:55},{c:'#9AE00D',w:18},{c:'#4B1672',w:32},{c:'#BFD8D3',w:45}
+  ];
+  const SPEED = 0.12;
+  const strip = document.getElementById('colorStrip');
+  let CYCLE_W = 0;
+  function buildStrip(colors) {
+    strip.innerHTML = '';
+    CYCLE_W = colors.reduce((s, x) => s + x.w, 0);
+    const reps = Math.ceil((window.innerWidth * 3) / CYCLE_W) + 2;
+    for (let r = 0; r < reps; r++) {
+      colors.forEach(x => {
+        const s = document.createElement('div');
+        s.className = 'color-strip__seg';
+        s.style.cssText = `width:${x.w}px;background:${x.c}`;
+        strip.appendChild(s);
+      });
+    }
+  }
+  buildStrip(COLORS);
+  window.addEventListener('resize', () => buildStrip(COLORS));
+  window.addEventListener('scroll', () => {
+    strip.style.transform = `translateX(${-(window.scrollY * SPEED) % CYCLE_W}px)`;
+  }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }));
+  </script>
+  <script src="../js/chat-widget.js" defer></script>
+<script>
+/* Placeholder talent cards keep href="#" - stop them from jumping to the top */
+document.querySelectorAll('.talent-card[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+</script>
+</body>
+</html>
