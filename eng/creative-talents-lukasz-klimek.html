@@ -34,7 +34,7 @@
     .talent-link:hover { opacity: 0.55; }
 
     /* ── Profile header: photo LEFT / info RIGHT (mirrors the WH product page) ── */
-    .talent-profile { padding: 64px 0 140px; }
+    .talent-profile { padding: 64px 0 88px; }
     .talent-profile__grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -81,7 +81,8 @@
     .talent-profile__role { margin-top: 20px; }
     .talent-profile__intro { font-size: 18px; line-height: 1.7; margin-top: 48px; }
     .talent-profile__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-    .talent-profile .btn { border-radius: 0; }
+    .talent-profile .btn,
+    .talent-end .btn { border-radius: 0; }
 
     /* Details list - echoes the "szczegóły" block on the WH product page */
     .talent-details {
@@ -96,27 +97,52 @@
     .talent-details a { text-decoration: underline; text-underline-offset: 3px; transition: opacity 0.15s; }
     .talent-details a:hover { opacity: 0.55; }
 
-    /* ── Content sections - separated by whitespace, no rules ── */
-    .talent-section { padding: 0 0 140px; }
+    /* ── Content sections ── */
+    .talent-section,
+    .talent-divider { padding: 0 0 88px; }
     .talent-section .section-title {
       padding-bottom: 20px;
       border-bottom: 1px solid var(--black);
-      margin-bottom: 44px;
+      margin-bottom: 36px;
     }
 
     /* Biography - two text columns */
     .talent-bio { column-count: 2; column-gap: 96px; }
     .talent-bio .body-text { font-size: 17px; line-height: 1.75; orphans: 3; widows: 3; }
+    .talent-bio .body-text:last-child { margin-bottom: 0; }
+
+    /* Photo rows - portrait (3:4) and landscape (3:2) photos share one height:
+       flex-grow is proportional to each photo's width at equal height */
+    .talent-photos { display: flex; gap: 12px; }
+    .talent-photo { position: relative; min-width: 0; overflow: hidden; background: #e8e8e8; }
+    .talent-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .talent-photo--p { flex: 3 1 0; aspect-ratio: 3 / 4; }
+    .talent-photo--l { flex: 6 1 0; aspect-ratio: 3 / 2; }
+    .talent-photo--wide { flex: 1 1 0; aspect-ratio: 21 / 9; }
+
+    /* One photo above every project title */
+    .talent-project__media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #e8e8e8;
+      margin-bottom: 24px;
+    }
+    .talent-project__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+    /* Visit website - last thing on the profile */
+    .talent-end { margin-top: 48px; }
 
     /* Projects - first one full width, then 2 columns */
-    .talent-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 80px 96px; }
+    .talent-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 72px 64px; }
     .talent-project { display: flex; flex-direction: column; }
     .talent-project--featured {
       grid-column: 1 / -1;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px 96px;
+      gap: 24px 64px;
     }
+    .talent-project--featured .talent-photos { grid-column: 1 / -1; margin-bottom: 12px; }
     .talent-project__title {
       font-size: clamp(24px, 2vw, 30px);
       font-weight: 350;
@@ -139,7 +165,7 @@
       list-style: none;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 56px 64px;
+      gap: 44px 56px;
     }
     .talent-collab__name { font-size: 20px; font-weight: 350; line-height: 1.3; margin-bottom: 10px; }
     .talent-collab__name a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
@@ -171,22 +197,35 @@
       .talent-bio { column-gap: 56px; }
     }
     @media (max-width: 900px) {
-      .talent-profile { padding: 0 0 88px; }
+      .talent-profile { padding: 0 0 56px; }
       .talent-profile__grid { grid-template-columns: 1fr; gap: 40px; min-height: 0; }
       .talent-profile__photo { margin: 0 calc(-1 * var(--pad-h)); }
       .talent-profile__info { max-width: none; }
       .talent-breadcrumb { margin-bottom: 32px; }
       .talent-profile__intro { margin-top: 32px; }
-      .talent-section { padding-bottom: 88px; }
-      .talent-section .section-title { padding-bottom: 16px; margin-bottom: 32px; }
+      .talent-section,
+      .talent-divider { padding-bottom: 56px; }
+      .talent-section .section-title { padding-bottom: 16px; margin-bottom: 28px; }
       .talent-bio { column-count: 1; }
-      .talent-projects { grid-template-columns: 1fr; gap: 56px; }
+      .talent-projects { grid-template-columns: 1fr; gap: 48px; }
       .talent-project--featured { grid-template-columns: 1fr; gap: 20px; }
       .talent-collabs { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
       .talent-pubs { gap: 22px; }
       .talent-pub__row { grid-template-columns: 1fr; gap: 2px; }
     }
     @media (max-width: 600px) {
+      /* photo rows become a swipeable strip; the next photo peeks in */
+      .talent-photos {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 0 var(--pad-h);
+        margin: 0 calc(-1 * var(--pad-h));
+        padding: 0 var(--pad-h);
+        scrollbar-width: none;
+      }
+      .talent-photos::-webkit-scrollbar { display: none; }
+      .talent-photo { flex: none; height: 64vw; scroll-snap-align: start; }
+      .talent-photo--wide { width: 100%; height: auto; aspect-ratio: 3 / 2; }
       .talent-collabs { grid-template-columns: 1fr; gap: 32px; }
       .talent-details { grid-template-columns: 104px 1fr; }
     }
@@ -364,7 +403,6 @@
 
           <div class="talent-profile__cta">
             <a href="#contact" class="btn btn--filled js-scroll-contact">Get in touch <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a href="https://www.lukasklimek.com" target="_blank" rel="noopener" class="btn btn--outline">Visit website <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
 
           <dl class="talent-details">
@@ -379,6 +417,15 @@
           </dl>
         </div>
 
+      </div>
+    </section>
+
+    <!-- ══ PHOTO BREAK ══ -->
+    <section class="talent-divider" aria-label="The Real Ones exhibition">
+      <div class="inner">
+        <div class="talent-photos">
+          <figure class="talent-photo talent-photo--wide"><img src="../img/creative-talent-lukasz-klimek-real-ones-outdoor.webp" alt="The Real Ones / Voice of the City, outdoor exhibition of portraits by Łukasz Klimek" loading="lazy" /></figure>
+        </div>
       </div>
     </section>
 
@@ -404,6 +451,11 @@
         <div class="talent-projects">
 
           <article class="talent-project talent-project--featured">
+            <div class="talent-photos">
+              <figure class="talent-photo talent-photo--p"><img src="../img/creative-talent-lukasz-klimek-real-ones-print.webp" alt="Portrait from The Real Ones exhibited at Lust for Life" loading="lazy" /></figure>
+              <figure class="talent-photo talent-photo--l"><img src="../img/creative-talent-lukasz-klimek-real-ones-stage.webp" alt="Łukasz Klimek on stage at the opening of The Real Ones" loading="lazy" /></figure>
+              <figure class="talent-photo talent-photo--l"><img src="../img/creative-talent-lukasz-klimek-real-ones-audience.webp" alt="Portraits from The Real Ones above the Lust for Life audience" loading="lazy" /></figure>
+            </div>
             <div>
               <h3 class="talent-project__title">The Real Ones / Voice of the City</h3>
               <p class="talent-project__original" lang="pl">Prawdziwi / Głos Miasta</p>
@@ -415,6 +467,8 @@
           </article>
 
           <article class="talent-project">
+            <!-- Temporary photo (Łukasz at Lust for Life) until the live-portrait photos from Google Drive are available -->
+            <div class="talent-project__media"><img src="../img/creative-talent-lukasz-klimek-live-portrait-stage.webp" alt="Łukasz Klimek at the Lust for Life. Lust for Business. conference" loading="lazy" /></div>
             <h3 class="talent-project__title">Fashion is Art: Live Portrait</h3>
             <p class="talent-project__original">Lust for Life. Lust for Business. · SARP Warsaw</p>
             <p class="talent-project__text">Portraits created live in a mobile studio during the Lust for Life. Lust for Business. conference at SARP Warsaw. Short sessions with participants, speakers and guests, in a format designed for conferences, premieres and corporate events.</p>
@@ -422,6 +476,7 @@
           </article>
 
           <article class="talent-project">
+            <div class="talent-project__media"><!-- TODO: photo pending (download from the project page) --></div>
             <h3 class="talent-project__title">Stories Written by Homelessness</h3>
             <p class="talent-project__original" lang="pl">Historie bezdomnością pisane</p>
             <p class="talent-project__text">A social photography project documenting people experiencing homelessness: their stories, their faces and their humanity.</p>
@@ -429,6 +484,7 @@
           </article>
 
           <article class="talent-project">
+            <div class="talent-project__media"><!-- TODO: photo pending (download from the project page) --></div>
             <h3 class="talent-project__title">My and Your Disability</h3>
             <p class="talent-project__original" lang="pl">Moja i Twoja niepełnosprawność</p>
             <p class="talent-project__text">Portraits, social actions and a documentary film about people with disabilities and senior citizens. Includes “The World Through Your Lens” workshops for people with disabilities (Lodołamacze 2025, Royal Castle in Warsaw).</p>
@@ -436,6 +492,7 @@
           </article>
 
           <article class="talent-project">
+            <div class="talent-project__media"><!-- TODO: photo pending (download from the project page) --></div>
             <h3 class="talent-project__title">Theater Sommervarieté Rügen</h3>
             <p class="talent-project__original">Rügen, Germany</p>
             <p class="talent-project__text">Stage photography and artist portraits captured during live performances.</p>
@@ -521,6 +578,9 @@
             </div>
           </li>
         </ul>
+        <div class="talent-end">
+          <a href="https://www.lukasklimek.com" target="_blank" rel="noopener" class="btn btn--outline">Visit website <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
     </section>
 
