@@ -57,15 +57,21 @@
     }
     .talent-profile__info { min-width: 0; } /* fills the column up to the right page margin */
 
+    /* Breadcrumb above photo + info, WH-product-page style: items joined by a thin line */
     .talent-breadcrumb {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      font-size: 14px;
+      align-items: center;
+      gap: 8px 16px;
+      font-size: 15px;
+      line-height: 1.4;
       margin-bottom: 40px;
     }
+    .talent-breadcrumb a { text-underline-offset: 3px; transition: opacity 0.15s; }
+    .talent-breadcrumb a:hover { text-decoration: underline; }
+    .talent-breadcrumb__sep { display: inline-block; width: 72px; height: 1px; background: var(--black); }
 
-    .talent-profile__name { margin-bottom: 0; }
+    .talent-profile__name { font-size: clamp(40px, 4.4vw, 76px); letter-spacing: -1px; line-height: 1.05; margin-bottom: 0; }
     .talent-profile__role,
     .talent-profile__location,
     .talent-profile__intro,
@@ -83,8 +89,8 @@
     /* Details list - echoes the "szczegóły" block on the WH product page */
     .talent-details {
       display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 4px 24px;
+      grid-template-columns: 1fr; /* label above the text */
+      gap: 0;
       margin-top: 32px;
     }
     .talent-details dd { overflow-wrap: anywhere; }
@@ -191,11 +197,12 @@
       .talent-bio { column-gap: 56px; }
     }
     @media (max-width: 900px) {
-      .talent-profile { padding: 0 0 56px; }
+      .talent-profile { padding: 20px 0 56px; }
       .talent-profile__grid { grid-template-columns: 1fr; gap: 40px; }
       .talent-profile__photo { margin: 0 calc(-1 * var(--pad-h)); }
       .talent-profile__info { max-width: none; }
-      .talent-breadcrumb { margin-bottom: 32px; }
+      .talent-breadcrumb { margin-bottom: 20px; font-size: 14px; gap: 6px 10px; }
+      .talent-breadcrumb__sep { width: 28px; }
       .talent-profile__intro { margin-top: 32px; }
       .talent-section,
       .talent-divider { padding-bottom: 56px; }
@@ -208,6 +215,9 @@
       .talent-pub__row { grid-template-columns: 1fr; gap: 2px; }
     }
     @media (max-width: 600px) {
+      /* phones: the name is right below, so the trail stops at Creative Talents (keeps it on one line) */
+      .talent-breadcrumb__sep--last,
+      .talent-breadcrumb [aria-current] { display: none; }
       /* photo rows become a swipeable strip; the next photo peeks in */
       .talent-photos {
         overflow-x: auto;
@@ -221,7 +231,6 @@
       .talent-photo { flex: none; height: 64vw; scroll-snap-align: start; }
       .talent-photo--wide { width: 100%; height: auto; aspect-ratio: 3 / 2; }
       .talent-collabs { grid-template-columns: 1fr; gap: 32px; }
-      .talent-details { grid-template-columns: 1fr; gap: 0; }
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
@@ -375,7 +384,17 @@
 
     <!-- ══ PROFILE HEADER - photo left, info right (mirrors the WH product page) ══ -->
     <section class="talent-profile">
-      <div class="inner talent-profile__grid">
+      <div class="inner">
+
+        <nav class="talent-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Wise Habit Agency</a>
+          <span class="talent-breadcrumb__sep" aria-hidden="true"></span>
+          <a href="creative-talents.html">Creative Talents</a>
+          <span class="talent-breadcrumb__sep talent-breadcrumb__sep--last" aria-hidden="true"></span>
+          <span aria-current="page">Łukasz Klimek</span>
+        </nav>
+
+        <div class="talent-profile__grid">
 
         <div class="talent-profile__photo">
           <!-- Portrait: img/creative-talent-lukasz-klimek.webp (3:4, 887×1183). Grey background shows if the file is missing. -->
@@ -383,12 +402,6 @@
         </div>
 
         <div class="talent-profile__info">
-          <nav class="talent-breadcrumb" aria-label="Breadcrumb">
-            <a class="talent-link" href="creative-talents.html">Creative Talents</a>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page">Łukasz Klimek</span>
-          </nav>
-
           <h1 class="section-title talent-profile__name">Łukasz Klimek</h1>
           <p class="talent-profile__role">Photographer &amp; Creative Producer</p>
           <p class="talent-profile__location">Warsaw / Berlin</p>
@@ -406,6 +419,7 @@
 
         </div>
 
+        </div>
       </div>
     </section>
 
