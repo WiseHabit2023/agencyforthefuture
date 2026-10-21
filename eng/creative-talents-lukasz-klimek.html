@@ -190,6 +190,16 @@
     }
     a.talent-pub__row:hover .talent-pub__title { opacity: 0.55; }
 
+    /* Justified paragraphs (block text aligned to both edges) */
+    .talent-profile__intro,
+    .talent-details dd,
+    .talent-bio .body-text,
+    .talent-project__text,
+    .talent-collab__text {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
     @media (max-width: 1100px) {
       .talent-profile__grid { gap: 56px; }
       .talent-projects { column-gap: 56px; }
@@ -215,6 +225,13 @@
       .talent-pub__row { grid-template-columns: 1fr; gap: 2px; }
     }
     @media (max-width: 600px) {
+      /* narrow columns: hyphenate so justified lines don't open big gaps between words */
+      .talent-profile__intro,
+      .talent-details dd,
+      .talent-bio .body-text,
+      .talent-project__text,
+      .talent-collab__text { -webkit-hyphens: auto; hyphens: auto; }
+      .talent-details dd { text-align: left; } /* short comma list: justified spacing looks broken on phones */
       /* phones: the name is right below, so the trail stops at Creative Talents (keeps it on one line) */
       .talent-breadcrumb__sep--last,
       .talent-breadcrumb [aria-current] { display: none; }
