@@ -40,7 +40,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 96px;
       align-items: start;
-      min-height: 70vh;
     }
     .talent-profile__photo {
       position: relative;
@@ -142,7 +141,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 24px 64px;
     }
-    .talent-project--featured .talent-photos { grid-column: 1 / -1; margin-bottom: 12px; }
+    .talent-project--featured .talent-photos { grid-column: 1 / -1; margin-top: 16px; }
     .talent-project__title {
       font-size: clamp(24px, 2vw, 30px);
       font-weight: 350;
@@ -198,7 +197,7 @@
     }
     @media (max-width: 900px) {
       .talent-profile { padding: 0 0 56px; }
-      .talent-profile__grid { grid-template-columns: 1fr; gap: 40px; min-height: 0; }
+      .talent-profile__grid { grid-template-columns: 1fr; gap: 40px; }
       .talent-profile__photo { margin: 0 calc(-1 * var(--pad-h)); }
       .talent-profile__info { max-width: none; }
       .talent-breadcrumb { margin-bottom: 32px; }
@@ -408,24 +407,9 @@
           <dl class="talent-details">
             <dt>Disciplines</dt>
             <dd>Fine art portraiture, editorial photography, brand campaigns, fashion campaigns, multimedia projects, event photography, live portrait</dd>
-            <dt>Website</dt>
-            <dd><a href="https://www.lukasklimek.com" target="_blank" rel="noopener">lukasklimek.com</a></dd>
-            <dt>Instagram</dt>
-            <dd><a href="https://www.instagram.com/lukasklimekphotography/" target="_blank" rel="noopener">@lukasklimekphotography</a></dd>
-            <dt>YouTube</dt>
-            <dd><a href="https://www.youtube.com/@lukaszklimekphotography" target="_blank" rel="noopener">@lukaszklimekphotography</a></dd>
           </dl>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ══ PHOTO BREAK ══ -->
-    <section class="talent-divider" aria-label="The Real Ones exhibition">
-      <div class="inner">
-        <div class="talent-photos">
-          <figure class="talent-photo talent-photo--wide"><img src="../img/creative-talent-lukasz-klimek-real-ones-outdoor.webp" alt="The Real Ones / Voice of the City, outdoor exhibition of portraits by Łukasz Klimek" loading="lazy" /></figure>
-        </div>
       </div>
     </section>
 
@@ -444,6 +428,15 @@
       </div>
     </section>
 
+    <!-- ══ PHOTO BREAK ══ -->
+    <section class="talent-divider" aria-label="The Real Ones exhibition">
+      <div class="inner">
+        <div class="talent-photos">
+          <figure class="talent-photo talent-photo--wide"><img src="../img/creative-talent-lukasz-klimek-real-ones-outdoor.webp" alt="The Real Ones / Voice of the City, outdoor exhibition of portraits by Łukasz Klimek" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
     <!-- ══ SELECTED PROJECTS ══ -->
     <section class="talent-section" id="projects">
       <div class="inner">
@@ -451,11 +444,6 @@
         <div class="talent-projects">
 
           <article class="talent-project talent-project--featured">
-            <div class="talent-photos">
-              <figure class="talent-photo talent-photo--p"><img src="../img/creative-talent-lukasz-klimek-real-ones-print.webp" alt="Portrait from The Real Ones exhibited at Lust for Life" loading="lazy" /></figure>
-              <figure class="talent-photo talent-photo--l"><img src="../img/creative-talent-lukasz-klimek-real-ones-stage.webp" alt="Łukasz Klimek on stage at the opening of The Real Ones" loading="lazy" /></figure>
-              <figure class="talent-photo talent-photo--l"><img src="../img/creative-talent-lukasz-klimek-real-ones-audience.webp" alt="Portraits from The Real Ones above the Lust for Life audience" loading="lazy" /></figure>
-            </div>
             <div>
               <h3 class="talent-project__title">The Real Ones / Voice of the City</h3>
               <p class="talent-project__original" lang="pl">Prawdziwi / Głos Miasta</p>
@@ -464,11 +452,14 @@
               <p class="talent-project__text">An ongoing multimedia project combining photography, film and conversation. Its subjects range from public figures to people outside the media spotlight, and each portrait is accompanied by an interview and a personal statement. Among those portrayed: Helena Norowicz, Rafał Olbiński, Henryk Gołębiewski, Robert Majkut and Mirosław Zbrojewicz. Exhibited at Hala Koszyki (Noc Wieżowców / Nowa Warszawa), Marina Warszawa and Pałac Zamoyskich at Foksal during the ArchiSnob magazine premiere.</p>
               <a class="talent-link" href="https://www.lukasklimek.com/portfolio-collections/portraitseries/the-real-ones" target="_blank" rel="noopener">View project →</a>
             </div>
+            <div class="talent-photos">
+              <figure class="talent-photo talent-photo--p"><img src="../img/creative-talent-lukasz-klimek-real-ones-print.webp" alt="Portrait from The Real Ones exhibited at Lust for Life" loading="lazy" /></figure>
+              <figure class="talent-photo talent-photo--l"><img src="../img/creative-talent-lukasz-klimek-real-ones-stage.webp" alt="Łukasz Klimek on stage at the opening of The Real Ones" loading="lazy" /></figure>
+              <figure class="talent-photo talent-photo--l"><img src="../img/creative-talent-lukasz-klimek-real-ones-audience.webp" alt="Portraits from The Real Ones above the Lust for Life audience" loading="lazy" /></figure>
+            </div>
           </article>
 
           <article class="talent-project">
-            <!-- Temporary photo (Łukasz at Lust for Life) until the live-portrait photos from Google Drive are available -->
-            <div class="talent-project__media"><img src="../img/creative-talent-lukasz-klimek-live-portrait-stage.webp" alt="Łukasz Klimek at the Lust for Life. Lust for Business. conference" loading="lazy" /></div>
             <h3 class="talent-project__title">Fashion is Art: Live Portrait</h3>
             <p class="talent-project__original">Lust for Life. Lust for Business. · SARP Warsaw</p>
             <p class="talent-project__text">Portraits created live in a mobile studio during the Lust for Life. Lust for Business. conference at SARP Warsaw. Short sessions with participants, speakers and guests, in a format designed for conferences, premieres and corporate events.</p>
@@ -476,7 +467,6 @@
           </article>
 
           <article class="talent-project">
-            <div class="talent-project__media"><!-- TODO: photo pending (download from the project page) --></div>
             <h3 class="talent-project__title">Stories Written by Homelessness</h3>
             <p class="talent-project__original" lang="pl">Historie bezdomnością pisane</p>
             <p class="talent-project__text">A social photography project documenting people experiencing homelessness: their stories, their faces and their humanity.</p>
@@ -484,7 +474,6 @@
           </article>
 
           <article class="talent-project">
-            <div class="talent-project__media"><!-- TODO: photo pending (download from the project page) --></div>
             <h3 class="talent-project__title">My and Your Disability</h3>
             <p class="talent-project__original" lang="pl">Moja i Twoja niepełnosprawność</p>
             <p class="talent-project__text">Portraits, social actions and a documentary film about people with disabilities and senior citizens. Includes “The World Through Your Lens” workshops for people with disabilities (Lodołamacze 2025, Royal Castle in Warsaw).</p>
@@ -492,7 +481,6 @@
           </article>
 
           <article class="talent-project">
-            <div class="talent-project__media"><!-- TODO: photo pending (download from the project page) --></div>
             <h3 class="talent-project__title">Theater Sommervarieté Rügen</h3>
             <p class="talent-project__original">Rügen, Germany</p>
             <p class="talent-project__text">Stage photography and artist portraits captured during live performances.</p>
