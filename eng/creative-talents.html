@@ -17,17 +17,20 @@
     }
 
     /* Text-only hero on the page background (reuses .hero / .hero__inner / .hero__tag / .hero__title) */
-    .talents-hero { padding: 120px 0 64px; }
-    .talents-hero .hero__title { margin-bottom: 28px; }
+    .talents-hero { padding: 48px 0 32px; }
+    .talents-hero .hero__title { margin-bottom: 16px; }
+    /* small texts = same type as the profile body text */
+    .talents-hero .hero__tag,
     .talents-hero__sub {
-      font-size: clamp(18px, 1.5vw, 22px);
+      font-size: 17px;
       font-weight: 350;
-      line-height: 1.55;
-      max-width: 760px;
+      line-height: 1.75;
     }
+    .talents-hero .hero__tag { margin-bottom: 8px; }
+    .talents-hero__sub { max-width: 760px; }
 
     /* Talent grid - large portrait, name + specialization below */
-    .talents { padding: 40px 0 140px; }
+    .talents { padding: 24px 0 120px; }
     .talents-grid {
       list-style: none;
       display: grid;
@@ -71,12 +74,12 @@
     .talent-card__role { margin-top: 4px; }
 
     @media (max-width: 900px) {
-      .talents-hero { padding: 88px 0 48px; }
-      .talents { padding: 32px 0 96px; }
+      .talents-hero { padding: 40px 0 24px; }
+      .talents { padding: 16px 0 88px; }
       .talents-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 20px; }
     }
     @media (max-width: 600px) {
-      .talents-hero { padding: 64px 0 40px; }
+      .talents-hero { padding: 32px 0 20px; }
       .talents-grid { grid-template-columns: 1fr; gap: 44px; }
     }
   </style>
