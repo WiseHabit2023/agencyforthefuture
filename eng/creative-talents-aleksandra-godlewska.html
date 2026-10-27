@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Served at the nested pretty URL /creative-talents/lukasz-klimek (see vercel.json):
+       resolve the site's relative links (about.html, ../img/…) from the site root, like every other page. */
+    if (/^\/creative-talents\/./.test(location.pathname)) {
+      var b = document.createElement('base'); b.href = '/'; document.head.appendChild(b);
+    }
+  </script>
+  <title>Aleksandra Godlewska - Art Direction &amp; Creative Placemaking · Wise Habit</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    /* ── Creative Talent profile - page-specific ── */
+
+    /* Nav: current section inside the "about" dropdown */
+    .nav__dropdown-menu a.active,
+    .nav__mobile-sub a.active {
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 5px;
+    }
+
+    /* Shared text link - underlined, no button */
+    .talent-link {
+      font-size: 15px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+      transition: opacity 0.15s;
+    }
+    .talent-link:hover { opacity: 0.55; }
+
+    /* ── Profile header: photo LEFT / info RIGHT (mirrors the WH product page) ── */
+    .talent-profile { padding: 32px 0 88px; }
+    .talent-profile__grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .talent-profile__photo {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      min-height: 500px;
+      background: #e0e0e0; /* placeholder until the portrait is provided */
+      overflow: hidden;
+    }
+    .talent-profile__photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .talent-profile__info { min-width: 0; } /* fills the column up to the right page margin */
+
+    /* Breadcrumb above photo + info, WH-product-page style: items joined by a thin line */
+    .talent-breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 16px;
+      font-size: 15px;
+      line-height: 1.4;
+      margin-bottom: 40px;
+    }
+    .talent-breadcrumb a { text-underline-offset: 3px; transition: opacity 0.15s; }
+    .talent-breadcrumb a:hover { text-decoration: underline; }
+    .talent-breadcrumb__sep { display: inline-block; width: 72px; height: 1px; background: var(--black); }
+
+    .talent-profile__name { font-size: clamp(40px, 4.4vw, 76px); letter-spacing: -1px; line-height: 1.05; margin-bottom: 0; }
+    .talent-profile__role,
+    .talent-profile__location,
+    .talent-profile__intro,
+    .talent-details {
+      font-size: 17px;
+      font-weight: 350;
+      line-height: 1.75;
+    }
+    .talent-profile__role { margin-top: 16px; }
+    .talent-profile__intro { margin-top: 32px; }
+    .talent-profile__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+    .talent-profile .btn,
+    .talent-end .btn { border-radius: 0; }
+
+    /* Details list - echoes the "szczegóły" block on the WH product page */
+    .talent-details {
+      display: grid;
+      grid-template-columns: 1fr; /* label above the text */
+      gap: 0;
+      margin-top: 32px;
+    }
+    .talent-details dd { overflow-wrap: anywhere; }
+    .talent-details a { text-decoration: underline; text-underline-offset: 3px; transition: opacity 0.15s; }
+    .talent-details a:hover { opacity: 0.55; }
+
+    /* ── Content sections ── */
+    .talent-section,
+    .talent-divider { padding: 0 0 88px; }
+    .talent-section .section-title {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--black);
+      margin-bottom: 36px;
+    }
+
+    /* Biography - two text columns */
+    .talent-bio { column-count: 2; column-gap: 96px; }
+    .talent-bio .body-text { font-size: 17px; line-height: 1.75; orphans: 3; widows: 3; }
+    .talent-bio .body-text:last-child { margin-bottom: 0; }
+    .talent-bio .body-text { break-inside: avoid; } /* keep each paragraph in one column */
+
+    /* Photo rows - portrait (3:4) and landscape (3:2) photos share one height:
+       flex-grow is proportional to each photo's width at equal height */
+    .talent-photos { display: flex; gap: 12px; }
+    .talent-photo { position: relative; min-width: 0; overflow: hidden; background: #e8e8e8; }
+    .talent-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .talent-photo--p { flex: 3 1 0; aspect-ratio: 3 / 4; }
+    .talent-photo--l { flex: 6 1 0; aspect-ratio: 3 / 2; }
+    .talent-photo--wide { flex: 1 1 0; aspect-ratio: 21 / 9; }
+    .talent-photo--cover { flex: 3.31 1 0; aspect-ratio: 900 / 1088; } /* magazine cover, uncropped */
+
+    /* One photo above every project title */
+    .talent-project__media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #e8e8e8;
+      margin-bottom: 24px;
+    }
+    .talent-project__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+    /* Visit website - last thing on the profile */
+    .talent-end { margin-top: 48px; }
+
+    /* Projects - first one full width, then 2 columns */
+    .talent-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 72px 64px; }
+    .talent-project { display: flex; flex-direction: column; min-width: 0; }
+    .talent-project--featured > * { min-width: 0; } /* let swipeable photo rows scroll instead of widening the column */
+    .talent-project--featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 64px;
+    }
+    .talent-project--featured .talent-photos { grid-column: 1 / -1; margin-top: 16px; }
+    .talent-project__title {
+      font-size: clamp(24px, 2vw, 30px);
+      font-weight: 350;
+      line-height: 1.2;
+      letter-spacing: -0.3px;
+    }
+    .talent-project--featured .talent-project__title {
+      font-size: clamp(32px, 3vw, 46px);
+      font-weight: 300;
+      letter-spacing: -0.8px;
+    }
+    .talent-project__original { font-size: 15px; margin-top: 8px; }
+    .talent-project__text { font-size: 16px; line-height: 1.7; margin-top: 20px; max-width: 640px; }
+    .talent-project--featured .talent-project__body { display: flex; flex-direction: column; }
+    .talent-project--featured .talent-project__text { font-size: 18px; margin-top: 0; }
+    .talent-project .talent-link { align-self: flex-start; margin-top: auto; padding-top: 22px; }
+    .talent-project > .talent-photos { margin-top: 24px; }
+
+    /* Collaborations - 3 columns */
+    .talent-collabs {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 44px 56px;
+    }
+    .talent-collab__name { font-size: 20px; font-weight: 350; line-height: 1.3; margin-bottom: 10px; }
+    .talent-collab__name a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+    .talent-collab__name a:hover { opacity: 0.55; }
+    .talent-collab__text { font-size: 15px; line-height: 1.65; }
+    .talent-collabs--names { gap: 18px 56px; }
+    .talent-collabs--names .talent-collab__name { margin-bottom: 0; }
+
+    /* Publications & press - two-column list, no rules */
+    .talent-pubs { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .talent-pub__row {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) 2fr;
+      gap: 24px;
+      align-items: baseline;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+    a.talent-pub__row .talent-pub__title {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+      transition: opacity 0.15s;
+    }
+    a.talent-pub__row:hover .talent-pub__title { opacity: 0.55; }
+
+    /* Justified paragraphs (block text aligned to both edges) */
+    .talent-profile__intro,
+    .talent-details dd,
+    .talent-bio .body-text,
+    .talent-project__text,
+    .talent-collab__text {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    @media (max-width: 1100px) {
+      .talent-profile__grid { gap: 56px; }
+      .talent-projects { column-gap: 56px; }
+      .talent-project--featured { column-gap: 56px; }
+      .talent-bio { column-gap: 56px; }
+    }
+    @media (max-width: 900px) {
+      .talent-profile { padding: 20px 0 56px; }
+      .talent-profile__grid { grid-template-columns: 1fr; gap: 40px; }
+      .talent-profile__photo { margin: 0 calc(-1 * var(--pad-h)); }
+      .talent-profile__info { max-width: none; }
+      .talent-breadcrumb { margin-bottom: 20px; font-size: 14px; gap: 6px 10px; }
+      .talent-breadcrumb__sep { width: 28px; }
+      .talent-profile__intro { margin-top: 32px; }
+      .talent-section,
+      .talent-divider { padding-bottom: 56px; }
+      .talent-section .section-title { padding-bottom: 16px; margin-bottom: 28px; }
+      .talent-bio { column-count: 1; }
+      .talent-projects { grid-template-columns: 1fr; gap: 48px; }
+      .talent-project--featured { grid-template-columns: 1fr; gap: 20px; }
+      .talent-collabs { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+      .talent-pubs { gap: 22px; }
+      .talent-pub__row { grid-template-columns: 1fr; gap: 2px; }
+    }
+    @media (max-width: 600px) {
+      /* narrow columns: hyphenate so justified lines don't open big gaps between words */
+      .talent-profile__intro,
+      .talent-details dd,
+      .talent-bio .body-text,
+      .talent-project__text,
+      .talent-collab__text { -webkit-hyphens: auto; hyphens: auto; }
+      .talent-details dd { text-align: left; } /* short comma list: justified spacing looks broken on phones */
+      /* phones: the name is right below, so the trail stops at Creative Talents (keeps it on one line) */
+      .talent-breadcrumb__sep--last,
+      .talent-breadcrumb [aria-current] { display: none; }
+      /* photo rows become a swipeable strip; the next photo peeks in */
+      .talent-photos {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 0 var(--pad-h);
+        margin: 0 calc(-1 * var(--pad-h));
+        padding: 0 var(--pad-h);
+        scrollbar-width: none;
+      }
+      .talent-photos::-webkit-scrollbar { display: none; }
+      .talent-photo { flex: none; height: 64vw; scroll-snap-align: start; }
+      .talent-photo--wide { width: 100%; height: auto; aspect-ratio: 3 / 2; }
+      .talent-collabs { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <meta name="description" content="Aleksandra Godlewska, designer and artist in art direction and creative placemaking. Public sculptures, murals and site-specific installations for cities, real estate, brands and culture." />
+  <link rel="canonical" href="https://agency.wisehabit.com/creative-talents/aleksandra-godlewska" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Wise Habit Agency for the Future" />
+  <meta property="og:title" content="Aleksandra Godlewska - Art Direction &amp; Creative Placemaking · Wise Habit" />
+  <meta property="og:description" content="Aleksandra Godlewska, designer and artist in art direction and creative placemaking. Public sculptures, murals and site-specific installations for cities, real estate, brands and culture." />
+  <meta property="og:url" content="https://agency.wisehabit.com/creative-talents/aleksandra-godlewska" />
+  <meta property="og:image" content="https://agency.wisehabit.com/img/og-image.jpg" />
+  <meta property="profile:first_name" content="Aleksandra" />
+  <meta property="profile:last_name" content="Godlewska" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://agency.wisehabit.com/creative-talents/aleksandra-godlewska#person",
+    "name": "Aleksandra Godlewska",
+    "givenName": "Aleksandra",
+    "familyName": "Godlewska",
+    "url": "https://agency.wisehabit.com/creative-talents/aleksandra-godlewska",
+    "mainEntityOfPage": "https://agency.wisehabit.com/creative-talents/aleksandra-godlewska",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Wise Habit Agency for the Future",
+      "url": "https://agency.wisehabit.com"
+    },
+    "jobTitle": "Art Direction & Creative Placemaking",
+    "description": "Designer and artist working across public space, real estate, brands and culture: public sculptures, murals, site-specific installations and place-identity projects.",
+    "knowsAbout": [
+      "Art Direction",
+      "Creative Placemaking",
+      "Public Sculpture",
+      "Murals",
+      "Site-specific Installation"
+    ],
+    "sameAs": [
+      "https://www.instagram.com/olus__xyz/"
+    ]
+  }
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RC3VN9XZ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5RC3VN9XZ7');
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__logo">
+        <a class="nav__logo-agency" href="index.html"><img src="../img/logo_5_small.svg" alt="Agency for the Future" /></a>
+        <a class="nav__logo-wh" href="https://wisehabit.com" target="_blank"><img src="../img/WH_head.svg" alt="wisehabit.com" /></a>
+      </div>
+            <ul class="nav__links">
+        <li class="nav__dropdown"><span>about</span>
+          <div class="nav__dropdown-menu">
+            <a href="about.html">about us</a>
+            <a href="about.html#team">team</a>
+            <a href="creative-talents.html" class="active">creative talents</a>
+            <a href="about.html#awards">awards</a>
+            <a href="about.html#clients">clients</a>
+            <a href="about.html#media">media</a>
+            <a href="sustainability.html">sustainability</a>
+            <a href="https://wisehabit.com/blog-eng.phtml" target="_blank" style="display:none">news</a>
+          </div>
+        </li>
+        <li class="nav__dropdown"><span>services</span>
+          <div class="nav__dropdown-menu">
+            <a href="design.html">design</a>
+            <a href="rd.html">R&amp;D</a>
+            <a href="product-strategy.html" style="display:none">product strategy</a>
+            <a href="branding-ip.html" style="display:none">branding &amp; IP</a>
+          </div>
+        </li>
+        <li><a href="library.html">library</a></li>
+        <li class="nav__dropdown"><span>exhibitions &amp; conferences</span>
+          <div class="nav__dropdown-menu">
+            <a href="power-of-three.html">Ethical Design Exhibition</a>
+            <a href="design-business-conference.html" style="display:none">design business conference</a>
+            <a href="conference-lust-for-life.html">Lust for Life Lust for Business</a>
+            <a href="archive.html" style="display:none">Conferences We Participated In</a>
+          </div>
+        </li>
+        <li><a href="archisnob.html">archisnob</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li style="display:none"><a href="https://b2b.wisehabit.com/" target="_blank">B2B</a></li>
+      </ul>
+      <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobileNav">
+    <ul class="nav__mobile-links">
+      <li><span>about</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="about.html">about us</a></li>
+          <li><a href="about.html#team">team</a></li>
+          <li><a href="creative-talents.html" class="active">creative talents</a></li>
+          <li><a href="about.html#awards">awards</a></li>
+          <li><a href="about.html#clients">clients</a></li>
+          <li><a href="about.html#media">media</a></li>
+          <li><a href="sustainability.html">sustainability</a></li>
+          <li style="display:none"><a href="https://wisehabit.com/blog-eng.phtml" target="_blank">news</a></li>
+        </ul>
+      </li>
+      <li><span>services</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="design.html">design</a></li>
+          <li><a href="rd.html">R&amp;D</a></li>
+          <li style="display:none"><a href="product-strategy.html">product strategy</a></li>
+          <li style="display:none"><a href="branding-ip.html">branding &amp; IP</a></li>
+        </ul>
+      </li>
+      <li><a href="library.html">library</a></li>
+      <li><span>exhibitions &amp; conferences</span>
+        <ul class="nav__mobile-sub">
+          <li><a href="power-of-three.html">Ethical Design Exhibition</a></li>
+          <li><a href="design-business-conference.html" style="display:none">design business conference</a>
+            <a href="conference-lust-for-life.html">Lust for Life Lust for Business</a></li>
+          <li style="display:none"><a href="archive.html">Conferences We Participated In</a></li>
+        </ul>
+      </li>
+      <li><a href="archisnob.html">archisnob</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li style="display:none"><a href="https://b2b.wisehabit.com/" target="_blank">B2B</a></li>
+    </ul>
+  </div>
+
+  <div class="color-strip-wrapper">
+    <div class="color-strip" id="colorStrip"></div>
+  </div>
+
+  <main class="page-content">
+
+    <!-- ══ PROFILE HEADER - photo left, info right (mirrors the WH product page) ══ -->
+    <section class="talent-profile">
+      <div class="inner">
+
+        <nav class="talent-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Wise Habit Agency</a>
+          <span class="talent-breadcrumb__sep" aria-hidden="true"></span>
+          <a href="creative-talents.html">Creative Talents</a>
+          <span class="talent-breadcrumb__sep talent-breadcrumb__sep--last" aria-hidden="true"></span>
+          <span aria-current="page">Aleksandra Godlewska</span>
+        </nav>
+
+        <div class="talent-profile__grid">
+
+        <div class="talent-profile__photo">
+          <!-- TODO: portrait not provided yet. Add img/creative-talent-aleksandra-godlewska-portrait.webp (3:4, e.g. 1200×1600); the grey box shows until then. -->
+          <img src="../img/creative-talent-aleksandra-godlewska-portrait.webp" alt="Aleksandra Godlewska" width="1200" height="1600" fetchpriority="high" onerror="this.style.display='none'" />
+        </div>
+
+        <div class="talent-profile__info">
+          <h1 class="section-title talent-profile__name">Aleksandra Godlewska</h1>
+          <p class="talent-profile__role">Art Direction &amp; Creative Placemaking</p>
+
+          <p class="talent-profile__intro">Aleksandra Godlewska is a designer and artist working across public space, real estate, brands and culture. Her practice is about making room for art in architecture and inviting brands to become part of culture. Combining a strategic design approach with an artistic mindset, she creates public sculptures, murals, site-specific installations and place-identity projects, mainly in Gdynia, Gdańsk and across Pomerania.</p>
+
+          <dl class="talent-details">
+            <dt>Disciplines</dt>
+            <dd>Art direction, creative placemaking, public sculpture, murals, site-specific installations, place identity</dd>
+          </dl>
+
+          <div class="talent-profile__cta">
+            <a href="#contact" class="btn btn--outline js-scroll-contact">Get in touch <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+
+        </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BIOGRAPHY ══ -->
+    <section class="talent-section" id="biography">
+      <div class="inner">
+        <h2 class="section-title">Biography</h2>
+        <div class="talent-bio">
+          <p class="body-text">My creative practice combines a strategic design approach with an artistic mindset.</p>
+          <p class="body-text">But for me, design isn’t about solving problems anymore. In a world where comfort has become a source of collective numbness, we seem more desperate than ever just to feel something. Something that reminds us what it means to feel alive. So instead of improving user experience, I’m here to stir things up.</p>
+          <p class="body-text">When it comes to art, my approach goes beyond aesthetics. There’s already so much beauty in the world, yet somehow it doesn’t seem to move us anymore. So I’m not here to decorate, but to find little reasons to fall in love with the world all over again. Even if just for a moment.</p>
+          <p class="body-text">Which brings me to creativity itself. I still believe there’s so much more to creating than generating content and fighting for attention, especially when nobody seems to be paying it anymore. So how do we create for an audience that’s constantly overstimulated, yet no longer impressed?</p>
+          <p class="body-text">Well, we can’t really reverse-engineer falling in love or promise to reconstruct any particular feeling. But what we can do is design the conditions and create opportunities for something genuine to happen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SELECTED PROJECTS ══ -->
+    <section class="talent-section" id="projects">
+      <div class="inner">
+        <h2 class="section-title">Selected Projects</h2>
+        <ul class="talent-pubs">
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2026 · Plaything / Błazenada</span>
+              <span class="talent-pub__title">Modular public sculpture · Gdynia</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2025 · Strôszk</span>
+              <span class="talent-pub__title">Site-specific installation · Kashubia</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2025 · Between Form &amp; Function</span>
+              <span class="talent-pub__title">Functional sculptures · Białystok</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2025 · Nigdy nie pożałujesz</span>
+              <span class="talent-pub__title">You’ll Never Regret It · large-scale public mural · Gdańsk</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2024 · Sea Salt</span>
+              <span class="talent-pub__title">Seven site-specific urban sculptures · Gdańsk</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2024 · This Is Not a Container</span>
+              <span class="talent-pub__title">Sensory spatial installation · Gdańsk</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2024 · Chylonia Hollywood</span>
+              <span class="talent-pub__title">Participatory public installation · Gdynia</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2024 · Raport z osiedla Chylonia</span>
+              <span class="talent-pub__title">Report from the Chylonia Estate · place-identity project · Gdynia</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2024 · Kiosk Sentymentalny</span>
+              <span class="talent-pub__title">Sentimental Kiosk · urban façade and signage · Gdynia</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2024 · OPEC</span>
+              <span class="talent-pub__title">Façade redesign and conservation supervision · Gdynia</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2023 · Dzik jest dziki</span>
+              <span class="talent-pub__title">The Boar Is Wild · urban intervention and installation · Gdynia</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2022 · Mural Pixel</span>
+              <span class="talent-pub__title">Site-specific façade mural · Gdynia</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══ SELECTED PARTNERS ══ -->
+    <section class="talent-section" id="partners">
+      <div class="inner">
+        <h2 class="section-title">Selected Partners</h2>
+        <ul class="talent-collabs talent-collabs--names">
+          <li class="talent-collab"><h3 class="talent-collab__name">PURO Hotels</h3></li>
+          <li class="talent-collab"><h3 class="talent-collab__name">Gdynia Design Days</h3></li>
+          <li class="talent-collab"><h3 class="talent-collab__name">LPP</h3></li>
+          <li class="talent-collab"><h3 class="talent-collab__name">Hapag-Lloyd</h3></li>
+          <li class="talent-collab"><h3 class="talent-collab__name">Academy of Fine Arts in Gdańsk</h3></li>
+          <li class="talent-collab"><h3 class="talent-collab__name">Medical University of Gdańsk</h3></li>
+          <li class="talent-collab"><h3 class="talent-collab__name">City of Gdynia</h3></li>
+          <li class="talent-collab"><h3 class="talent-collab__name">Gdynia City Museum</h3></li>
+          <li class="talent-collab"><h3 class="talent-collab__name">Łaźnia Centre for Contemporary Art</h3></li>
+          <li class="talent-collab"><h3 class="talent-collab__name">Robyg</h3></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══ AWARDS & DISTINCTIONS ══ -->
+    <section class="talent-section" id="awards">
+      <div class="inner">
+        <h2 class="section-title">Awards &amp; Distinctions</h2>
+        <ul class="talent-pubs">
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2026 · KTR Silver Award</span>
+              <span class="talent-pub__title">Craft / Illustration</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2026 · Pomeranian Voivodeship Marshal’s Scholarship</span>
+              <span class="talent-pub__title">Visual Arts</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2025 · KTR Bronze Award</span>
+              <span class="talent-pub__title">Design for Good</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2025 · City of Gdynia Artistic Award</span>
+              <span class="talent-pub__title">Artistic Creation</span>
+            </div>
+          </li>
+          <li>
+            <div class="talent-pub__row">
+              <span class="talent-pub__name">2025 · Ministry of Culture and National Heritage Scholarship</span>
+              <span class="talent-pub__title">Visual Arts</span>
+            </div>
+          </li>
+        </ul>
+        <div class="talent-end">
+          <a href="https://www.instagram.com/olus__xyz/" target="_blank" rel="noopener" class="btn btn--outline">Visit Instagram <svg class="icon-arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5H11.5M7.5 2.5L11.5 6.5L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ CONTACT + FOOTER ══ -->
+  <div class="collab-footer" id="contact">
+    <div class="collab-footer__inner">
+
+      <h2 class="collab-footer__title">Let's collaborate</h2>
+      <p class="collab-footer__sub">Partner with us to form better future together</p>
+
+      <!-- Two-column: LEFT = form + nav + social | RIGHT = contact + logo (bottom-aligned) -->
+      <div class="collab-two-col">
+
+        <!-- LEFT: form, then nav links, then social icons -->
+        <div class="collab-left-col">
+          <form class="contact-form" action="https://formspree.io/f/mnjyvvgb" method="POST">
+            <div>
+              <p class="form-chips-label">What services do you need?</p>
+              <div class="service-chips">
+                <label class="service-chip"><input type="checkbox" name="service[]" value="Design" /> Design</label>
+                <label class="service-chip"><input type="checkbox" name="service[]" value="Product Strategy" /> Product Strategy</label>
+                <label class="service-chip"><input type="checkbox" name="service[]" value="Branding &amp; IP" /> Branding &amp; IP</label>
+                <label class="service-chip"><input type="checkbox" name="service[]" value="ArchiSnob" /> ArchiSnob</label>
+                <label class="service-chip"><input type="checkbox" name="service[]" value="Other" /> Other</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <input type="text" name="name" placeholder="Your name*" required />
+              </div>
+              <div class="form-field">
+                <input type="text" name="company" placeholder="Name of the company" />
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="email" name="email" placeholder="E-mail*" required />
+            </div>
+            <div class="form-field">
+              <textarea name="message" placeholder="Write your inquiry" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--filled form-submit">send us the message →</button>
+            <p class="form-disclaimer">We will reply as soon as possible. Data is processed in accordance with the <a href="#">privacy policy</a>. By submitting data, you accept privacy policy.</p>
+          </form>
+
+          <div class="collab-footer-nav">
+            <div class="footer-nav-cols">
+              <div class="footer-nav-col">
+                <a href="about.html">About</a>
+                <a href="design.html">Design</a>
+                <a href="product-strategy.html">Product Strategy</a>
+                <a href="branding-ip.html">Branding &amp; IP</a>
+                <a href="archisnob.html">ArchiSnob</a>
+              </div>
+              <div class="footer-nav-col">
+                <a href="library.html">Library</a>
+                <a href="sustainability.html">Sustainability</a>
+                <a href="design-business-conference.html" style="display:none">Design Business Conference</a>
+                <a href="conference-lust-for-life.html">Lust for Life Lust for Business</a>
+                <a href="contact.html">Contact</a>
+                <a href="rd.html">R&amp;D</a>
+              </div>
+            </div>
+            <div class="footer-social footer-social--icons">
+              <a href="https://www.linkedin.com/company/wise-habit/" target="_blank" aria-label="LinkedIn"><img src="../img/LinkedIn%20Icon%20-%20Hoover.svg" width="20" height="20" alt="" /></a>
+              <a href="https://www.instagram.com/wise.habit/" target="_blank" aria-label="Instagram"><img src="../img/Instagram%20Icon%20-%20Hoover.svg" width="20" height="20" alt="" /></a>
+              <a href="mailto:office@wisehabit.com" aria-label="Email"><img src="../img/Mail%20Icon%20-%20Hoover.svg" width="20" height="20" alt="" /></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: contact info + logo, bottom-aligned to social icons level -->
+        <div class="collab-right-col">
+          <div class="collab-contact-info">
+            <a href="mailto:office@wisehabit.com">office@wisehabit.com</a>
+            <a href="tel:+48608561173">+48 608 561 173</a>
+            <span>Warsaw, Poland</span>
+          </div>
+          <a href="https://wisehabit.com" target="_blank" class="collab-footer-logo">
+            <img src="../img/WH_head.svg" alt="Wise Habit" />
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+  /* ── COLOR STRIP ── */
+  const COLORS = [
+    {c:'#00003C',w:25},{c:'#000080',w:70},{c:'#0000A4',w:35},{c:'#58071D',w:55},{c:'#DE999F',w:45},{c:'#36803E',w:28},{c:'#0000D3',w:22},{c:'#FF670D',w:12},
+    {c:'#58071D',w:95},{c:'#000000',w:65},{c:'#C2D0D3',w:85},{c:'#8DA6B1',w:28},{c:'#5B7D93',w:35},{c:'#DE999F',w:28},
+    {c:'#0F130F',w:38},{c:'#183518',w:38},{c:'#BFD8D3',w:60},{c:'#4B1672',w:35},{c:'#010052',w:22},{c:'#4B1672',w:28},{c:'#43866B',w:30},{c:'#DE999F',w:55},{c:'#9AE00D',w:18},{c:'#4B1672',w:32},{c:'#BFD8D3',w:45}
+  ];
+  const SPEED = 0.12;
+  const strip = document.getElementById('colorStrip');
+  let CYCLE_W = 0;
+  function buildStrip(colors) {
+    strip.innerHTML = '';
+    CYCLE_W = colors.reduce((s, x) => s + x.w, 0);
+    const reps = Math.ceil((window.innerWidth * 3) / CYCLE_W) + 2;
+    for (let r = 0; r < reps; r++) {
+      colors.forEach(x => {
+        const s = document.createElement('div');
+        s.className = 'color-strip__seg';
+        s.style.cssText = `width:${x.w}px;background:${x.c}`;
+        strip.appendChild(s);
+      });
+    }
+  }
+  buildStrip(COLORS);
+  window.addEventListener('resize', () => buildStrip(COLORS));
+  window.addEventListener('scroll', () => {
+    strip.style.transform = `translateX(${-(window.scrollY * SPEED) % CYCLE_W}px)`;
+  }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }));
+  </script>
+  <script src="../js/chat-widget.js" defer></script>
+<script>
+/* "Get in touch" -> footer contact form on this page.
+   Handled in JS because at /creative-talents/lukasz-klimek the <base href="/"> would turn "#contact" into the homepage. */
+document.querySelectorAll('.js-scroll-contact').forEach(a => a.addEventListener('click', e => {
+  const target = document.getElementById('contact');
+  if (!target) return;
+  e.preventDefault();
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}));
+</script>
+</body>
+</html>

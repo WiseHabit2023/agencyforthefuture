@@ -110,6 +110,7 @@
     .talent-bio { column-count: 2; column-gap: 96px; }
     .talent-bio .body-text { font-size: 17px; line-height: 1.75; orphans: 3; widows: 3; }
     .talent-bio .body-text:last-child { margin-bottom: 0; }
+    .talent-bio .body-text { break-inside: avoid; } /* keep each paragraph in one column */
 
     /* Photo rows - portrait (3:4) and landscape (3:2) photos share one height:
        flex-grow is proportional to each photo's width at equal height */
@@ -174,6 +175,8 @@
     .talent-collab__name a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
     .talent-collab__name a:hover { opacity: 0.55; }
     .talent-collab__text { font-size: 15px; line-height: 1.65; }
+    .talent-collabs--names { gap: 18px 56px; }
+    .talent-collabs--names .talent-collab__name { margin-bottom: 0; }
 
     /* Publications & press - two-column list, no rules */
     .talent-pubs { list-style: none; display: flex; flex-direction: column; gap: 18px; }
