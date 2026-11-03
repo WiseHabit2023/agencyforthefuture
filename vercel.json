@@ -19,6 +19,10 @@
   ],
   "rewrites": [
     { "source": "/", "destination": "/eng/index.html" },
+    { "source": "/creative-talents/lukasz-klimek", "destination": "/eng/creative-talents-lukasz-klimek.html" },
+    { "source": "/creative-talents/marcin-szczelina", "destination": "/eng/creative-talents-marcin-szczelina.html" },
+    { "source": "/creative-talents/jeremiasz-rzenno", "destination": "/eng/creative-talents-jeremiasz-rzenno.html" },
+    { "source": "/creative-talents/aleksandra-godlewska", "destination": "/eng/creative-talents-aleksandra-godlewska.html" },
     { "source": "/:path((?!eng|pl|css|img|js|fonts|api).+)", "destination": "/eng/:path" }
   ],
   "headers": [
