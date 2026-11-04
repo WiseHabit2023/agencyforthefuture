@@ -171,7 +171,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 44px 56px;
     }
-    .talent-collab__name { font-size: 20px; font-weight: 350; line-height: 1.3; margin-bottom: 10px; }
+    .talent-collab__name { font-size: 17px; font-weight: 350; line-height: 1.3; margin-bottom: 10px; }
     .talent-collab__name a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
     .talent-collab__name a:hover { opacity: 0.55; }
     .talent-collab__text { font-size: 15px; line-height: 1.65; }
@@ -212,7 +212,46 @@
       .talent-project--featured { column-gap: 56px; }
       .talent-bio { column-gap: 56px; }
     }
+    /* ── Interactive project gallery ── */
+    .proj-gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px;
+      margin-top: 40px;
+    }
+    .proj-gallery__img {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      opacity: 1;
+      transition: opacity 0.35s ease;
+    }
+    .proj-gallery__img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* when any row is hovered: dim all, light up the matched one */
+    .proj-gallery.is-hovered .proj-gallery__img {
+      opacity: 0.18;
+    }
+    .proj-gallery.is-hovered .proj-gallery__img.is-active {
+      opacity: 1;
+    }
+    /* subtle cursor on project rows */
+    .talent-pubs--ix li {
+      cursor: default;
+      transition: opacity 0.25s;
+    }
+    .talent-pubs--ix.is-hovered li {
+      opacity: 0.4;
+    }
+    .talent-pubs--ix.is-hovered li.is-active {
+      opacity: 1;
+    }
+
     @media (max-width: 900px) {
+      .proj-gallery { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+    }
       .talent-profile { padding: 20px 0 56px; }
       .talent-profile__grid { grid-template-columns: 1fr; gap: 40px; }
       .talent-profile__photo { margin: 0 calc(-1 * var(--pad-h)); }
@@ -254,6 +293,8 @@
       .talent-photo { flex: none; height: 64vw; scroll-snap-align: start; }
       .talent-photo--wide { width: 100%; height: auto; aspect-ratio: 3 / 2; }
       .talent-collabs { grid-template-columns: 1fr; gap: 32px; }
+      .talent-collabs--names { gap: 14px; }
+      .talent-collabs--names .talent-collab__name { font-size: 16px; }
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
@@ -318,7 +359,6 @@
           <div class="nav__dropdown-menu">
             <a href="about.html">about us</a>
             <a href="about.html#team">team</a>
-            <a href="creative-talents.html" class="active">creative talents</a>
             <a href="about.html#awards">awards</a>
             <a href="about.html#clients">clients</a>
             <a href="about.html#media">media</a>
@@ -450,84 +490,135 @@
       </div>
     </section>
 
+    <!-- ══ SELECTED WORKS (photos) ══ -->
+    <section class="talent-section talent-section--photos" id="works">
+      <div class="inner">
+        <h2 class="section-title">Selected Works</h2>
+        <div class="talent-photos">
+          <div class="talent-photo talent-photo--p">
+            <img src="../img/ag-godlewska-plaything-1.webp" alt="Plaything / Błazenada · modular public sculpture · Gdynia 2026" width="975" height="1300" loading="lazy" />
+          </div>
+          <div class="talent-photo talent-photo--p">
+            <img src="../img/ag-godlewska-stroszk-1.webp" alt="Strôszk · site-specific installation · Kashubia 2025" width="900" height="1200" loading="lazy" />
+          </div>
+          <div class="talent-photo talent-photo--p">
+            <img src="../img/ag-godlewska-stroszk-2.webp" alt="Strôszk · Kashubia 2025" width="975" height="1200" loading="lazy" />
+          </div>
+          <div class="talent-photo talent-photo--p">
+            <img src="../img/ag-godlewska-nigdy-1.webp" alt="Nigdy nie pożałujesz · mural · Gdańsk 2025" width="900" height="1200" loading="lazy" />
+          </div>
+        </div>
+        <div class="talent-photos" style="margin-top:12px">
+          <div class="talent-photo talent-photo--p">
+            <img src="../img/ag-godlewska-sea-salt-1.webp" alt="Sea Salt · urban sculptures · Gdynia 2024" width="975" height="1200" loading="lazy" />
+          </div>
+          <div class="talent-photo talent-photo--p">
+            <img src="../img/ag-godlewska-chylonia-1.webp" alt="Chylonia Hollywood · participatory installation · Gdynia 2024" width="900" height="1260" loading="lazy" />
+          </div>
+          <div class="talent-photo talent-photo--p">
+            <img src="../img/ag-godlewska-dzik-1.webp" alt="Dzik jest dziki · urban intervention · Gdańsk 2023" width="1200" height="1200" loading="lazy" />
+          </div>
+          <div class="talent-photo talent-photo--p">
+            <img src="../img/ag-godlewska-mural-pixel-1.webp" alt="Mural Pixel · site-specific façade mural · Gdynia 2022" width="900" height="1350" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ══ SELECTED PROJECTS ══ -->
     <section class="talent-section" id="projects">
       <div class="inner">
         <h2 class="section-title">Selected Projects</h2>
-        <ul class="talent-pubs">
-          <li>
+        <ul class="talent-pubs talent-pubs--ix">
+          <li data-proj="0">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2026 · Plaything / Błazenada</span>
               <span class="talent-pub__title">Modular public sculpture · Gdynia</span>
             </div>
           </li>
-          <li>
+          <li data-proj="1">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2025 · Strôszk</span>
               <span class="talent-pub__title">Site-specific installation · Kashubia</span>
             </div>
           </li>
-          <li>
+          <li data-proj="2">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2025 · Between Form &amp; Function</span>
               <span class="talent-pub__title">Functional sculptures · Białystok</span>
             </div>
           </li>
-          <li>
+          <li data-proj="3">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2025 · Nigdy nie pożałujesz</span>
               <span class="talent-pub__title">You’ll Never Regret It · large-scale public mural · Gdańsk</span>
             </div>
           </li>
-          <li>
+          <li data-proj="4">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2024 · Sea Salt</span>
               <span class="talent-pub__title">Seven site-specific urban sculptures · Gdańsk</span>
             </div>
           </li>
-          <li>
+          <li data-proj="5">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2024 · This Is Not a Container</span>
               <span class="talent-pub__title">Sensory spatial installation · Gdańsk</span>
             </div>
           </li>
-          <li>
+          <li data-proj="6">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2024 · Chylonia Hollywood</span>
               <span class="talent-pub__title">Participatory public installation · Gdynia</span>
             </div>
           </li>
-          <li>
+          <li data-proj="7">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2024 · Raport z osiedla Chylonia</span>
               <span class="talent-pub__title">Report from the Chylonia Estate · place-identity project · Gdynia</span>
             </div>
           </li>
-          <li>
+          <li data-proj="8">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2024 · Kiosk Sentymentalny</span>
               <span class="talent-pub__title">Sentimental Kiosk · urban façade and signage · Gdynia</span>
             </div>
           </li>
-          <li>
+          <li data-proj="9">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2024 · OPEC</span>
               <span class="talent-pub__title">Façade redesign and conservation supervision · Gdynia</span>
             </div>
           </li>
-          <li>
+          <li data-proj="10">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2023 · Dzik jest dziki</span>
               <span class="talent-pub__title">The Boar Is Wild · urban intervention and installation · Gdynia</span>
             </div>
           </li>
-          <li>
+          <li data-proj="11">
             <div class="talent-pub__row">
               <span class="talent-pub__name">2022 · Mural Pixel</span>
               <span class="talent-pub__title">Site-specific façade mural · Gdynia</span>
             </div>
           </li>
         </ul>
+
+        <!-- photo grid: hover on project row → matching photo activates -->
+        <div class="proj-gallery" id="projGallery">
+          <div class="proj-gallery__img" data-proj="0"><img src="../img/ag-godlewska-plaything-1.webp" alt="Plaything / Błazenada" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="1"><img src="../img/ag-godlewska-stroszk-1.webp" alt="Strôszk" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="2"><img src="../img/ag-godlewska-between-form.webp" alt="Between Form &amp; Function" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="3"><img src="../img/ag-godlewska-nigdy-1.webp" alt="Nigdy nie pożałujesz" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="4"><img src="../img/ag-godlewska-sea-salt-3.webp" alt="Sea Salt" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="5"><img src="../img/ag-godlewska-container.webp" alt="This Is Not a Container" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="6"><img src="../img/ag-godlewska-chylonia-1.webp" alt="Chylonia Hollywood" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="7"><img src="../img/ag-godlewska-chylonia-2.webp" alt="Raport z osiedla Chylonia" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="8"><img src="../img/ag-godlewska-kiosk.webp" alt="Kiosk Sentymentalny" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="9"><img src="../img/ag-godlewska-plaything-2.webp" alt="OPEC" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="10"><img src="../img/ag-godlewska-dzik-1.webp" alt="Dzik jest dziki" loading="lazy"></div>
+          <div class="proj-gallery__img" data-proj="11"><img src="../img/ag-godlewska-mural-pixel-1.webp" alt="Mural Pixel" loading="lazy"></div>
+        </div>
       </div>
     </section>
 
@@ -721,6 +812,35 @@ document.querySelectorAll('.js-scroll-contact').forEach(a => a.addEventListener(
   e.preventDefault();
   target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }));
+</script>
+<script>
+(function () {
+  var list    = document.querySelector('.talent-pubs--ix');
+  var gallery = document.getElementById('projGallery');
+  if (!list || !gallery) return;
+
+  var rows   = list.querySelectorAll('li[data-proj]');
+  var photos = gallery.querySelectorAll('.proj-gallery__img[data-proj]');
+
+  function activate(idx) {
+    list.classList.add('is-hovered');
+    gallery.classList.add('is-hovered');
+    rows.forEach(function(r)   { r.classList.toggle('is-active',   r.dataset.proj === idx); });
+    photos.forEach(function(p) { p.classList.toggle('is-active',   p.dataset.proj === idx); });
+  }
+
+  function clear() {
+    list.classList.remove('is-hovered');
+    gallery.classList.remove('is-hovered');
+    rows.forEach(function(r)   { r.classList.remove('is-active'); });
+    photos.forEach(function(p) { p.classList.remove('is-active'); });
+  }
+
+  rows.forEach(function(row) {
+    row.addEventListener('mouseenter', function() { activate(row.dataset.proj); });
+  });
+  list.addEventListener('mouseleave', clear);
+}());
 </script>
 </body>
 </html>
