@@ -230,24 +230,6 @@
       object-fit: cover;
       display: block;
     }
-    /* when any row is hovered: dim all, light up the matched one */
-    .proj-gallery.is-hovered .proj-gallery__img {
-      opacity: 0.18;
-    }
-    .proj-gallery.is-hovered .proj-gallery__img.is-active {
-      opacity: 1;
-    }
-    /* subtle cursor on project rows */
-    .talent-pubs--ix li {
-      cursor: default;
-      transition: opacity 0.25s;
-    }
-    .talent-pubs--ix.is-hovered li {
-      opacity: 0.4;
-    }
-    .talent-pubs--ix.is-hovered li.is-active {
-      opacity: 1;
-    }
 
     @media (max-width: 900px) {
       .proj-gallery { grid-template-columns: repeat(4, 1fr); gap: 5px; }
@@ -495,30 +477,16 @@
         <h2 class="section-title">Selected Works</h2>
         <div class="talent-photos">
           <div class="talent-photo talent-photo--p">
-            <img src="../img/ag-godlewska-plaything-1.webp" alt="Plaything / Błazenada · modular public sculpture · Gdynia 2026" width="975" height="1300" loading="lazy" />
-          </div>
-          <div class="talent-photo talent-photo--p">
-            <img src="../img/ag-godlewska-stroszk-1.webp" alt="Strôszk · site-specific installation · Kashubia 2025" width="900" height="1200" loading="lazy" />
-          </div>
-          <div class="talent-photo talent-photo--p">
             <img src="../img/ag-godlewska-stroszk-2.webp" alt="Strôszk · Kashubia 2025" width="975" height="1200" loading="lazy" />
           </div>
-          <div class="talent-photo talent-photo--p">
-            <img src="../img/ag-godlewska-nigdy-1.webp" alt="Nigdy nie pożałujesz · mural · Gdańsk 2025" width="900" height="1200" loading="lazy" />
-          </div>
-        </div>
-        <div class="talent-photos" style="margin-top:12px">
           <div class="talent-photo talent-photo--p">
             <img src="../img/ag-godlewska-sea-salt-1.webp" alt="Sea Salt · urban sculptures · Gdynia 2024" width="975" height="1200" loading="lazy" />
           </div>
           <div class="talent-photo talent-photo--p">
-            <img src="../img/ag-godlewska-chylonia-1.webp" alt="Chylonia Hollywood · participatory installation · Gdynia 2024" width="900" height="1260" loading="lazy" />
+            <img src="../img/ag-godlewska-plaything-3.webp" alt="Plaything / Błazenada · Gdynia 2026" width="975" height="1300" loading="lazy" />
           </div>
           <div class="talent-photo talent-photo--p">
-            <img src="../img/ag-godlewska-dzik-1.webp" alt="Dzik jest dziki · urban intervention · Gdańsk 2023" width="1200" height="1200" loading="lazy" />
-          </div>
-          <div class="talent-photo talent-photo--p">
-            <img src="../img/ag-godlewska-mural-pixel-1.webp" alt="Mural Pixel · site-specific façade mural · Gdynia 2022" width="900" height="1350" loading="lazy" />
+            <img src="../img/ag-godlewska-dzik-2.webp" alt="Dzik jest dziki · urban intervention · Gdańsk 2023" width="1200" height="1200" loading="lazy" />
           </div>
         </div>
       </div>
@@ -811,35 +779,6 @@ document.querySelectorAll('.js-scroll-contact').forEach(a => a.addEventListener(
   e.preventDefault();
   target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }));
-</script>
-<script>
-(function () {
-  var list    = document.querySelector('.talent-pubs--ix');
-  var gallery = document.getElementById('projGallery');
-  if (!list || !gallery) return;
-
-  var rows   = list.querySelectorAll('li[data-proj]');
-  var photos = gallery.querySelectorAll('.proj-gallery__img[data-proj]');
-
-  function activate(idx) {
-    list.classList.add('is-hovered');
-    gallery.classList.add('is-hovered');
-    rows.forEach(function(r)   { r.classList.toggle('is-active',   r.dataset.proj === idx); });
-    photos.forEach(function(p) { p.classList.toggle('is-active',   p.dataset.proj === idx); });
-  }
-
-  function clear() {
-    list.classList.remove('is-hovered');
-    gallery.classList.remove('is-hovered');
-    rows.forEach(function(r)   { r.classList.remove('is-active'); });
-    photos.forEach(function(p) { p.classList.remove('is-active'); });
-  }
-
-  rows.forEach(function(row) {
-    row.addEventListener('mouseenter', function() { activate(row.dataset.proj); });
-  });
-  list.addEventListener('mouseleave', clear);
-}());
 </script>
 </body>
 </html>
